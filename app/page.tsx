@@ -54,10 +54,9 @@ export default function Home() {
         ) : (
           <div className="grid gap-6 md:grid-cols-2">
             {stories.map((story) => (
-              <Link
+              <div
                 key={story.id}
-                href={`/play/${story.id}`}
-                className="block bg-stone-800 rounded-lg p-6 hover:bg-stone-750 hover:ring-1 hover:ring-amber-500/50 transition-all"
+                className="bg-stone-800 rounded-lg p-6 hover:ring-1 hover:ring-amber-500/50 transition-all"
               >
                 <h3 className="text-xl font-semibold text-amber-400 mb-2">
                   {story.title}
@@ -67,11 +66,25 @@ export default function Home() {
                     {story.description}
                   </p>
                 )}
-                <div className="flex gap-4 text-xs text-stone-500">
+                <div className="flex gap-4 text-xs text-stone-500 mb-4">
                   <span>{story._count.scenes} scenes</span>
                   <span>{story._count.characters} characters</span>
                 </div>
-              </Link>
+                <div className="flex gap-3">
+                  <Link
+                    href={`/play/${story.id}`}
+                    className="px-4 py-2 bg-amber-600 hover:bg-amber-500 rounded text-sm transition-colors"
+                  >
+                    Play
+                  </Link>
+                  <Link
+                    href={`/analytics/${story.id}`}
+                    className="px-4 py-2 bg-stone-700 hover:bg-stone-600 rounded text-sm transition-colors"
+                  >
+                    Analytics
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         )}
