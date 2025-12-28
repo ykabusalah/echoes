@@ -32,6 +32,20 @@ type Story = {
   scenes: Scene[]
 }
 
+// Generate or retrieve a visitor ID
+function getVisitorId(): string {
+  if (typeof window === 'undefined') return ''
+  let id = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('visitorId='))
+    ?.split('=')[1]
+  if (!id) {
+    id = crypto.randomUUID()
+    document.cookie = `visitorId=${id}; max-age=31536000; path=/`
+  }
+  return id
+}
+
 export default function PlayStory() {
   const params = useParams()
   const storyId = params.storyId as string
@@ -40,6 +54,12 @@ export default function PlayStory() {
   const [currentScene, setCurrentScene] = useState<Scene | null>(null)
   const [loading, setLoading] = useState(true)
   const [history, setHistory] = useState<Scene[]>([])
+  const [visitorId, setVisitorId] = useState<string>('')
+
+  // Set visitor ID on mount
+  useEffect(() => {
+    setVisitorId(getVisitorId())
+  }, [])
 
   // Fetch story and starting scene
   useEffect(() => {
@@ -49,13 +69,28 @@ export default function PlayStory() {
         const data = await res.json()
         setStory(data)
         if (data.scenes && data.scenes.length > 0) {
-          setCurrentScene(data.scenes[0])
+          const startScene = data.scenes[0]
+          setCurrentScene(startScene)
+          
+          // Track session start
+          if (visitorId) {
+            fetch('/api/track', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                storyId,
+                visitorId,
+                sceneId: startScene.id,
+                isEnding: startScene.isEnding
+              })
+            })
+          }
         }
       }
       setLoading(false)
     }
-    fetchStory()
-  }, [storyId])
+    if (visitorId) fetchStory()
+  }, [storyId, visitorId])
 
   // Handle choice selection
   async function handleChoice(choice: Choice) {
@@ -68,6 +103,19 @@ export default function PlayStory() {
     if (res.ok) {
       const scene = await res.json()
       setCurrentScene(scene)
+
+      // Track the choice
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          storyId,
+          visitorId,
+          choiceId: choice.id,
+          sceneId: scene.id,
+          isEnding: scene.isEnding
+        })
+      })
     }
     setLoading(false)
   }
@@ -75,8 +123,21 @@ export default function PlayStory() {
   // Restart story
   function handleRestart() {
     if (story && story.scenes.length > 0) {
-      setCurrentScene(story.scenes[0])
+      const startScene = story.scenes[0]
+      setCurrentScene(startScene)
       setHistory([])
+
+      // Track new session
+      fetch('/api/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          storyId,
+          visitorId,
+          sceneId: startScene.id,
+          isEnding: startScene.isEnding
+        })
+      })
     }
   }
 
