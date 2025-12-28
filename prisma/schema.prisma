@@ -1,0 +1,122 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ============== CORE STORY STRUCTURE ==============
+
+model Story {
+  id          String   @id @default(cuid())
+  title       String
+  description String?
+  coverImage  String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relations
+  characters     Character[]
+  scenes         Scene[]
+  readerSessions ReaderSession[]
+}
+
+model Character {
+  id          String  @id @default(cuid())
+  name        String
+  description String?
+  avatarUrl   String?
+
+  // Relations
+  storyId String
+  story   Story   @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  scenes  Scene[]
+
+  @@index([storyId])
+}
+
+model Scene {
+  id        String  @id @default(cuid())
+  title     String
+  content   String  // The narrative text
+  isStart   Boolean @default(false) // Entry point to story
+  isEnding  Boolean @default(false) // Terminal node
+  order     Int     @default(0) // For editor organization
+
+  // Relations
+  storyId     String
+  story       Story      @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  characterId String? // Optional: featured/speaking character
+  character   Character? @relation(fields: [characterId], references: [id], onDelete: SetNull)
+
+  // Choice connections (this scene can lead to others)
+  choicesFrom Choice[] @relation("FromScene")
+  choicesTo   Choice[] @relation("ToScene")
+
+  // Reader tracking
+  readerSessions ReaderSession[]
+
+  @@index([storyId])
+  @@index([characterId])
+}
+
+model Choice {
+  id    String @id @default(cuid())
+  text  String // What the reader sees ("Go left", "Talk to her")
+  order Int    @default(0) // Display order
+
+  // Scene connections
+  fromSceneId String
+  fromScene   Scene  @relation("FromScene", fields: [fromSceneId], references: [id], onDelete: Cascade)
+  toSceneId   String
+  toScene     Scene  @relation("ToScene", fields: [toSceneId], references: [id], onDelete: Cascade)
+
+  // Analytics
+  choiceEvents ChoiceEvent[]
+
+  @@index([fromSceneId])
+  @@index([toSceneId])
+}
+
+// ============== READER ANALYTICS ==============
+
+model ReaderSession {
+  id          String    @id @default(cuid())
+  startedAt   DateTime  @default(now())
+  completedAt DateTime? // Null until they hit an ending
+  
+  // Optional: track anonymous readers or add auth later
+  visitorId   String? // Could be a cookie-based ID
+
+  // Relations
+  storyId        String
+  story          Story   @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  currentSceneId String?
+  currentScene   Scene?  @relation(fields: [currentSceneId], references: [id], onDelete: SetNull)
+
+  choiceEvents ChoiceEvent[]
+
+  @@index([storyId])
+  @@index([visitorId])
+}
+
+model ChoiceEvent {
+  id       String   @id @default(cuid())
+  chosenAt DateTime @default(now())
+
+  // Relations
+  sessionId String
+  session   ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  choiceId  String
+  choice    Choice        @relation(fields: [choiceId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([choiceId])
+  @@index([chosenAt])
+}
