@@ -183,12 +183,20 @@ export default function PlayStory() {
           {currentScene.isEnding ? (
             <div className="text-center">
               <p className="text-stone-400 italic mb-6">The End</p>
-              <button
-                onClick={handleRestart}
-                className="px-6 py-3 bg-amber-600 hover:bg-amber-500 rounded-lg transition-colors"
-              >
-                Start Over
-              </button>
+              <div className="flex gap-4 justify-center">
+                <button
+                  onClick={handleRestart}
+                  className="px-6 py-3 bg-amber-600 hover:bg-amber-500 rounded-lg transition-colors"
+                >
+                  Start Over
+                </button>
+                <a
+                  href="/"
+                  className="px-6 py-3 bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors"
+                >
+                  Back to Stories
+                </a>
+              </div>
             </div>
           ) : (
             <div className="space-y-3">
