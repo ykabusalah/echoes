@@ -1,7 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
+import Link from 'next/link'
 
 type Character = {
   id: string
@@ -32,18 +33,70 @@ type Story = {
   scenes: Scene[]
 }
 
-// Generate or retrieve a visitor ID
 function getVisitorId(): string {
   if (typeof window === 'undefined') return ''
-  let id = document.cookie
-    .split('; ')
-    .find(row => row.startsWith('visitorId='))
-    ?.split('=')[1]
+  let id = document.cookie.split('; ').find(row => row.startsWith('visitorId='))?.split('=')[1]
   if (!id) {
     id = crypto.randomUUID()
     document.cookie = `visitorId=${id}; max-age=31536000; path=/`
   }
   return id
+}
+
+function FloatingOrb({ className, style }: { className: string; style: React.CSSProperties }) {
+  return <div className={`orb ${className}`} style={style} />
+}
+
+function TypewriterText({ text, onComplete }: { text: string; onComplete?: () => void }) {
+  const [displayed, setDisplayed] = useState('')
+  const [isComplete, setIsComplete] = useState(false)
+  const indexRef = useRef(0)
+
+  useEffect(() => {
+    setDisplayed('')
+    setIsComplete(false)
+    indexRef.current = 0
+    
+    const interval = setInterval(() => {
+      if (indexRef.current < text.length) {
+        setDisplayed(text.slice(0, indexRef.current + 1))
+        indexRef.current++
+      } else {
+        setIsComplete(true)
+        onComplete?.()
+        clearInterval(interval)
+      }
+    }, 20)
+
+    return () => clearInterval(interval)
+  }, [text, onComplete])
+
+  const handleSkip = () => {
+    setDisplayed(text)
+    setIsComplete(true)
+    onComplete?.()
+  }
+
+  return (
+    <div className="relative">
+      <p className="scene-content whitespace-pre-line">
+        {displayed}
+        {!isComplete && <span className="inline-block w-0.5 h-6 bg-[--gold-mid] ml-1 animate-pulse" />}
+      </p>
+      {!isComplete && (
+        <button
+          onClick={handleSkip}
+          className="absolute -bottom-10 right-0 text-sm text-[--text-muted] hover:text-[--gold-mid] transition-colors flex items-center gap-1"
+          style={{ fontFamily: "'Spectral', serif" }}
+        >
+          Skip
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+          </svg>
+        </button>
+      )}
+    </div>
+  )
 }
 
 export default function PlayStory() {
@@ -55,13 +108,13 @@ export default function PlayStory() {
   const [loading, setLoading] = useState(true)
   const [history, setHistory] = useState<Scene[]>([])
   const [visitorId, setVisitorId] = useState<string>('')
+  const [showChoices, setShowChoices] = useState(false)
+  const [transitioning, setTransitioning] = useState(false)
 
-  // Set visitor ID on mount
   useEffect(() => {
     setVisitorId(getVisitorId())
   }, [])
 
-  // Fetch story and starting scene
   useEffect(() => {
     async function fetchStory() {
       const res = await fetch(`/api/stories/${storyId}`)
@@ -71,8 +124,8 @@ export default function PlayStory() {
         if (data.scenes && data.scenes.length > 0) {
           const startScene = data.scenes[0]
           setCurrentScene(startScene)
+          setShowChoices(false)
           
-          // Track session start
           if (visitorId) {
             fetch('/api/track', {
               method: 'POST',
@@ -92,19 +145,21 @@ export default function PlayStory() {
     if (visitorId) fetchStory()
   }, [storyId, visitorId])
 
-  // Handle choice selection
   async function handleChoice(choice: Choice) {
-    setLoading(true)
+    setTransitioning(true)
+    setShowChoices(false)
+    
     if (currentScene) {
       setHistory([...history, currentScene])
     }
+
+    await new Promise(resolve => setTimeout(resolve, 400))
 
     const res = await fetch(`/api/scenes/${choice.toSceneId}`)
     if (res.ok) {
       const scene = await res.json()
       setCurrentScene(scene)
 
-      // Track the choice
       fetch('/api/track', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -117,17 +172,17 @@ export default function PlayStory() {
         })
       })
     }
-    setLoading(false)
+    
+    setTransitioning(false)
   }
 
-  // Restart story
   function handleRestart() {
     if (story && story.scenes.length > 0) {
       const startScene = story.scenes[0]
       setCurrentScene(startScene)
       setHistory([])
+      setShowChoices(false)
 
-      // Track new session
       fetch('/api/track', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -143,69 +198,152 @@ export default function PlayStory() {
 
   if (loading && !currentScene) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-stone-900 text-stone-100">
-        <p className="text-lg">Loading...</p>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+        <div className="relative">
+          <div className="w-16 h-16 border-4 border-[--purple-mid] border-t-[--gold-mid] rounded-full animate-spin" />
+          <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-b-[--purple-bright] rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }} />
+        </div>
+        <p className="text-[--text-muted] animate-pulse" style={{ fontFamily: "'Spectral', serif", fontStyle: 'italic' }}>
+          Opening the pages...
+        </p>
       </div>
     )
   }
 
   if (!story || !currentScene) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-stone-900 text-stone-100">
-        <p className="text-lg">Story not found</p>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-6">
+        <div className="text-6xl">📖</div>
+        <h1 className="text-3xl text-[--gold-mid]" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+          Story Not Found
+        </h1>
+        <p className="text-[--text-muted]" style={{ fontFamily: "'Spectral', serif" }}>
+          This tale seems to have vanished into the mist...
+        </p>
+        <Link href="/" className="btn btn-primary">
+          Return to Library
+        </Link>
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen bg-stone-900 text-stone-100 py-12 px-4">
-      <div className="max-w-2xl mx-auto">
-        {/* Story title */}
-        <h1 className="text-3xl font-bold text-center mb-8 text-amber-500">
-          {story.title}
-        </h1>
+    <div className="min-h-screen py-8 px-4 relative">
+      {/* Floating orbs */}
+      <FloatingOrb 
+        className="orb-purple animate-float-slow" 
+        style={{ width: '300px', height: '300px', top: '10%', left: '5%', opacity: 0.25 }} 
+      />
+      <FloatingOrb 
+        className="orb-gold animate-float" 
+        style={{ width: '200px', height: '200px', bottom: '20%', right: '5%', opacity: 0.2, animationDelay: '2s' }} 
+      />
+
+      <div className="relative max-w-3xl mx-auto">
+        {/* Header */}
+        <header className="flex items-center justify-between mb-6">
+          <Link 
+            href="/" 
+            className="text-[--text-muted] hover:text-[--gold-mid] transition-colors flex items-center gap-2 group"
+          >
+            <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            <span className="text-sm" style={{ fontFamily: "'Spectral', serif" }}>Leave</span>
+          </Link>
+          
+          <h1 className="text-xl md:text-2xl text-gradient text-center" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+            {story.title}
+          </h1>
+          
+          <div className="w-16" />
+        </header>
+
+        {/* Progress bar */}
+        <div className="progress-bar mb-10">
+          <div 
+            className="progress-bar-fill" 
+            style={{ width: `${Math.min(((history.length + 1) / 10) * 100, 100)}%` }} 
+          />
+        </div>
 
         {/* Scene card */}
-        <div className="bg-stone-800 rounded-lg p-8 mb-6 shadow-xl">
-          {/* Character name */}
+        <div 
+          className={`card p-8 md:p-12 mb-8 transition-all duration-500 ${
+            transitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'
+          }`}
+        >
+          {/* Chapter indicator */}
+          <div className="text-center mb-8">
+            <span className="inline-block px-4 py-1 rounded-full text-xs tracking-[0.2em] uppercase
+              bg-gradient-to-r from-[--purple-dark]/80 to-[--purple-mid]/80 
+              border border-[--purple-light]/50 text-[--purple-glow]">
+              Scene {history.length + 1}
+            </span>
+          </div>
+
+          {/* Character badge */}
           {currentScene.character && (
-            <p className="text-amber-400 text-sm uppercase tracking-wide mb-2">
-              {currentScene.character.name}
-            </p>
+            <div className="mb-8 animate-fade-in">
+              <span className="character-badge">
+                {currentScene.character.name}
+              </span>
+            </div>
           )}
 
-          {/* Scene content */}
-          <p className="text-lg leading-relaxed mb-8 whitespace-pre-line">
-            {currentScene.content}
-          </p>
+          {/* Scene content with typewriter */}
+          <div className="mb-12">
+            <TypewriterText 
+              key={currentScene.id}
+              text={currentScene.content} 
+              onComplete={() => setShowChoices(true)}
+            />
+          </div>
 
           {/* Choices or ending */}
           {currentScene.isEnding ? (
-            <div className="text-center">
-              <p className="text-stone-400 italic mb-6">The End</p>
-              <div className="flex gap-4 justify-center">
-                <button
-                  onClick={handleRestart}
-                  className="px-6 py-3 bg-amber-600 hover:bg-amber-500 rounded-lg transition-colors"
-                >
-                  Start Over
+            <div className="ending-card animate-scale-in">
+              <div className="mb-8">
+                <div className="flex justify-center mb-6">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[--gold-mid] to-[--purple-bright] flex items-center justify-center animate-pulse-glow">
+                    <svg className="w-10 h-10 text-[--purple-darkest]" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                    </svg>
+                  </div>
+                </div>
+                <p className="ending-title">The End</p>
+                <p className="text-[--text-secondary] mt-2" style={{ fontFamily: "'Spectral', serif", fontStyle: 'italic' }}>
+                  "{currentScene.title}"
+                </p>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onClick={handleRestart} className="btn btn-primary">
+                  ↺ Begin Again
                 </button>
-                <a
-                  href="/"
-                  className="px-6 py-3 bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors"
-                >
-                  Back to Stories
-                </a>
+                <Link href="/" className="btn btn-secondary text-center">
+                  Choose Another Tale
+                </Link>
               </div>
             </div>
           ) : (
-            <div className="space-y-3">
-              {currentScene.choicesFrom.map((choice) => (
+            <div 
+              className={`space-y-4 transition-all duration-700 ${
+                showChoices ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8 pointer-events-none'
+              }`}
+            >
+              <div className="divider max-w-xs mx-auto mb-6">
+                <span className="text-[--text-muted] text-sm" style={{ fontFamily: "'Spectral', serif", fontStyle: 'italic' }}>
+                  What will you do?
+                </span>
+              </div>
+              {currentScene.choicesFrom.map((choice, index) => (
                 <button
                   key={choice.id}
                   onClick={() => handleChoice(choice)}
-                  disabled={loading}
-                  className="w-full text-left px-5 py-4 bg-stone-700 hover:bg-stone-600 rounded-lg transition-colors disabled:opacity-50"
+                  disabled={!showChoices}
+                  className="choice-btn animate-fade-in-up"
+                  style={{ animationDelay: `${index * 0.15}s`, opacity: 0 }}
                 >
                   {choice.text}
                 </button>
@@ -214,10 +352,16 @@ export default function PlayStory() {
           )}
         </div>
 
-        {/* Progress indicator */}
-        <p className="text-center text-stone-500 text-sm">
-          Scene {history.length + 1}
-        </p>
+        {/* Decorative footer element */}
+        <div className="flex justify-center">
+          <div className="flex items-center gap-2 text-[--text-muted]">
+            <span className="w-8 h-px bg-gradient-to-r from-transparent to-[--purple-mid]" />
+            <svg className="w-4 h-4 text-[--purple-light]" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+            </svg>
+            <span className="w-8 h-px bg-gradient-to-l from-transparent to-[--purple-mid]" />
+          </div>
+        </div>
       </div>
     </div>
   )
