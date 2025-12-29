@@ -48,6 +48,35 @@ export async function GET(
     ORDER BY s.title, times_chosen DESC
   `
 
+  // Choice breakdown by archetype
+  const choicesByArchetype = await prisma.$queryRaw<{
+    choice_id: string
+    choice_text: string
+    from_scene: string
+    archetype: string
+    times_chosen: bigint
+    percentage: number
+  }[]>`
+    SELECT 
+      c.id as choice_id,
+      c.text as choice_text,
+      s.title as from_scene,
+      COALESCE(rp.archetype, 'unknown') as archetype,
+      COUNT(ce.id) as times_chosen,
+      ROUND(
+        COUNT(ce.id)::numeric / NULLIF(SUM(COUNT(ce.id)) OVER (PARTITION BY c."fromSceneId", rp.archetype), 0) * 100, 1
+      ) as percentage
+    FROM "Choice" c
+    JOIN "Scene" s ON c."fromSceneId" = s.id
+    LEFT JOIN "ChoiceEvent" ce ON c.id = ce."choiceId"
+    LEFT JOIN "ReaderSession" rs ON ce."sessionId" = rs.id
+    LEFT JOIN "ReaderProfile" rp ON rs."profileId" = rp.id
+    WHERE s."storyId" = ${storyId}
+    GROUP BY c.id, c.text, s.title, c."fromSceneId", rp.archetype
+    HAVING COUNT(ce.id) > 0
+    ORDER BY s.title, rp.archetype, times_chosen DESC
+  `
+
   // Drop-off points - where do readers abandon?
   const dropOffPoints = await prisma.$queryRaw<{
     scene_id: string
@@ -119,6 +148,46 @@ export async function GET(
     ORDER BY times_reached DESC
   `
 
+  // Endings by archetype
+  const endingsByArchetype = await prisma.$queryRaw<{
+    scene_title: string
+    archetype: string
+    times_reached: bigint
+  }[]>`
+    SELECT 
+      s.title as scene_title,
+      COALESCE(rp.archetype, 'unknown') as archetype,
+      COUNT(rs.id) as times_reached
+    FROM "Scene" s
+    JOIN "ReaderSession" rs ON rs."currentSceneId" = s.id AND rs."completedAt" IS NOT NULL
+    LEFT JOIN "ReaderProfile" rp ON rs."profileId" = rp.id
+    WHERE s."storyId" = ${storyId} AND s."isEnding" = true
+    GROUP BY s.title, rp.archetype
+    HAVING COUNT(rs.id) > 0
+    ORDER BY s.title, times_reached DESC
+  `
+
+  // Archetype distribution for this story
+  const archetypeDistribution = await prisma.$queryRaw<{
+    archetype: string
+    count: bigint
+    percentage: number
+  }[]>`
+    SELECT 
+      COALESCE(rp.archetype, 'unknown') as archetype,
+      COUNT(DISTINCT rs.id) as count,
+      ROUND(
+        COUNT(DISTINCT rs.id)::numeric / NULLIF((
+          SELECT COUNT(*) FROM "ReaderSession" WHERE "storyId" = ${storyId}
+        ), 0) * 100, 1
+      ) as percentage
+    FROM "ReaderSession" rs
+    LEFT JOIN "ReaderProfile" rp ON rs."profileId" = rp.id
+    WHERE rs."storyId" = ${storyId}
+    GROUP BY rp.archetype
+    ORDER BY count DESC
+  `
+
   // Convert BigInt to Number for JSON serialization
   const serialize = (obj: unknown) => JSON.parse(
     JSON.stringify(obj, (_, v) => typeof v === 'bigint' ? Number(v) : v)
@@ -127,7 +196,10 @@ export async function GET(
   return NextResponse.json({
     sessionStats: serialize(sessionStats[0]),
     choicePopularity: serialize(choicePopularity),
+    choicesByArchetype: serialize(choicesByArchetype),
     dropOffPoints: serialize(dropOffPoints),
-    endingsReached: serialize(endingsReached)
+    endingsReached: serialize(endingsReached),
+    endingsByArchetype: serialize(endingsByArchetype),
+    archetypeDistribution: serialize(archetypeDistribution)
   })
 }

@@ -5,6 +5,11 @@ export async function POST(request: NextRequest) {
   const body = await request.json()
   const { storyId, visitorId, choiceId, sceneId, isEnding } = body
 
+  // Try to find the reader's profile
+  const profile = visitorId ? await prisma.readerProfile.findUnique({
+    where: { visitorId }
+  }) : null
+
   // Get or create session
   let session = await prisma.readerSession.findFirst({
     where: {
@@ -20,7 +25,8 @@ export async function POST(request: NextRequest) {
       data: {
         storyId,
         visitorId,
-        currentSceneId: sceneId
+        currentSceneId: sceneId,
+        profileId: profile?.id || null
       }
     })
   }

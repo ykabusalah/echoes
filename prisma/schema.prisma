@@ -10,16 +10,28 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
-// ============== CORE STORY STRUCTURE ==============
+// ============== STORY STRUCTURE ==============
+
+enum StoryStatus {
+  DRAFT
+  FEATURED
+  ARCHIVED
+}
 
 model Story {
-  id          String   @id @default(cuid())
+  id          String      @id @default(cuid())
   title       String
   description String?
   coverImage  String?
-  published   Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  published   Boolean     @default(false)
+  status      StoryStatus @default(DRAFT)
+  theme       String?     // For quiz matching: "adventure", "mystery", etc.
+  generatedBy String?     // "ai" or "manual"
+  aiPrompt    String?     // Store the prompt used for AI generation
+  featuredAt  DateTime?   // When it became featured
+  archivedAt  DateTime?   // When it was archived
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
 
   // Relations
   characters     Character[]
@@ -44,22 +56,20 @@ model Character {
 model Scene {
   id        String  @id @default(cuid())
   title     String
-  content   String  // The narrative text
-  isStart   Boolean @default(false) // Entry point to story
-  isEnding  Boolean @default(false) // Terminal node
-  order     Int     @default(0) // For editor organization
+  content   String
+  isStart   Boolean @default(false)
+  isEnding  Boolean @default(false)
+  order     Int     @default(0)
 
   // Relations
   storyId     String
   story       Story      @relation(fields: [storyId], references: [id], onDelete: Cascade)
-  characterId String? // Optional: featured/speaking character
+  characterId String?
   character   Character? @relation(fields: [characterId], references: [id], onDelete: SetNull)
 
-  // Choice connections (this scene can lead to others)
   choicesFrom Choice[] @relation("FromScene")
   choicesTo   Choice[] @relation("ToScene")
 
-  // Reader tracking
   readerSessions ReaderSession[]
 
   @@index([storyId])
@@ -68,20 +78,36 @@ model Scene {
 
 model Choice {
   id    String @id @default(cuid())
-  text  String // What the reader sees ("Go left", "Talk to her")
-  order Int    @default(0) // Display order
+  text  String
+  order Int    @default(0)
 
-  // Scene connections
   fromSceneId String
   fromScene   Scene  @relation("FromScene", fields: [fromSceneId], references: [id], onDelete: Cascade)
   toSceneId   String
   toScene     Scene  @relation("ToScene", fields: [toSceneId], references: [id], onDelete: Cascade)
 
-  // Analytics
   choiceEvents ChoiceEvent[]
 
   @@index([fromSceneId])
   @@index([toSceneId])
+}
+
+// ============== READER PROFILES & QUIZ ==============
+
+model ReaderProfile {
+  id            String   @id @default(cuid())
+  visitorId     String   @unique
+  archetype     String   // "wanderer", "guardian", "seeker", "flame", "dreamer", "shadow"
+  scores        Json     // { wanderer: 3, guardian: 1, seeker: 2, flame: 0, dreamer: 1, shadow: 0 }
+  quizAnswers   Json?    // Raw answers for analysis
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relations
+  sessions ReaderSession[]
+
+  @@index([visitorId])
+  @@index([archetype])
 }
 
 // ============== READER ANALYTICS ==============
@@ -89,28 +115,28 @@ model Choice {
 model ReaderSession {
   id          String    @id @default(cuid())
   startedAt   DateTime  @default(now())
-  completedAt DateTime? // Null until they hit an ending
-  
-  // Optional: track anonymous readers or add auth later
-  visitorId   String? // Could be a cookie-based ID
+  completedAt DateTime?
+  visitorId   String?
 
   // Relations
   storyId        String
   story          Story   @relation(fields: [storyId], references: [id], onDelete: Cascade)
   currentSceneId String?
   currentScene   Scene?  @relation(fields: [currentSceneId], references: [id], onDelete: SetNull)
+  profileId      String?
+  profile        ReaderProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
 
   choiceEvents ChoiceEvent[]
 
   @@index([storyId])
   @@index([visitorId])
+  @@index([profileId])
 }
 
 model ChoiceEvent {
   id       String   @id @default(cuid())
   chosenAt DateTime @default(now())
 
-  // Relations
   sessionId String
   session   ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
   choiceId  String
@@ -119,4 +145,22 @@ model ChoiceEvent {
   @@index([sessionId])
   @@index([choiceId])
   @@index([chosenAt])
+}
+
+// ============== AI GENERATION LOGGING ==============
+
+model StoryGeneration {
+  id         String   @id @default(cuid())
+  prompt     String
+  model      String   // "claude-3-opus", "claude-3-sonnet", etc.
+  tokensUsed Int?
+  costCents  Int?
+  durationMs Int?
+  success    Boolean
+  error      String?
+  storyId    String?  // Links to created story if successful
+  createdAt  DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([success])
 }

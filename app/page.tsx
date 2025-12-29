@@ -122,12 +122,18 @@ export default function Home() {
           
           {/* CTA Button */}
           <div className="animate-fade-in-up stagger-3 mb-16">
-            <a href="#stories" className="btn btn-primary text-lg px-10 py-4 inline-flex items-center gap-3">
-              <span>Begin Your Journey</span>
-              <svg className="w-5 h-5 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-              </svg>
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/quiz" className="btn btn-primary text-lg px-10 py-4 inline-flex items-center gap-3">
+                <span>Discover Your Archetype</span>
+                <span className="text-xl">✦</span>
+              </Link>
+              <a href="#stories" className="btn btn-secondary text-lg px-8 py-4 inline-flex items-center gap-3">
+                <span>Browse Stories</span>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
+            </div>
           </div>
           
           {/* Stats */}

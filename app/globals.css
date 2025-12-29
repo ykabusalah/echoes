@@ -216,11 +216,20 @@ a:hover {
   animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-.stagger-1 { animation-delay: 0.1s; opacity: 0; }
-.stagger-2 { animation-delay: 0.2s; opacity: 0; }
-.stagger-3 { animation-delay: 0.3s; opacity: 0; }
-.stagger-4 { animation-delay: 0.4s; opacity: 0; }
-.stagger-5 { animation-delay: 0.5s; opacity: 0; }
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+.animate-fade-in-up.stagger-1,
+.animate-fade-in-up.stagger-2,
+.animate-fade-in-up.stagger-3,
+.animate-fade-in-up.stagger-4,
+.animate-fade-in-up.stagger-5 {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
 
 /* ============ BUTTONS ============ */
 
@@ -256,12 +265,12 @@ a:hover {
 .btn-primary {
   background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold-mid) 50%, var(--gold-light) 100%);
   background-size: 200% 200%;
-  color: var(--purple-darkest);
+  color: #12081f !important;
   box-shadow: 
     0 4px 20px rgba(245, 158, 11, 0.4),
     0 0 40px rgba(245, 158, 11, 0.2),
     inset 0 1px 0 rgba(255,255,255,0.3);
-  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+  text-shadow: none;
   animation: gradientFlow 3s ease infinite;
 }
 
