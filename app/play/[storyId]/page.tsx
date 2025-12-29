@@ -47,31 +47,37 @@ function FloatingOrb({ className, style }: { className: string; style: React.CSS
   return <div className={`orb ${className}`} style={style} />
 }
 
+// Replace the TypewriterText function in app/play/[id]/page.tsx with this:
+
 function TypewriterText({ text, onComplete }: { text: string; onComplete?: () => void }) {
   const [displayed, setDisplayed] = useState('')
   const [isComplete, setIsComplete] = useState(false)
   const indexRef = useRef(0)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     setDisplayed('')
     setIsComplete(false)
     indexRef.current = 0
     
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       if (indexRef.current < text.length) {
         setDisplayed(text.slice(0, indexRef.current + 1))
         indexRef.current++
       } else {
         setIsComplete(true)
         onComplete?.()
-        clearInterval(interval)
+        if (intervalRef.current) clearInterval(intervalRef.current)
       }
     }, 20)
 
-    return () => clearInterval(interval)
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
   }, [text, onComplete])
 
   const handleSkip = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
     setDisplayed(text)
     setIsComplete(true)
     onComplete?.()
@@ -79,21 +85,38 @@ function TypewriterText({ text, onComplete }: { text: string; onComplete?: () =>
 
   return (
     <div className="relative">
-      <p className="scene-content whitespace-pre-line">
-        {displayed}
-        {!isComplete && <span className="inline-block w-0.5 h-6 bg-[--gold-mid] ml-1 animate-pulse" />}
-      </p>
+      {/* Click anywhere on text to skip */}
+      <div 
+        onClick={!isComplete ? handleSkip : undefined}
+        className={!isComplete ? 'cursor-pointer' : ''}
+      >
+        <p className="scene-content whitespace-pre-line">
+          {displayed}
+          {!isComplete && <span className="inline-block w-0.5 h-6 bg-[--gold-mid] ml-1 animate-pulse" />}
+        </p>
+      </div>
+      
+      {/* Skip button - more visible */}
       {!isComplete && (
         <button
           onClick={handleSkip}
-          className="absolute -bottom-10 right-0 text-sm text-[--text-muted] hover:text-[--gold-mid] transition-colors flex items-center gap-1"
+          className="mt-6 mx-auto block px-4 py-2 text-sm text-[--text-muted] hover:text-[--gold-mid] 
+            border border-[--purple-mid]/50 hover:border-[--gold-mid]/50 rounded-full
+            transition-all duration-300 flex items-center gap-2"
           style={{ fontFamily: "'Spectral', serif" }}
         >
-          Skip
+          <span>Skip</span>
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
           </svg>
         </button>
+      )}
+      
+      {/* Hint text */}
+      {!isComplete && (
+        <p className="text-center text-xs text-[--text-muted]/50 mt-2">
+          or click text to skip
+        </p>
       )}
     </div>
   )
