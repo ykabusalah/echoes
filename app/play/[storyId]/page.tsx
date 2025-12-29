@@ -33,6 +33,12 @@ type Story = {
   scenes: Scene[]
 }
 
+type ChoiceStats = {
+  totalVotes: number
+  chosenId: string
+  stats: { id: string; text: string; count: number; percentage: number }[]
+}
+
 function getVisitorId(): string {
   if (typeof window === 'undefined') return ''
   let id = document.cookie.split('; ').find(row => row.startsWith('visitorId='))?.split('=')[1]
@@ -46,8 +52,6 @@ function getVisitorId(): string {
 function FloatingOrb({ className, style }: { className: string; style: React.CSSProperties }) {
   return <div className={`orb ${className}`} style={style} />
 }
-
-// Replace the TypewriterText function in app/play/[id]/page.tsx with this:
 
 function TypewriterText({ text, onComplete }: { text: string; onComplete?: () => void }) {
   const [displayed, setDisplayed] = useState('')
@@ -85,7 +89,6 @@ function TypewriterText({ text, onComplete }: { text: string; onComplete?: () =>
 
   return (
     <div className="relative">
-      {/* Click anywhere on text to skip */}
       <div 
         onClick={!isComplete ? handleSkip : undefined}
         className={!isComplete ? 'cursor-pointer' : ''}
@@ -96,7 +99,6 @@ function TypewriterText({ text, onComplete }: { text: string; onComplete?: () =>
         </p>
       </div>
       
-      {/* Skip button - more visible */}
       {!isComplete && (
         <button
           onClick={handleSkip}
@@ -112,7 +114,6 @@ function TypewriterText({ text, onComplete }: { text: string; onComplete?: () =>
         </button>
       )}
       
-      {/* Hint text */}
       {!isComplete && (
         <p className="text-center text-xs text-[--text-muted]/50 mt-2">
           or click text to skip
@@ -133,6 +134,8 @@ export default function PlayStory() {
   const [visitorId, setVisitorId] = useState<string>('')
   const [showChoices, setShowChoices] = useState(false)
   const [transitioning, setTransitioning] = useState(false)
+  const [choiceStats, setChoiceStats] = useState<ChoiceStats | null>(null)
+  const [showStats, setShowStats] = useState(false)
 
   useEffect(() => {
     setVisitorId(getVisitorId())
@@ -171,10 +174,37 @@ export default function PlayStory() {
   async function handleChoice(choice: Choice) {
     setTransitioning(true)
     setShowChoices(false)
+    setShowStats(false)
+    setChoiceStats(null)
     
     if (currentScene) {
       setHistory([...history, currentScene])
     }
+
+    // Track the choice first
+    await fetch('/api/track', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        storyId,
+        visitorId,
+        choiceId: choice.id,
+        sceneId: choice.toSceneId,
+        isEnding: false
+      })
+    })
+
+    // Fetch stats for this choice
+    const statsRes = await fetch(`/api/choices/${choice.id}/stats`)
+    if (statsRes.ok) {
+      const stats = await statsRes.json()
+      setChoiceStats(stats)
+      setShowStats(true)
+    }
+
+    // Wait to show stats
+    await new Promise(resolve => setTimeout(resolve, 2500))
+    setShowStats(false)
 
     await new Promise(resolve => setTimeout(resolve, 400))
 
@@ -183,17 +213,18 @@ export default function PlayStory() {
       const scene = await res.json()
       setCurrentScene(scene)
 
-      fetch('/api/track', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          storyId,
-          visitorId,
-          choiceId: choice.id,
-          sceneId: scene.id,
-          isEnding: scene.isEnding
+      if (scene.isEnding) {
+        fetch('/api/track', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            storyId,
+            visitorId,
+            sceneId: scene.id,
+            isEnding: true
+          })
         })
-      })
+      }
     }
     
     setTransitioning(false)
@@ -261,6 +292,59 @@ export default function PlayStory() {
         className="orb-gold animate-float" 
         style={{ width: '200px', height: '200px', bottom: '20%', right: '5%', opacity: 0.2, animationDelay: '2s' }} 
       />
+
+      {/* Stats overlay */}
+      {showStats && choiceStats && (
+        <div className="fixed inset-0 bg-[--purple-darkest]/90 flex items-center justify-center z-50 animate-fade-in">
+          <div className="max-w-md w-full mx-4 text-center">
+            <p className="text-[--text-muted] mb-6 text-sm uppercase tracking-widest">
+              {choiceStats.totalVotes} reader{choiceStats.totalVotes !== 1 ? 's' : ''} chose
+            </p>
+            
+            <div className="space-y-4">
+              {choiceStats.stats.map(stat => (
+                <div 
+                  key={stat.id}
+                  className={`p-4 rounded-lg border ${
+                    stat.id === choiceStats.chosenId 
+                      ? 'border-[--gold-mid] bg-[--gold-mid]/10' 
+                      : 'border-[--purple-mid]/50 bg-[--purple-dark]/30'
+                  }`}
+                >
+                  <div className="flex justify-between items-center mb-2">
+                    <span className={`text-sm text-left flex-1 mr-4 ${
+                      stat.id === choiceStats.chosenId ? 'text-[--gold-light]' : 'text-[--text-secondary]'
+                    }`} style={{ fontFamily: "'Spectral', serif" }}>
+                      {stat.text}
+                    </span>
+                    <span className={`text-lg font-bold ${
+                      stat.id === choiceStats.chosenId ? 'text-[--gold-mid]' : 'text-[--purple-glow]'
+                    }`}>
+                      {stat.percentage}%
+                    </span>
+                  </div>
+                  <div className="h-2 bg-[--purple-darkest] rounded-full overflow-hidden">
+                    <div 
+                      className={`h-full rounded-full transition-all duration-1000 ${
+                        stat.id === choiceStats.chosenId 
+                          ? 'bg-gradient-to-r from-[--gold-dark] to-[--gold-mid]' 
+                          : 'bg-gradient-to-r from-[--purple-mid] to-[--purple-bright]'
+                      }`}
+                      style={{ width: `${stat.percentage}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {choiceStats.chosenId && (
+              <p className="mt-6 text-[--gold-light]" style={{ fontFamily: "'Spectral', serif", fontStyle: 'italic' }}>
+                ✦ You chose with {choiceStats.stats.find(s => s.id === choiceStats.chosenId)?.percentage}% of readers ✦
+              </p>
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="relative max-w-3xl mx-auto">
         {/* Header */}
