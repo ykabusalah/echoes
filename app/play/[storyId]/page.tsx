@@ -39,6 +39,19 @@ type ChoiceStats = {
   stats: { id: string; text: string; count: number; percentage: number }[]
 }
 
+type SessionSummary = {
+  storyTitle: string
+  endingTitle: string
+  endingPercentage: number
+  totalCompletions: number
+  choices: {
+    sceneTitle: string
+    choiceText: string
+    percentage: number
+    totalVotes: number
+  }[]
+}
+
 function getVisitorId(): string {
   if (typeof window === 'undefined') return ''
   let id = document.cookie.split('; ').find(row => row.startsWith('visitorId='))?.split('=')[1]
@@ -136,6 +149,8 @@ export default function PlayStory() {
   const [transitioning, setTransitioning] = useState(false)
   const [choiceStats, setChoiceStats] = useState<ChoiceStats | null>(null)
   const [showStats, setShowStats] = useState(false)
+  const [sessionId, setSessionId] = useState<string | null>(null)
+  const [summary, setSummary] = useState<SessionSummary | null>(null)
 
   useEffect(() => {
     setVisitorId(getVisitorId())
@@ -162,6 +177,8 @@ export default function PlayStory() {
                 sceneId: startScene.id,
                 isEnding: startScene.isEnding
               })
+            }).then(res => res.json()).then(data => {
+              setSessionId(data.sessionId)
             })
           }
         }
@@ -214,7 +231,8 @@ export default function PlayStory() {
       setCurrentScene(scene)
 
       if (scene.isEnding) {
-        fetch('/api/track', {
+        // Track the ending
+        await fetch('/api/track', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -224,6 +242,17 @@ export default function PlayStory() {
             isEnding: true
           })
         })
+
+        // Fetch summary after a short delay
+        if (sessionId) {
+          setTimeout(async () => {
+            const summaryRes = await fetch(`/api/sessions/${sessionId}/summary`)
+            if (summaryRes.ok) {
+              const summaryData = await summaryRes.json()
+              setSummary(summaryData)
+            }
+          }, 1000)
+        }
       }
     }
     
@@ -236,6 +265,7 @@ export default function PlayStory() {
       setCurrentScene(startScene)
       setHistory([])
       setShowChoices(false)
+      setSummary(null)
 
       fetch('/api/track', {
         method: 'POST',
@@ -246,6 +276,8 @@ export default function PlayStory() {
           sceneId: startScene.id,
           isEnding: startScene.isEnding
         })
+      }).then(res => res.json()).then(data => {
+        setSessionId(data.sessionId)
       })
     }
   }
@@ -422,7 +454,40 @@ export default function PlayStory() {
                 <p className="text-[--text-secondary] mt-2" style={{ fontFamily: "'Spectral', serif", fontStyle: 'italic' }}>
                   "{currentScene.title}"
                 </p>
+                {summary && (
+                  <p className="text-[--purple-glow] mt-2 text-sm">
+                    {summary.endingPercentage}% of readers reached this ending
+                  </p>
+                )}
               </div>
+
+              {/* Journey Summary */}
+              {summary && summary.choices.length > 0 && (
+                <div className="mb-8 p-6 rounded-lg bg-[--purple-darkest]/50 border border-[--purple-mid]/30">
+                  <h3 className="text-[--gold-light] text-lg mb-4 text-center" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    Your Journey
+                  </h3>
+                  <div className="space-y-3">
+                    {summary.choices.map((choice, index) => (
+                      <div key={index} className="flex items-center justify-between gap-4 text-sm">
+                        <span className="text-[--text-secondary] truncate flex-1" style={{ fontFamily: "'Spectral', serif" }}>
+                          {choice.choiceText}
+                        </span>
+                        <span className={`font-bold whitespace-nowrap ${
+                          choice.percentage > 50 ? 'text-[--purple-glow]' : 'text-[--gold-mid]'
+                        }`}>
+                          {choice.percentage}% agreed
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-[--purple-mid]/30 text-center">
+                    <p className="text-xs text-[--text-muted]">
+                      Based on {summary.totalCompletions} completed journey{summary.totalCompletions !== 1 ? 's' : ''}
+                    </p>
+                  </div>
+                </div>
+              )}
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button onClick={handleRestart} className="btn btn-primary">
