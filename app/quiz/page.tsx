@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ThemeToggle } from '../components/ThemeToggle'
-import { quizQuestions, archetypeInfo, type Archetype } from '@/lib/quiz'
+import { quizQuestions } from '@/lib/quiz'
 
 function getVisitorId(): string {
   if (typeof window === 'undefined') return ''
@@ -32,7 +32,7 @@ function ArrowLeftIcon({ className }: { className?: string }) {
   )
 }
 
-type QuizState = 'intro' | 'questions' | 'calculating' | 'result'
+type QuizState = 'intro' | 'questions' | 'calculating'
 
 export default function QuizPage() {
   const router = useRouter()
@@ -40,7 +40,6 @@ export default function QuizPage() {
   const [state, setState] = useState<QuizState>('intro')
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useState<number[]>([])
-  const [result, setResult] = useState<{ archetype: Archetype; scores: Record<string, number> } | null>(null)
   const [transitioning, setTransitioning] = useState(false)
 
   useEffect(() => {
@@ -53,12 +52,12 @@ export default function QuizPage() {
       const res = await fetch(`/api/quiz?visitorId=${visitorId}`)
       const data = await res.json()
       if (data.hasProfile) {
-        setResult({ archetype: data.profile.archetype, scores: data.profile.scores })
-        setState('result')
+        // Redirect to results page if already has profile
+        router.push(`/quiz/results?archetype=${data.profile.archetype}`)
       }
     }
     checkProfile()
-  }, [visitorId])
+  }, [visitorId, router])
 
   async function handleAnswer(answerIndex: number) {
     setTransitioning(true)
@@ -81,16 +80,9 @@ export default function QuizPage() {
       
       await new Promise(r => setTimeout(r, 1500))
       
-      setResult({ archetype: data.profile.archetype, scores: data.profile.scores })
-      setState('result')
+      // Redirect to results page with archetype
+      router.push(`/quiz/results?archetype=${data.profile.archetype}`)
     }
-  }
-
-  function handleRetakeQuiz() {
-    setAnswers([])
-    setCurrentQuestion(0)
-    setResult(null)
-    setState('intro')
   }
 
   // Intro Screen
@@ -206,87 +198,6 @@ export default function QuizPage() {
         <p className="text-sm text-[hsl(var(--secondary-foreground))]">
           Analyzing your choices...
         </p>
-      </div>
-    )
-  }
-
-  // Result Screen
-  if (state === 'result' && result) {
-    const info = archetypeInfo[result.archetype]
-
-    const archetypeEmoji: Record<string, string> = {
-      wanderer: '🧭',
-      guardian: '🛡️',
-      seeker: '🔍',
-      flame: '🔥',
-      dreamer: '✨',
-      shadow: '🌑'
-    }
-
-    return (
-      <div className="min-h-screen flex flex-col">
-        <nav className="border-b border-[hsl(var(--border))]">
-          <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
-              <ArrowLeftIcon className="w-4 h-4" />
-              Home
-            </Link>
-            <span className="font-medium">Your Result</span>
-            <ThemeToggle />
-          </div>
-        </nav>
-
-        <main className="flex-1 flex items-center justify-center px-4 py-12">
-          <div className="max-w-lg w-full text-center">
-            <div className="mb-6">
-              <span className="badge badge-brand">
-                <SparkleIcon className="w-3 h-3" />
-                Your Archetype
-              </span>
-            </div>
-
-            {/* Archetype Icon */}
-            <div className="text-6xl mb-6">
-              {archetypeEmoji[result.archetype] || '✦'}
-            </div>
-
-            <h1 className="text-3xl md:text-4xl font-semibold mb-4" style={{ color: info.color }}>
-              {info.title}
-            </h1>
-
-            <p className="text-[hsl(var(--secondary-foreground))] mb-8 leading-relaxed">
-              {info.description}
-            </p>
-
-            {/* Score breakdown */}
-            <div className="card p-6 mb-8 text-left">
-              <p className="text-xs text-[hsl(var(--secondary-foreground))] mb-4 uppercase tracking-wider text-center">
-                Your Affinities
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                {Object.entries(result.scores)
-                  .sort(([,a], [,b]) => b - a)
-                  .map(([arch, score]) => (
-                    <div key={arch} className="text-center">
-                      <p className="text-2xl font-semibold" style={{ color: archetypeInfo[arch as Archetype].color }}>
-                        {score}
-                      </p>
-                      <p className="text-xs text-[hsl(var(--secondary-foreground))] capitalize">{arch}</p>
-                    </div>
-                  ))}
-              </div>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Link href="/" className="btn btn-brand">
-                Discover Stories
-              </Link>
-              <button onClick={handleRetakeQuiz} className="btn btn-secondary">
-                Retake Quiz
-              </button>
-            </div>
-          </div>
-        </main>
       </div>
     )
   }
