@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { ThemeToggle } from '../../components/ThemeToggle'
+import { useSceneTracking } from '@/hooks/useSceneTracking'
 
 type Character = {
   id: string
@@ -154,6 +155,12 @@ export default function PlayStory() {
   const [showStats, setShowStats] = useState(false)
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [summary, setSummary] = useState<SessionSummary | null>(null)
+
+  // Scene tracking hook for detailed analytics
+  const { onChoiceHover, onChoiceLeave } = useSceneTracking({
+    sessionId,
+    sceneId: currentScene?.id ?? null
+  })
 
   useEffect(() => {
     setVisitorId(getVisitorId())
@@ -474,6 +481,8 @@ export default function PlayStory() {
                   <button
                     key={choice.id}
                     onClick={() => handleChoice(choice)}
+                    onMouseEnter={() => onChoiceHover(choice.id)}
+                    onMouseLeave={onChoiceLeave}
                     disabled={!showChoices}
                     className="choice-btn animate-fade-in-up"
                     style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}

@@ -25,15 +25,14 @@ model Story {
   coverImage  String?
   published   Boolean     @default(false)
   status      StoryStatus @default(DRAFT)
-  theme       String?     // For quiz matching: "adventure", "mystery", etc.
-  generatedBy String?     // "ai" or "manual"
-  aiPrompt    String?     // Store the prompt used for AI generation
-  featuredAt  DateTime?   // When it became featured
-  archivedAt  DateTime?   // When it was archived
+  theme       String?
+  generatedBy String?
+  aiPrompt    String?
+  featuredAt  DateTime?
+  archivedAt  DateTime?
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
 
-  // Relations
   characters     Character[]
   scenes         Scene[]
   readerSessions ReaderSession[]
@@ -45,7 +44,6 @@ model Character {
   description String?
   avatarUrl   String?
 
-  // Relations
   storyId String
   story   Story   @relation(fields: [storyId], references: [id], onDelete: Cascade)
   scenes  Scene[]
@@ -61,7 +59,6 @@ model Scene {
   isEnding  Boolean @default(false)
   order     Int     @default(0)
 
-  // Relations
   storyId     String
   story       Story      @relation(fields: [storyId], references: [id], onDelete: Cascade)
   characterId String?
@@ -70,7 +67,9 @@ model Scene {
   choicesFrom Choice[] @relation("FromScene")
   choicesTo   Choice[] @relation("ToScene")
 
-  readerSessions ReaderSession[]
+  readerSessions    ReaderSession[]
+  sceneViews        SceneView[]
+  interactionEvents InteractionEvent[]
 
   @@index([storyId])
   @@index([characterId])
@@ -97,13 +96,12 @@ model Choice {
 model ReaderProfile {
   id            String   @id @default(cuid())
   visitorId     String   @unique
-  archetype     String   // "wanderer", "guardian", "seeker", "flame", "dreamer", "shadow"
-  scores        Json     // { wanderer: 3, guardian: 1, seeker: 2, flame: 0, dreamer: 1, shadow: 0 }
-  quizAnswers   Json?    // Raw answers for analysis
+  archetype     String
+  scores        Json
+  quizAnswers   Json?
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
-  // Relations
   sessions ReaderSession[]
 
   @@index([visitorId])
@@ -118,7 +116,6 @@ model ReaderSession {
   completedAt DateTime?
   visitorId   String?
 
-  // Relations
   storyId        String
   story          Story   @relation(fields: [storyId], references: [id], onDelete: Cascade)
   currentSceneId String?
@@ -126,7 +123,9 @@ model ReaderSession {
   profileId      String?
   profile        ReaderProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
 
-  choiceEvents ChoiceEvent[]
+  choiceEvents      ChoiceEvent[]
+  sceneViews        SceneView[]
+  interactionEvents InteractionEvent[]
 
   @@index([storyId])
   @@index([visitorId])
@@ -147,18 +146,52 @@ model ChoiceEvent {
   @@index([chosenAt])
 }
 
+// ============== DETAILED ANALYTICS ==============
+
+model SceneView {
+  id          String    @id @default(cuid())
+  sessionId   String
+  sceneId     String
+  enteredAt   DateTime  @default(now())
+  exitedAt    DateTime?
+  timeSpentMs Int?
+
+  session ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  scene   Scene         @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([sceneId])
+  @@index([enteredAt])
+}
+
+model InteractionEvent {
+  id        String   @id @default(cuid())
+  sessionId String
+  sceneId   String
+  eventType String
+  timestamp DateTime @default(now())
+  metadata  Json?
+
+  session ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  scene   Scene         @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+
+  @@index([sessionId])
+  @@index([sceneId])
+  @@index([eventType])
+}
+
 // ============== AI GENERATION LOGGING ==============
 
 model StoryGeneration {
   id         String   @id @default(cuid())
   prompt     String
-  model      String   // "claude-3-opus", "claude-3-sonnet", etc.
+  model      String
   tokensUsed Int?
   costCents  Int?
   durationMs Int?
   success    Boolean
   error      String?
-  storyId    String?  // Links to created story if successful
+  storyId    String?
   createdAt  DateTime @default(now())
 
   @@index([createdAt])
