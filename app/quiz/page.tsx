@@ -118,9 +118,16 @@ export default function QuizPage() {
               and we'll reveal the archetype that shapes your journey.
             </p>
 
-            <p className="text-sm text-[hsl(var(--secondary-foreground))] mb-8">
+            <p className="text-sm text-[hsl(var(--secondary-foreground))] mb-6">
               Your choices will be compared to others who share your path.
             </p>
+
+            <div className="card p-4 mb-8 border-[hsl(var(--warning)/0.5)] bg-[hsl(var(--warning)/0.1)]">
+              <p className="text-sm text-[hsl(var(--foreground))]">
+                <span className="font-medium">⚠️ Before you begin:</span> Once you start, you cannot go back. 
+                Each choice is final. You must complete all 7 questions before you can retake the quiz.
+              </p>
+            </div>
 
             <button 
               onClick={() => setState('questions')}
