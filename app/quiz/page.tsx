@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { ThemeToggle } from '../components/ThemeToggle'
 import { quizQuestions, archetypeInfo, type Archetype } from '@/lib/quiz'
 
 function getVisitorId(): string {
@@ -15,8 +16,20 @@ function getVisitorId(): string {
   return id
 }
 
-function FloatingOrb({ className, style }: { className: string; style: React.CSSProperties }) {
-  return <div className={`orb ${className}`} style={style} />
+function SparkleIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 2L13.09 8.26L22 9.27L14 14.14L15.18 21.02L12 17.77L8.82 21.02L10 14.14L2 9.27L10.91 8.26L12 2Z" />
+    </svg>
+  )
+}
+
+function ArrowLeftIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+  )
 }
 
 type QuizState = 'intro' | 'questions' | 'calculating' | 'result'
@@ -34,7 +47,6 @@ export default function QuizPage() {
     setVisitorId(getVisitorId())
   }, [])
 
-  // Check if user already has a profile
   useEffect(() => {
     async function checkProfile() {
       if (!visitorId) return
@@ -53,14 +65,13 @@ export default function QuizPage() {
     const newAnswers = [...answers, answerIndex]
     setAnswers(newAnswers)
 
-    await new Promise(r => setTimeout(r, 400))
+    await new Promise(r => setTimeout(r, 300))
 
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1)
       setTransitioning(false)
     } else {
       setState('calculating')
-      // Submit to API
       const res = await fetch('/api/quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -68,7 +79,7 @@ export default function QuizPage() {
       })
       const data = await res.json()
       
-      await new Promise(r => setTimeout(r, 2000)) // Dramatic pause
+      await new Promise(r => setTimeout(r, 1500))
       
       setResult({ archetype: data.profile.archetype, scores: data.profile.scores })
       setState('result')
@@ -85,50 +96,48 @@ export default function QuizPage() {
   // Intro Screen
   if (state === 'intro') {
     return (
-      <div className="min-h-screen relative flex items-center justify-center px-4 py-12">
-        <FloatingOrb className="orb-purple animate-float-slow" style={{ width: '350px', height: '350px', top: '10%', left: '10%', opacity: 0.3 }} />
-        <FloatingOrb className="orb-gold animate-float" style={{ width: '250px', height: '250px', bottom: '20%', right: '10%', opacity: 0.25, animationDelay: '2s' }} />
-
-        <div className="relative max-w-2xl mx-auto text-center">
-          <div>
-            <span className="inline-block px-4 py-2 rounded-full text-sm tracking-[0.2em] uppercase mb-6
-              bg-gradient-to-r from-[--purple-dark]/80 to-[--purple-mid]/80 
-              border border-[--purple-light]/50 text-[--purple-glow]">
-              ✦ Before We Begin ✦
-            </span>
-          </div>
-
-          <h1 className="text-5xl md:text-6xl mb-6 text-gradient" 
-              style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Who Are You?
-          </h1>
-
-          <p className="text-xl text-[--text-secondary] mb-8 leading-relaxed"
-             style={{ fontFamily: "'Spectral', serif", fontStyle: 'italic' }}>
-            Every reader carries a story within them. Answer seven questions, 
-            and we'll reveal the archetype that shapes your journey.
-          </p>
-
-          <p className="text-[--text-muted] mb-12"
-             style={{ fontFamily: "'Spectral', serif" }}>
-            Your choices will be compared to others who share your path.
-          </p>
-
-          <button 
-            onClick={() => setState('questions')}
-            className="btn btn-primary text-lg px-10 py-4"
-            style={{ opacity: 1, color: '#12081f' }}
-          >
-            Begin the Journey
-          </button>
-
-          <div className="mt-8">
-            <Link href="/" className="text-[--text-muted] hover:text-[--gold-mid] transition-colors text-sm"
-                  style={{ fontFamily: "'Spectral', serif" }}>
-              ← Return to stories
+      <div className="min-h-screen flex flex-col">
+        <nav className="border-b border-[hsl(var(--border))]">
+          <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-2 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
+              <ArrowLeftIcon className="w-4 h-4" />
+              Back
             </Link>
+            <span className="font-medium">Archetype Quiz</span>
+            <ThemeToggle />
           </div>
-        </div>
+        </nav>
+
+        <main className="flex-1 flex items-center justify-center px-4 py-12">
+          <div className="max-w-lg w-full text-center">
+            <div className="mb-6">
+              <span className="badge badge-brand">
+                <SparkleIcon className="w-3 h-3" />
+                Before We Begin
+              </span>
+            </div>
+
+            <h1 className="text-3xl md:text-4xl font-semibold mb-4">
+              Who Are You?
+            </h1>
+
+            <p className="text-[hsl(var(--secondary-foreground))] mb-6 leading-relaxed">
+              Every reader carries a story within them. Answer seven questions, 
+              and we'll reveal the archetype that shapes your journey.
+            </p>
+
+            <p className="text-sm text-[hsl(var(--secondary-foreground))] mb-8">
+              Your choices will be compared to others who share your path.
+            </p>
+
+            <button 
+              onClick={() => setState('questions')}
+              className="btn btn-brand"
+            >
+              Begin the Journey
+            </button>
+          </div>
+        </main>
       </div>
     )
   }
@@ -139,44 +148,52 @@ export default function QuizPage() {
     const progress = ((currentQuestion) / quizQuestions.length) * 100
 
     return (
-      <div className="min-h-screen relative flex items-center justify-center px-4 py-12">
-        <FloatingOrb className="orb-purple animate-float-slow" style={{ width: '300px', height: '300px', top: '15%', left: '5%', opacity: 0.25 }} />
-        <FloatingOrb className="orb-gold animate-float" style={{ width: '200px', height: '200px', bottom: '15%', right: '5%', opacity: 0.2, animationDelay: '1s' }} />
+      <div className="min-h-screen flex flex-col">
+        <nav className="border-b border-[hsl(var(--border))]">
+          <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-2 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
+              <ArrowLeftIcon className="w-4 h-4" />
+              Leave
+            </Link>
+            <span className="font-medium">Question {currentQuestion + 1} of {quizQuestions.length}</span>
+            <ThemeToggle />
+          </div>
+        </nav>
 
-        <div className="relative max-w-2xl mx-auto w-full">
-          {/* Progress */}
-          <div className="mb-8">
-            <div className="flex justify-between text-sm text-[--text-muted] mb-2">
-              <span>Question {currentQuestion + 1} of {quizQuestions.length}</span>
-              <span>{Math.round(progress)}%</span>
+        <main className="flex-1 flex items-center justify-center px-4 py-8">
+          <div className="max-w-2xl w-full">
+            {/* Progress */}
+            <div className="mb-8">
+              <div className="flex justify-between text-xs text-[hsl(var(--secondary-foreground))] mb-2">
+                <span>Progress</span>
+                <span>{Math.round(progress)}%</span>
+              </div>
+              <div className="progress-bar">
+                <div className="progress-bar-fill" style={{ width: `${progress}%` }} />
+              </div>
             </div>
-            <div className="progress-bar">
-              <div className="progress-bar-fill" style={{ width: `${progress}%` }} />
+
+            {/* Question Card */}
+            <div className={`card p-6 md:p-8 transition-all duration-300 ${transitioning ? 'opacity-0 scale-98' : 'opacity-100 scale-100'}`}>
+              <p className="text-lg mb-8 leading-relaxed">
+                {question.scenario}
+              </p>
+
+              <div className="space-y-3">
+                {question.answers.map((answer, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => handleAnswer(idx)}
+                    disabled={transitioning}
+                    className="choice-btn"
+                  >
+                    {answer.text}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
-
-          {/* Question Card */}
-          <div className={`card p-8 md:p-10 transition-all duration-500 ${transitioning ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
-            <p className="text-xl md:text-2xl text-[--text-primary] mb-10 leading-relaxed"
-               style={{ fontFamily: "'Spectral', serif" }}>
-              {question.scenario}
-            </p>
-
-            <div className="space-y-4">
-              {question.answers.map((answer, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleAnswer(idx)}
-                  disabled={transitioning}
-                  className="choice-btn"
-                  style={{ opacity: 1 }}
-                >
-                  {answer.text}
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
+        </main>
       </div>
     )
   }
@@ -184,24 +201,11 @@ export default function QuizPage() {
   // Calculating Screen
   if (state === 'calculating') {
     return (
-      <div className="min-h-screen relative flex items-center justify-center px-4">
-        <FloatingOrb className="orb-purple animate-float-slow" style={{ width: '400px', height: '400px', top: '20%', left: '20%', opacity: 0.4 }} />
-        <FloatingOrb className="orb-gold animate-float" style={{ width: '300px', height: '300px', bottom: '20%', right: '20%', opacity: 0.3 }} />
-
-        <div className="text-center">
-          <div className="relative w-24 h-24 mx-auto mb-8">
-            <div className="absolute inset-0 border-4 border-[--purple-mid] border-t-[--gold-mid] rounded-full animate-spin" />
-            <div className="absolute inset-2 border-4 border-transparent border-b-[--purple-bright] rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }} />
-            <div className="absolute inset-4 border-4 border-[--purple-dark] border-t-[--gold-light] rounded-full animate-spin" style={{ animationDuration: '2s' }} />
-          </div>
-          
-          <p className="text-2xl text-[--gold-mid] mb-4" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-            Reading the stars...
-          </p>
-          <p className="text-[--text-muted]" style={{ fontFamily: "'Spectral', serif", fontStyle: 'italic' }}>
-            Your archetype is being revealed
-          </p>
-        </div>
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+        <div className="spinner" />
+        <p className="text-sm text-[hsl(var(--secondary-foreground))]">
+          Analyzing your choices...
+        </p>
       </div>
     )
   }
@@ -210,71 +214,79 @@ export default function QuizPage() {
   if (state === 'result' && result) {
     const info = archetypeInfo[result.archetype]
 
+    const archetypeEmoji: Record<string, string> = {
+      wanderer: '🧭',
+      guardian: '🛡️',
+      seeker: '🔍',
+      flame: '🔥',
+      dreamer: '✨',
+      shadow: '🌑'
+    }
+
     return (
-      <div className="min-h-screen relative flex items-center justify-center px-4 py-12">
-        <FloatingOrb className="orb-purple animate-float-slow" style={{ width: '350px', height: '350px', top: '10%', left: '10%', opacity: 0.3 }} />
-        <FloatingOrb className="orb-gold animate-float" style={{ width: '250px', height: '250px', bottom: '15%', right: '10%', opacity: 0.25, animationDelay: '2s' }} />
-
-        <div className="relative max-w-2xl mx-auto text-center">
-          <div>
-            <span className="inline-block px-4 py-2 rounded-full text-sm tracking-[0.2em] uppercase mb-6
-              bg-gradient-to-r from-[--purple-dark]/80 to-[--purple-mid]/80 
-              border border-[--purple-light]/50 text-[--purple-glow]">
-              ✦ Your Archetype ✦
-            </span>
+      <div className="min-h-screen flex flex-col">
+        <nav className="border-b border-[hsl(var(--border))]">
+          <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
+            <Link href="/" className="flex items-center gap-2 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
+              <ArrowLeftIcon className="w-4 h-4" />
+              Home
+            </Link>
+            <span className="font-medium">Your Result</span>
+            <ThemeToggle />
           </div>
+        </nav>
 
-          {/* Archetype Icon */}
-          <div className="mb-8">
-            <div className="w-32 h-32 mx-auto rounded-full flex items-center justify-center animate-pulse-glow"
-                 style={{ background: `linear-gradient(135deg, ${info.color}40, var(--purple-dark))`, border: `2px solid ${info.color}` }}>
-              <span className="text-5xl">
-                {result.archetype === 'wanderer' && '🧭'}
-                {result.archetype === 'guardian' && '🛡️'}
-                {result.archetype === 'seeker' && '🔍'}
-                {result.archetype === 'flame' && '🔥'}
-                {result.archetype === 'dreamer' && '✨'}
-                {result.archetype === 'shadow' && '🌑'}
+        <main className="flex-1 flex items-center justify-center px-4 py-12">
+          <div className="max-w-lg w-full text-center">
+            <div className="mb-6">
+              <span className="badge badge-brand">
+                <SparkleIcon className="w-3 h-3" />
+                Your Archetype
               </span>
             </div>
-          </div>
 
-          <h1 className="text-5xl md:text-6xl mb-6" 
-              style={{ fontFamily: "'Cormorant Garamond', serif", color: info.color }}>
-            {info.title}
-          </h1>
+            {/* Archetype Icon */}
+            <div className="text-6xl mb-6">
+              {archetypeEmoji[result.archetype] || '✦'}
+            </div>
 
-          <p className="text-xl text-[--text-secondary] mb-10 leading-relaxed max-w-lg mx-auto"
-             style={{ fontFamily: "'Spectral', serif", fontStyle: 'italic' }}>
-            {info.description}
-          </p>
+            <h1 className="text-3xl md:text-4xl font-semibold mb-4" style={{ color: info.color }}>
+              {info.title}
+            </h1>
 
-          {/* Score breakdown */}
-          <div className="card p-6 mb-10">
-            <p className="text-[--text-muted] text-sm mb-4 uppercase tracking-wide">Your Affinities</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {Object.entries(result.scores)
-                .sort(([,a], [,b]) => b - a)
-                .map(([arch, score]) => (
-                  <div key={arch} className="text-center">
-                    <p className="text-2xl font-semibold" style={{ color: archetypeInfo[arch as Archetype].color, fontFamily: "'Cormorant Garamond', serif" }}>
-                      {score}
-                    </p>
-                    <p className="text-xs text-[--text-muted] capitalize">{arch}</p>
-                  </div>
-                ))}
+            <p className="text-[hsl(var(--secondary-foreground))] mb-8 leading-relaxed">
+              {info.description}
+            </p>
+
+            {/* Score breakdown */}
+            <div className="card p-6 mb-8 text-left">
+              <p className="text-xs text-[hsl(var(--secondary-foreground))] mb-4 uppercase tracking-wider text-center">
+                Your Affinities
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {Object.entries(result.scores)
+                  .sort(([,a], [,b]) => b - a)
+                  .map(([arch, score]) => (
+                    <div key={arch} className="text-center">
+                      <p className="text-2xl font-semibold" style={{ color: archetypeInfo[arch as Archetype].color }}>
+                        {score}
+                      </p>
+                      <p className="text-xs text-[hsl(var(--secondary-foreground))] capitalize">{arch}</p>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Link href="/" className="btn btn-brand">
+                Discover Stories
+              </Link>
+              <button onClick={handleRetakeQuiz} className="btn btn-secondary">
+                Retake Quiz
+              </button>
             </div>
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/" className="btn btn-primary" style={{ opacity: 1, color: '#12081f' }}>
-              Discover Stories
-            </Link>
-            <button onClick={handleRetakeQuiz} className="btn btn-secondary" style={{ opacity: 1 }}>
-              Retake Quiz
-            </button>
-          </div>
-        </div>
+        </main>
       </div>
     )
   }
