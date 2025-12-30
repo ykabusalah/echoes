@@ -52,12 +52,13 @@ model Character {
 }
 
 model Scene {
-  id        String  @id @default(cuid())
-  title     String
-  content   String
-  isStart   Boolean @default(false)
-  isEnding  Boolean @default(false)
-  order     Int     @default(0)
+  id            String  @id @default(cuid())
+  title         String
+  content       String
+  isStart       Boolean @default(false)
+  isEnding      Boolean @default(false)
+  isBranchPoint Boolean @default(false)
+  order         Int     @default(0)
 
   storyId     String
   story       Story      @relation(fields: [storyId], references: [id], onDelete: Cascade)
@@ -85,10 +86,17 @@ model Choice {
   toSceneId   String
   toScene     Scene  @relation("ToScene", fields: [toSceneId], references: [id], onDelete: Cascade)
 
+  // Personalization fields
+  archetypeTarget String?
+  isGenerated     Boolean   @default(false)
+  generatedFor    String?
+  generatedAt     DateTime?
+
   choiceEvents ChoiceEvent[]
 
   @@index([fromSceneId])
   @@index([toSceneId])
+  @@index([archetypeTarget])
 }
 
 // ============== READER PROFILES & QUIZ ==============

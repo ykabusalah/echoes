@@ -17,6 +17,7 @@ type Choice = {
   id: string
   text: string
   toSceneId: string
+  archetypeTarget?: string | null
 }
 
 type Scene = {
@@ -24,6 +25,7 @@ type Scene = {
   title: string
   content: string
   isEnding: boolean
+  isBranchPoint: boolean
   character: Character | null
   choicesFrom: Choice[]
 }
@@ -155,8 +157,8 @@ export default function PlayStory() {
   const [showStats, setShowStats] = useState(false)
   const [sessionId, setSessionId] = useState<string | null>(null)
   const [summary, setSummary] = useState<SessionSummary | null>(null)
+  const [generatingChoice, setGeneratingChoice] = useState(false)
 
-  // Scene tracking hook for detailed analytics
   const { onChoiceHover, onChoiceLeave } = useSceneTracking({
     sessionId,
     sceneId: currentScene?.id ?? null
@@ -166,6 +168,28 @@ export default function PlayStory() {
     setVisitorId(getVisitorId())
   }, [])
 
+  async function generatePersonalizedChoice(sceneId: string) {
+    setGeneratingChoice(true)
+    try {
+      const res = await fetch(`/api/scenes/${sceneId}/personalize`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ visitorId })
+      })
+      
+      if (res.ok) {
+        const sceneRes = await fetch(`/api/scenes/${sceneId}?visitorId=${visitorId}`)
+        if (sceneRes.ok) {
+          const updatedScene = await sceneRes.json()
+          setCurrentScene(updatedScene)
+        }
+      }
+    } catch (error) {
+      console.error('Failed to generate personalized choice:', error)
+    }
+    setGeneratingChoice(false)
+  }
+
   useEffect(() => {
     async function fetchStory() {
       const res = await fetch(`/api/stories/${storyId}`)
@@ -174,7 +198,19 @@ export default function PlayStory() {
         setStory(data)
         if (data.scenes && data.scenes.length > 0) {
           const startScene = data.scenes[0]
-          setCurrentScene(startScene)
+          
+          const sceneRes = await fetch(`/api/scenes/${startScene.id}?visitorId=${visitorId}`)
+          if (sceneRes.ok) {
+            const fullScene = await sceneRes.json()
+            setCurrentScene(fullScene)
+            
+            if (fullScene.isBranchPoint) {
+              generatePersonalizedChoice(fullScene.id)
+            }
+          } else {
+            setCurrentScene(startScene)
+          }
+          
           setShowChoices(false)
           
           if (visitorId) {
@@ -232,10 +268,14 @@ export default function PlayStory() {
 
     await new Promise(resolve => setTimeout(resolve, 400))
 
-    const res = await fetch(`/api/scenes/${choice.toSceneId}`)
+    const res = await fetch(`/api/scenes/${choice.toSceneId}?visitorId=${visitorId}`)
     if (res.ok) {
       const scene = await res.json()
       setCurrentScene(scene)
+
+      if (scene.isBranchPoint && !scene.isEnding) {
+        generatePersonalizedChoice(scene.id)
+      }
 
       if (scene.isEnding) {
         await fetch('/api/track', {
@@ -287,7 +327,6 @@ export default function PlayStory() {
     }
   }
 
-  // Loading state
   if (loading && !currentScene) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
@@ -299,7 +338,6 @@ export default function PlayStory() {
     )
   }
 
-  // Not found state
   if (!story || !currentScene) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-6">
@@ -317,7 +355,6 @@ export default function PlayStory() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Nav Bar */}
       <nav className="border-b border-[hsl(var(--border))]">
         <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
@@ -329,7 +366,6 @@ export default function PlayStory() {
         </div>
       </nav>
 
-      {/* Stats overlay */}
       {showStats && choiceStats && (
         <div className="fixed inset-0 bg-[hsl(var(--background))]/95 flex items-center justify-center z-50 animate-fade-in">
           <div className="max-w-md w-full mx-4 text-center">
@@ -376,10 +412,8 @@ export default function PlayStory() {
         </div>
       )}
 
-      {/* Main content - centered */}
       <main className="flex-1 flex items-center justify-center px-4 py-8">
         <div className="w-full max-w-3xl">
-          {/* Progress bar */}
           <div className="mb-6">
             <div className="flex justify-between text-xs text-[hsl(var(--secondary-foreground))] mb-2">
               <span>Scene {history.length + 1}</span>
@@ -393,13 +427,11 @@ export default function PlayStory() {
             </div>
           </div>
 
-          {/* Scene card */}
           <div 
             className={`card p-6 md:p-8 transition-all duration-300 ${
               transitioning ? 'opacity-0 scale-98' : 'opacity-100 scale-100'
             }`}
           >
-            {/* Character badge */}
             {currentScene.character && (
               <div className="mb-6">
                 <span className="badge badge-brand">
@@ -408,7 +440,6 @@ export default function PlayStory() {
               </div>
             )}
 
-            {/* Scene content */}
             <div className="mb-8">
               <TypewriterText 
                 key={currentScene.id}
@@ -417,7 +448,6 @@ export default function PlayStory() {
               />
             </div>
 
-            {/* Choices or ending */}
             {currentScene.isEnding ? (
               <div className="text-center animate-fade-in">
                 <div className="mb-6">
@@ -433,7 +463,6 @@ export default function PlayStory() {
                   )}
                 </div>
 
-                {/* Journey Summary */}
                 {summary && summary.choices.length > 0 && (
                   <div className="mb-6 p-4 rounded-md bg-[hsl(var(--accent))] border border-[hsl(var(--border))] text-left">
                     <h3 className="text-sm font-medium mb-3 text-center">Your Journey</h3>
@@ -477,19 +506,62 @@ export default function PlayStory() {
                 <div className="divider mb-4">
                   <span>What will you do?</span>
                 </div>
-                {currentScene.choicesFrom.map((choice, index) => (
-                  <button
-                    key={choice.id}
-                    onClick={() => handleChoice(choice)}
-                    onMouseEnter={() => onChoiceHover(choice.id)}
-                    onMouseLeave={onChoiceLeave}
-                    disabled={!showChoices}
-                    className="choice-btn animate-fade-in-up"
-                    style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
-                  >
-                    {choice.text}
-                  </button>
-                ))}
+                
+                {/* Regular choices */}
+                {currentScene.choicesFrom
+                  .filter(c => !c.archetypeTarget)
+                  .map((choice, index) => (
+                    <button
+                      key={choice.id}
+                      onClick={() => handleChoice(choice)}
+                      onMouseEnter={() => onChoiceHover(choice.id)}
+                      onMouseLeave={onChoiceLeave}
+                      disabled={!showChoices}
+                      className="choice-btn animate-fade-in-up"
+                      style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
+                    >
+                      {choice.text}
+                    </button>
+                  ))}
+                
+                {/* Personalized choice toast + button */}
+                {generatingChoice && (
+                  <div className="mt-6 p-4 rounded-lg border border-[hsl(var(--brand)/0.3)] bg-[hsl(var(--brand)/0.05)] animate-fade-in">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-full bg-[hsl(var(--brand)/0.2)] flex items-center justify-center">
+                        <span className="animate-spin text-[hsl(var(--brand))]">✦</span>
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-[hsl(var(--brand))]">Crafting something special...</p>
+                        <p className="text-xs text-[hsl(var(--secondary-foreground))]">A choice based on your archetype</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Show personalized choice after generation */}
+                {!generatingChoice && currentScene.choicesFrom.some(c => c.archetypeTarget) && (
+                  <div className="mt-6 animate-fade-in">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="text-[hsl(var(--brand))]">✦</span>
+                      <span className="text-sm text-[hsl(var(--brand))] font-medium">Crafted for you</span>
+                    </div>
+                    {currentScene.choicesFrom
+                      .filter(c => c.archetypeTarget)
+                      .map((choice) => (
+                        <button
+                          key={choice.id}
+                          onClick={() => handleChoice(choice)}
+                          onMouseEnter={() => onChoiceHover(choice.id)}
+                          onMouseLeave={onChoiceLeave}
+                          disabled={!showChoices}
+                          className="choice-btn w-full border-[hsl(var(--brand)/0.4)] bg-[hsl(var(--brand)/0.05)] hover:border-[hsl(var(--brand))] hover:bg-[hsl(var(--brand)/0.1)]"
+                        >
+                          {choice.text}
+                        </button>
+                      ))}
+                  </div>
+                )}
               </div>
             )}
           </div>
