@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { ThemeToggle } from './components/ThemeToggle'
 
 type Story = {
   id: string
@@ -90,10 +91,20 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
+      {/* Nav Bar */}
+      <nav className="border-b border-[hsl(var(--border))]">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2 font-medium">
+            <SparkleIcon className="w-5 h-5 text-[hsl(var(--brand))]" />
+            Echoes
+          </Link>
+          <ThemeToggle />
+        </div>
+      </nav>
+
       {/* Hero Section */}
       <header className="border-b border-[hsl(var(--border))]">
-        <div className="max-w-5xl mx-auto px-6 py-16 md:py-24">
-          {/* Badge */}
+        <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           <div className="mb-6">
             <span className="badge badge-brand">
               <SparkleIcon className="w-3 h-3" />
@@ -101,23 +112,19 @@ export default function Home() {
             </span>
           </div>
           
-          {/* Title */}
           <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-4">
             Echoes
           </h1>
           
-          {/* Tagline */}
           <p className="text-lg md:text-xl text-[hsl(var(--secondary-foreground))] max-w-xl mb-8">
             AI-generated branching narratives where every choice shapes your story. 
             See how your decisions compare to other readers.
           </p>
 
-          {/* Notice */}
           <p className="text-sm text-[hsl(var(--secondary-foreground))] mb-8">
             ✦ A new story appears every Monday
           </p>
           
-          {/* CTA Buttons */}
           <div className="flex flex-wrap gap-3">
             <Link href="/quiz" className="btn btn-primary">
               Discover Your Archetype
@@ -141,7 +148,6 @@ export default function Home() {
           </div>
         ) : (
           <>
-            {/* Featured Story */}
             {featured && (
               <section className="mb-16">
                 <div className="flex items-center gap-3 mb-6">
@@ -170,7 +176,6 @@ export default function Home() {
                       </p>
                     )}
                     
-                    {/* Stats */}
                     <div className="flex flex-wrap gap-4 text-sm text-[hsl(var(--secondary-foreground))] mb-6">
                       <span className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[hsl(var(--brand))]" />
@@ -192,7 +197,6 @@ export default function Home() {
                       )}
                     </div>
                     
-                    {/* Actions */}
                     <div className="flex gap-3">
                       <Link href={`/play/${featured.id}`} className="btn btn-brand flex-1">
                         <PlayIcon className="w-4 h-4" />
@@ -207,7 +211,6 @@ export default function Home() {
               </section>
             )}
 
-            {/* Archived Stories */}
             {archived.length > 0 && (
               <section>
                 <div className="flex items-center justify-between mb-6">
@@ -244,14 +247,12 @@ export default function Home() {
                           </p>
                         )}
                         
-                        {/* Mini stats */}
                         <div className="flex gap-4 text-xs text-[hsl(var(--secondary-foreground))] mb-4">
                           <span>{story._count.scenes} scenes</span>
                           <span>•</span>
                           <span>{story._count.readerSessions} readers</span>
                         </div>
                         
-                        {/* Actions */}
                         <div className="flex gap-2">
                           <Link href={`/play/${story.id}`} className="btn btn-primary flex-1 text-sm">
                             <PlayIcon className="w-4 h-4" />
@@ -268,7 +269,6 @@ export default function Home() {
               </section>
             )}
 
-            {/* Empty State */}
             {!featured && archived.length === 0 && (
               <div className="card">
                 <div className="card-content text-center py-16">
