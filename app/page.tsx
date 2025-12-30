@@ -1,8 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ThemeToggle } from './components/ThemeToggle'
+import { ArchetypeIcon, archetypeDescriptions, archetypeColors } from './components/ArchetypeIcons'
 
 type Story = {
   id: string
@@ -23,6 +25,30 @@ type Story = {
 type StoriesResponse = {
   featured: Story | null
   archived: Story[]
+}
+
+type UserProfile = {
+  archetype: string
+  scores: Record<string, number>
+}
+
+type RecommendedStory = {
+  id: string
+  title: string
+  description: string
+  theme: string
+  sceneCount: number
+  readers: number
+}
+
+function getVisitorId(): string {
+  if (typeof window === 'undefined') return ''
+  let id = document.cookie.split('; ').find(row => row.startsWith('visitorId='))?.split('=')[1]
+  if (!id) {
+    id = crypto.randomUUID()
+    document.cookie = `visitorId=${id}; max-age=31536000; path=/`
+  }
+  return id
 }
 
 function BookIcon({ className }: { className?: string }) {
@@ -71,11 +97,55 @@ function SparkleIcon({ className }: { className?: string }) {
 }
 
 export default function Home() {
+  const router = useRouter()
   const [data, setData] = useState<StoriesResponse | null>(null)
   const [loading, setLoading] = useState(true)
+  const [checkingProfile, setCheckingProfile] = useState(true)
+  const [profile, setProfile] = useState<UserProfile | null>(null)
+  const [recommendedStory, setRecommendedStory] = useState<RecommendedStory | null>(null)
 
+  // Check for profile first
+  useEffect(() => {
+    async function checkProfile() {
+      const visitorId = getVisitorId()
+      if (!visitorId) {
+        setCheckingProfile(false)
+        return
+      }
+
+      try {
+        const res = await fetch(`/api/quiz?visitorId=${visitorId}`)
+        const data = await res.json()
+        
+        if (!data.hasProfile) {
+          // First-time user → redirect to quiz
+          router.push('/quiz')
+          return
+        }
+        
+        // Returning user → save profile and continue
+        setProfile(data.profile)
+        
+        // Fetch recommended story
+        const recRes = await fetch(`/api/stories/recommend?archetype=${data.profile.archetype}`)
+        if (recRes.ok) {
+          const recData = await recRes.json()
+          setRecommendedStory(recData)
+        }
+      } catch (error) {
+        console.error('Profile check failed:', error)
+      }
+      
+      setCheckingProfile(false)
+    }
+    checkProfile()
+  }, [router])
+
+  // Fetch stories after profile check
   useEffect(() => {
     async function fetchStories() {
+      if (checkingProfile) return
+      
       const res = await fetch('/api/stories')
       if (res.ok) {
         const result = await res.json()
@@ -84,10 +154,25 @@ export default function Home() {
       setLoading(false)
     }
     fetchStories()
-  }, [])
+  }, [checkingProfile])
 
   const featured = data?.featured
   const archived = data?.archived || []
+
+  // Show loading while checking profile
+  if (checkingProfile) {
+    return (
+      <div className="min-h-screen flex flex-col items-center justify-center gap-4">
+        <div className="spinner" />
+        <p className="text-sm text-[hsl(var(--secondary-foreground))]">
+          Preparing your journey...
+        </p>
+      </div>
+    )
+  }
+
+  const archetypeInfo = profile ? archetypeDescriptions[profile.archetype] : null
+  const archetypeColor = profile ? archetypeColors[profile.archetype] : null
 
   return (
     <div className="min-h-screen">
@@ -98,37 +183,78 @@ export default function Home() {
             <SparkleIcon className="w-5 h-5 text-[hsl(var(--brand))]" />
             Echoes
           </Link>
-          <ThemeToggle />
+          <div className="flex items-center gap-4">
+            {profile && (
+              <Link 
+                href={`/quiz/results?archetype=${profile.archetype}`}
+                className="flex items-center gap-2 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+              >
+                <div className="w-5 h-5" style={{ color: archetypeColor || undefined }}>
+                  <ArchetypeIcon archetype={profile.archetype} className="w-full h-full" />
+                </div>
+                <span className="hidden sm:inline">{archetypeInfo?.title}</span>
+              </Link>
+            )}
+            <ThemeToggle />
+          </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section - Personalized for returning users */}
       <header className="border-b border-[hsl(var(--border))]">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
-          <div className="mb-6">
-            <span className="badge badge-brand">
-              <SparkleIcon className="w-3 h-3" />
-              Interactive Fiction
-            </span>
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-4">
-            Echoes
-          </h1>
-          
-          <p className="text-lg md:text-xl text-[hsl(var(--secondary-foreground))] max-w-xl mb-8">
-            AI-generated branching narratives where every choice shapes your story. 
-            See how your decisions compare to other readers.
-          </p>
+          {profile && archetypeInfo ? (
+            <>
+              <div className="mb-6">
+                <span className="badge badge-brand">
+                  <SparkleIcon className="w-3 h-3" />
+                  Welcome back, {archetypeInfo.title}
+                </span>
+              </div>
+              
+              <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-4">
+                Your Next Chapter Awaits
+              </h1>
+              
+              <p className="text-lg md:text-xl text-[hsl(var(--secondary-foreground))] max-w-xl mb-8">
+                {archetypeInfo.tagline}. Explore stories crafted for your archetype.
+              </p>
+            </>
+          ) : (
+            <>
+              <div className="mb-6">
+                <span className="badge badge-brand">
+                  <SparkleIcon className="w-3 h-3" />
+                  Interactive Fiction
+                </span>
+              </div>
+              
+              <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-4">
+                Echoes
+              </h1>
+              
+              <p className="text-lg md:text-xl text-[hsl(var(--secondary-foreground))] max-w-xl mb-8">
+                AI-generated branching narratives where every choice shapes your story. 
+                See how your decisions compare to other readers.
+              </p>
+            </>
+          )}
 
           <p className="text-sm text-[hsl(var(--secondary-foreground))] mb-8">
             ✦ A new story appears every Monday
           </p>
           
           <div className="flex flex-wrap gap-3">
-            <Link href="/quiz" className="btn btn-primary">
-              Discover Your Archetype
-            </Link>
+            {recommendedStory ? (
+              <Link href={`/play/${recommendedStory.id}`} className="btn btn-primary">
+                <PlayIcon className="w-4 h-4" />
+                Play Recommended Story
+              </Link>
+            ) : (
+              <Link href="/quiz" className="btn btn-primary">
+                Discover Your Archetype
+              </Link>
+            )}
             <a href="#stories" className="btn btn-secondary">
               Browse Stories
               <ArrowDownIcon className="w-4 h-4" />
@@ -136,6 +262,40 @@ export default function Home() {
           </div>
         </div>
       </header>
+
+      {/* Recommended For You Section */}
+      {profile && recommendedStory && (
+        <section className="border-b border-[hsl(var(--border))] bg-[hsl(var(--accent))]">
+          <div className="max-w-5xl mx-auto px-6 py-8">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-6 h-6" style={{ color: archetypeColor || undefined }}>
+                <ArchetypeIcon archetype={profile.archetype} className="w-full h-full" />
+              </div>
+              <h2 className="text-lg font-medium">Recommended for {archetypeInfo?.title}</h2>
+            </div>
+            
+            <div className="card overflow-hidden">
+              <div className="card-content flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold mb-1">{recommendedStory.title}</h3>
+                  <p className="text-sm text-[hsl(var(--secondary-foreground))] mb-2">
+                    {recommendedStory.description}
+                  </p>
+                  <div className="flex gap-4 text-xs text-[hsl(var(--secondary-foreground))]">
+                    <span>{recommendedStory.sceneCount} scenes</span>
+                    <span>•</span>
+                    <span>{recommendedStory.readers} readers</span>
+                  </div>
+                </div>
+                <Link href={`/play/${recommendedStory.id}`} className="btn btn-brand shrink-0">
+                  <PlayIcon className="w-4 h-4" />
+                  Begin Story
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Stories Section */}
       <main id="stories" className="max-w-5xl mx-auto px-6 py-12">
@@ -297,9 +457,19 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <p className="text-xs text-[hsl(var(--secondary-foreground))]">
-              Built with Next.js, Prisma, Neon & Claude AI
-            </p>
+            <div className="flex items-center gap-4">
+              {profile && (
+                <Link 
+                  href="/quiz" 
+                  className="text-xs text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
+                >
+                  Retake Quiz
+                </Link>
+              )}
+              <p className="text-xs text-[hsl(var(--secondary-foreground))]">
+                Built with Next.js, Prisma, Neon & Claude AI
+              </p>
+            </div>
           </div>
         </div>
       </footer>
