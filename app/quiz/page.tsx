@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 import { ThemeToggle } from '../components/ThemeToggle'
 import { quizQuestions } from '@/lib/quiz'
 
@@ -20,14 +19,6 @@ function SparkleIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="currentColor" viewBox="0 0 24 24">
       <path d="M12 2L13.09 8.26L22 9.27L14 14.14L15.18 21.02L12 17.77L8.82 21.02L10 14.14L2 9.27L10.91 8.26L12 2Z" />
-    </svg>
-  )
-}
-
-function ArrowLeftIcon({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
     </svg>
   )
 }
@@ -52,7 +43,6 @@ export default function QuizPage() {
       const res = await fetch(`/api/quiz?visitorId=${visitorId}`)
       const data = await res.json()
       if (data.hasProfile) {
-        // Redirect to results page if already has profile
         router.push(`/quiz/results?archetype=${data.profile.archetype}`)
       }
     }
@@ -79,8 +69,6 @@ export default function QuizPage() {
       const data = await res.json()
       
       await new Promise(r => setTimeout(r, 1500))
-      
-      // Redirect to results page with archetype
       router.push(`/quiz/results?archetype=${data.profile.archetype}`)
     }
   }
@@ -91,10 +79,7 @@ export default function QuizPage() {
       <div className="min-h-screen flex flex-col">
         <nav className="border-b border-[hsl(var(--border))]">
           <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
-              <ArrowLeftIcon className="w-4 h-4" />
-              Back
-            </Link>
+            <span className="text-[hsl(var(--brand))]">✦</span>
             <span className="font-medium">Archetype Quiz</span>
             <ThemeToggle />
           </div>
@@ -150,10 +135,7 @@ export default function QuizPage() {
       <div className="min-h-screen flex flex-col">
         <nav className="border-b border-[hsl(var(--border))]">
           <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
-              <ArrowLeftIcon className="w-4 h-4" />
-              Leave
-            </Link>
+            <span className="text-[hsl(var(--brand))]">✦</span>
             <span className="font-medium">Question {currentQuestion + 1} of {quizQuestions.length}</span>
             <ThemeToggle />
           </div>
