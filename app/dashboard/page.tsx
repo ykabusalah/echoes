@@ -88,28 +88,32 @@ export default function Dashboard() {
         <div className="absolute top-4 right-4">
           <ThemeToggle />
         </div>
-        <div className="card p-8 w-full max-w-sm">
-          <h1 className="text-xl font-semibold mb-6 text-center text-[hsl(var(--foreground))]">Admin Dashboard</h1>
+        <div className="card p-8 w-full max-w-sm border-[hsl(var(--brand)/0.3)]">
+          <div className="text-center mb-6">
+            <span className="text-2xl">✦</span>
+            <h1 className="text-xl font-semibold mt-2 text-[hsl(var(--foreground))]">Echoes Dashboard</h1>
+            <p className="text-sm text-[hsl(var(--secondary-foreground))] mt-1">Admin access required</p>
+          </div>
           <form onSubmit={handleLogin}>
             <input
               type="password"
               value={password}
               onChange={e => setPassword(e.target.value)}
               placeholder="Enter admin password"
-              className="w-full px-4 py-3 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] text-[hsl(var(--foreground))] mb-4"
+              className="w-full px-4 py-3 rounded-lg border border-[hsl(var(--border))] bg-[hsl(var(--background))] text-[hsl(var(--foreground))] mb-4 focus:outline-none focus:border-[hsl(var(--brand))] focus:ring-1 focus:ring-[hsl(var(--brand)/0.5)]"
               autoFocus
             />
             {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
             <button
               type="submit"
               disabled={loading}
-              className="btn btn-brand w-full"
+              className="w-full py-3 rounded-lg bg-[hsl(var(--brand))] text-white font-medium hover:opacity-90 transition-opacity disabled:opacity-50"
             >
-              {loading ? 'Checking...' : 'Login'}
+              {loading ? 'Checking...' : 'Enter Dashboard'}
             </button>
           </form>
-          <Link href="/" className="block text-center mt-4 text-sm text-[hsl(var(--secondary-foreground))]">
-            ← Back to site
+          <Link href="/" className="block text-center mt-4 text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--brand))]">
+            ← Back to Echoes
           </Link>
         </div>
       </div>
@@ -119,15 +123,18 @@ export default function Dashboard() {
   // Dashboard content
   return (
     <div className="min-h-screen bg-[hsl(var(--background))]">
-      <nav className="border-b border-[hsl(var(--border))]">
+      <nav className="border-b border-[hsl(var(--border))] bg-[hsl(var(--primary))]">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="font-semibold text-[hsl(var(--foreground))]">Admin Dashboard</h1>
+          <div className="flex items-center gap-3">
+            <span className="text-[hsl(var(--brand))]">✦</span>
+            <h1 className="font-semibold text-[hsl(var(--foreground))]">Echoes Dashboard</h1>
+          </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <Link href="/dashboard/personalization" className="text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))]">
+            <Link href="/dashboard/personalization" className="text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--brand))] transition-colors">
               Personalization
             </Link>
-            <button onClick={handleLogout} className="text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))]">
+            <button onClick={handleLogout} className="text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors">
               Logout
             </button>
           </div>
@@ -136,44 +143,52 @@ export default function Dashboard() {
 
       <main className="max-w-6xl mx-auto px-6 py-12">
         {loading ? (
-          <p className="text-center text-[hsl(var(--secondary-foreground))]">Loading...</p>
+          <div className="flex items-center justify-center py-20">
+            <div className="text-center">
+              <span className="text-2xl animate-pulse">✦</span>
+              <p className="text-[hsl(var(--secondary-foreground))] mt-2">Loading...</p>
+            </div>
+          </div>
         ) : error ? (
           <p className="text-center text-red-500">{error}</p>
         ) : data ? (
           <>
             {/* Overview Stats */}
             <section className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
-              <div className="card p-6 text-center">
-                <p className="text-3xl font-bold text-[hsl(var(--foreground))]">{data.overview.totalSessions}</p>
+              <div className="card p-6 text-center border-[hsl(var(--brand)/0.2)] hover:border-[hsl(var(--brand)/0.4)] transition-colors">
+                <p className="text-3xl font-bold text-[hsl(var(--brand))]">{data.overview.totalSessions}</p>
                 <p className="text-sm text-[hsl(var(--secondary-foreground))]">Total Sessions</p>
               </div>
-              <div className="card p-6 text-center">
-                <p className="text-3xl font-bold text-[hsl(var(--foreground))]">{data.overview.totalReaders}</p>
+              <div className="card p-6 text-center border-[hsl(var(--brand)/0.2)] hover:border-[hsl(var(--brand)/0.4)] transition-colors">
+                <p className="text-3xl font-bold text-[hsl(var(--brand))]">{data.overview.totalReaders}</p>
                 <p className="text-sm text-[hsl(var(--secondary-foreground))]">Readers</p>
               </div>
-              <div className="card p-6 text-center">
-                <p className="text-3xl font-bold text-[hsl(var(--foreground))]">{data.overview.completionRate}%</p>
+              <div className="card p-6 text-center border-[hsl(var(--gold)/0.3)] hover:border-[hsl(var(--gold)/0.5)] transition-colors">
+                <p className="text-3xl font-bold text-[hsl(var(--gold))]">{data.overview.completionRate}%</p>
                 <p className="text-sm text-[hsl(var(--secondary-foreground))]">Completion</p>
               </div>
-              <div className="card p-6 text-center">
-                <p className="text-3xl font-bold text-[hsl(var(--foreground))]">{data.overview.personalizationPickupRate}%</p>
+              <div className="card p-6 text-center border-[hsl(var(--gold)/0.3)] hover:border-[hsl(var(--gold)/0.5)] transition-colors">
+                <p className="text-3xl font-bold text-[hsl(var(--gold))]">{data.overview.personalizationPickupRate}%</p>
                 <p className="text-sm text-[hsl(var(--secondary-foreground))]">Pick Personalized</p>
               </div>
-              <div className="card p-6 text-center">
-                <p className="text-3xl font-bold text-[hsl(var(--foreground))]">{data.overview.generatedChoices}</p>
+              <div className="card p-6 text-center border-[hsl(var(--brand)/0.2)] hover:border-[hsl(var(--brand)/0.4)] transition-colors">
+                <p className="text-3xl font-bold text-[hsl(var(--brand))]">{data.overview.generatedChoices}</p>
                 <p className="text-sm text-[hsl(var(--secondary-foreground))]">AI Choices</p>
               </div>
             </section>
 
             {/* Stories */}
             <section className="mb-12">
-              <h2 className="text-lg font-semibold mb-4 text-[hsl(var(--foreground))]">Stories</h2>
+              <h2 className="text-lg font-semibold mb-4 text-[hsl(var(--foreground))] flex items-center gap-2">
+                <span className="text-[hsl(var(--gold))]">◈</span> Stories
+              </h2>
               <div className="grid gap-4">
                 {data.stories.map(story => (
-                  <div key={story.id} className="card p-6 flex items-center justify-between">
+                  <div key={story.id} className="card p-6 flex items-center justify-between hover:border-[hsl(var(--brand)/0.3)] transition-colors">
                     <div>
                       <p className="font-medium text-[hsl(var(--foreground))]">
-                        {story.status === 'FEATURED' && '⭐ '}{story.title}
+                        {story.status === 'FEATURED' && <span className="text-[hsl(var(--gold))]">★ </span>}
+                        {story.title}
                       </p>
                       <p className="text-sm text-[hsl(var(--secondary-foreground))]">
                         {story.scenes} scenes · {story.sessions} sessions
@@ -181,7 +196,7 @@ export default function Dashboard() {
                     </div>
                     <Link 
                       href={`/analytics/${story.id}`}
-                      className="btn btn-secondary text-sm"
+                      className="px-4 py-2 rounded-lg border border-[hsl(var(--border))] text-sm text-[hsl(var(--foreground))] hover:border-[hsl(var(--brand))] hover:text-[hsl(var(--brand))] transition-colors"
                     >
                       View Analytics
                     </Link>
@@ -192,12 +207,20 @@ export default function Dashboard() {
 
             {/* Quick Links */}
             <section>
-              <h2 className="text-lg font-semibold mb-4 text-[hsl(var(--foreground))]">Quick Links</h2>
+              <h2 className="text-lg font-semibold mb-4 text-[hsl(var(--foreground))] flex items-center gap-2">
+                <span className="text-[hsl(var(--gold))]">◈</span> Quick Links
+              </h2>
               <div className="flex flex-wrap gap-4">
-                <Link href="/dashboard/personalization" className="btn btn-brand">
-                  Personalization Analytics
+                <Link 
+                  href="/dashboard/personalization" 
+                  className="px-6 py-3 rounded-lg bg-[hsl(var(--brand))] text-white font-medium hover:opacity-90 transition-opacity"
+                >
+                  ✦ Personalization Analytics
                 </Link>
-                <Link href="/" className="btn btn-secondary">
+                <Link 
+                  href="/" 
+                  className="px-6 py-3 rounded-lg border border-[hsl(var(--border))] text-[hsl(var(--foreground))] hover:border-[hsl(var(--brand))] hover:text-[hsl(var(--brand))] transition-colors"
+                >
                   View Site
                 </Link>
               </div>
