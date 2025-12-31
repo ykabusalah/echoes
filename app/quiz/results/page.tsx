@@ -23,6 +23,8 @@ interface RecommendedStory {
   readers: number
 }
 
+export const dynamic = 'force-dynamic'
+
 export default function QuizResults() {
   const searchParams = useSearchParams()
   const archetype = searchParams.get('archetype') || 'wanderer'
