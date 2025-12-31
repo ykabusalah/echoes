@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { ArchetypeIcon, archetypeColors, archetypeDescriptions } from '@/app/components/ArchetypeIcons'
@@ -23,9 +23,7 @@ interface RecommendedStory {
   readers: number
 }
 
-export const dynamic = 'force-dynamic'
-
-export default function QuizResults() {
+function QuizResultsContent() {
   const searchParams = useSearchParams()
   const archetype = searchParams.get('archetype') || 'wanderer'
   
@@ -39,19 +37,16 @@ export default function QuizResults() {
   const color = archetypeColors[archetype.toLowerCase()] || archetypeColors.wanderer
 
   useEffect(() => {
-    // Fetch archetype distribution
     fetch('/api/archetypes/stats')
       .then(r => r.json())
       .then(setStats)
       .catch(console.error)
 
-    // Fetch recommended story
     fetch(`/api/stories/recommend?archetype=${archetype}`)
       .then(r => r.json())
       .then(setStory)
       .catch(console.error)
 
-    // Staggered reveal animation
     setTimeout(() => setRevealed(true), 500)
     setTimeout(() => setShowStats(true), 2000)
     setTimeout(() => setShowStory(true), 3000)
@@ -65,7 +60,6 @@ export default function QuizResults() {
     <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-[hsl(var(--background))]">
       <div className="max-w-lg w-full text-center">
         
-        {/* Archetype Icon & Title */}
         <div 
           className={`transition-all duration-1000 ${
             revealed ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
@@ -98,7 +92,6 @@ export default function QuizResults() {
           </p>
         </div>
 
-        {/* Archetype Distribution Stats */}
         <div 
           className={`card p-6 mb-6 transition-all duration-700 ${
             showStats ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -155,7 +148,6 @@ export default function QuizResults() {
           )}
         </div>
 
-        {/* Recommended Story */}
         <div 
           className={`transition-all duration-700 ${
             showStory ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -193,7 +185,6 @@ export default function QuizResults() {
           </div>
         </div>
 
-        {/* Share */}
         <div 
           className={`mt-8 transition-all duration-700 delay-500 ${
             showStory ? 'opacity-100' : 'opacity-0'
@@ -205,5 +196,20 @@ export default function QuizResults() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function QuizResults() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-[hsl(var(--background))] flex items-center justify-center">
+        <div className="text-center">
+          <span className="text-2xl animate-pulse text-[hsl(var(--brand))]">✦</span>
+          <p className="text-[hsl(var(--secondary-foreground))] mt-2">Loading your results...</p>
+        </div>
+      </div>
+    }>
+      <QuizResultsContent />
+    </Suspense>
   )
 }
