@@ -192,11 +192,9 @@ export default function PersonalizationDashboard() {
             <div className="space-y-4">
               {data.archetypeAccuracy.map(item => (
                 <div key={item.archetype} className="card p-4 flex items-center gap-4 hover:border-[hsl(var(--brand)/0.3)] transition-colors">
-                  <ArchetypeIcon 
-                    archetype={item.archetype} 
-                    className="w-8 h-8" 
-                    style={{ color: archetypeColors[item.archetype] }}
-                  />
+                  <div style={{ color: archetypeColors[item.archetype] }}>
+                    <ArchetypeIcon archetype={item.archetype} className="w-8 h-8" />
+                  </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between mb-1">
                       <span className="font-medium text-[hsl(var(--foreground))]">{item.archetype}</span>
