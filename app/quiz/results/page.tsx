@@ -175,7 +175,7 @@ function QuizResultsContent() {
             {story && (
               <Link 
                 href={`/play/${story.id}`} 
-                className="btn btn-brand"
+                className="px-6 py-3 rounded-lg bg-[hsl(var(--brand))] text-white font-medium hover:opacity-90 transition-opacity"
               >
                 Begin Your Story
               </Link>
