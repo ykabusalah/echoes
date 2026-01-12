@@ -16,6 +16,8 @@ interface GeneratedScene {
 }
 
 interface StoryExpansion {
+  branchesFrom: string
+  branchChoiceText: string  // NEW: The action text for entering this branch
   scenes: GeneratedScene[]
 }
 
@@ -35,27 +37,40 @@ ${existingScenes.map((s, i) => `${i + 1}. "${s.title}" ${s.isEnding ? '(ENDING)'
 
 TARGET ARCHETYPE FOR THIS BRANCH: ${archetype}
 Archetype themes:
-- Wanderer: exploration, curiosity, new paths
-- Guardian: protection, loyalty, sacrifice
-- Seeker: truth, investigation, hidden knowledge
-- Flame: action, boldness, confrontation
-- Dreamer: hope, emotion, transformation
-- Shadow: pragmatism, secrets, moral ambiguity
+- Wanderer: exploration, curiosity, new paths, freedom
+- Guardian: protection, loyalty, sacrifice, duty
+- Seeker: truth, investigation, hidden knowledge, questions
+- Flame: action, boldness, confrontation, passion
+- Dreamer: hope, emotion, transformation, imagination
+- Shadow: pragmatism, secrets, moral ambiguity, survival
 
 TASK: Generate 4 NEW interconnected scenes that branch from the existing story and appeal to the ${archetype} archetype.
 
-Requirements:
+WRITING STYLE REQUIREMENTS:
+- Write in a natural, literary style. Avoid these AI patterns:
+  - No em dashes for emphasis
+  - No "delve", "crucial", "moreover", "furthermore", "landscape", "multifaceted"
+  - No "it's important to note", "in today's world", "let's explore"
+  - No starting sentences with "As a..." or "When it comes to..."
+  - Avoid excessive hedging ("may", "might", "could potentially")
+  - Vary paragraph lengths naturally
+  - Include specific sensory details, not vague descriptions
+  - Show, don't tell emotions
+- Content should be 150-250 words per scene, evocative and atmospheric
+
+REQUIREMENTS:
 1. Scene 1: Branches from an existing non-ending scene (specify which)
 2. Scene 2-3: Continue the new branch with meaningful choices
 3. Scene 4: An ending that resonates with ${archetype} themes
-4. Each non-ending scene needs 2-3 choices
+4. Each non-ending scene needs 2-3 choices (actions the reader can take)
 5. At least one scene should be marked as isBranchPoint (for personalization)
-6. Content should be 150-250 words per scene
-7. Choices should be distinct and meaningful
+6. Choices must be ACTIONS, not path labels. Good: "Search the abandoned tower", Bad: "[Seeker Path] The Tower"
+7. Provide a "branchChoiceText" that describes the action to enter this branch (not a path label)
 
 Respond with ONLY valid JSON in this exact format:
 {
-  "branchesFrom": "existing scene title",
+  "branchesFrom": "existing scene title to branch from",
+  "branchChoiceText": "The action text for entering this branch (e.g., 'Investigate the strange sound')",
   "scenes": [
     {
       "title": "Scene Title",
@@ -63,8 +78,8 @@ Respond with ONLY valid JSON in this exact format:
       "isEnding": false,
       "isBranchPoint": true,
       "choices": [
-        { "text": "Choice text", "leadsToTitle": "Next Scene Title" },
-        { "text": "Another choice", "leadsToTitle": "Different Scene Title" }
+        { "text": "Action the reader takes", "leadsToTitle": "Next Scene Title" },
+        { "text": "Another action", "leadsToTitle": "Different Scene Title" }
       ]
     }
   ]
@@ -125,7 +140,7 @@ async function expandStory(storyId: string) {
       )
 
       // Find the scene to branch from
-      const branchFromTitle = (expansion as any).branchesFrom
+      const branchFromTitle = expansion.branchesFrom
       const branchFromScene = story.scenes.find(s => 
         s.title.toLowerCase().includes(branchFromTitle?.toLowerCase()) ||
         branchFromTitle?.toLowerCase().includes(s.title.toLowerCase())
@@ -186,18 +201,23 @@ async function expandStory(storyId: string) {
       }
 
       // Connect branch from existing scene to first new scene
+      // Use the AI-generated action text, NOT a path label
       const firstNewSceneId = sceneIdMap.get(expansion.scenes[0]?.title)
       if (firstNewSceneId && actualBranchFrom) {
+        // Use branchChoiceText if provided, otherwise create a generic action
+        const choiceText = expansion.branchChoiceText || expansion.scenes[0]?.title || 'Continue down this path'
+        
         await prisma.choice.create({
           data: {
             fromSceneId: actualBranchFrom.id,
             toSceneId: firstNewSceneId,
-            text: `[${archetype.charAt(0).toUpperCase() + archetype.slice(1)} path] ${expansion.scenes[0]?.title}`,
+            text: choiceText,  // Now it's an action, not "[Archetype Path] Title"
             order: 99,
             archetypeTarget: archetype
           }
         })
         console.log(`  🔗 Connected to existing scene: "${actualBranchFrom.title}"`)
+        console.log(`     Choice text: "${choiceText}"`)
       }
 
       // Mark the branch-from scene as a branch point
