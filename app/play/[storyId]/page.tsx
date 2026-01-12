@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import { ThemeToggle } from '../../components/ThemeToggle'
@@ -82,64 +82,83 @@ function ArrowLeftIcon({ className }: { className?: string }) {
   )
 }
 
-function TypewriterText({ text, onComplete }: { text: string; onComplete?: () => void }) {
-  const [displayed, setDisplayed] = useState('')
+// Improved TypewriterText - uses content as key, not scene ID
+function TypewriterText({ 
+  text, 
+  onComplete,
+  skipToEnd 
+}: { 
+  text: string
+  onComplete?: () => void
+  skipToEnd?: boolean
+}) {
+  const [displayIndex, setDisplayIndex] = useState(0)
   const [isComplete, setIsComplete] = useState(false)
-  const indexRef = useRef(0)
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const hasCalledComplete = useRef(false)
 
+  // Reset when text changes
   useEffect(() => {
-    setDisplayed('')
+    setDisplayIndex(0)
     setIsComplete(false)
-    indexRef.current = 0
-    
-    intervalRef.current = setInterval(() => {
-      if (indexRef.current < text.length) {
-        setDisplayed(text.slice(0, indexRef.current + 1))
-        indexRef.current++
-      } else {
-        setIsComplete(true)
+    hasCalledComplete.current = false
+  }, [text])
+
+  // Handle skip from parent
+  useEffect(() => {
+    if (skipToEnd && !isComplete) {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+      setDisplayIndex(text.length)
+      setIsComplete(true)
+      if (!hasCalledComplete.current) {
+        hasCalledComplete.current = true
         onComplete?.()
-        if (intervalRef.current) clearInterval(intervalRef.current)
       }
+    }
+  }, [skipToEnd, text, isComplete, onComplete])
+
+  // Typewriter effect
+  useEffect(() => {
+    if (isComplete || displayIndex >= text.length) {
+      if (!isComplete) {
+        setIsComplete(true)
+        if (!hasCalledComplete.current) {
+          hasCalledComplete.current = true
+          onComplete?.()
+        }
+      }
+      return
+    }
+
+    intervalRef.current = setInterval(() => {
+      setDisplayIndex(prev => {
+        if (prev >= text.length - 1) {
+          if (intervalRef.current) clearInterval(intervalRef.current)
+          return text.length
+        }
+        return prev + 1
+      })
     }, 20)
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current)
     }
-  }, [text, onComplete])
+  }, [text, displayIndex, isComplete, onComplete])
 
-  const handleSkip = () => {
-    if (intervalRef.current) clearInterval(intervalRef.current)
-    setDisplayed(text)
-    setIsComplete(true)
-    onComplete?.()
-  }
+  const displayed = text.slice(0, displayIndex + 1)
 
   return (
-    <div className="relative">
-      <div 
-        onClick={!isComplete ? handleSkip : undefined}
-        className={!isComplete ? 'cursor-pointer' : ''}
-      >
-        <p className="text-base leading-relaxed whitespace-pre-line">
-          {displayed}
-          {!isComplete && <span className="inline-block w-0.5 h-5 bg-[hsl(var(--brand))] ml-1 animate-pulse" />}
-        </p>
-      </div>
-      
-      {!isComplete && (
-        <button
-          onClick={handleSkip}
-          className="mt-6 mx-auto block px-4 py-2 text-sm text-[hsl(var(--secondary-foreground))] 
-            hover:text-[hsl(var(--foreground))] border border-[hsl(var(--border))] 
-            hover:border-[hsl(var(--foreground)/0.3)] rounded-md transition-all duration-200"
-        >
-          Skip →
-        </button>
-      )}
-    </div>
+    <p className="text-base leading-relaxed whitespace-pre-line">
+      {displayed}
+      {!isComplete && <span className="inline-block w-0.5 h-5 bg-[hsl(var(--brand))] ml-1 animate-pulse" />}
+    </p>
   )
+}
+
+// Clean choice text by removing [Archetype Path] prefixes
+function cleanChoiceText(text: string): string {
+  // Remove patterns like "[Wanderer Path]", "[Guardian path]", etc.
+  return text.replace(/^\[(?:wanderer|guardian|seeker|flame|dreamer|shadow)\s*path\]\s*/i, '').trim()
 }
 
 export default function PlayStory() {
@@ -148,10 +167,12 @@ export default function PlayStory() {
 
   const [story, setStory] = useState<Story | null>(null)
   const [currentScene, setCurrentScene] = useState<Scene | null>(null)
+  const [sceneContent, setSceneContent] = useState<string>('') // Stable content reference
   const [loading, setLoading] = useState(true)
   const [history, setHistory] = useState<Scene[]>([])
   const [visitorId, setVisitorId] = useState<string>('')
   const [showChoices, setShowChoices] = useState(false)
+  const [skipText, setSkipText] = useState(false)
   const [transitioning, setTransitioning] = useState(false)
   const [choiceStats, setChoiceStats] = useState<ChoiceStats | null>(null)
   const [showStats, setShowStats] = useState(false)
@@ -168,7 +189,8 @@ export default function PlayStory() {
     setVisitorId(getVisitorId())
   }, [])
 
-  async function generatePersonalizedChoice(sceneId: string) {
+  // Generate personalized choice without replacing entire scene
+  const generatePersonalizedChoice = useCallback(async (sceneId: string) => {
     setGeneratingChoice(true)
     try {
       const res = await fetch(`/api/scenes/${sceneId}/personalize`, {
@@ -181,14 +203,20 @@ export default function PlayStory() {
         const sceneRes = await fetch(`/api/scenes/${sceneId}?visitorId=${visitorId}`)
         if (sceneRes.ok) {
           const updatedScene = await sceneRes.json()
-          setCurrentScene(updatedScene)
+          // Only update choices, not the whole scene (prevents typewriter reset)
+          setCurrentScene(prev => {
+            if (prev && prev.id === sceneId) {
+              return { ...prev, choicesFrom: updatedScene.choicesFrom }
+            }
+            return prev
+          })
         }
       }
     } catch (error) {
       console.error('Failed to generate personalized choice:', error)
     }
     setGeneratingChoice(false)
-  }
+  }, [visitorId])
 
   useEffect(() => {
     async function fetchStory() {
@@ -203,12 +231,15 @@ export default function PlayStory() {
           if (sceneRes.ok) {
             const fullScene = await sceneRes.json()
             setCurrentScene(fullScene)
+            setSceneContent(fullScene.content) // Set stable content
+            setSkipText(false)
             
             if (fullScene.isBranchPoint) {
               generatePersonalizedChoice(fullScene.id)
             }
           } else {
             setCurrentScene(startScene)
+            setSceneContent(startScene.content)
           }
           
           setShowChoices(false)
@@ -232,13 +263,18 @@ export default function PlayStory() {
       setLoading(false)
     }
     if (visitorId) fetchStory()
-  }, [storyId, visitorId])
+  }, [storyId, visitorId, generatePersonalizedChoice])
+
+  const handleSkip = useCallback(() => {
+    setSkipText(true)
+  }, [])
 
   async function handleChoice(choice: Choice) {
     setTransitioning(true)
     setShowChoices(false)
     setShowStats(false)
     setChoiceStats(null)
+    setSkipText(false)
     
     if (currentScene) {
       setHistory([...history, currentScene])
@@ -272,6 +308,8 @@ export default function PlayStory() {
     if (res.ok) {
       const scene = await res.json()
       setCurrentScene(scene)
+      setSceneContent(scene.content) // Update stable content
+      setSkipText(false)
 
       if (scene.isBranchPoint && !scene.isEnding) {
         generatePersonalizedChoice(scene.id)
@@ -308,8 +346,10 @@ export default function PlayStory() {
     if (story && story.scenes.length > 0) {
       const startScene = story.scenes[0]
       setCurrentScene(startScene)
+      setSceneContent(startScene.content)
       setHistory([])
       setShowChoices(false)
+      setSkipText(false)
       setSummary(null)
 
       fetch('/api/track', {
@@ -326,6 +366,10 @@ export default function PlayStory() {
       })
     }
   }
+
+  const handleTypewriterComplete = useCallback(() => {
+    setShowChoices(true)
+  }, [])
 
   if (loading && !currentScene) {
     return (
@@ -352,6 +396,8 @@ export default function PlayStory() {
       </div>
     )
   }
+
+  const isTypewriterComplete = skipText || showChoices
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -385,7 +431,7 @@ export default function PlayStory() {
                 >
                   <div className="flex justify-between items-center mb-2">
                     <span className="text-sm text-left flex-1 mr-4">
-                      {stat.text}
+                      {cleanChoiceText(stat.text)}
                     </span>
                     <span className={`text-lg font-semibold ${
                       stat.id === choiceStats.chosenId ? 'text-[hsl(var(--brand))]' : ''
@@ -441,11 +487,24 @@ export default function PlayStory() {
             )}
 
             <div className="mb-8">
+              {/* Use sceneContent as key to prevent unnecessary remounts */}
               <TypewriterText 
-                key={currentScene.id}
-                text={currentScene.content} 
-                onComplete={() => setShowChoices(true)}
+                key={sceneContent}
+                text={sceneContent}
+                skipToEnd={skipText}
+                onComplete={handleTypewriterComplete}
               />
+              
+              {!isTypewriterComplete && (
+                <button
+                  onClick={handleSkip}
+                  className="mt-6 mx-auto block px-4 py-2 text-sm text-[hsl(var(--secondary-foreground))] 
+                    hover:text-[hsl(var(--foreground))] border border-[hsl(var(--border))] 
+                    hover:border-[hsl(var(--foreground)/0.3)] rounded-md transition-all duration-200"
+                >
+                  Skip →
+                </button>
+              )}
             </div>
 
             {currentScene.isEnding ? (
@@ -470,7 +529,7 @@ export default function PlayStory() {
                       {summary.choices.map((choice, index) => (
                         <div key={index} className="flex items-center justify-between gap-4 text-sm">
                           <span className="text-[hsl(var(--secondary-foreground))] truncate flex-1">
-                            {choice.choiceText}
+                            {cleanChoiceText(choice.choiceText)}
                           </span>
                           <span className={`font-medium whitespace-nowrap ${
                             choice.percentage > 50 ? 'text-[hsl(var(--success))]' : 'text-[hsl(var(--brand))]'
@@ -507,7 +566,7 @@ export default function PlayStory() {
                   <span>What will you do?</span>
                 </div>
                 
-                {/* Regular choices */}
+                {/* Regular choices - clean the text */}
                 {currentScene.choicesFrom
                   .filter(c => !c.archetypeTarget)
                   .map((choice, index) => (
@@ -520,7 +579,7 @@ export default function PlayStory() {
                       className="choice-btn animate-fade-in-up"
                       style={{ animationDelay: `${index * 0.1}s`, opacity: 0 }}
                     >
-                      {choice.text}
+                      {cleanChoiceText(choice.text)}
                     </button>
                   ))}
                 
@@ -539,7 +598,7 @@ export default function PlayStory() {
                   </div>
                 )}
                 
-                {/* Show personalized choice after generation */}
+                {/* Show personalized choice after generation - clean the text */}
                 {!generatingChoice && currentScene.choicesFrom.some(c => c.archetypeTarget) && (
                   <div className="mt-6 animate-fade-in">
                     <div className="flex items-center gap-2 mb-3">
@@ -557,7 +616,7 @@ export default function PlayStory() {
                           disabled={!showChoices}
                           className="choice-btn w-full border-[hsl(var(--brand)/0.4)] bg-[hsl(var(--brand)/0.05)] hover:border-[hsl(var(--brand))] hover:bg-[hsl(var(--brand)/0.1)]"
                         >
-                          {choice.text}
+                          {cleanChoiceText(choice.text)}
                         </button>
                       ))}
                   </div>
