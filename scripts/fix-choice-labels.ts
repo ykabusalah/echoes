@@ -12,11 +12,12 @@ const PATH_LABEL_PATTERN = /^\[(?:wanderer|guardian|seeker|flame|dreamer|shadow)
 async function fixChoiceLabels(dryRun = true) {
   console.log(`\n🔧 ${dryRun ? '[DRY RUN] ' : ''}Fixing choice labels...\n`)
 
-  // Find all choices with path labels
+  // Find all choices with path labels (case-insensitive search)
   const choices = await prisma.choice.findMany({
     where: {
       text: {
-        contains: 'Path]'
+        contains: 'path]',
+        mode: 'insensitive'
       }
     },
     include: {
