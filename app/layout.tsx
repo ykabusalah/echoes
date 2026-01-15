@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ArchetypeThemeProvider } from "./components/ArchetypeThemeProvider";
 
 export const metadata: Metadata = {
   title: "Echoes | Interactive AI Stories",
@@ -31,7 +32,9 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        {children}
+        <ArchetypeThemeProvider>
+          {children}
+        </ArchetypeThemeProvider>
       </body>
     </html>
   );

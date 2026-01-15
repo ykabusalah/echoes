@@ -4,6 +4,7 @@ import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { ArchetypeIcon, archetypeColors, archetypeDescriptions } from '@/app/components/ArchetypeIcons'
+import { useArchetype } from '@/app/components/ArchetypeThemeProvider'
 
 interface ArchetypeStats {
   total: number
@@ -26,6 +27,7 @@ interface RecommendedStory {
 function QuizResultsContent() {
   const searchParams = useSearchParams()
   const archetype = searchParams.get('archetype') || 'wanderer'
+  const { setArchetype } = useArchetype()
   
   const [stats, setStats] = useState<ArchetypeStats | null>(null)
   const [story, setStory] = useState<RecommendedStory | null>(null)
@@ -36,6 +38,13 @@ function QuizResultsContent() {
 
   const info = archetypeDescriptions[archetype.toLowerCase()] || archetypeDescriptions.wanderer
   const color = archetypeColors[archetype.toLowerCase()] || archetypeColors.wanderer
+
+  // Set archetype theme when results load
+  useEffect(() => {
+    if (archetype) {
+      setArchetype(archetype.toLowerCase() as 'wanderer' | 'guardian' | 'seeker' | 'flame' | 'dreamer' | 'shadow')
+    }
+  }, [archetype, setArchetype])
 
   useEffect(() => {
     fetch('/api/archetypes/stats')
