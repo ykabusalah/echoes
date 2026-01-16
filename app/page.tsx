@@ -459,12 +459,7 @@ export default function Home() {
             </div>
             <div className="flex items-center gap-4">
               {profile && (
-                <Link 
-                  href="/quiz" 
-                  className="text-xs text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--foreground))] transition-colors"
-                >
-                  Retake Quiz
-                </Link>
+                <Link href="/quiz?retake=true">Retake Quiz</Link>
               )}
               <p className="text-xs text-[hsl(var(--secondary-foreground))]">
                 Built with Next.js, Prisma, Neon & Claude AI
