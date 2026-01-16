@@ -20,179 +20,172 @@ export const archetypeInfo: Record<Archetype, { name: string; title: string; des
     name: 'wanderer',
     title: 'The Wanderer',
     description: 'You follow the wind wherever it blows. Curiosity is your compass, and every door is an invitation. You find beauty in the unknown and trust that the path will reveal itself.',
-    color: '#60a5fa'  // Blue
+    color: '#60a5fa'
   },
   guardian: {
     name: 'guardian',
     title: 'The Guardian',
     description: 'You stand between those you love and the darkness. Loyalty is your armor, sacrifice your sword. When others flee, you hold the line.',
-    color: '#4ade80'  // Green
+    color: '#4ade80'
   },
   seeker: {
     name: 'seeker',
     title: 'The Seeker',
     description: 'Truth matters more than comfort. You pull at threads others ignore, ask questions that make people uncomfortable. Every mystery is a puzzle waiting to be solved.',
-    color: '#a78bfa'  // Purple
+    color: '#a78bfa'
   },
   flame: {
     name: 'flame',
     title: 'The Flame',
     description: 'You burn bright and fast. Hesitation is a foreign language. When the world demands action, you are already moving.',
-    color: '#f97316'  // Orange
+    color: '#f97316'
   },
   dreamer: {
     name: 'dreamer',
     title: 'The Dreamer',
     description: 'You feel the world more deeply than most. Hope is your rebellion against cynicism. In the darkest moments, you find light others cannot see.',
-    color: '#f472b6'  // Pink
+    color: '#f472b6'
   },
   shadow: {
     name: 'shadow',
     title: 'The Shadow',
     description: 'You see the angles others miss. Survival requires pragmatism, and you play the long game. Trust is earned slowly, but your loyalty, once given, is absolute.',
-    color: '#6b7280'  // Gray
+    color: '#6b7280'
   }
 }
 
-// Rebalanced 12-question quiz
-// Design principles:
-// 1. Each archetype has exactly 4 primary (2pt) answers across the quiz
-// 2. Primary answers are distributed across different positions (1st, 2nd, 3rd, 4th)
-// 3. Each question has 4 answers covering different archetypes
-// 4. Secondary (1pt) scores create meaningful overlaps between archetypes
-
+// 12-question quiz: ~9 grounded real-life, ~3 light hypotheticals
+// Each archetype has exactly 4 primary (2pt) answers
 export const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
-    scenario: "You find a door in the forest that wasn't there yesterday. Moonlight spills through the cracks.",
+    scenario: "You're at a restaurant and realize your meal is completely wrong. What do you do?",
     answers: [
-      { text: "Walk around it first, checking for other paths", scores: { wanderer: 2, seeker: 1 } },
-      { text: "Open it immediately", scores: { flame: 2, wanderer: 1 } },
-      { text: "Knock politely and wait", scores: { dreamer: 2, guardian: 1 } },
-      { text: "Watch from a distance to see if anyone emerges", scores: { shadow: 2, seeker: 1 } }
+      { text: "Send it back immediately—I ordered what I wanted", scores: { flame: 2, seeker: 1 } },
+      { text: "Eat it anyway—I don't want to make a fuss", scores: { guardian: 2, dreamer: 1 } },
+      { text: "Flag down the server and calmly explain the mistake", scores: { seeker: 2, shadow: 1 } },
+      { text: "Try it first—maybe this is actually better", scores: { wanderer: 2, dreamer: 1 } }
     ]
   },
   {
     id: 2,
-    scenario: "A friend asks you to keep a secret that could hurt someone else if it stays hidden.",
+    scenario: "A coworker takes credit for your idea in a meeting. How do you react?",
     answers: [
-      { text: "Investigate first before making any decision", scores: { seeker: 2, shadow: 1 } },
-      { text: "Keep it. Loyalty to those I love comes first", scores: { guardian: 2, shadow: 1 } },
-      { text: "Confront my friend and demand they fix this themselves", scores: { flame: 2, guardian: 1 } },
-      { text: "Follow my heart, even if it means breaking a promise", scores: { dreamer: 2, wanderer: 1 } }
+      { text: "Call them out right there—everyone needs to know", scores: { flame: 2, seeker: 1 } },
+      { text: "Let it go this time, but watch them more carefully now", scores: { shadow: 2, guardian: 1 } },
+      { text: "Talk to them privately afterward to understand why", scores: { dreamer: 2, seeker: 1 } },
+      { text: "Mention it casually later: 'Yeah, I was excited when I first thought of that'", scores: { wanderer: 2, shadow: 1 } }
     ]
   },
   {
     id: 3,
-    scenario: "You're offered a gift wrapped in black silk. The giver says you can never know what's inside until you open it.",
+    scenario: "You find a wallet on the street with $500 cash and an ID inside.",
     answers: [
-      { text: "Refuse. I need to understand what I'm accepting", scores: { guardian: 2, seeker: 1 } },
-      { text: "Accept it and open it immediately, rules be damned", scores: { flame: 2, wanderer: 1 } },
-      { text: "Accept it. Mystery is part of the beauty", scores: { wanderer: 2, dreamer: 1 } },
-      { text: "Accept it, then find a way to learn what's inside later", scores: { shadow: 2, seeker: 1 } }
+      { text: "Track down the owner myself and return it in person", scores: { guardian: 2, flame: 1 } },
+      { text: "Turn it in to the nearest police station", scores: { seeker: 2, guardian: 1 } },
+      { text: "Mail the wallet back anonymously—no need for credit", scores: { shadow: 2, wanderer: 1 } },
+      { text: "Return everything and imagine how relieved they'll be", scores: { dreamer: 2, guardian: 1 } }
     ]
   },
   {
     id: 4,
-    scenario: "A stranger collapses in the street. Others walk past. You notice something glinting in their pocket.",
+    scenario: "You have a free Saturday with absolutely no obligations. What sounds most appealing?",
     answers: [
-      { text: "Rush in without thinking. Someone needs help now", scores: { flame: 2, guardian: 1 } },
-      { text: "Help them first. The glinting thing doesn't matter", scores: { guardian: 2, dreamer: 1 } },
-      { text: "Call for help while investigating what they're carrying", scores: { seeker: 2, shadow: 1 } },
-      { text: "Help them, but keep one eye on that pocket", scores: { shadow: 2, flame: 1 } }
+      { text: "Drive somewhere I've never been, no destination in mind", scores: { wanderer: 2, flame: 1 } },
+      { text: "Finally organize that closet or finish a lingering project", scores: { guardian: 2, seeker: 1 } },
+      { text: "Binge a documentary series I've been meaning to watch", scores: { seeker: 2, shadow: 1 } },
+      { text: "Call up friends and see what spontaneous plans emerge", scores: { dreamer: 2, wanderer: 1 } }
     ]
   },
   {
     id: 5,
-    scenario: "You discover you have the power to see one day into the future, but only once. When do you use it?",
+    scenario: "Your friend is about to make a decision you think is a huge mistake.",
     answers: [
-      { text: "Never. The future should remain unwritten", scores: { dreamer: 2, wanderer: 1 } },
-      { text: "Save it for when someone I love is in danger", scores: { guardian: 2, dreamer: 1 } },
-      { text: "Use it now. Who knows if I'll have tomorrow?", scores: { flame: 2, wanderer: 1 } },
-      { text: "Study the power first to understand its limits", scores: { seeker: 2, shadow: 1 } }
+      { text: "Tell them exactly what I think—they need to hear it", scores: { flame: 2, guardian: 1 } },
+      { text: "Support them no matter what—it's their life to live", scores: { dreamer: 2, wanderer: 1 } },
+      { text: "Ask questions to help them think it through themselves", scores: { seeker: 2, shadow: 1 } },
+      { text: "Share my concerns once, then step back and let them decide", scores: { shadow: 2, guardian: 1 } }
     ]
   },
   {
     id: 6,
-    scenario: "Two paths diverge. One is well-lit and marked 'Safe.' The other descends into fog with no signs.",
+    scenario: "You're offered a promotion that pays significantly more but requires relocating far from family.",
     answers: [
-      { text: "The fog path. Safety is an illusion anyway", scores: { wanderer: 2, flame: 1 } },
-      { text: "The fog path. That's where the real story lives", scores: { dreamer: 2, wanderer: 1 } },
-      { text: "The safe path. There's no shame in caution", scores: { guardian: 2, shadow: 1 } },
-      { text: "Scout ahead on the fog path before committing", scores: { shadow: 2, seeker: 1 } }
+      { text: "Take it—this is the opportunity I've been waiting for", scores: { wanderer: 2, flame: 1 } },
+      { text: "Decline—some things matter more than career advancement", scores: { guardian: 2, dreamer: 1 } },
+      { text: "Negotiate hard—maybe there's a remote option or compromise", scores: { shadow: 2, seeker: 1 } },
+      { text: "Take time to really weigh what I'd gain versus what I'd lose", scores: { seeker: 2, dreamer: 1 } }
     ]
   },
   {
     id: 7,
-    scenario: "You can save a village by telling a lie, or save your integrity by telling the truth. The village will burn if you're honest.",
+    scenario: "At a party, you notice someone sitting alone looking uncomfortable.",
     answers: [
-      { text: "Tell the truth. I can't build anything on a foundation of lies", scores: { seeker: 2, flame: 1 } },
-      { text: "Lie without hesitation. People matter more than principles", scores: { guardian: 2, shadow: 1 } },
-      { text: "Find a third option. There's always another way", scores: { dreamer: 2, seeker: 1 } },
-      { text: "Lie now, then expose the truth once the danger passes", scores: { shadow: 2, flame: 1 } }
+      { text: "Walk right over and introduce myself", scores: { dreamer: 2, guardian: 1 } },
+      { text: "Point them out to the host—it's their job to handle it", scores: { shadow: 2, seeker: 1 } },
+      { text: "Catch their eye and give a friendly nod from across the room", scores: { wanderer: 2, shadow: 1 } },
+      { text: "Walk over with a drink: 'You look like you could use this'", scores: { flame: 2, dreamer: 1 } }
     ]
   },
   {
     id: 8,
-    scenario: "You inherit a map to a place that doesn't exist on any other chart. The last person who followed it never returned.",
+    scenario: "You discover a close friend has been lying to you for months about something important.",
     answers: [
-      { text: "Pack immediately. This is what I've been waiting for", scores: { wanderer: 2, flame: 1 } },
-      { text: "Research the last explorer first. What happened to them?", scores: { seeker: 2, shadow: 1 } },
-      { text: "Destroy the map. Some things should stay lost", scores: { guardian: 2, dreamer: 1 } },
-      { text: "This could be valuable. Find out what others would pay for it", scores: { shadow: 2, seeker: 1 } }
+      { text: "Confront them immediately—I need answers now", scores: { flame: 2, seeker: 1 } },
+      { text: "Give them space to explain before I react", scores: { dreamer: 2, guardian: 1 } },
+      { text: "Distance myself while I figure out what this means", scores: { shadow: 2, wanderer: 1 } },
+      { text: "Dig deeper first—I need to understand the full picture", scores: { seeker: 2, shadow: 1 } }
     ]
   },
   {
     id: 9,
-    scenario: "You witness an injustice, but speaking up would put you in danger. Staying silent keeps you safe.",
+    scenario: "You witness a stranger being treated unfairly by someone in authority. Speaking up could cause problems for you.",
     answers: [
-      { text: "Speak up immediately. Silence makes me complicit", scores: { flame: 2, guardian: 1 } },
-      { text: "Find a way to help from the shadows", scores: { shadow: 2, guardian: 1 } },
-      { text: "Gather evidence first. Build an unassailable case", scores: { seeker: 2, shadow: 1 } },
-      { text: "Trust that standing for what's right will work out", scores: { dreamer: 2, flame: 1 } }
+      { text: "Speak up immediately—silence makes me complicit", scores: { flame: 2, guardian: 1 } },
+      { text: "Find a way to help from the sidelines without direct confrontation", scores: { shadow: 2, guardian: 1 } },
+      { text: "Document what's happening—evidence matters more than gestures", scores: { seeker: 2, shadow: 1 } },
+      { text: "Trust that doing the right thing will work out somehow", scores: { dreamer: 2, flame: 1 } }
     ]
   },
   {
     id: 10,
-    scenario: "Someone you admire asks you to do something that conflicts with your values. Refusing might end the relationship.",
+    scenario: "You're planning a vacation. What matters most to you?",
     answers: [
-      { text: "Refuse. If they can't accept who I am, the relationship was already over", scores: { flame: 2, seeker: 1 } },
-      { text: "Ask them why this matters to them. Understand their perspective first", scores: { dreamer: 2, guardian: 1 } },
-      { text: "Find a compromise that satisfies both of us", scores: { shadow: 2, dreamer: 1 } },
-      { text: "This is a chance to grow. Maybe my values need examining", scores: { wanderer: 2, seeker: 1 } }
+      { text: "Going somewhere I've never been—the more unfamiliar, the better", scores: { wanderer: 2, dreamer: 1 } },
+      { text: "Making sure everyone coming has a good time", scores: { guardian: 2, dreamer: 1 } },
+      { text: "Learning something—history, culture, a new skill", scores: { seeker: 2, wanderer: 1 } },
+      { text: "Getting the best deal and having a solid backup plan", scores: { shadow: 2, seeker: 1 } }
     ]
   },
   {
     id: 11,
-    scenario: "You're lost in unfamiliar territory. Night is falling. You see a light in the distance, but also a shelter nearby.",
+    scenario: "Hypothetical: You can know the answer to any one question about your future, but you can never change what you learn.",
     answers: [
-      { text: "Head for the light. Other people mean answers", scores: { wanderer: 2, dreamer: 1 } },
-      { text: "Take the shelter. Survive the night, then explore", scores: { guardian: 2, shadow: 1 } },
-      { text: "Investigate the light cautiously. Knowledge is worth the risk", scores: { seeker: 2, wanderer: 1 } },
-      { text: "Make a fire to signal for help and wait", scores: { dreamer: 2, guardian: 1 } }
+      { text: "Ask immediately—knowledge is power", scores: { seeker: 2, flame: 1 } },
+      { text: "Never ask—some things should remain unknown", scores: { dreamer: 2, wanderer: 1 } },
+      { text: "Ask something that helps me protect the people I love", scores: { guardian: 2, shadow: 1 } },
+      { text: "Ask about something I could use to my advantage", scores: { shadow: 2, flame: 1 } }
     ]
   },
   {
     id: 12,
-    scenario: "You discover that everything you believed about your past was a carefully constructed lie.",
+    scenario: "Hypothetical: You find a journal that reveals everything you believed about your family history was a lie.",
     answers: [
-      { text: "Find out who lied and why. The truth will set me free", scores: { seeker: 2, flame: 1 } },
-      { text: "Rage against those who deceived me", scores: { flame: 2, shadow: 1 } },
-      { text: "Grieve, then rebuild. The past doesn't define who I become", scores: { dreamer: 2, wanderer: 1 } },
-      { text: "Protect the people I love from the same truth if it would hurt them", scores: { guardian: 2, dreamer: 1 } }
+      { text: "Investigate relentlessly until I know the full truth", scores: { seeker: 2, flame: 1 } },
+      { text: "Protect my family from this—some truths do more harm than good", scores: { guardian: 2, dreamer: 1 } },
+      { text: "Grieve, then move on—the past doesn't define who I become", scores: { dreamer: 2, wanderer: 1 } },
+      { text: "Figure out who else knows and what they want", scores: { shadow: 2, seeker: 1 } }
     ]
   }
 ]
 
-// Distribution check (for reference):
-// Wanderer: Q1a, Q3c, Q8a, Q11a = 4 primary (2pt)
-// Guardian: Q2b, Q3a, Q4b, Q11b, Q12d = 5 primary - reduced by moving Q4b emphasis
-// Actually let me recount properly:
-// 
-// Position 1 (a): Wanderer(Q1), Seeker(Q2), Guardian(Q3), Flame(Q4,Q9), Dreamer(Q5), Wanderer(Q6,Q8), Flame(Q10), Wanderer(Q11), Seeker(Q12)
-// Position 2 (b): Flame(Q1), Guardian(Q2,Q3), Guardian(Q4), Guardian(Q5), Dreamer(Q6), Guardian(Q7), Seeker(Q8), Shadow(Q9), Dreamer(Q10), Guardian(Q11), Flame(Q12)
-// Position 3 (c): Dreamer(Q1), Flame(Q2), Wanderer(Q3), Seeker(Q4), Flame(Q5), Guardian(Q6), Dreamer(Q7), Guardian(Q8), Seeker(Q9), Shadow(Q10), Seeker(Q11), Dreamer(Q12)
-// Position 4 (d): Shadow(Q1), Dreamer(Q2), Shadow(Q3,Q4), Seeker(Q5), Shadow(Q6,Q7,Q8), Dreamer(Q9), Wanderer(Q10), Dreamer(Q11), Guardian(Q12)
+// Balance verification:
+// Wanderer: Q1d, Q4a, Q6a, Q10a = 4 primary
+// Guardian: Q1b, Q3a, Q6b, Q10b = 4 primary
+// Seeker:   Q1c, Q3b, Q11a, Q12a = 4 primary
+// Flame:    Q1a, Q2a, Q5a, Q8a = 4 primary
+// Dreamer:  Q4d, Q5b, Q7a, Q11b = 4 primary
+// Shadow:   Q2b, Q5d, Q9b, Q11d = 4 primary
 
 export function calculateArchetype(answers: number[]): { archetype: Archetype; scores: ArchetypeScores } {
   const scores: ArchetypeScores = {
@@ -218,8 +211,8 @@ export function calculateArchetype(answers: number[]): { archetype: Archetype; s
   // In case of tie, use a deterministic tiebreaker (alphabetical order)
   const sortedArchetypes = Object.entries(scores)
     .sort((a, b) => {
-      if (b[1] !== a[1]) return b[1] - a[1]  // Higher score first
-      return a[0].localeCompare(b[0])        // Alphabetical tiebreaker
+      if (b[1] !== a[1]) return b[1] - a[1]
+      return a[0].localeCompare(b[0])
     })
   
   const archetype = sortedArchetypes[0][0] as Archetype
@@ -239,7 +232,6 @@ export function getArchetypeThemes(archetype: Archetype): string[] {
   return themes[archetype]
 }
 
-// Utility to verify balance (for testing)
 export function verifyQuizBalance(): { 
   primaryCounts: Record<Archetype, number>
   positionDistribution: Record<Archetype, number[]>
