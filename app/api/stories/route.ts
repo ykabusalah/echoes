@@ -5,7 +5,6 @@ export async function GET(request: NextRequest) {
   try {
     const now = new Date()
 
-    // Get featured story (only one)
     const featuredStory = await prisma.story.findFirst({
       where: {
         status: 'FEATURED'
@@ -16,8 +15,6 @@ export async function GET(request: NextRequest) {
       }
     })
 
-    // Get all visible stories (ACTIVE or FEATURED only)
-    // Also respects releaseAt for scheduled releases
     const stories = await prisma.story.findMany({
       where: {
         status: { in: ['ACTIVE', 'FEATURED'] },
@@ -36,7 +33,6 @@ export async function GET(request: NextRequest) {
       ]
     })
 
-    // Format response
     const formattedStories = stories.map(story => ({
       id: story.id,
       title: story.title,

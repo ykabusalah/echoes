@@ -7,12 +7,11 @@ export async function GET(
 ) {
   const { sessionId } = await params
 
-  // Get the session with all choice events
   const session = await prisma.readerSession.findUnique({
     where: { id: sessionId },
     include: {
       story: true,
-      currentScene: true,
+      Scene: true,
       choiceEvents: {
         include: {
           choice: {
@@ -30,7 +29,6 @@ export async function GET(
     return NextResponse.json({ error: 'Session not found' }, { status: 404 })
   }
 
-  // For each choice made, get the stats
   const choicesWithStats = await Promise.all(
     session.choiceEvents.map(async (event) => {
       const allChoices = await prisma.choice.findMany({
@@ -55,7 +53,6 @@ export async function GET(
     })
   )
 
-  // Get ending stats
   const endingStats = await prisma.readerSession.groupBy({
     by: ['currentSceneId'],
     where: {
@@ -73,7 +70,7 @@ export async function GET(
 
   return NextResponse.json({
     storyTitle: session.story.title,
-    endingTitle: session.currentScene?.title || 'Unknown Ending',
+    endingTitle: session.Scene?.title || 'Unknown Ending',
     endingPercentage,
     totalCompletions,
     choices: choicesWithStats

@@ -1,13 +1,11 @@
 import { prisma } from '@/lib/db'
 import { NextRequest, NextResponse } from 'next/server'
 
-// Auth check helper
 function isAuthorized(request: NextRequest): boolean {
   const authHeader = request.headers.get('authorization')
   return authHeader === `Bearer ${process.env.ADMIN_SECRET}`
 }
 
-// GET - List ALL stories (including drafts, scheduled, archived)
 export async function GET(request: NextRequest) {
   if (!isAuthorized(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -46,7 +44,6 @@ export async function GET(request: NextRequest) {
       }
     })
 
-    // Group by status for easier admin view
     const grouped = {
       featured: formattedStories.filter(s => s.status === 'FEATURED'),
       active: formattedStories.filter(s => s.status === 'ACTIVE'),
@@ -74,7 +71,6 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// PATCH - Update story status/release date
 export async function PATCH(request: NextRequest) {
   if (!isAuthorized(request)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -93,29 +89,10 @@ export async function PATCH(request: NextRequest) {
       return NextResponse.json({ error: 'Story not found' }, { status: 404 })
     }
 
-    let updateData: any = {}
+    let updateData: Record<string, unknown> = {}
 
     switch (action) {
-      case 'release_now':
-        // Release immediately (set to ACTIVE)
-        updateData = { releaseAt: new Date(), status: 'ACTIVE' }
-        break
-
-      case 'schedule':
-        // Schedule for future release (will be ACTIVE when releaseAt passes)
-        if (!releaseAt) {
-          return NextResponse.json({ error: 'releaseAt required for scheduling' }, { status: 400 })
-        }
-        updateData = { releaseAt: new Date(releaseAt), status: 'ACTIVE' }
-        break
-
-      case 'unrelease':
-        // Move back to draft
-        updateData = { releaseAt: null, status: 'DRAFT' }
-        break
-
       case 'activate':
-        // Make active (visible to public)
         updateData = { status: 'ACTIVE' }
         if (!story.releaseAt) {
           updateData.releaseAt = new Date()
@@ -123,12 +100,10 @@ export async function PATCH(request: NextRequest) {
         break
 
       case 'deactivate':
-        // Move to draft (hidden from public)
         updateData = { status: 'DRAFT' }
         break
 
       case 'feature':
-        // Make this the featured story (unfeature others first)
         await prisma.story.updateMany({
           where: { status: 'FEATURED' },
           data: { status: 'ACTIVE' }
@@ -140,22 +115,25 @@ export async function PATCH(request: NextRequest) {
         break
 
       case 'unfeature':
-        // Remove featured status but keep active
         updateData = { status: 'ACTIVE' }
         break
 
       case 'archive':
-        // Archive (hide from public)
         updateData = { status: 'ARCHIVED' }
         break
 
       case 'unarchive':
-        // Restore from archive to draft
         updateData = { status: 'DRAFT' }
         break
 
+      case 'schedule':
+        if (!releaseAt) {
+          return NextResponse.json({ error: 'releaseAt required for scheduling' }, { status: 400 })
+        }
+        updateData = { releaseAt: new Date(releaseAt), status: 'ACTIVE' }
+        break
+
       case 'set_tier':
-        // Update tier
         const { tier } = body
         if (tier === undefined || tier < 1 || tier > 3) {
           return NextResponse.json({ error: 'tier must be 1, 2, or 3' }, { status: 400 })
