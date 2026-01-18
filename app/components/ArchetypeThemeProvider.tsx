@@ -2,33 +2,36 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react'
 
-type Archetype = 'wanderer' | 'guardian' | 'seeker' | 'flame' | 'dreamer' | 'shadow' | null
+type Archetype = 'wanderer' | 'guardian' | 'seeker' | 'flame' | 'dreamer' | 'shadow' | 'jackal' | null
 
-// HSL values for each archetype (without the hsl() wrapper)
 const archetypeHSL: Record<string, { light: string; dark: string }> = {
   wanderer: { 
-    light: '217 91% 60%',    // Blue
+    light: '217 91% 60%',
     dark: '217 91% 70%' 
   },
   guardian: { 
-    light: '142 71% 45%',    // Green
+    light: '142 71% 45%',
     dark: '142 71% 55%' 
   },
   seeker: { 
-    light: '262 83% 58%',    // Purple (default brand)
+    light: '262 83% 58%',
     dark: '262 83% 68%' 
   },
   flame: { 
-    light: '24 95% 53%',     // Orange
+    light: '24 95% 53%',
     dark: '24 95% 63%' 
   },
   dreamer: { 
-    light: '330 81% 60%',    // Pink
+    light: '330 81% 60%',
     dark: '330 81% 70%' 
   },
   shadow: { 
-    light: '240 10% 45%',    // Gray
+    light: '240 10% 45%',
     dark: '240 10% 60%' 
+  },
+  jackal: {
+    light: '32 85% 38%',
+    dark: '32 85% 50%'
   }
 }
 
@@ -66,7 +69,6 @@ export function ArchetypeThemeProvider({ children }: { children: ReactNode }) {
   const [archetype, setArchetypeState] = useState<Archetype>(null)
   const [isLoading, setIsLoading] = useState(true)
 
-  // Fetch user's archetype on mount
   useEffect(() => {
     async function fetchArchetype() {
       const visitorId = getVisitorId()
@@ -94,13 +96,11 @@ export function ArchetypeThemeProvider({ children }: { children: ReactNode }) {
     fetchArchetype()
   }, [])
 
-  // Apply theme when archetype changes
   useEffect(() => {
     if (!archetype) return
 
     applyArchetypeTheme(archetype)
 
-    // Listen for theme changes (dark/light mode toggle)
     const root = document.documentElement
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {

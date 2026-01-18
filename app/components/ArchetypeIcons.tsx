@@ -75,22 +75,38 @@ export function ShadowIcon({ className }: IconProps) {
   )
 }
 
+export function JackalIcon({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M32 56 L16 40 L16 28 L32 20 L48 28 L48 40 Z" strokeLinejoin="round" />
+      <path d="M16 28 L8 8 L26 22" strokeLinejoin="round" />
+      <path d="M48 28 L56 8 L38 22" strokeLinejoin="round" />
+      <circle cx="26" cy="34" r="2" fill="currentColor" />
+      <circle cx="38" cy="34" r="2" fill="currentColor" />
+      <path d="M32 42 L32 48" strokeLinecap="round" />
+      <circle cx="32" cy="42" r="1.5" fill="currentColor" />
+    </svg>
+  )
+}
+
 export const archetypeIcons: Record<string, React.FC<IconProps>> = {
   wanderer: WandererIcon,
   guardian: GuardianIcon,
   seeker: SeekerIcon,
   flame: FlameIcon,
   dreamer: DreamerIcon,
-  shadow: ShadowIcon
+  shadow: ShadowIcon,
+  jackal: JackalIcon
 }
 
 export const archetypeColors: Record<string, string> = {
-  wanderer: 'hsl(200, 70%, 50%)',   // Blue - exploration
-  guardian: 'hsl(45, 80%, 50%)',    // Gold - protection
-  seeker: 'hsl(270, 60%, 55%)',     // Purple - mystery
-  flame: 'hsl(15, 85%, 55%)',       // Orange-red - passion
-  dreamer: 'hsl(300, 50%, 60%)',    // Pink-purple - imagination
-  shadow: 'hsl(240, 20%, 40%)'      // Dark blue-gray - depth
+  wanderer: 'hsl(200, 70%, 50%)',
+  guardian: 'hsl(45, 80%, 50%)',
+  seeker: 'hsl(270, 60%, 55%)',
+  flame: 'hsl(15, 85%, 55%)',
+  dreamer: 'hsl(300, 50%, 60%)',
+  shadow: 'hsl(240, 20%, 40%)',
+  jackal: 'hsl(32, 85%, 40%)'
 }
 
 export const archetypeDescriptions: Record<string, { title: string; tagline: string; description: string }> = {
@@ -102,12 +118,12 @@ export const archetypeDescriptions: Record<string, { title: string; tagline: str
   guardian: {
     title: 'The Guardian',
     tagline: 'Your strength shields those you love',
-    description: 'You stand between chaos and those who cannot protect themselves. Loyalty is not just a word to you—it is the foundation of who you are. You find purpose in protection.'
+    description: 'You stand between chaos and those who cannot protect themselves. Loyalty is not just a word to you. It is the foundation of who you are. You find purpose in protection.'
   },
   seeker: {
     title: 'The Seeker',
     tagline: 'Truth hides, but not from you',
-    description: 'Questions drive you forward. You see patterns where others see noise, connections where others see coincidence. The mystery is not something to fear—it is something to solve.'
+    description: 'Questions drive you forward. You see patterns where others see noise, connections where others see coincidence. The mystery is not something to fear. It is something to solve.'
   },
   flame: {
     title: 'The Flame',
@@ -117,12 +133,17 @@ export const archetypeDescriptions: Record<string, { title: string; tagline: str
   dreamer: {
     title: 'The Dreamer',
     tagline: 'You see worlds others cannot',
-    description: 'Reality is just one possibility to you. Your imagination opens doors that logic keeps locked. You believe in transformation—that what is does not have to be what will be.'
+    description: 'Reality is just one possibility to you. Your imagination opens doors that logic keeps locked. You believe in transformation. That what is does not have to be what will be.'
   },
   shadow: {
     title: 'The Shadow',
     tagline: 'Darkness holds no fear for you',
     description: 'You understand that light cannot exist without shadow. You embrace complexity, reject easy answers, and find beauty in the spaces between. Redemption interests you more than purity.'
+  },
+  jackal: {
+    title: 'The Jackal',
+    tagline: 'Opportunity knocks. You answer.',
+    description: 'You play the hand you are dealt and you play it well. While others agonize over right and wrong, you ask a simpler question: what works? Self-interest is not something to hide. It is something to master.'
   }
 }
 
