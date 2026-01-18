@@ -82,7 +82,6 @@ function ArrowLeftIcon({ className }: { className?: string }) {
   )
 }
 
-// Improved TypewriterText - uses content as key, not scene ID
 function TypewriterText({ 
   text, 
   onComplete,
@@ -97,14 +96,12 @@ function TypewriterText({
   const intervalRef = useRef<NodeJS.Timeout | null>(null)
   const hasCalledComplete = useRef(false)
 
-  // Reset when text changes
   useEffect(() => {
     setDisplayIndex(0)
     setIsComplete(false)
     hasCalledComplete.current = false
   }, [text])
 
-  // Handle skip from parent
   useEffect(() => {
     if (skipToEnd && !isComplete) {
       if (intervalRef.current) clearInterval(intervalRef.current)
@@ -117,7 +114,6 @@ function TypewriterText({
     }
   }, [skipToEnd, text, isComplete, onComplete])
 
-  // Typewriter effect
   useEffect(() => {
     if (isComplete || displayIndex >= text.length) {
       if (!isComplete) {
@@ -155,10 +151,8 @@ function TypewriterText({
   )
 }
 
-// Clean choice text by removing [Archetype Path] prefixes
 function cleanChoiceText(text: string): string {
-  // Remove patterns like "[Wanderer Path]", "[Guardian path]", etc.
-  return text.replace(/^\[(?:wanderer|guardian|seeker|flame|dreamer|shadow)\s*path\]\s*/i, '').trim()
+  return text.replace(/^\[(?:wanderer|guardian|seeker|flame|dreamer|shadow|jackal)\s*path\]\s*/i, '').trim()
 }
 
 export default function PlayStory() {
@@ -167,7 +161,7 @@ export default function PlayStory() {
 
   const [story, setStory] = useState<Story | null>(null)
   const [currentScene, setCurrentScene] = useState<Scene | null>(null)
-  const [sceneContent, setSceneContent] = useState<string>('') // Stable content reference
+  const [sceneContent, setSceneContent] = useState<string>('')
   const [loading, setLoading] = useState(true)
   const [history, setHistory] = useState<Scene[]>([])
   const [visitorId, setVisitorId] = useState<string>('')
@@ -189,7 +183,6 @@ export default function PlayStory() {
     setVisitorId(getVisitorId())
   }, [])
 
-  // Generate personalized choice without replacing entire scene
   const generatePersonalizedChoice = useCallback(async (sceneId: string) => {
     setGeneratingChoice(true)
     try {
@@ -203,7 +196,6 @@ export default function PlayStory() {
         const sceneRes = await fetch(`/api/scenes/${sceneId}?visitorId=${visitorId}`)
         if (sceneRes.ok) {
           const updatedScene = await sceneRes.json()
-          // Only update choices, not the whole scene (prevents typewriter reset)
           setCurrentScene(prev => {
             if (prev && prev.id === sceneId) {
               return { ...prev, choicesFrom: updatedScene.choicesFrom }
@@ -231,7 +223,7 @@ export default function PlayStory() {
           if (sceneRes.ok) {
             const fullScene = await sceneRes.json()
             setCurrentScene(fullScene)
-            setSceneContent(fullScene.content) // Set stable content
+            setSceneContent(fullScene.content)
             setSkipText(false)
             
             if (fullScene.isBranchPoint) {
@@ -270,6 +262,8 @@ export default function PlayStory() {
   }, [])
 
   async function handleChoice(choice: Choice) {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+    
     setTransitioning(true)
     setShowChoices(false)
     setShowStats(false)
@@ -308,7 +302,7 @@ export default function PlayStory() {
     if (res.ok) {
       const scene = await res.json()
       setCurrentScene(scene)
-      setSceneContent(scene.content) // Update stable content
+      setSceneContent(scene.content)
       setSkipText(false)
 
       if (scene.isBranchPoint && !scene.isEnding) {
@@ -487,7 +481,6 @@ export default function PlayStory() {
             )}
 
             <div className="mb-8">
-              {/* Use sceneContent as key to prevent unnecessary remounts */}
               <TypewriterText 
                 key={sceneContent}
                 text={sceneContent}
@@ -566,7 +559,6 @@ export default function PlayStory() {
                   <span>What will you do?</span>
                 </div>
                 
-                {/* Regular choices - clean the text */}
                 {currentScene.choicesFrom
                   .filter(c => !c.archetypeTarget)
                   .map((choice, index) => (
@@ -583,7 +575,6 @@ export default function PlayStory() {
                     </button>
                   ))}
                 
-                {/* Personalized choice toast + button */}
                 {generatingChoice && (
                   <div className="mt-6 p-4 rounded-lg border border-[hsl(var(--brand)/0.3)] bg-[hsl(var(--brand)/0.05)] animate-fade-in">
                     <div className="flex items-center gap-3">
@@ -598,7 +589,6 @@ export default function PlayStory() {
                   </div>
                 )}
                 
-                {/* Show personalized choice after generation - clean the text */}
                 {!generatingChoice && currentScene.choicesFrom.some(c => c.archetypeTarget) && (
                   <div className="mt-6 animate-fade-in">
                     <div className="flex items-center gap-2 mb-3">
