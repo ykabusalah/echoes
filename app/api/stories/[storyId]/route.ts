@@ -10,11 +10,9 @@ export async function GET(
   const story = await prisma.story.findUnique({
     where: { id: storyId },
     include: {
-      characters: true,
       scenes: {
         where: { isStart: true },
         include: {
-          character: true,
           choicesFrom: {
             include: {
               toScene: true
