@@ -1,0 +1,216 @@
+{
+  "title": "The Ger",
+  "description": "Winter on the steppe. A stranger's horse collapsed outside your door.",
+  "theme": "survival drama",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "The Collapsed Horse",
+      "content": "The wind carries the sound before I see it. A horse's labored breathing. Hooves scraping frozen ground.\n\nI step outside my ger. The morning air burns my lungs. Twenty meters away, a bay mare lies on her side, ribs heaving. Steam rises from her coat. A man crouches beside her, speaking low in a dialect I don't recognize.\n\nHe looks up when my boots crunch the snow. Young face, maybe twenty-five. His deel is good quality but travel-worn. No pack horse. No supplies I can see. The nearest settlement is three days' hard ride.\n\n'My horse,' he says in Mongolian. His accent is strange. 'She just... fell.'\n\nThe mare's eyes are glassy. White foam at her muzzle. I've seen this before. Exhaustion. Maybe worse. The kind that comes from running too far, too fast.\n\nMy own horses watch from the corral. Six head. Barely enough to get my family through winter if the dzud comes hard. And it will come. The signs are everywhere. Birds flying south too early. Ice forming thick on the river.\n\nThe stranger's eyes follow mine to the corral. Calculating.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Invite him inside for tea",
+          "leadsTo": "Hospitality"
+        },
+        {
+          "text": "Examine his horse first",
+          "leadsTo": "The Mare"
+        },
+        {
+          "text": "Ask where he came from",
+          "leadsTo": "Questions"
+        }
+      ]
+    },
+    {
+      "title": "Hospitality",
+      "content": "I gesture toward my ger. 'Come. Tea.'\n\nHe hesitates. Glances back at his horse.\n\n'She won't get up,' I tell him. 'Not yet.'\n\nInside, I stoke the fire. Add dried dung. The stranger takes the guest seat on the left side, but his posture is wrong. Too alert. Eyes moving to the door, the knife on my belt, the rifle hanging from the lattice wall.\n\nMy wife Oyunaa emerges from behind the curtain that divides our sleeping area. She nods to the stranger, sets out bowls. Our daughter Saikhan peers around her mother's legs. Eight years old. Curious about everything.\n\n'I am Batbayar,' I say, pouring salt tea. 'This is my family.'\n\n'Temujin,' he says. Takes the bowl with both hands. Proper respect. But his left hand shakes slightly.\n\nOyunaa catches my eye. She's noticed too. Something about this man isn't right. The expensive deel but no supplies. The way he holds himself like he expects trouble.\n\n'Where do you travel from?' she asks.\n\nTemujin drinks before answering. 'Ulaanbaatar.' Two weeks' journey at least.\n\n'Long way,' I say.\n\nHe nods. Doesn't elaborate.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Press him about his journey",
+          "leadsTo": "Pressure"
+        },
+        {
+          "text": "Offer him food and rest",
+          "leadsTo": "Shelter"
+        },
+        {
+          "text": "Suggest looking at his horse together",
+          "leadsTo": "Outside Again"
+        }
+      ]
+    },
+    {
+      "title": "The Mare",
+      "content": "I kneel beside the horse. She's a good animal. Strong bones, well-cared for. But her breathing is shallow now. Heart racing under my palm.\n\n'How long has she been like this?' I ask.\n\nThe stranger shifts his weight. 'Since dawn.'\n\n'And before? How far did you push her?'\n\n'We... we had to move fast.'\n\nI run my hands down her legs. No breaks. But her hooves are worn nearly smooth. This horse has been running for days, not hours. Maybe weeks.\n\n'She needs water. Warmth.' I look up at him. 'But she might not make it.'\n\nHis face tightens. 'She has to.'\n\n'Why?'\n\nThe question hangs between us. Wind rattles the felt walls of my ger. In the distance, my horses stamp and snort. They smell something they don't like. Fear, maybe. Or death.\n\nThe stranger's hand moves to his waist. Empty. No weapon I can see. But the gesture is automatic. Trained.\n\n'I can't walk from here,' he says finally.\n\n'Where are you going?'\n\nHe doesn't answer. Just stares at his horse. At my corral. At the endless white expanse stretching toward the mountains.\n\nThe mare shudders. Her breathing slows.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Try to save the mare",
+          "leadsTo": "Healing Attempt"
+        },
+        {
+          "text": "Offer to sell him a horse",
+          "leadsTo": "The Bargain"
+        },
+        {
+          "text": "Tell him she's dying",
+          "leadsTo": "Truth"
+        }
+      ]
+    },
+    {
+      "title": "Questions",
+      "content": "'Where did you come from?' I keep my voice neutral. Neighborly.\n\nThe stranger's jaw tightens. 'East.'\n\n'Long way. What brings you west in winter?'\n\nHe stands slowly. His horse hasn't moved. Steam still rises from her coat but less now. The cold is winning.\n\n'Family business,' he says.\n\nI nod like this explains everything. But my mind is working. East means the mining country. The new developments the government is pushing. Lots of money there. Lots of people who don't like the changes.\n\n'Mining work?'\n\nHis eyes sharpen. 'You ask many questions.'\n\n'Man shows up with a dying horse, I wonder how to help.'\n\nWe study each other. The wind picks up, driving snow against my ger's walls. My daughter's laughter carries from inside. Oyunaa is probably starting the midday meal.\n\nThe stranger looks at my home. At the smoke rising from the chimney. At the warmth he's not sharing.\n\n'I'm not a bad man,' he says quietly.\n\n'Good men don't usually need to say so.'\n\nHe almost smiles. 'Fair point.' He looks at his horse again. 'I need to get to Altai sum. Before the snow gets worse.'\n\nTwo days west. Through the mountain passes.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Invite him inside anyway",
+          "leadsTo": "Hospitality"
+        },
+        {
+          "text": "Warn him about the passes in winter",
+          "leadsTo": "The Warning"
+        },
+        {
+          "text": "Ask why he's really running",
+          "leadsTo": "The Truth Comes Out"
+        }
+      ]
+    },
+    {
+      "title": "Pressure",
+      "content": "I refill his bowl. Steam rises between us. 'Ulaanbaatar to here... that's hard travel. Especially alone.'\n\nTemujin's knuckles whiten around the bowl. 'Yes.'\n\n'Most people, they travel with others in winter. Safer.'\n\nOyunaa pretends to tend the fire but I know she's listening. Saikhan has disappeared behind the curtain but she's probably listening too.\n\n'I prefer to travel alone,' he says.\n\n'Even through bandit country?'\n\nThe words hit him like I knew they would. His whole body goes rigid. The bowl stops halfway to his lips.\n\n'What bandits?'\n\nI shrug. 'The ones everyone talks about. The mining protests got ugly last month. Road closures. Some officials went missing.'\n\nTemujin sets down his tea. His left hand is definitely shaking now.\n\n'I wouldn't know about that.'\n\n'Of course not.' I drink my own tea slowly. 'Just strange, a young man traveling alone. Good clothes but no supplies. Expensive horse ridden nearly to death.'\n\nOyunaa makes a small sound. Warning me, maybe. Or agreeing.\n\nThe stranger stands abruptly. 'I should check on my horse.'\n\n'Sit,' I say. Not quite a command. Not quite a request. 'Finish your tea. Tell me what you're really running from.'",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Confront him directly",
+          "leadsTo": "The Truth Comes Out"
+        },
+        {
+          "text": "Let him go outside",
+          "leadsTo": "Outside Again"
+        },
+        {
+          "text": "Offer help anyway",
+          "leadsTo": "Shelter"
+        }
+      ]
+    },
+    {
+      "title": "Shelter",
+      "content": "'You'll stay here tonight,' I tell him. 'Storm's coming.'\n\nTemujin shakes his head. 'I can't. I have to keep moving.'\n\n'On foot? In a blizzard?' I gesture toward the door. 'Listen.'\n\nWind howls around the ger. The felt walls strain against their bindings. Snow hisses against the roof like thrown sand.\n\n'My horse...'\n\n'Is dying.' The words are harsh but true. 'Maybe dead already.'\n\nOyunaa sets a bowl of mutton stew beside him. The smell fills the ger. Rich and warm. He stares at it like he hasn't seen food in days.\n\n'Eat,' she says gently.\n\nHe does. Fast. Desperate. When did he last have a real meal?\n\n'The police,' he says suddenly. 'Are they... do they come through here?'\n\nI exchange glances with my wife. 'Sometimes. Monthly patrol, usually.'\n\n'When was the last time?'\n\n'Two weeks ago. Maybe three.'\n\nRelief crosses his face. He keeps eating.\n\nSaikhan creeps closer, fascinated by our strange guest. 'Are you a criminal?' she asks.\n\n'Saikhan!' Oyunaa scolds.\n\nBut Temujin smiles. The first real expression I've seen from him. 'That depends,' he tells my daughter, 'on who you ask.'",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Ask what he did",
+          "leadsTo": "The Truth Comes Out"
+        },
+        {
+          "text": "Offer to help him reach Altai",
+          "leadsTo": "The Guide"
+        },
+        {
+          "text": "Insist he leave in the morning",
+          "leadsTo": "Morning Decision"
+        }
+      ]
+    },
+    {
+      "title": "Outside Again",
+      "content": "We step back into the wind. The mare hasn't moved. Her breathing is more labored now.\n\nTemujin kneels beside her. Whispers something I don't catch. His hand rests on her neck.\n\n'She's a good horse,' I say.\n\n'The best.' His voice is thick. 'Carried me three hundred kilometers in five days.'\n\nThree hundred kilometers. That's impossible. Unless...\n\n'You killed her,' I say quietly.\n\nHe nods. 'I killed her.'\n\nThe admission hangs between us. Snow begins to fall. Heavy flakes that will pile up fast.\n\n'What were you running from?'\n\nHe's quiet for a long moment. The mare's breathing grows shallower.\n\n'I was a translator. For the mining consortium. When the protests started...' He stops. Starts again. 'They wanted me to change documents. Make it look like the herders had agreed to relocation.'\n\n'And you refused?'\n\n'I refused.' He looks at me. 'My supervisor... he said I was either with them or against them. That night, his car exploded.'\n\n'You?'\n\n'No. But they think so. I ran.'\n\nThe mare shudders. Goes still.\n\nTemujin closes her eyes gently. 'I'm sorry,' he whispers.\n\nThe snow falls harder. Soon, she'll be covered. Another white mound on the endless steppe.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "Help him bury the horse",
+          "leadsTo": "Burial"
+        },
+        {
+          "text": "Offer him a horse",
+          "leadsTo": "The Bargain"
+        },
+        {
+          "text": "Bring him inside",
+          "leadsTo": "Shelter"
+        }
+      ]
+    },
+    {
+      "title": "The Truth Comes Out",
+      "content": "'I didn't kill anyone,' Temujin says. His voice is steady now. Resigned. 'But they think I did.'\n\n'Who thinks?'\n\n'Mining consortium. Police. Maybe both.'\n\nHe tells the story. The forged documents. The supervisor who wanted bribes. The car bomb that killed three men.\n\n'I was supposed to be in that car,' he finishes. 'Meeting moved at the last minute.'\n\nOyunaa has gone very still. Saikhan senses the tension and retreats behind the curtain.\n\n'So you ran,' I say.\n\n'What choice did I have? Stay and get blamed for murder? Or disappear and let them think I'm guilty?'\n\n'Why Altai?'\n\n'My grandmother. She has a small place near the border. Quiet. No questions.'\n\nThe wind rattles the ger. Snow drives against the felt walls like bullets.\n\n'They'll follow you,' Oyunaa says quietly. 'Eventually.'\n\n'Maybe. But not in winter. Not through the passes.'\n\nI study his face. Desperate but not cruel. Frightened but not lying. At least, I don't think he's lying.\n\n'My horse is dead, isn't she?' he asks.\n\nI nod.\n\nHe closes his eyes. 'Then I'm dead too. Just taking longer to fall down.'",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 7,
+      "choices": [
+        {
+          "text": "Offer to guide him to Altai",
+          "leadsTo": "The Guide"
+        },
+        {
+          "text": "Give him supplies and directions",
+          "leadsTo": "On His Own"
+        },
+        {
+          "text": "Tell him to surrender",
+          "leadsTo": "Turn Back"
+        }
+      ]
+    },
+    {
+      "title": "The Guide",
+      "content": "I make the decision before I can think too hard about it. 'I'll take you to Altai.'\n\nOyunaa's head snaps up. 'Batbayar.'\n\n'Two days there, two days back. We have enough fodder.'\n\n'The dzud is coming. You said so yourself.'\n\nShe's right. Every day matters now. Every bit of preparation. But looking at this young man, I see my own son. Away at university in the city. What if he needed help? What if he was running?\n\n'The passes will be closed soon,' I tell Temujin. 'A week, maybe less. You go alone, you'll die. I guide you, we both might make it.'\n\nTemujin stares at me. 'Why would you do that?'\n\n'Because it's right.'\n\nOyunaa stands abruptly. Walks to the door. Comes back. Sits down.\n\n'Take the bay mare,' she says finally. 'Leave the stallion.'\n\nI know what this means. The stallion is our best breeding horse. If something happens to me, she'll need him to rebuild the herd.\n\n'We leave at dawn,' I tell Temujin.\n\nHe nods. His hands shake as he lifts the tea bowl.\n\nOutside, the wind howls. The dead mare is already half-buried in snow. By morning, she'll be gone. Just another secret the steppe keeps.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": [
+        {
+          "text": "Begin the journey to Altai",
+          "leadsTo": "The Journey Begins"
+        }
+      ]
+    },
+    {
+      "title": "On His Own",
+      "content": "I pack him supplies. Dried meat. Brick tea. A thick felt blanket. Enough for three days if he's careful.\n\n'Follow the river west,' I tell him. 'When it forks, take the southern branch. Two days' walk to Altai sum.'\n\n'Walk?' Temujin looks toward my corral.\n\n'I can't spare a horse. The dzud is coming.'\n\nHe nods. Understands. A herder's horses are his life. Without them, we all die when the big snows come.\n\n'The passes?'\n\n'Dangerous but not impossible. Stay low. Watch for avalanche signs.'\n\nOyunaa adds a small iron pot to his pack. 'For melting snow.'\n\nSaikhan gives him one of her carved horses. A child's toy but made with love. 'For luck,' she says.\n\nTemujin's eyes water. 'Thank you.'\n\nWe watch him disappear into the swirling snow. A dark figure growing smaller against the white. After ten minutes, we can't see him anymore.\n\n'Think he'll make it?' Oyunaa asks.\n\n'He's stronger than he looks.'\n\nBut I don't really believe it. Walking to Altai in winter without a horse? Through the passes? The cold will get him first. Or wolves. Or simple exhaustion.\n\nStill. He chose his path. Now we tend to ours.\n\nThe storm grows worse. We drag his mare's body away from the ger. Wolves will clean the bones by spring.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": []
+    },
+    {
+      "title": "The Journey Begins",
+      "content": "Dawn comes gray and bitter. The storm has passed but left a world transformed. Snow piled against the ger walls. My horses huddled together for warmth.\n\nTemujin helps me saddle the bay mare. His hands are steady now. Purpose has steadied him.\n\nOyunaa presses dried cheese into my hands. 'For strength,' she says. Her fingers linger on mine.\n\n'Four days,' I promise.\n\n'Come back to us.'\n\nSaikhan runs out barefoot to hug my legs. 'Bring Papa home,' she tells Temujin seriously.\n\nHe solemnly promises he will.\n\nWe ride west as the sun climbs. The bay mare picks her way carefully through the snow. My gelding follows, steady and sure.\n\nBehind us, smoke rises from my ger. My family. My life. Everything that matters.\n\nAhead, the mountains loom. White peaks that tear at the sky. The passes that will test us both.\n\nTemujin rides beside me, quiet but alert. Whatever he was running from seems smaller out here. The steppe has that effect. Makes human problems feel temporary.\n\n'Your family,' he says after an hour. 'They're good people.'\n\n'They're everything.'\n\nHe nods. Understands.\n\nWe ride toward the mountains. Toward Altai. Toward whatever waits there in the white silence.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": []
+    }
+  ]
+}

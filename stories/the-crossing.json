@@ -1,0 +1,182 @@
+{
+  "title": "The Crossing",
+  "description": "The Darien Gap. Sixty miles of jungle. Your guide just disappeared.",
+  "theme": "survival",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "The Guide Vanishes",
+      "content": "Miguel's machete lies in the mud where you made camp. The blade still beaded with yesterday's sap. His pack is gone. The fire reduced to ash and steam.\n\nYou call his name once. The jungle swallows the sound.\n\nSeven days into the Darien Gap. Three other migrants stir in their makeshift shelters. Ana cradles her daughter close. The old man everyone calls Abuelo coughs into his fist. The teenager with the torn Adidas shirt sits up, scanning the treeline.\n\n\"¿Dónde está Miguel?\" Ana whispers.\n\nYou don't answer because you know. Miguel took the GPS unit and the water purification tablets. He took the real map, not the tourist sketch he sold you back in Necoclí. The one that showed safe river crossings and cartel checkpoints.\n\nMoths circle your headlamp. Your stomach gnaws at itself. The protein bars ran out yesterday.\n\nTwenty miles to the Panama border. Maybe more. The jungle doesn't care about your timeline or your money or the phone number written on the slip of paper in your shoe.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Rally the group and move forward together",
+          "leadsTo": "United We Walk"
+        },
+        {
+          "text": "Search Miguel's abandoned gear for clues",
+          "leadsTo": "What He Left Behind"
+        },
+        {
+          "text": "Try to backtrack to the last village",
+          "leadsTo": "The Way Back"
+        }
+      ]
+    },
+    {
+      "title": "United We Walk",
+      "content": "You stand and brush mud from your pants. \"We keep moving north.\"\n\nAna nods first. She understands survival math. Four adults, one child, versus the jungle. Better odds together.\n\nAbuelo struggles to his feet. His breathing sounds like paper tearing. The fever started two days ago but he hasn't complained. Won't complain. Not until it kills him.\n\nThe teenager knows about phones and soccer scores. Nothing about navigation. But his legs are strong and he carries Ana's extra water without being asked.\n\nYou divide Miguel's abandoned supplies. A half-empty bottle of iodine. Fishing line. A lighter that sparks but won't catch.\n\nThe canopy above blocks most of the morning light. Roots catch your boots. Thorns find every gap in your clothing. Ana's daughter hasn't spoken since the river crossing three days back. She walks between her mother and the teenager, holding both their hands.\n\nA stream cuts across the path. The water runs brown with runoff. You kneel and taste it anyway. Grit and decay and something metallic that might be blood from your split lip.\n\n\"¿Podemos beberla?\" Abuelo asks.\n\nWithout purification tablets, this water might kill you in days instead of hours.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Drink the stream water and risk illness",
+          "leadsTo": "Contaminated"
+        },
+        {
+          "text": "Search for cleaner water upstream",
+          "leadsTo": "The Source"
+        },
+        {
+          "text": "Boil the water despite the smoke risk",
+          "leadsTo": "Fire and Smoke"
+        }
+      ]
+    },
+    {
+      "title": "What He Left Behind",
+      "content": "Miguel's machete weighs two pounds. The handle worn smooth from years of cutting. You test the edge against your thumb and draw blood.\n\nHis sleeping area reveals more. Boot prints leading northeast, toward the river you heard all night. Trampled vegetation where he dragged his pack. And something else.\n\nScratched into the mud with a stick: \"FARC 2km N.\"\n\nFuerzas Armadas Revolucionarias de Colombia. Revolutionary Armed Forces. The letters might be a warning. Or a lie to cover his real reason for running.\n\nAna finds you crouched over the message. \"¿Qué dice?\"\n\nYou don't translate. Fear spreads faster than disease in places like this.\n\nThe teenager kicks through the dead fire, scattering ash. \"There.\" He points at something half-buried. A torn piece of paper with coordinates written in pencil. 7°N, 77°W. Means nothing without a proper map.\n\nAbuelo coughs again. This time flecks of red hit his palm.\n\n\"We need to move,\" you say.\n\nBut move where? Miguel's trail leads toward the river and whatever sent him running. The main path continues north through territory marked with warnings scratched in mud.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Follow Miguel's trail to the river",
+          "leadsTo": "Following Fear"
+        },
+        {
+          "text": "Stick to the main path despite the warnings",
+          "leadsTo": "Into the Unknown"
+        },
+        {
+          "text": "Hide and wait for other migrants to pass",
+          "leadsTo": "The Waiting Game"
+        }
+      ]
+    },
+    {
+      "title": "The Way Back",
+      "content": "The path south looks easier. Downhill through trees you recognize. Back toward the Emberá village where you bought overpriced rice and canned meat.\n\nBut Ana shakes her head. \"No volvemos.\"\n\nShe's right. Going back means starting over. Means explaining to your family why you failed. Means the debt collectors in your hometown have more time to find your sister.\n\nThe teenager agrees with Ana. He's been walking for six weeks, since leaving Honduras. His shoes held together with duct tape and determination. \n\nAbuelo says nothing. He leans against a cecropia tree and watches butterflies feed on rotting fruit. Blue morphos the size of dinner plates. Beautiful and brief.\n\nYou study the jungle ahead. Fifty-three miles of this brought you here. Seven more days minimum to reach Panama, assuming you don't get lost. Don't get sick. Don't run into the wrong people with the wrong uniforms.\n\nA howler monkey roars somewhere in the canopy. The sound bounces off invisible trunks like a warning.\n\nYour water bottle sloshes half-empty. Ana's daughter tugs her mother's hand and points at something moving in the underbrush. A snake or lizard. Something with scales that catches the filtered light.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Continue north despite the risks",
+          "leadsTo": "Into the Unknown"
+        },
+        {
+          "text": "Rest here and conserve energy",
+          "leadsTo": "The Waiting Game"
+        }
+      ]
+    },
+    {
+      "title": "Contaminated",
+      "content": "You cup the brown water and drink. Grit scrapes your teeth. Ana follows your lead, then helps her daughter sip from cupped palms. The teenager drinks deep, like he's been doing this his whole life.\n\nAbuelo hesitates. \"El agua está sucia.\"\n\n\"All water here is dirty,\" you tell him.\n\nBy afternoon, the cramps start. Ana stumbles first, one hand pressed to her stomach. You help her sit on a fallen log while her daughter watches with wide eyes.\n\nThe teenager makes it another hour before doubling over. Vomit spatters his torn shoes. He wipes his mouth with the back of his hand and keeps walking.\n\nYou fare better. Maybe your system adapted during the past week. Maybe you're just lucky. Abuelo shows no symptoms but he wasn't drinking much to begin with.\n\nThe path follows a ridge now. Through gaps in the canopy you see more jungle stretching north. Green upon green upon green. No roads. No clearings. No sign that humans ever passed this way.\n\nAna needs to rest every hundred meters. Her daughter has started crying. A soft, hopeless sound that draws insects.\n\nYou check your phone. No signal. The battery icon shows red.\n\nSomewhere ahead, voices carry on the humid air. Spanish mixed with another language you don't recognize.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Investigate the voices",
+          "leadsTo": "Other Travelers"
+        },
+        {
+          "text": "Hide until the voices pass",
+          "leadsTo": "The Ambush"
+        }
+      ]
+    },
+    {
+      "title": "The Source",
+      "content": "You follow the stream uphill. Ana and the teenager support Abuelo between them. His fever broke during the night but left him weak as paper.\n\nThe water runs clearer here. Less mud, fewer insects. You find the spring where it bubbles up through limestone rocks. The water tastes of minerals and earth.\n\nAna's daughter drinks first. She hasn't spoken since Miguel disappeared but she smiles when the clean water hits her tongue.\n\nYou fill every container. Water bottles, a dented thermos, even a plastic bag Ana produces from her pack. Tomorrow you'll need to find more. The day after that, more again.\n\n\"Look,\" the teenager says.\n\nFresh machete cuts scar the trees around the spring. Someone else found this place recently. The cuts are clean, purposeful. Someone who knew what they were doing.\n\nAbuelo examines the markings. \"Tres días,\" he estimates. Three days old.\n\nMiguel? Or someone else moving through the jungle with sharp tools and knowledge?\n\nYou hear helicopters in the distance. Military or police or worse. The sound fades north, toward Panama. Toward your destination.\n\nAna checks her daughter's feet. Two blisters have opened into raw wounds. Without antiseptic, infection becomes another enemy.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Follow the machete cuts",
+          "leadsTo": "Following Fear"
+        },
+        {
+          "text": "Rest here and treat Ana's daughter",
+          "leadsTo": "The Waiting Game"
+        }
+      ]
+    },
+    {
+      "title": "Fire and Smoke",
+      "content": "You build a small fire using dry tinder scraped from dead branches. The teenager feeds it twigs while you boil stream water in Ana's dented pot.\n\nSmoke rises thin and gray through the canopy. In daylight it might pass for morning mist. At night it would be a beacon.\n\nThe water bubbles for ten minutes before you kill the fire and scatter the coals. Still hot enough to burn tongues but safe enough to drink.\n\nAna's daughter sips carefully and makes a face. Boiled water tastes flat, lifeless. But it won't kill her with parasites or bacterial infection.\n\nAbuelo drinks his share without complaint. Everything about him suggests a man who survived worse than this. Wars, maybe. Dictatorships. The kind of history people don't discuss in mixed company.\n\nYou're packing up when you hear the motorcycles.\n\nTwo engines, maybe three. Coming from the south along the main trail. Moving fast through terrain that should slow them down.\n\nThe teenager drops into a crouch behind a buttress root. Ana pulls her daughter close and covers the girl's mouth with her palm.\n\nMotorcycles in the Darien Gap mean trouble. Cartels use them to move product and patrol territory. Rangers and military stick to helicopters and boats.\n\nThe engines grow louder. Close enough now to hear individual gear shifts.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "Hide and wait for them to pass",
+          "leadsTo": "The Ambush"
+        },
+        {
+          "text": "Run north before they arrive",
+          "leadsTo": "Flight Through Trees"
+        }
+      ]
+    },
+    {
+      "title": "Other Travelers",
+      "content": "The voices belong to a family from Haiti. Father, mother, teenage son, and twin girls about eight years old. They've been walking for twelve days.\n\nTheir guide disappeared too. Three days ago, near a river crossing. Took their money and their real map and vanished into the green.\n\n\"Même histoire,\" the father says in accented Spanish. Same story.\n\nHis wife shows you infected cuts on her arms. Thorns and branches found every gap in her clothing. The wounds smell sweet with rot.\n\nThe teenage son speaks better Spanish than his parents. He translates while his twin sisters play with Ana's daughter. Three children who found joy in Hell.\n\nYou compare notes and share water. Their route took them through cartel territory. Coca fields guarded by men with automatic weapons. They lost two days hiding from patrols.\n\n\"But we know where we are,\" the son says. He pulls out a hand-drawn map copied from someone else's phone. The lines show river crossings and safe camps. \"Panama border, maybe four days.\"\n\nAbuelo studies the map and nods. \"Es correcto.\"\n\nNine people now instead of five. More voices to attract attention. More mouths demanding water. But also more eyes watching for danger and more hands to clear the path ahead.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": [
+        {
+          "text": "Join forces with the Haitian family",
+          "leadsTo": "Strength in Numbers"
+        },
+        {
+          "text": "Share information but travel separately",
+          "leadsTo": "Parallel Paths"
+        }
+      ]
+    },
+    {
+      "title": "The Ambush",
+      "content": "You press yourself behind a mahogany trunk thick enough to hide a car. Ana covers her daughter's mouth. The teenager tries to make himself smaller.\n\nThree motorcycles stop where you built the fire. Engines tick and cool in the humid air.\n\nBoots hit mud. Spanish voices, but not Colombian accents. Venezuelan maybe, or further south. Men who traveled far to work in someone else's war.\n\n\"Aquí hicieron fuego.\" Someone kicks the scattered coals.\n\nA radio crackles. The voice on the other end speaks too fast and quiet to understand, but the tone is clear. Orders. Instructions.\n\nOne of them finds your footprints in the soft earth. Follows the trail toward your hiding spot with professional patience.\n\nAbuelo meets your eyes. His hand moves to the machete at his belt. Miguel's machete. Sharp enough to split skin and muscle.\n\nThe footsteps stop ten meters away. Close enough to smell cigarettes and gun oil.\n\nAna's daughter squirms against her mother's palm. Seven years old and smart enough to know that noise means death.\n\nA boot appears around the edge of your tree. Then a leg in military surplus pants. Then the barrel of an assault rifle.\n\nThe man holding it looks surprised to see you. Like he expected something else hiding behind the mahogany.\n\nThat surprise might be the only advantage you get.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": []
+    },
+    {
+      "title": "Strength in Numbers",
+      "content": "Nine people move slower than five, but they move with purpose. The Haitian father knows construction and navigation. His wife treats injuries with supplies hoarded from Port-au-Prince. Their son speaks four languages and remembers every face from every checkpoint.\n\nThe trail widens as you approach the Panamanian border. More foot traffic here. More hope and desperation trampled into the mud.\n\nYou reach the Río Tuquesa at sunset. The water runs fast and brown with mountain runoff. No bridge. No boat. Just a crossing point marked by rope tied to trees on both sides.\n\nThe current would sweep away anyone who lost their grip. Ana's daughter stares at the rushing water with naked fear.\n\nAbuelo tests the rope. It holds his weight but frays at the knots. Old rope. Used by hundreds of migrants before you.\n\nOn the far bank, Panama. Safety is a relative term but better than here. The Haitian twins cling to their mother and watch the water swirl around half-submerged logs.\n\n\"One at a time,\" the Haitian father says. \"Strongest swimmers last.\"\n\nBut the sun is setting and the current runs stronger in darkness. Morning might bring patrols or worse weather.\n\nYou're close enough to smell Panama. Close enough to taste it. Twenty-four hours from here, you could be calling your sister from a refugee processing center.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": []
+    }
+  ]
+}

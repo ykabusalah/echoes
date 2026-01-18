@@ -1,0 +1,186 @@
+{
+  "title": "The Ferry",
+  "description": "Overnight crossing. A passenger who shouldn't be on the manifest.",
+  "theme": "thriller",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "Loading Bay",
+      "content": "The trucks roll on first. Twenty-two tons of Greek tobacco. Bulgarian produce. One blue Renault van with Romanian plates and windows tinted black.\n\nI check my manifest. Match license plates to cargo declarations. The Renault isn't listed.\n\nDriver hands me papers anyway. Tall guy, maybe forty. Sunglasses at nine PM. His accent could be anything. Romanian. Serbian. Polish.\n\n\"Just passenger,\" he says. \"No cargo.\"\n\nThe papers look real enough. Passenger vehicle registration. But his hands shake when he lights a cigarette.\n\nI've worked this route three years. Brindisi to Patras, twice a week. You learn to spot the nervous ones. Migrants paying cash. Smugglers. People running from something.\n\nThis guy feels different. He keeps glancing at the passenger boarding area. Like he's watching for someone.\n\nOr avoiding someone.\n\nThe ferry horn sounds. Last call for foot passengers. Through the loading bay doors, I see them streaming up the gangway. Backpackers. Greek families. Workers heading home.\n\nThe Renault driver flicks his cigarette into the water.\n\n\"Which deck I park?\"\n\nDeck 2 is nearly full. Deck 3 has space but it's darker up there. Fewer cameras.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Send him to Deck 2 with the other vehicles",
+          "leadsTo": "Standard Protocol"
+        },
+        {
+          "text": "Direct him to Deck 3 and follow up later",
+          "leadsTo": "Upper Deck"
+        },
+        {
+          "text": "Delay him while you radio security",
+          "leadsTo": "Radio Check"
+        }
+      ]
+    },
+    {
+      "title": "Standard Protocol",
+      "content": "\"Deck 2, space fourteen.\"\n\nHe nods and drives up the ramp. I watch the van disappear behind a Greek truck hauling olive oil.\n\nMaybe I'm paranoid. Twelve years working ferries will do that. You see smuggling operations. Human trafficking. People who vanish between ports.\n\nBut the guy paid his fare. Papers checked out.\n\nI finish the loading manifest and head to the passenger decks. Thirty minutes until departure. The cafeteria fills with the usual crowd. German tourists comparing guidebooks. Turkish workers sharing cigarettes.\n\nThen I see him again.\n\nThe Renault driver sits alone near the window. Still wearing sunglasses. He's ordered coffee but hasn't touched it.\n\nAcross the cafeteria, a woman watches him. Mid-thirties, black hair, leather jacket. She pretends to read a magazine but her eyes keep drifting to his table.\n\nShe wasn't on the passenger manifest either. I processed every boarding pass tonight.\n\nThe woman stands. Walks toward the restrooms. Passes his table without looking.\n\nHe gets up thirty seconds later. Follows the same path.\n\nNeither comes back.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Check the restroom area",
+          "leadsTo": "Missing Passengers"
+        },
+        {
+          "text": "Go back to his van on Deck 2",
+          "leadsTo": "Vehicle Search"
+        },
+        {
+          "text": "Review the passenger manifests",
+          "leadsTo": "Manifest Mystery"
+        }
+      ]
+    },
+    {
+      "title": "Upper Deck",
+      "content": "\"Deck 3, take the ramp to your right.\"\n\nHe drives off. I make a note to check on him later.\n\nDeck 3 stays quieter during crossings. Dimmer lights. The engine noise is louder up there. Good place to hide if you need to.\n\nI finish loading and head to the bridge. Captain Kostas reviews the passenger count.\n\n\"Two hundred and thirty-seven,\" he says. \"Light load for August.\"\n\nWe cast off at 22:30. Brindisi's lights fade behind us. Eleven and a half hours to Patras.\n\nI do my first deck check an hour out. Decks 1 and 2 look normal. Truck drivers sleeping in their cabs. A few passengers smoking by the rail.\n\nDeck 3 is different.\n\nThe blue Renault sits in the corner spot. Engine cold. Doors locked. No sign of the driver.\n\nI walk the deck perimeter. Check the stairwells. Nothing.\n\nThen I hear voices from the lifeboat storage area. Two people arguing in hushed tones. A man and woman.\n\n\"You said Rome,\" the woman says. \"You said we had more time.\"\n\n\"Plans change,\" he replies. Same accent as the Renault driver. \"Someone talked.\"\n\n\"So we run to Greece? Then what?\"\n\n\"Then we disappear.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Confront them directly",
+          "leadsTo": "Direct Confrontation"
+        },
+        {
+          "text": "Listen longer to learn more",
+          "leadsTo": "Eavesdropping"
+        },
+        {
+          "text": "Quietly retreat and call security",
+          "leadsTo": "Security Alert"
+        }
+      ]
+    },
+    {
+      "title": "Radio Check",
+      "content": "\"Hold on.\" I step back from his window. \"Engine trouble?\"\n\nHis jaw tightens. \"No trouble.\"\n\nI key my radio. \"Bridge, this is loading bay. Need a manifest verification.\"\n\nStatic crackles back. \"Go ahead.\"\n\n\"Romanian plates, Charlie-Lima-451.\"\n\nLong pause. \"Negative on file.\"\n\nThe driver's hand moves toward his gearshift. I step closer to his door.\n\n\"Sir, I need you to turn off the engine.\"\n\nHe doesn't move. Behind him, I see boxes in the van. Too dark to make out details.\n\n\"Problem?\" Security guard Dimitri appears at my shoulder. Ex-military. Good guy to have around.\n\nThe driver looks between us. Calculating.\n\n\"No problem,\" he says finally. \"Mistake with papers. I go back.\"\n\nHe starts to reverse. Dimitri waves him forward instead.\n\n\"Park first. We sort this out properly.\"\n\nThe driver hesitates. Other vehicles wait behind him. The loading crew is getting impatient.\n\nThen he floors it.\n\nThe van lurches forward. Dimitri jumps back. The Renault speeds up the ramp toward the passenger decks.\n\nAlarms start blaring.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Chase the van on foot",
+          "leadsTo": "Pursuit"
+        },
+        {
+          "text": "Coordinate with security to block exits",
+          "leadsTo": "Lockdown"
+        }
+      ]
+    },
+    {
+      "title": "Missing Passengers",
+      "content": "The restroom corridor is empty. Both doors are unlocked. No one inside.\n\nI check the duty-free shop. The arcade. The passenger lounges on Deck 4. Nothing.\n\nThey've vanished.\n\nI head to the information desk. Maria, the night clerk, looks up from her crossword puzzle.\n\n\"You see a woman? Black hair, leather jacket?\"\n\n\"Maybe.\" She shrugs. \"Lots of passengers tonight.\"\n\n\"She was with a tall man. Sunglasses.\"\n\nMaria's expression changes. \"Oh. Him. He asked about cabin availability. Said his reservation got mixed up.\"\n\n\"What did you tell him?\"\n\n\"No cabins left. But I saw him talking to one of the Romanian truck drivers later. Maybe they worked something out.\"\n\nThe Romanian drivers usually park on Deck 1. I take the stairs down.\n\nHalfway there, I hear shouting from the lower deck. Angry voices. Something crashes.\n\nI run toward the sound.\n\nA crowd has gathered around two trucks. The drivers are yelling at each other in Romanian. One has a bloody nose.\n\n\"What happened?\" I ask.\n\nNo one speaks English suddenly. But I see it.\n\nA truck door hangs open. The cargo area has been torn apart. Boxes scattered. Whatever they were hiding is gone.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Search the damaged truck",
+          "leadsTo": "Evidence"
+        },
+        {
+          "text": "Question the drivers separately",
+          "leadsTo": "Interrogation"
+        },
+        {
+          "text": "Follow the trail of scattered cargo",
+          "leadsTo": "Cargo Trail"
+        }
+      ]
+    },
+    {
+      "title": "Vehicle Search",
+      "content": "Deck 2 thrums with engine noise. Most drivers are asleep in their cabs. A few smoke and play cards under the overhead lights.\n\nThe blue Renault sits where I directed it. Space fourteen, between a Greek refrigerator truck and a Bulgarian van hauling auto parts.\n\nI approach slowly. The windows are too tinted to see inside.\n\nI knock on the driver's window. No response.\n\nI try the door handle. Locked.\n\nThe Greek truck driver in the next space watches me. Older guy, probably makes this run regularly.\n\n\"Your friend left,\" he says in broken English.\n\n\"Left?\"\n\n\"With woman. Maybe one hour ago.\"\n\n\"What woman?\"\n\nHe shrugs. \"Dark hair. They talk quiet, then go upstairs.\"\n\nI circle the Renault. Standard passenger van. Romanian plates. Nothing unusual except the tinted windows and the fact that the owner abandoned it.\n\nI shine my flashlight through the windshield. The front seats are empty but I can see shapes in the back. Cargo of some kind.\n\nMy radio crackles. \"All crew to stations. We have a security situation.\"\n\nI look around. The Greek driver has gone back to his cab. No one else is paying attention.\n\nThis might be my only chance to look inside the van.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Try to break into the van",
+          "leadsTo": "Breaking In"
+        },
+        {
+          "text": "Report to security immediately",
+          "leadsTo": "Security Response"
+        }
+      ]
+    },
+    {
+      "title": "Manifest Mystery",
+      "content": "The passenger office is locked but I have a master key. Night privileges of being crew.\n\nI pull up the boarding records on the terminal. Scroll through tonight's passenger list.\n\nTwo hundred and thirty-seven names. Addresses. Passport numbers.\n\nNo woman matching the description from the cafeteria. No tall man with Romanian plates.\n\nI cross-reference the vehicle manifest. The blue Renault isn't listed there either.\n\nBut someone let them board. Someone processed their tickets.\n\nI check the duty logs. Maria handled passenger boarding from 20:00 to 22:00. Before that, it was Yannis from the day shift.\n\nI call Yannis. He's probably home by now but might remember something.\n\nHis phone goes straight to voicemail.\n\nI try Maria's extension. No answer.\n\nThat's when I notice the time stamp on the passenger records. The last entry was logged at 21:47. Thirteen minutes before we cast off.\n\nBut I saw the woman and the Renault driver in the cafeteria after 22:30.\n\nSomeone's been editing the manifest.\n\nI hear footsteps in the corridor outside. Slow, deliberate. Someone trying to be quiet.\n\nThe office door handle turns.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "Hide and see who enters",
+          "leadsTo": "Hidden Observer"
+        },
+        {
+          "text": "Confront whoever is coming",
+          "leadsTo": "Office Confrontation"
+        }
+      ]
+    },
+    {
+      "title": "Breaking In",
+      "content": "I check for witnesses. The card players are focused on their game. Most drivers are asleep.\n\nThe passenger side window has a small gap at the top. I find a coat hanger from the Bulgarian van and work it through.\n\nFive minutes later, the lock pops.\n\nI slip inside the Renault and close the door behind me.\n\nThe back of the van has been converted into a mobile operations center. Laptops, communication equipment, surveillance monitors. One screen shows feeds from the ferry's security cameras.\n\nAnother laptop displays passenger manifests. Not just for tonight's crossing. Dozens of ferry routes across the Mediterranean. Dates going back months.\n\nA third screen shows bank records. Wire transfers. Amounts in the millions.\n\nI recognize some of the names on the passenger lists. Politicians. Business leaders. People who make the news.\n\nPeople who might pay to disappear.\n\nA folder on the seat contains photographs. The woman from the cafeteria features in several. Always with different men. Always in different cities.\n\nThe last photo shows her boarding a ferry in Ancona. The date stamp is three weeks ago.\n\nA passenger on that crossing went missing. Italian businessman. They found his body floating near Corfu.\n\nI hear voices outside the van. Getting closer.\n\n\"Should be space fourteen,\" someone says. Female voice. The woman from the cafeteria.\n\nI have maybe thirty seconds before they reach the van.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": [
+        {
+          "text": "Try to escape before they arrive",
+          "leadsTo": "Narrow Escape"
+        },
+        {
+          "text": "Stay hidden and hope they don't check inside",
+          "leadsTo": "Close Call"
+        }
+      ]
+    },
+    {
+      "title": "Close Call",
+      "content": "I duck behind the equipment in the back of the van. My heart sounds loud enough to give me away.\n\nFootsteps approach. Two sets.\n\n\"Everything's still here,\" the woman says. \"Good.\"\n\n\"We should move it,\" the man replies. The Renault driver. \"Someone was asking questions.\"\n\n\"Who?\"\n\n\"Crew member. During loading.\"\n\nA pause. The van rocks slightly as someone leans against it.\n\n\"Which crew member?\"\n\n\"Doesn't matter. We stick to the plan.\"\n\n\"The plan's blown if they're suspicious.\"\n\nAnother pause. Longer this time.\n\n\"Fine,\" she says. \"We move up the timeline. How long until Patras?\"\n\n\"Ten hours.\"\n\n\"Too long. We do it now.\"\n\n\"Do what now?\"\n\n\"Eliminate the problem.\"\n\nFootsteps move away from the van. I wait five minutes before climbing back to the front seat.\n\nThrough the windshield, I see them talking to the Greek truck driver. The one who told me they went upstairs.\n\nHe points in my direction.\n\nThen he points toward the stairwell I used to get here.\n\nThey're hunting me.\n\nI need to get off this deck without being seen. The stairwells are the obvious routes but they'll be watching those.\n\nThe emergency ladder near the stern might work. It leads up to the passenger deck but it's exposed.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": []
+    },
+    {
+      "title": "Narrow Escape",
+      "content": "I grab one of the laptops and slip out the passenger door. Stay low between the trucks.\n\nThe voices get closer. I crawl under the Bulgarian van and watch their feet approach the Renault.\n\n\"Door's open,\" the woman says.\n\n\"Someone's been inside.\"\n\n\"Recent?\"\n\n\"Very recent. The seat's still warm.\"\n\nI hold my breath. The laptop feels heavy in my arms.\n\n\"Search the deck,\" she orders. \"Whoever it was can't have gone far.\"\n\nThey split up. The man heads toward the bow. The woman walks toward my hiding spot.\n\nHer boots stop inches from my face.\n\n\"I know you're here,\" she calls out. \"Come out and we can discuss this civilly.\"\n\nI stay frozen.\n\n\"Or we can do this the hard way.\"\n\nShe crouches down. Peers under the truck.\n\nOur eyes meet.\n\nShe smiles. \"Found you.\"\n\nI roll out the other side and run for the stairs. Behind me, she shouts for her partner.\n\nI reach the stairwell and take the steps three at a time. The laptop bounces against my ribs.\n\nDeck 3 is darker, quieter. I need somewhere to examine what I took. Somewhere they won't think to look.\n\nThe engine room access is restricted to crew. If I can reach it, I might have time to understand what I've stumbled into.\n\nFootsteps echo in the stairwell below me. They're coming up fast.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": []
+    }
+  ]
+}

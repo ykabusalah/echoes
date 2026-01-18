@@ -1,0 +1,122 @@
+{
+  "title": "The Lanterns of Hội An",
+  "description": "Full moon in Hội An. An old woman recognizes your face. Your grandmother never talked about Vietnam. Maybe there's a reason.",
+  "theme": "history",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "The Festival",
+      "content": "Full moon night. The town cuts the electricity and lights ten thousand silk lanterns instead.\n\nYou're watching from the bridge when the old woman appears beside you. Small. Weathered. Eyes that have seen things.\n\n\"You have her face,\" she says. \"The American nurse. 1969.\"\n\nShe presses a paper lantern into your hands.\n\n\"She saved my brother's life. Will you light this with me? For the dead and the living?\"",
+      "isStart": true,
+      "order": 0,
+      "choices": [
+        { "text": "\"You must have me confused with someone else.\"", "leadsTo": "Wrong Person" },
+        { "text": "Light the lantern with her", "leadsTo": "Lighting Together" },
+        { "text": "\"What nurse?\"", "leadsTo": "What Nurse" }
+      ]
+    },
+    {
+      "title": "Wrong Person",
+      "content": "\"I know the resemblance of fifty years.\" Her voice is gentle but certain. \"Your grandmother. Margaret Chen. Field hospital at Đông Tâm. She carried shrapnel from my brother's chest with her bare hands when the instruments ran out.\"\n\nThe lantern trembles in your grip.\n\n\"She wrote to us for twenty years. Then the letters stopped. We never knew what happened.\" She looks at the river. \"I've been lighting lanterns for her every full moon since 1998. Just in case she could see them somehow.\"",
+      "order": 1,
+      "choices": [
+        { "text": "\"My grandmother was a nurse in Vietnam.\"", "leadsTo": "My Grandmother" },
+        { "text": "\"Why did the letters stop?\"", "leadsTo": "My Grandmother" }
+      ]
+    },
+    {
+      "title": "Lighting Together",
+      "content": "You don't need words. Her weathered hands guide your unfamiliar ones. The flame catches, warm through the silk.\n\nShe whispers something—a name, maybe, or a prayer—as you lower it to the water. The lantern joins hundreds of others, indistinguishable now. Part of something larger.\n\n\"Thank you,\" she says. \"Whoever you are. Thank you for being here tonight.\"\n\nShe starts to turn away.",
+      "order": 2,
+      "choices": [
+        { "text": "\"Wait. Tell me about the nurse.\"", "leadsTo": "What Nurse" },
+        { "text": "Let her go", "leadsTo": "Going Home" }
+      ]
+    },
+    {
+      "title": "What Nurse",
+      "content": "\"American. Young. Hair like yours, pulled back always. Worked twenty-hour days. Treated Vietnamese and American soldiers the same, even when her superiors told her not to.\"\n\nThe old woman's name is Linh. She was seven years old when your grandmother saved her brother.\n\n\"He lived four more years. Not long. But long enough to teach me English, help me survive what came after.\" She pulls out a photograph, faded and creased. A young woman in fatigues, exhausted but smiling. Your grandmother's face, fifty years younger.\n\n\"I have carried this picture for half a century. Waiting for someone who might want to see it.\"",
+      "order": 3,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "\"Will you tell me what she did here?\"", "leadsTo": "What She Did" },
+        { "text": "\"I think she would have wanted you to have this.\"", "leadsTo": "The Medal" }
+      ]
+    },
+    {
+      "title": "My Grandmother",
+      "content": "\"Her name was Margaret. Margaret Chen. She never talked about the war.\"\n\nLinh's hands shake.\n\n\"Not at all? Not about Đông Tâm? The field hospital? The children she saved when the mortars hit?\"\n\n\"Nothing. She kept a medal in a drawer. Saint Christopher. She'd hold it sometimes but never explain.\"\n\nLinh's eyes fill. \"She wore that medal every day. Said it would bring everyone home safe.\" Her voice catches. \"She meant us too. The Vietnamese. She counted us as her people.\"\n\nThe lanterns drift past, carrying fifty years of silence between you.",
+      "order": 4,
+      "choices": [
+        { "text": "\"Will you tell me what she did here?\"", "leadsTo": "What She Did" },
+        { "text": "\"I think she would have wanted you to have this.\"", "leadsTo": "The Medal" }
+      ]
+    },
+    {
+      "title": "What She Did",
+      "content": "You sit on the bridge until the lanterns are just distant specks of light on the water. Linh talks. You listen.\n\nThe chaos of the field hospital. The day the shelling started and didn't stop. Your grandmother holding a tourniquet on Linh's brother with one hand, shielding a pregnant woman with her body with the other.\n\n\"She stayed when the evacuation orders came,\" Linh says. \"Refused to leave until every patient was stable. Her commanding officer threatened court martial. She told him she'd rather be court-martialed than abandon people who trusted her.\"\n\nThe woman in the photograph feels like a stranger. Or maybe like someone you always knew was there, hidden under the grandmother who made soup and worried about your grades.\n\n\"She wrote to us,\" Linh continues. \"Every month for twenty years. Packages when she could—medicine, money, small things. Then nothing. We thought she died.\"\n\n\"She had a stroke in 1994. Lost her memory of certain years. Her doctors said the war was the first thing that went.\"\n\nLinh nods slowly. \"Maybe that was mercy.\"",
+      "order": 5,
+      "choices": [
+        { "text": "Ask about the letters", "leadsTo": "The Letters" },
+        { "text": "Ask about her brother", "leadsTo": "The Brother" }
+      ]
+    },
+    {
+      "title": "The Medal",
+      "content": "You reach into your pocket. You've been carrying it since the funeral, not sure why.\n\nSaint Christopher. Tarnished now. The chain replaced twice.\n\nLinh stares at it like she's seeing a ghost.\n\n\"She'd want you to have it,\" you say.\n\n\"No.\" Linh folds your fingers closed around it. \"She'd want you to keep carrying it. That's what she did. Carried us all home with her, even when she couldn't remember why.\"\n\nLater, alone in your hotel room, you turn the medal over in your hands. No inscription. Just years of wear from a woman who held it while she held onto something she eventually forgot.\n\nYou put it around your neck. It's lighter than you expected.",
+      "order": 6,
+      "choices": [
+        { "text": "Return to Linh tomorrow", "leadsTo": "The Letters" }
+      ]
+    },
+    {
+      "title": "The Letters",
+      "content": "Linh takes you to her home. Small, neat, filled with books. She opens a wooden chest.\n\nInside: every letter your grandmother ever sent. Bundled by year. Dozens of them.\n\n\"She wrote about you,\" Linh says, pulling out a bundle. \"Before you were born. She was so excited. So scared. She asked us to pray for you, which was funny because we're Buddhist.\"\n\nYou read through tears. Your grandmother's handwriting, younger and steadier. Descriptions of seasons in Ohio, questions about Linh's education, worries about her own aging parents.\n\n\"Some nights I dream I'm back at Đông Tâm. I wake up reaching for instruments that aren't there. The doctors call it stress. I call it love that has nowhere to go.\"\n\nYou didn't know her. Not really. Not this version of her.\n\nBut you're starting to.",
+      "order": 7,
+      "choices": [
+        { "text": "Ask about her brother", "leadsTo": "The Brother" },
+        { "text": "Prepare to leave", "leadsTo": "Going Home" }
+      ]
+    },
+    {
+      "title": "The Brother",
+      "content": "\"His name was Minh.\" Linh shows you a photograph. A young man in the seventies, thin, smiling. \"He became a teacher because of her. Said if an American could come here and save lives, then he could spend his life building them.\"\n\n\"When did he die?\"\n\n\"1973. Infection from the old wound. The shrapnel was too deep to remove safely. He knew it would kill him eventually. That's why he worked so hard to leave something behind.\"\n\nShe gestures around the room. Books everywhere. Papers. Student projects framed on the walls.\n\n\"I became a teacher too. His students became teachers. Their students are teaching now.\" She touches her brother's photograph. \"Your grandmother saved one life. That one life saved hundreds. Mathematics of grace.\"",
+      "order": 8,
+      "choices": [
+        { "text": "Prepare to leave", "leadsTo": "Going Home" },
+        { "text": "Ask about the darker story", "leadsTo": "A Different Path" }
+      ]
+    },
+    {
+      "title": "A Different Path",
+      "content": "Linh hesitates at the bridge.\n\n\"There is another story,\" she says. \"About your grandmother. Darker. I didn't want to tell you unless you asked.\"\n\nThe lanterns drift past. You think of the medal, the letters, the photograph of a young woman who saved lives in impossible circumstances.\n\n\"Tell me.\"\n\n\"After the fall of Saigon, people came looking for her. Americans. They said she took things. Documents. Medicine. Money.\" Linh's voice drops. \"They said she was working for more than one side.\"\n\nThe river sounds different suddenly. Colder.",
+      "order": 9,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "\"I don't believe that.\"", "leadsTo": "The Complications" },
+        { "text": "\"What do you believe?\"", "leadsTo": "The Complications" },
+        { "text": "\"Does it matter now?\"", "leadsTo": "Does It Matter" }
+      ]
+    },
+    {
+      "title": "The Complications",
+      "content": "\"I don't know what I believe,\" Linh admits. \"She saved my brother. That's true. She wrote to us for twenty years. Also true. But war makes complicated people of all of us.\"\n\nShe pulls out a different bundle of letters. These aren't addressed to Linh.\n\n\"After she stopped writing, a man came. American. Asked questions about her. Left these.\" The letters are addressed to someone named David. They discuss supply routes, payment schedules, names in code.\n\n\"I don't know if these are real. I don't know if they're hers. But someone wanted me to have them.\" Linh looks at you. \"Your grandmother was either a saint or a smuggler or both. People can be more than one thing.\"\n\nThe lanterns keep drifting, indifferent to revelations.",
+      "order": 10,
+      "choices": [
+        { "text": "Accept the complexity", "leadsTo": "Does It Matter" }
+      ]
+    },
+    {
+      "title": "Does It Matter",
+      "content": "\"She's dead,\" you say. \"Whatever she did or didn't do. Whatever she carried or hid or forgot. It's done.\"\n\nLinh nods slowly.\n\n\"For fifty years I've wondered. Now I wonder if wondering was the point. Keep me connected to something. Someone.\" She watches the lanterns. \"Maybe the truth doesn't matter. Maybe what matters is that we're standing here, two strangers tied together by a woman who saved one boy in a field hospital and changed everything.\"\n\nYou think about the medal around your neck. The letters in Linh's chest. The stories you'll never fully untangle.\n\n\"She carried us,\" Linh says finally. \"However she did it. Whatever else she was. She carried us forward.\"\n\nYou light the lantern together. Let it go. Watch it join all the others, anonymous now, just another small light on dark water.\n\nWhatever your grandmother was, she made this moment possible.\n\nThat's enough. It has to be.",
+      "order": 11,
+      "isEnding": true
+    },
+    {
+      "title": "Going Home",
+      "content": "Your last night in Hội An. Linh walks you to the river one more time.\n\n\"What will you do with what you know?\" she asks.\n\nYou've thought about this. Your mother, who never knew her mother served in Vietnam. Your cousins, who think they know who Margaret Chen was.\n\n\"Tell them. Slowly. As much as they can hear.\"\n\nLinh nods. \"The truth is heavy. But secrets are heavier.\"\n\nYou light one last lantern together. No words this time. Just fire and water and fifty years of silence finally breaking open.\n\nThe lantern drifts downstream, joining the current, becoming small and then smaller and then indistinguishable from stars reflecting on the water.\n\nYour grandmother never came back to Vietnam. But in a way, she never left.",
+      "order": 12,
+      "isEnding": true
+    }
+  ]
+}

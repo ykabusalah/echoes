@@ -1,0 +1,246 @@
+{
+  "title": "The Rememberer",
+  "description": "In a world where memories can be sold, you deal in stolen ones.",
+  "theme": "neo-noir sci-fi",
+  "tier": 3,
+  "scenes": [
+    {
+      "title": "The Client",
+      "content": "The woman across from you shivers in her rain-soaked jacket. Water drips from her hair onto the cracked vinyl booth at Mel's. Four in the morning. The neon sign outside flickers 'Open 24 Hours' but the 'H' keeps dying.\n\nShe slides a photograph across the table. Little girl with pigtails, gap-toothed smile. \"My daughter. Sarah. She's twelve now.\"\n\nYou don't touch the photo. \"What happened?\"\n\n\"Car accident. Three months ago. She doesn't remember me. Doesn't remember anything before the crash.\" Her voice cracks. \"The doctors say her hippocampus... they say she'll never make new memories stick.\"\n\nThe coffee tastes like burnt rubber. You've heard this story before. Different faces, same desperation. \n\n\"I need her childhood back,\" she whispers. \"Birthday parties, bedtime stories, Christmas mornings. I recorded everything on neural feeds before the accident. Just in case.\"\n\nSmart. Most people wait until it's too late.\n\n\"The clinic won't do memory implants on minors. Says it's experimental.\" She leans forward. \"But I know you can get around that.\"",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "\"Kid cases are complicated. My rate doubles.\"",
+          "leadsTo": "The Price"
+        },
+        {
+          "text": "\"I don't work with children. Find someone else.\"",
+          "leadsTo": "Walking Away"
+        },
+        {
+          "text": "\"Let me see the neural recordings first.\"",
+          "leadsTo": "The Recordings"
+        }
+      ]
+    },
+    {
+      "title": "The Price",
+      "content": "She doesn't flinch. \"How much?\"\n\n\"Sixty thousand. Half up front.\"\n\nHer laugh has no humor in it. \"I'm a single mother working two jobs. The medical bills already cleaned me out.\"\n\nYou drain your coffee. Outside, someone stumbles down Sunset Boulevard, singing off-key karaoke to the empty street. Another lost soul in the city of angels.\n\n\"Then we have a problem.\"\n\n\"Wait.\" She grabs your wrist. Her fingers are ice-cold. \"What if I had something else? Something valuable?\"\n\nEverything's valuable to someone. Question is what and how much.\n\n\"I work at Meridian Clinic. Memory storage facility. I have access to the premium vaults.\" She lowers her voice. \"Celebrity memories. Politicians. Tech billionaires. Stuff worth millions on the black market.\"\n\nNow she has your attention. Meridian's security makes Fort Knox look like a corner store. But inside jobs... those are different.\n\nThe waitress refills your cup without being asked. Her name tag says 'Dolores' but you remember her from a case last year. Different name then.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "\"What kind of access do you have?\"",
+          "leadsTo": "Inside Information"
+        },
+        {
+          "text": "\"Too risky. Meridian will trace it back to you.\"",
+          "leadsTo": "Second Thoughts"
+        },
+        {
+          "text": "\"I know someone who might be interested. No guarantees.\"",
+          "leadsTo": "The Buyer"
+        }
+      ]
+    },
+    {
+      "title": "Walking Away",
+      "content": "You stand up and drop a five on the table. \"Good luck with your daughter.\"\n\n\"Please.\" Her voice breaks. \"You're my last option.\"\n\nThey always say that. Last option. End of the line. Like you're some kind of savior instead of what you really are. A parasite feeding off other people's pain.\n\nThe rain has stopped but the streets still gleam black under the neon. Your Corolla sits at the curb, rust eating through the wheel wells. Three more payments and it's yours.\n\nYour phone buzzes. Text from Marcus: \"Got a rush job. Celebrity suicide. Family wants the last day wiped clean before the media gets hold of it. Fifty K for clean extraction.\"\n\nEasy money. No complications. No kids involved.\n\nBut as you reach for the car door, you see the woman through the diner window. Still sitting in the booth. Still staring at that photograph. Still drowning in hope she can't afford.\n\nYour phone buzzes again. Different number this time. Unknown caller.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Answer the unknown number",
+          "leadsTo": "The Warning"
+        },
+        {
+          "text": "Take Marcus's job and drive away",
+          "leadsTo": "Clean Exit"
+        },
+        {
+          "text": "Go back into the diner",
+          "leadsTo": "Second Chance"
+        }
+      ]
+    },
+    {
+      "title": "The Recordings",
+      "content": "She pulls out a neural tablet. Military grade, probably worth more than your car. The screen flickers to life, showing memory fragments in fast-forward. A little girl learning to ride a bike. Same girl blowing out candles on a birthday cake. Christmas morning, wrapping paper everywhere.\n\nBut something's wrong. The neural patterns are too clean. Too perfect. Real memories have static, gaps, emotional bleeding at the edges. These look processed. Edited.\n\n\"Where did you get these?\"\n\n\"I told you. I recorded them myself.\" But she won't meet your eyes.\n\nYou pause the playback on the birthday scene. The timestamp shows last month. Three weeks after the accident, according to her story. \"This memory is from December. Your daughter's accident was in September.\"\n\nHer face goes pale. \"I... I must have mixed up the files.\"\n\n\"Try again. And this time don't lie to me.\"\n\nShe closes the tablet. \"They're not her memories. They're mine. From when I was twelve.\" Her voice gets smaller. \"I want to give her my childhood. The one she'll never have.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "\"That's not how memory works. She'll know they're fake.\"",
+          "leadsTo": "False Memories"
+        },
+        {
+          "text": "\"You want to steal your daughter's identity.\"",
+          "leadsTo": "The Truth"
+        },
+        {
+          "text": "\"Show me the real recordings of her.\"",
+          "leadsTo": "Real Sarah"
+        }
+      ]
+    },
+    {
+      "title": "Inside Information",
+      "content": "\"Maintenance access. I clean the storage units after each session.\" She pulls out an ID badge. Linda Chen, Custodial Services. \"I see everything that goes in and out.\"\n\n\"What's the most valuable thing in there?\"\n\n\"Senator Blake's war memories. Afghanistan. The stuff he's built his career on. Turns out most of it never happened. He bought combat memories from a dead Marine.\"\n\nInteresting. But not worth the risk.\n\n\"There's more. Judge Morrison's childhood. Perfect family man, right? Except he has memories of burning cats alive when he was ten. And Elena Vasquez.\"\n\nYou know that name. Billionaire tech mogul. Pioneer in consciousness transfer technology.\n\n\"She's got memories from twelve different people. Like she's collecting identities.\" Linda leans closer. \"Including someone who died fifty years ago. How is that possible?\"\n\nNow that's worth sixty thousand. Maybe more. But Meridian doesn't just store memories. They traffic in them. And they have friends in low places.\n\n\"Security rotation changes at midnight. Skeleton crew on weekends.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "\"When's the next weekend shift?\"",
+          "leadsTo": "Planning the Job"
+        },
+        {
+          "text": "\"Meridian has killed people for less.\"",
+          "leadsTo": "Dangerous Game"
+        },
+        {
+          "text": "\"What's Elena Vasquez hiding?\"",
+          "leadsTo": "The Collector"
+        }
+      ]
+    },
+    {
+      "title": "The Warning",
+      "content": "\"Stop looking into Sarah Chen.\" The voice is electronically distorted. Professional grade scrambler.\n\n\"Wrong number.\" But you don't hang up.\n\n\"You're sitting outside Mel's Diner. Rust-orange Corolla. License plate 7-Adam-Sam-2-1-9. Should I continue?\"\n\nYour blood goes cold. You scan the street but see nothing except empty parking lots and closed storefronts. \"Who is this?\"\n\n\"Someone who knows what really happened to that little girl. Walk away. Tonight. Don't look back.\"\n\nThe line goes dead.\n\nThrough the diner window, you see Linda still clutching that photograph. Still believing in miracles. But the voice on the phone sounded certain. Confident. Like someone with unlimited resources and zero patience.\n\nYour phone rings again. Marcus, probably wondering why you haven't taken his celebrity job. Easy money versus whatever trap you just stepped in.\n\nBut the caller knew about Sarah. Knew you were here. Which means they've been watching. The question is how long.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Drive straight to Marcus and take his job",
+          "leadsTo": "Clean Exit"
+        },
+        {
+          "text": "Go back inside and warn Linda",
+          "leadsTo": "Dangerous Game"
+        },
+        {
+          "text": "Call the number back",
+          "leadsTo": "Deeper Down"
+        }
+      ]
+    },
+    {
+      "title": "False Memories",
+      "content": "\"She won't know anything. That's the point.\" Linda's desperation bleeds through every word. \"Her brain is damaged. She can't form new memories. These would be all she has.\"\n\n\"And when she grows up? When she realizes her childhood belongs to someone else?\"\n\n\"She won't grow up.\" The words hit like a punch. Linda stares at the table. \"The doctors give her two years. Maybe three. The brain damage is progressive.\"\n\nSuddenly the diner feels too hot. Too bright. The fluorescent lights buzz like angry insects.\n\n\"I want her to remember being loved. Even if it's not real.\" Linda looks up. \"Even if it's borrowed.\"\n\nYou've implanted false memories before. Rich kids who wanted perfect childhoods. Criminals who needed alibis. Politicians erasing inconvenient truths. But never for someone who wouldn't live long enough to question them.\n\n\"The neural patterns won't match. Her brain will reject them.\"\n\n\"Not if you edit them first. Change the biometrics. I've done the research.\"\n\nOf course she has. Desperate mothers learn things they never wanted to know.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "\"I'll need to see her medical records first.\"",
+          "leadsTo": "Medical Files"
+        },
+        {
+          "text": "\"Edited memories leave scars. Permanent ones.\"",
+          "leadsTo": "The Cost"
+        },
+        {
+          "text": "\"Why not just spend the time you have left with her?\"",
+          "leadsTo": "Real Time"
+        }
+      ]
+    },
+    {
+      "title": "Planning the Job",
+      "content": "\"This Saturday. Midnight to six AM. Three guards total, all on the main floor. Storage vaults are sublevel two.\"\n\n\"Cameras?\"\n\n\"Motion activated. But I know the blind spots.\" She slides a hand-drawn map across the table. Surprisingly detailed. \"Service elevator here. Emergency stairs here. Vault access requires two keycards and a biometric scan.\"\n\n\"Which you can't provide.\"\n\n\"No. But I know someone who can.\" She hesitates. \"Dr. Harrison. He runs the facility. Has gambling debts. Serious ones.\"\n\nEveryone has a weakness. Usually money, sex, or fear. Sometimes all three.\n\n\"Elena Vasquez's memories are in vault seventeen. Premium storage. Climate controlled, military encryption.\" Linda traces the path on her map. \"In and out in twenty minutes.\"\n\nTwenty minutes to steal a billionaire's mind. Twenty minutes to set up your daughter for a new life. Twenty minutes to end up dead if something goes wrong.\n\nBut the payout would be enormous. Elena's consciousness collection could fund a dozen new identities. New city, new life, new everything.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": [
+        {
+          "text": "\"Set up a meeting with Dr. Harrison.\"",
+          "leadsTo": "The Doctor"
+        },
+        {
+          "text": "\"I work alone. Find another way.\"",
+          "leadsTo": "Solo Run"
+        },
+        {
+          "text": "\"What's Elena Vasquez to you?\"",
+          "leadsTo": "Personal Vendetta"
+        }
+      ]
+    },
+    {
+      "title": "Clean Exit",
+      "content": "Marcus meets you at his lab in Echo Park. Former auto shop converted into a memory processing facility. The smell of motor oil still lingers under the antiseptic.\n\n\"Celebrity chef. Anton Reyes. Jumped off his balcony yesterday.\" Marcus hands you a neural storage unit. \"Family wants his final day cleaned before the footage leaks. Standard scrub job.\"\n\nYou plug the unit into your equipment. The memories load in fast-forward. Anton waking up. Making coffee. Reading reviews of his latest restaurant. All normal until the afternoon.\n\nThen the memories turn dark. Anton discovering his business partner has been embezzling. His restaurants are bankrupt. His reputation ruined. The final memory shows him standing on his balcony, looking down at the street forty stories below.\n\n\"Clean work,\" Marcus says. \"Just edit out the business stuff. Make it look like an accident.\"\n\nBut as you start the editing process, something catches your attention. In the background of Anton's final memory, reflected in his apartment window, you see a woman on the building across the street. Watching through binoculars.\n\nShe looks familiar.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": []
+    },
+    {
+      "title": "Dangerous Game",
+      "content": "You walk back into the diner. Linda looks up, hope flickering in her eyes.\n\n\"Someone called me. Warned me off your case.\" You sit down. \"What aren't you telling me?\"\n\n\"I don't know what you mean.\"\n\n\"Try again.\"\n\nShe's quiet for a long moment. Outside, a police siren wails in the distance. \"Sarah wasn't in a car accident.\"\n\nOf course not.\n\n\"She was in a clinical trial. Experimental memory enhancement therapy. My ex-husband signed the consent forms.\" Linda's voice shakes. \"Elena Vasquez was funding it. Testing consciousness transfer technology.\"\n\n\"What went wrong?\"\n\n\"Nothing went wrong. The experiment worked perfectly. They successfully transferred someone else's consciousness into Sarah's brain.\" Tears start flowing. \"My daughter is gone. Some stranger is wearing her face.\"\n\nYou lean back in the booth. Elena Vasquez. The collector. No wonder someone wants you to back off.\n\n\"Whose consciousness?\"\n\n\"I don't know. But she's not Sarah. She doesn't recognize me. Doesn't act like her. It's like my daughter died and no one will admit it.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": [
+        {
+          "text": "\"We need to get Sarah back. The real one.\"",
+          "leadsTo": "Rescue Mission"
+        },
+        {
+          "text": "\"Elena Vasquez needs to pay for this.\"",
+          "leadsTo": "Personal Vendetta"
+        },
+        {
+          "text": "\"Your daughter's consciousness might still exist somewhere.\"",
+          "leadsTo": "Hidden Backup"
+        }
+      ]
+    },
+    {
+      "title": "The Doctor",
+      "content": "Dr. Harrison meets you at a strip club in Hollywood. Classy place called Velvet Dreams where the drinks cost thirty dollars and nobody asks questions. He's exactly what you expected. Nervous energy, expensive suit, desperate eyes.\n\n\"Linda says you have debts,\" you say.\n\n\"Poker. Bad beats.\" He laughs but there's no humor in it. \"Quarter million to some very unfriendly people.\"\n\n\"Elena Vasquez. What do you know about her storage unit?\"\n\n\"More than I should.\" He drains his whiskey. \"She's not collecting random memories. She's building something. A composite consciousness.\"\n\n\"Explain.\"\n\n\"Take the best parts of different people. A genius scientist's intellect. A war hero's courage. An artist's creativity. Combine them into one super-consciousness.\" He signals for another drink. \"She's trying to achieve immortality by becoming the perfect human.\"\n\n\"And the test subjects?\"\n\n\"Kids mostly. Their brains are more adaptable. Less likely to reject foreign consciousness patterns.\" His hands shake as he lights a cigarette. \"I helped design the procedure.\"\n\nNow you understand why Linda's daughter was chosen.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": [
+        {
+          "text": "\"How many other children has she experimented on?\"",
+          "leadsTo": "The Others"
+        },
+        {
+          "text": "\"I want access to her vault. Tonight.\"",
+          "leadsTo": "Breaking In"
+        },
+        {
+          "text": "\"You're going to help me stop this.\"",
+          "leadsTo": "Redemption"
+        }
+      ]
+    },
+    {
+      "title": "Breaking In",
+      "content": "Meridian Clinic at three AM looks like a fortress. Black glass and steel, surrounded by security cameras and motion sensors. But Linda was right about the skeleton crew. Only two guards visible, both half-asleep at their desk.\n\nDr. Harrison's keycard gets you past the main entrance. His biometric scan opens the elevator to sublevel two. The storage vaults stretch out like a high-tech mausoleum. Thousands of memories preserved in liquid nitrogen and digital amber.\n\nVault seventeen sits at the end of the corridor. Elena Vasquez's private collection. The lock requires Harrison's clearance plus a second authorization you don't have.\n\n\"Override code is her birthday,\" Harrison whispers. \"She's that narcissistic.\"\n\nThe vault opens with a soft hiss. Inside, hundreds of memory cores line the walls like bottles of wine. Each one labeled with a name and date. You recognize some of them. Missing persons from the past five years. All between the ages of eight and fifteen.\n\nAt the center of the room sits a master storage unit. The composite consciousness Harrison described. Elena's Frankenstein monster made from stolen childhoods.\n\nThen the lights go out.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 11,
+      "choices": []
+    }
+  ]
+}

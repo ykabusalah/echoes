@@ -1,0 +1,142 @@
+{
+  "title": "The Pepper Trader",
+  "description": "Your grandmother's spice stall. A stranger asking too many questions.",
+  "theme": "cozy thriller",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "Morning Inventory",
+      "content": "The cardamom pods feel plump between your fingers. Good batch. You pour them into the glass jar, counting each one like Bibi taught you. Trust no one with inventory. Not even family.\n\nDarajani Market hums to life around you. Fatima arranges her tomatoes in perfect pyramids. Old Mzee Hassan sweeps his butcher stall with the same broom he's used for twenty years. The morning rituals never change.\n\n\"Excuse me.\" A man appears at your counter. Clean shirt. New shoes. Tourist, but not the usual kind. His eyes scan your spices too carefully. \"I'm looking for something specific.\"\n\nYou set down the cardamom. \"Turmeric? Cinnamon? Most people want cinnamon.\"\n\n\"Actually, I was hoping to speak with the owner. About suppliers.\"\n\nSuppliers. Nobody asks about suppliers unless they're buying bulk. Or unless they're asking about something else entirely.\n\nThe morning light catches the gold flecks in your grandmother's saffron display. She always said the most dangerous customers were the ones who didn't look dangerous at all.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "\"My grandmother isn't here today. Maybe I can help?\"",
+          "leadsTo": "Playing Defense"
+        },
+        {
+          "text": "\"What kind of suppliers? We deal with many.\"",
+          "leadsTo": "The Hook"
+        },
+        {
+          "text": "\"You don't look like you're in the spice business.\"",
+          "leadsTo": "Direct Challenge"
+        }
+      ]
+    },
+    {
+      "title": "Playing Defense",
+      "content": "\"Ah.\" He doesn't look disappointed. If anything, he seems pleased. \"You must be Amara. Your reputation precedes you.\"\n\nYour name in his mouth sounds wrong. Too familiar. You've never seen this man before in your life.\n\n\"Most people just call me the girl at the spice stall.\" You keep sorting cardamom. Busy hands make better listening. \"You have me at a disadvantage.\"\n\n\"David Chen. I represent certain... agricultural interests. Looking to establish new trade relationships.\"\n\nAcross the narrow aisle, Mama Zubeda pretends to arrange her fabrics. But her ears are sharp as her haggling skills. Good. Witnesses matter in this business.\n\n\"We're pretty established here.\" You tap the glass counter. \"Been in this spot forty-three years.\"\n\n\"Yes, I know. Since 1979. Your grandmother Khadija started with just black pepper and cloves.\"\n\nThe cardamom pods spill from your hands. He knows too much. Way too much.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "\"Where exactly did you hear all this?\"",
+          "leadsTo": "Uncomfortable Truths"
+        },
+        {
+          "text": "\"I think you should leave now.\"",
+          "leadsTo": "The Warning"
+        },
+        {
+          "text": "\"What do you really want, Mr. Chen?\"",
+          "leadsTo": "Cards on the Table"
+        }
+      ]
+    },
+    {
+      "title": "The Hook",
+      "content": "His smile widens. You've given him an opening.\n\n\"Primarily interested in your pepper sources. Black pepper specifically. High-grade Piper nigrum from Madagascar.\" He leans against your counter. \"I understand your grandmother has exclusive arrangements.\"\n\nMadagascar pepper. Your breath catches. Only three stalls in all of Stone Town carry authentic Madagascar pepper. Expensive stuff. Most vendors sell Vietnamese knockoffs and hope tourists won't know the difference.\n\nBut Madagascar pepper isn't just valuable because it tastes better.\n\n\"That's very specific.\" You measure your words like you measure spices. Careful portions. \"Most people can't tell the difference.\"\n\n\"I'm not most people.\"\n\nFatima drops a tomato. It rolls toward your stall, leaving a trail of seeds and red juice. She snatches it back quickly, but her eyes meet yours for just a second. She heard everything.\n\nThe Madagascar connection isn't about spices at all. And this man knows it.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "\"We might have some in the warehouse. After lunch.\"",
+          "leadsTo": "The Trap"
+        },
+        {
+          "text": "\"Madagascar pepper is hard to come by these days.\"",
+          "leadsTo": "Testing Waters"
+        }
+      ]
+    },
+    {
+      "title": "Direct Challenge",
+      "content": "He laughs. Actually laughs. \"You're right. I'm not.\"\n\nAt least he's honest about that much.\n\n\"I work in import documentation. Customs paperwork can be... complex in this part of the world.\" He adjusts his collar. Clean-shaven neck. Soft hands. Definitely not a trader. \"Sometimes valuable shipments get held up unnecessarily.\"\n\nThe threat lands soft but clear. Customs trouble can kill a spice business faster than bad harvest. One delayed shipment, one random inspection, one misfiled form. Your grandmother always said the real pirates wear ties now.\n\n\"Our paperwork is always in order.\" You keep your voice steady. \"Always has been.\"\n\n\"Of course. Reputation like yours doesn't happen by accident.\" He straightens up. \"But regulations change. New requirements. Would hate to see an established business run into unexpected complications.\"\n\nMzee Hassan stops sweeping. The butcher's cleaver rests heavy in his weathered hand. Old loyalty runs deep in these narrow lanes.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "\"What kind of complications?\"",
+          "leadsTo": "The Price"
+        },
+        {
+          "text": "\"I think we'll take our chances with the regulations.\"",
+          "leadsTo": "Standing Ground"
+        }
+      ]
+    },
+    {
+      "title": "Uncomfortable Truths",
+      "content": "\"Public records. Business licenses. Import manifests.\" He counts on his fingers like items on a shopping list. \"Your grandmother's quite remarkable. Building a spice empire from nothing.\"\n\nEmpire. Nobody calls three stalls an empire unless they know about the other things. The real business that flows beneath the cardamom and coriander.\n\n\"She's a good businesswoman.\"\n\n\"More than good. Shipping records show some interesting patterns. Regular deliveries to very specific addresses. Always cash transactions.\"\n\nYour throat goes dry. The ledger hidden beneath the cash box suddenly feels like it's glowing through the wood. Names, dates, amounts. The other kind of trading Bibi taught you about. The kind that keeps certain people in Stone Town very comfortable.\n\n\"Cash is king in the spice business,\" you manage.\n\n\"Absolutely. Especially when the spices aren't really spices.\"\n\nThe market noise fades. Even Mama Zubeda has gone still. This man isn't just asking questions. He already knows the answers.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "\"I have no idea what you're talking about.\"",
+          "leadsTo": "The Bluff"
+        },
+        {
+          "text": "\"How much do you want?\"",
+          "leadsTo": "Quick Deal"
+        }
+      ]
+    },
+    {
+      "title": "The Warning",
+      "content": "\"Of course.\" He steps back, hands raised in mock surrender. \"Didn't mean to upset you.\"\n\nBut he doesn't leave. Just moves to Hassan's stall and starts examining the hanging meat like he's actually shopping. The old butcher's jaw tightens. Nobody likes strangers lingering.\n\nYou try to focus on your work, but your hands shake as you arrange the spice jars. Every few minutes you catch Chen glancing your way. Taking notes in a small leather book.\n\nFatima edges closer. \"That man is asking questions about you,\" she whispers. \"About your grandmother's boat trips to Madagascar.\"\n\nThe boat trips. Your stomach drops. Those aren't in any public records.\n\n\"What kind of questions?\"\n\n\"When she travels. How long she stays. Who meets her at the port.\" Fatima's voice drops even lower. \"He offered me money for your schedule.\"\n\nAcross the aisle, Chen closes his notebook and checks his watch. Then he looks directly at you and smiles. Not the fake tourist smile from before. This one has teeth.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Follow him when he leaves",
+          "leadsTo": "The Chase"
+        },
+        {
+          "text": "Call your grandmother immediately",
+          "leadsTo": "Family Warning"
+        }
+      ]
+    },
+    {
+      "title": "The Chase",
+      "content": "You slip out from behind the stall as Chen disappears into the maze of Stone Town's back alleys. The narrow streets twist like secrets themselves. Coral stone walls rise on both sides, blocking out most of the afternoon sun.\n\nHe moves like he knows where he's going. Past the old Portuguese houses, through the spice merchant quarter, toward the port. Your sandals are silent on the worn stones. Grandmother taught you to walk quietly. Useful skill in more ways than one.\n\nChen stops at a blue door you recognize. Omar's warehouse. Omar who ships more than cloves to Dubai. Omar who never asks questions about extra cargo.\n\nThrough the cracked window, you see them shake hands. Money changes hands. Papers too. Chen points toward the market, toward where your stall sits in the midday heat.\n\nYour phone buzzes. Text message from an unknown number: \"Your grandmother returns tonight. Pier 7. 11 PM. Come alone if you want this to stay quiet.\"\n\nThe blue door opens. You duck behind a fruit cart as Chen emerges, no longer pretending to be a tourist. His phone is already at his ear, speaking rapid Mandarin.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Family Warning",
+      "content": "\"Amara?\" Your grandmother's voice crackles through the connection. \"You sound worried.\"\n\n\"There's a man asking questions. About Madagascar. About the boat trips.\"\n\nSilence. Long enough that you check if the call dropped.\n\n\"What kind of man?\"\n\n\"Says his name is David Chen. Claims he works in customs.\"\n\n\"Aah.\" The sound carries forty years of hard-earned wisdom. \"Mr. Chen finally shows himself. I wondered when he would come calling.\"\n\nFinally? \"You know him?\"\n\n\"I know his type. Men who think young women are careless with family secrets.\" Her voice sharpens. \"Close the stall early today. Take the evening receipts to Aunt Salma's house. Stay there tonight.\"\n\n\"Bibi, what's going on?\"\n\n\"Business, mpenzi. The kind that requires careful handling.\" The line crackles with static. \"And Amara? The red tin behind the saffron. Take it with you. Don't let anyone see.\"\n\nThe call goes dead. Your hands tremble as you reach for the hidden tin, feeling its familiar weight. Inside, wrapped in silk: the real records. The ones that could destroy half the merchants in Stone Town.\n\nOr make you very rich.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    }
+  ]
+}

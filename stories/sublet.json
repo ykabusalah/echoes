@@ -1,0 +1,137 @@
+{
+  "title": "Sublet",
+  "description": "House-sitting leads to questions about the owner.",
+  "theme": "mystery",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "Moving In",
+      "content": "The key sticks in the lock like Maya warned me it would. I have to jiggle it counterclockwise first, then push hard. The door opens onto polished hardwood and exposed brick. Way nicer than my Bushwick shoebox.\n\nMaya's texts were specific. Water the snake plant by the window every Tuesday. Don't touch the turntable. There's oat milk in the fridge that expires Thursday.\n\nShe didn't mention the mail piling up on the hall table. Or the fact that every piece is addressed to someone named David Chen, not Maya Rodriguez. The Con Edison bill, the jury duty summons, even a Netflix DVD from 2019.\n\nI drop my duffel bag and check my phone. Maya posted an Instagram story two hours ago from what looks like a hotel pool in Miami. She's wearing heart-shaped sunglasses, holding a mojito.\n\nThe apartment smells like sandalwood and something else. Something stale. I count the mail pieces again. Fourteen envelopes. All David Chen. None Maya Rodriguez.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Text Maya about the mail situation",
+          "leadsTo": "Maya's Response"
+        },
+        {
+          "text": "Look around the apartment for more clues",
+          "leadsTo": "Searching"
+        },
+        {
+          "text": "Just ignore it and settle in",
+          "leadsTo": "First Night"
+        }
+      ]
+    },
+    {
+      "title": "Maya's Response",
+      "content": "I text Maya: 'Hey! Loving the place. Quick question - there's a bunch of mail here for David Chen?'\n\nThree dots appear immediately. Then disappear. Then appear again.\n\nFinally: 'Oh yeah lol that's my roommate's stuff. He's traveling too. Super long trip.'\n\nI frown at my phone. She never mentioned a roommate. The apartment has one bedroom, one bed. Where does this David sleep?\n\nMe: 'Cool, should I forward anything important?'\n\nMaya: 'Nah he's totally off grid right now. Hiking the PCT or whatever. Just leave it.'\n\nThe Pacific Crest Trail. That's a six-month commitment minimum. But there's a jury duty summons here from last week. And the Netflix DVD. Who still gets DVDs?\n\nI scroll up through our text history. All her messages about the apartment use singular pronouns. 'My place.' 'My couch.' 'My snake plant.'\n\nNever 'our' anything.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Ask Maya more direct questions about David",
+          "leadsTo": "Pressing Maya"
+        },
+        {
+          "text": "Search the apartment while she thinks you believe her",
+          "leadsTo": "Secret Search"
+        },
+        {
+          "text": "Drop it and enjoy your free stay",
+          "leadsTo": "First Night"
+        }
+      ]
+    },
+    {
+      "title": "Searching",
+      "content": "The living room is magazine perfect. Too perfect. Like someone staged it. The books on the coffee table are artfully stacked. 'The Goldfinch,' 'Educated,' 'Where the Crawdads Sing.' All books people buy to look smart.\n\nI open the coat closet. Two winter coats hang inside. One is definitely Maya's. I recognize it from her Instagram. Black wool, cropped. The other is a men's North Face puffer, size large. Forest green.\n\nThe pockets are empty except for a MetroCard and a crumpled receipt from Duane Reade. The receipt is dated three weeks ago. Advil, band-aids, Gatorade. Someone sick, maybe.\n\nIn the kitchen, I check the freezer. Frozen dumplings, ice cream, a bag of coffee beans from Blue Bottle. But there's also a bottle of Jameson, three-quarters empty. Maya's Instagram is all green smoothies and yoga poses. She doesn't seem like a whiskey person.\n\nThe medicine cabinet in the bathroom has two toothbrushes. Both look recently used.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Look through the bedroom more carefully",
+          "leadsTo": "The Bedroom"
+        },
+        {
+          "text": "Check David's mail for more recent dates",
+          "leadsTo": "Mail Investigation"
+        },
+        {
+          "text": "Stop snooping and try to relax",
+          "leadsTo": "First Night"
+        }
+      ]
+    },
+    {
+      "title": "First Night",
+      "content": "I order Thai food and put on Netflix. Maya wasn't lying about the couch being comfortable. The som tam is perfect, just the right amount of fish sauce bite.\n\nAround 11 PM, I hear footsteps upstairs. Heavy. Deliberate. The building is old, so sound travels. Probably just the neighbor.\n\nThen I hear them again. But different. Like someone walking around directly above the bedroom. I check the building layout in my head. The brownstone is only three stories. Maya said she's on the top floor.\n\nI mute the TV and listen. The footsteps stop.\n\nMy phone buzzes. A text from an unknown number: 'Is someone staying in 3A?'\n\nI stare at the message. That's Maya's apartment number.\n\nMe: 'Who is this?'\n\nUnknown: 'Building manager. Maya didn't mention a subletter.'\n\nMe: 'She said it was fine. I'm house-sitting.'\n\nUnknown: 'Interesting. Maya moved out six months ago.'\n\nRead receipts show they saw my response, but no reply comes.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Call Maya immediately",
+          "leadsTo": "Confronting Maya"
+        },
+        {
+          "text": "Text the building manager back with questions",
+          "leadsTo": "Manager Questions"
+        }
+      ]
+    },
+    {
+      "title": "The Bedroom",
+      "content": "Maya's bedroom is pristine. White duvet, gold mirror, succulents on the windowsill. But when I open the dresser, both sides have clothes. The left side is definitely Maya's. Cropped sweaters, high-waisted jeans, sports bras in millennial pink.\n\nThe right side is men's clothes. Levi's, plain t-shirts, boxer briefs still in packaging. Everything looks recently bought, tags still attached to some items.\n\nIn the nightstand drawer, I find two phones charging. One is an iPhone with a cracked screen and a case covered in stickers. The other is a newer Samsung, completely clean.\n\nThe iPhone lights up with a notification. A Venmo payment from Maya Rodriguez to David Chen. Fifty dollars. The memo says 'rent.' The timestamp is from yesterday.\n\nYesterday. When Maya was supposedly already in Miami, and David was supposedly hiking in Oregon.\n\nI pick up the Samsung. The lock screen shows seventeen missed calls from 'Mom' and twenty-three unread texts. The most recent one, from four hours ago: 'David please call me back. The police were asking about you again.'",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Try to unlock David's phone",
+          "leadsTo": "Phone Access"
+        },
+        {
+          "text": "Get out of the apartment immediately",
+          "leadsTo": "Escape"
+        }
+      ]
+    },
+    {
+      "title": "Confronting Maya",
+      "content": "Maya picks up on the first ring, like she was waiting.\n\n\"Hey babe! How's the apartment?\"\n\nHer voice sounds different. Tighter.\n\n\"Maya, I just got a text from your building manager. He says you moved out six months ago.\"\n\nSilence. I can hear music in the background. Not hotel music. Something familiar.\n\n\"That's weird,\" she says finally. \"He must be confused. You know how building managers are.\"\n\n\"Are you actually in Miami?\"\n\n\"Of course I am. Want me to send you a selfie?\"\n\n\"The music I'm hearing. That's the song that was playing when I got to the apartment. From the neighbor upstairs.\"\n\nThe line goes quiet except for breathing.\n\n\"Maya.\"\n\n\"Look,\" she says, and now her voice is completely different. Flat. \"David needed some help, okay? He's in a situation. I'm helping him out. You're helping him out too, whether you know it or not.\"\n\n\"What kind of situation?\"\n\n\"The kind where people need to disappear for a while.\"",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": []
+    },
+    {
+      "title": "Phone Access",
+      "content": "I try the obvious passwords. 1234. 0000. The phone stays locked.\n\nThen I notice the screen is smudged with fingerprint oils. I can make out the pattern. Four digits, starting from the top left. 1379.\n\nThe phone unlocks.\n\nDavid's last text conversation is with Maya, but the thread goes back months. Way before she said she knew him. The messages are cryptic.\n\nMaya: 'Lawyer says to stay put.'\nDavid: 'I can't keep hiding here.'\nMaya: 'Few more weeks. I found someone to house-sit. Gives us cover.'\nDavid: 'What did you tell them?'\nMaya: 'Nothing. They think I live there.'\n\nI scroll up further. Screenshots of news articles. 'Local Man Missing After Accounting Fraud Investigation.' The photo shows David Chen, 31, last seen leaving his Park Slope apartment.\n\nThe article is from four months ago.\n\nFootsteps in the hallway outside. A key turning in the lock. But I have the only key Maya gave me.\n\nThe door opens.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Escape",
+      "content": "I grab my duffel bag and head for the door. My hands shake as I turn the lock. The hallway is empty, but I can smell cigarette smoke drifting from somewhere.\n\nThe stairs creak under my feet. Old Brooklyn brownstones are impossible to navigate quietly. Every step announces itself.\n\nOn the second floor landing, a door opens.\n\n\"You leaving already?\"\n\nI turn. A woman in her sixties, wearing a bathrobe and holding a small dog.\n\n\"Um, yeah. Change of plans.\"\n\n\"That's too bad. Maya will be disappointed. She was so excited to have a friend staying over.\"\n\nI pause on the step. \"You know Maya?\"\n\n\"Oh honey, I've lived here for twenty years. I know everyone. Maya's been David's girlfriend for what, two years now? Sweet girl. Shame about all that business with the police.\"\n\nShe adjusts the dog in her arms.\n\n\"You tell her Mrs. Patterson says hi, okay? And that I've been keeping quiet like she asked.\"\n\nThe front door feels miles away.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    }
+  ]
+}

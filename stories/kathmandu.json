@@ -1,0 +1,111 @@
+{
+  "title": "The Bells of Kathmandu",
+  "description": "A map to a place that might not exist. A mother who never spoke about Nepal. Sometimes the path matters more than the destination.",
+  "theme": "spirituality",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "The Map Seller",
+      "content": "Thamel smells of incense and diesel. You've walked past this stall three times without noticing it.\n\nThe woman doesn't look up. Her hands, spotted with age, slide a yellowed paper across the table.\n\n\"You've been looking for this.\"\n\nThe map shows a route to something called Nāga Pokhari. The serpent pool. Below the coiled snake symbol, a note in faded ink: Answers given. Prices paid.\n\n\"How much?\"\n\n\"Depends what you're buying.\" She meets your eyes. Cataracts, but sharp underneath. \"The paper? Fifty rupees. What it leads to? That cost your mother thirty years of silence.\"",
+      "isStart": true,
+      "order": 0,
+      "choices": [
+        { "text": "\"You knew my mother?\"", "leadsTo": "The Woman's Secret" },
+        { "text": "Pay and leave before she says more", "leadsTo": "The First Temple" },
+        { "text": "\"I don't believe in magic pools.\"", "leadsTo": "What She Found" }
+      ]
+    },
+    {
+      "title": "The Woman's Secret",
+      "content": "\"Elena. 1994. Pregnant and terrified.\" The woman's hands keep moving, sorting herbs into paper packets. \"She wanted to know if she'd be a good mother. Came all this way for permission to hope.\"\n\nA brass bell appears beside the map. Small. Tarnished.\n\n\"She never reached the pool. Found something else instead.\" The woman ties off a packet. \"You want to know what? Follow the map. Ring the bell when you're lost. Really lost. Not just turned around.\"\n\nThe bell weighs almost nothing.",
+      "order": 1,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "\"What did she find?\"", "leadsTo": "What She Found" },
+        { "text": "Take the items and go", "leadsTo": "The First Temple" }
+      ]
+    },
+    {
+      "title": "What She Found",
+      "content": "\"Your father.\"\n\nThe word sits there.\n\n\"Halfway up a mountain, monastery called Tengboche. She'd run out of food. He shared his rice.\" The woman almost smiles. \"She forgot all about the pool. Stayed three weeks learning to make momos. Came back here to tell me she didn't need answers anymore.\"\n\nShe looks at you the way someone looks at an old photograph.\n\n\"Some people find what they're looking for. Some people find what they need. Your mother got lucky.\"\n\nThe map feels different now. Lighter, maybe. Or heavier.",
+      "order": 2,
+      "choices": [
+        { "text": "Continue to the temple", "leadsTo": "The First Temple" }
+      ]
+    },
+    {
+      "title": "The First Temple",
+      "content": "Swayambhunath. Monkey temple. Buddha's painted eyes watch from the white dome, indifferent to the tourists taking selfies below.\n\nThe map shows a passage behind the main stupa. You've circled three times and found nothing but solid stone and suspicious monkeys.\n\nA young monk approaches. Shaved head, orange robes, maybe nineteen. He's watching you watch the wall.\n\n\"Looking for something?\"",
+      "order": 3,
+      "choices": [
+        { "text": "Show him the map", "leadsTo": "The Novice" },
+        { "text": "\"Just admiring the architecture\"", "leadsTo": "The Hidden Path" },
+        { "text": "Wait for him to leave, keep searching", "leadsTo": "The Hidden Path" }
+      ]
+    },
+    {
+      "title": "The Novice",
+      "content": "He studies the map like it's a final exam.\n\n\"My teacher mentioned this path once. Said it opens for some people and not others.\" He traces the route with his finger. \"Said the pool is real but not how people think. Not magic. Just... old.\"\n\nHe glances around, lowers his voice.\n\n\"There's a gap in the stones. Northwest corner, behind the prayer wheels. Only visible at certain times.\" He hands back the map. \"I can't go with you. But if you find it, the path is real. Whatever you're looking for, it's real too.\"\n\nHe walks away before you can thank him.",
+      "order": 4,
+      "choices": [
+        { "text": "Find the hidden path", "leadsTo": "The Hidden Path" }
+      ]
+    },
+    {
+      "title": "The Hidden Path",
+      "content": "The gap exists. Barely. You have to turn sideways and exhale to fit through.\n\nOn the other side: a trail that doesn't appear on any map. Stone steps worn smooth by centuries of feet. Prayer wheels every hundred meters, some still spinning in a wind you can't feel.\n\nThe sounds of Kathmandu fade within minutes. Just your breathing. Bird calls. The distant ring of bells from somewhere ahead.\n\nThe path splits at a marker carved with eyes. Left goes up. Right goes down. The map shows both routes reaching the same destination eventually.",
+      "order": 5,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "Take the high path through the ridge", "leadsTo": "The Ridge" },
+        { "text": "Follow the valley route", "leadsTo": "The Valley" },
+        { "text": "Camp here and decide in the morning", "leadsTo": "The Ridge" }
+      ]
+    },
+    {
+      "title": "The Ridge",
+      "content": "Six hours of climbing. Your lungs burn. The air thins.\n\nThen the view opens up and you stop thinking about your lungs.\n\nMountains in every direction. Snow peaks catching the last light. Below, a valley so green it looks painted. No roads. No buildings. Just wilderness that doesn't know it's 2024.\n\nYou make camp in a hollow beside a ruined chorten. Someone left offerings here recently. Fresh marigolds. A cup of milk, still liquid.\n\nIn the morning, the path continues. Steeper now. The map's symbols start matching landmarks: a lightning-split tree, a spring emerging from a rock shaped like a fist.\n\nYou're not just following directions anymore. You're reading a language.",
+      "order": 6,
+      "choices": [
+        { "text": "Continue to the pool", "leadsTo": "The Pool" }
+      ]
+    },
+    {
+      "title": "The Valley",
+      "content": "The low path follows a stream that grows into a river. Rhododendrons bloom red against the green. You see no one for two days.\n\nOn the third day, smoke. A small house tucked into the hillside, invisible until you're almost on top of it.\n\nAn old woman sits outside, sorting dried plants. She looks up without surprise.\n\n\"Hungry?\"\n\nHer dal bhat is the best you've ever tasted. She doesn't ask where you're going. You don't volunteer.\n\n\"Your mother stayed here,\" she says when you're finishing. \"Slept in that room. Left before dawn. Never said goodbye, but left money under the pillow.\"\n\nShe shows you a photograph tucked in her window frame. A young woman with your eyes, standing exactly where you're sitting now.",
+      "order": 7,
+      "choices": [
+        { "text": "Ask what else she remembers", "leadsTo": "The Pool" },
+        { "text": "Thank her and continue on", "leadsTo": "The Pool" }
+      ]
+    },
+    {
+      "title": "The Pool",
+      "content": "You almost miss it.\n\nA circular clearing. Stones arranged in a pattern too precise to be natural. At the center, water so still it looks solid. The surface reflects not the sky but something darker. Deeper.\n\nNo magic. No voices. No supernatural glow. Just a pool in a hidden valley, old beyond measuring.\n\nYou sit at the edge for a long time.\n\nThe question you came to ask feels smaller now. Less urgent. Six days of walking have worn something loose inside you. The desperate need to know has become something else. Curiosity, maybe. Or acceptance that some questions answer themselves if you give them enough silence.\n\nYou don't drink from the pool. Don't ask it anything. Just sit until the light changes, then start the long walk back.",
+      "order": 8,
+      "choices": [
+        { "text": "Leave something behind", "leadsTo": "What You Leave" },
+        { "text": "Take nothing, leave nothing", "leadsTo": "The Silent Return" },
+        { "text": "Ring the bell", "leadsTo": "The Bell Rings" }
+      ]
+    },
+    {
+      "title": "What You Leave",
+      "content": "You pull out the brass bell. It hasn't made a sound the entire journey, not even when your pack bounced down a scree slope.\n\nYou set it at the pool's edge. Not an offering exactly. More like returning something to its place.\n\nThe walk back takes four days. Different route. New views. A monastery where monks share tea and don't ask questions. A suspension bridge over a gorge that makes your stomach drop.\n\nYou emerge in Kathmandu sunburned, ten pounds lighter, without answers.\n\nBut the questions have changed. That's something.",
+      "order": 9,
+      "isEnding": true
+    },
+    {
+      "title": "The Silent Return",
+      "content": "You take nothing. Leave nothing.\n\nThe pool was never the point. You know that now. Your mother knew it too, which is why she never came back.\n\nSome journeys end at a destination. Others end when you stop needing one.\n\nThree weeks later, you're home. Friends ask about Nepal. You show them photos of temples and mountains. You don't mention the pool. Not because it's secret. Because there's nothing to say that would make sense to someone who wasn't there.\n\nAt night sometimes you think about the map seller. Wonder if she's still sorting herbs in that narrow stall. Wonder if she gave another map to another searcher.\n\nWonder if your mother ever thought about going back.",
+      "order": 10,
+      "isEnding": true
+    },
+    {
+      "title": "The Bell Rings",
+      "content": "You ring the bell.\n\nThe sound is small. Barely audible. But it moves outward in a way sound shouldn't, rippling across the pool's surface even though you're not touching the water.\n\nNothing happens. Then everything happens.\n\nNot visions. Not magic. Just clarity. The kind that comes at 3am when you stop fighting sleep and suddenly understand something you've been avoiding.\n\nYou understand why your mother left without reaching the pool. What she found instead. Why she never talked about it.\n\nYou understand what you came here looking for and why you won't find it in the water.\n\nThe bell goes silent. The pool stills. You stand up, lighter than you've been in years, and start walking home.\n\nNot because you found answers. Because you stopped needing them.",
+      "order": 11,
+      "isEnding": true
+    }
+  ]
+}

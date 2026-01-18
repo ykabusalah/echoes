@@ -1,0 +1,205 @@
+{
+  "title": "The Translator",
+  "description": "A war crimes tribunal. The witness speaks a dialect you barely know.",
+  "theme": "moral drama",
+  "tier": 3,
+  "scenes": [
+    {
+      "title": "The Booth",
+      "content": "The headphones crackle. Static, then a voice I almost recognize.\n\n\"Witness will state his name for the record.\"\n\nThe old man leans into the microphone. His words come out in Bosnian, but twisted. Rural. Mountain dialect from somewhere I can't place. My fingers hover over the keyboard.\n\n\"Mehmed Hadzic,\" he says. Then something else. Something about his village.\n\nJudge Morrison waits. The prosecutor taps her pen. In the gallery, families of victims lean forward. Reporters check their phones.\n\nMy voice goes into the system, crisp and professional: \"The witness states his name as Mehmed Hadzic.\"\n\nBut he said more. Something about the old road, the one that wound past the cemetery. I caught maybe half of it. The other translator, Vera, is handling Serbian today. She's not listening to this channel.\n\nThe witness shifts in his chair. His hands shake. He's maybe seventy, wearing a suit that doesn't fit right. Behind his glasses, his eyes dart between the judges and the defendant.\n\nDefendant Marković sits perfectly still. His lawyer whispers something. The witness sees this. His jaw tightens.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Ask for clarification through the court officer",
+          "leadsTo": "Official Channels"
+        },
+        {
+          "text": "Continue with partial translation",
+          "leadsTo": "Missing Words"
+        },
+        {
+          "text": "Signal the other translator for help",
+          "leadsTo": "Vera's Assistance"
+        }
+      ]
+    },
+    {
+      "title": "Official Channels",
+      "content": "I press the interpreter button. Red light flashes on my console.\n\n\"Your Honor, the interpreter requests clarification from the witness regarding his statement.\"\n\nJudge Morrison looks up. \"What seems to be the issue?\"\n\n\"The witness spoke in a regional dialect. I want to ensure accuracy.\"\n\nThe judge nods to the court officer. \"Please ask the witness to repeat his statement more slowly.\"\n\nThe witness looks confused when the officer explains. His attorney leans over, speaks to him in careful, formal Bosnian. The witness nods but his expression changes. More guarded now.\n\n\"Mehmed Hadzic,\" he says again. \"From Gorazde.\"\n\nThat's not what he said before. The word he used was older, local. A village name that probably doesn't exist on any current map. But now he's giving the official answer, the one that fits into court records.\n\nI translate exactly what he says this time. Clean. Proper. Wrong.\n\nThe prosecutor continues. \"Mr. Hadzic, can you tell us about the events of July 15th, 1995?\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Accept the sanitized version",
+          "leadsTo": "Clean Record"
+        },
+        {
+          "text": "Note the discrepancy in your files",
+          "leadsTo": "Personal Notes"
+        }
+      ]
+    },
+    {
+      "title": "Missing Words",
+      "content": "I translate what I can understand. Leave gaps where the dialect gets too thick.\n\nThe testimony moves forward. Hadzic describes the morning. Soldiers coming to the village. His voice gets stronger as he talks, more animated. The mountain dialect creeps back in.\n\n\"They separated the men,\" I translate. \"Made us line up by the school.\"\n\nBut he's saying something else too. About a commander with a scar. About dogs barking in the distance. About his nephew crying. The words blur together in a rhythm I remember from somewhere else.\n\nThe prosecutor shows him a photograph. Hadzic studies it, nods.\n\n\"That's him,\" he says in clear Bosnian. Then adds something rapid, dialect-heavy.\n\nI catch fragments. Brother. Promise. The winter when the river froze.\n\n\"The witness identifies the subject in the photograph,\" I say into my microphone.\n\nDefendant Marković's lawyer stands. \"Objection. The witness said more than that.\"\n\nJudge Morrison looks toward my booth. The red recording light blinks steadily. Everything I say becomes part of the permanent record.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Admit you missed part of the statement",
+          "leadsTo": "Confession"
+        },
+        {
+          "text": "Provide a fuller translation now",
+          "leadsTo": "Filling Gaps"
+        },
+        {
+          "text": "State that the witness only confirmed the identification",
+          "leadsTo": "Standing Firm"
+        }
+      ]
+    },
+    {
+      "title": "Vera's Assistance",
+      "content": "I catch Vera's eye through the glass partition. Tap my headphones, point to the witness. She frowns, puts on the Bosnian channel.\n\nHadzic continues talking. About his village, his family. Vera scribbles notes on a pad, holds it up: \"Rozanj dialect - mountain region.\"\n\nI've heard it before. Not here in The Hague, but in another place, another time. A checkpoint outside Sarajevo. A woman begging for safe passage, using the same lilting vowels, the same dropped consonants.\n\nVera writes more: \"He's talking about the old cemetery road.\"\n\nThe prosecutor asks about July 15th. Hadzic's story pours out, detailed and devastating. Twenty-three men lined up against the school wall. His brother among them. Commander Marković walking down the line, making selections.\n\nI translate steadily now, with Vera's help filling the gaps. But something bothers me. The way Hadzic describes the commander. The scar that runs from ear to jaw. The gold tooth in front.\n\nI saw that scar once. Up close. Close enough to smell cigarettes and plum brandy on his breath.\n\n\"Did the defendant speak to any of the prisoners?\" the prosecutor asks.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Continue translating neutrally",
+          "leadsTo": "Professional Distance"
+        },
+        {
+          "text": "Pay closer attention to descriptions of Marković",
+          "leadsTo": "Recognition"
+        }
+      ]
+    },
+    {
+      "title": "Clean Record",
+      "content": "The testimony proceeds smoothly now. Hadzic sticks to standard Bosnian, speaks slowly. His lawyer must have coached him well.\n\nHe describes the massacre methodically. Names, dates, locations. Everything the prosecution needs for their case. I translate each word precisely.\n\nBut something is lost. The texture of his memory. The way he originally spoke about his village, with love and specificity. Now it's just \"Gorazde region\" and \"rural community.\"\n\nDuring the lunch recess, I see him in the hallway with his attorney. They're speaking in whispers, but I catch fragments. The lawyer is telling him to be careful, to stick to the prepared statements.\n\n\"The judges need clarity,\" the lawyer says. \"Not poetry.\"\n\nHadzic nods, but his shoulders are slumped. He looks smaller somehow.\n\nWhen court resumes, the defense begins cross-examination. They attack his memory, his timeline, the distance from which he observed events. Hadzic answers carefully, precisely. Every response translates cleanly.\n\nThe lawyer presses harder. \"How can you be certain of what you saw from 200 meters away?\"\n\nHadzic hesitates. His mouth opens, closes. He wants to explain something but can't find the words in formal Bosnian.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": []
+    },
+    {
+      "title": "Personal Notes",
+      "content": "I keep a separate notebook. Not part of the official record. Just for me.\n\n\"Witness originally said village name: sounds like 'Rozanije' or 'Rozanj.' Changed to 'Gorazde' after clarification.\"\n\nThe testimony continues. I translate the sanitized version but track the discrepancies. When Hadzic talks about his brother, he uses a childhood nickname first, then switches to the formal name. When he describes the commander, his dialect gets thicker, more emotional.\n\nAt the lunch break, I research the region. Find references to Rozanj in old Austrian maps. A village that was absorbed into Gorazde municipality in the 1960s. Probably three hundred people, maybe fewer.\n\nThe afternoon session focuses on identification. The prosecution shows photographs, documents. Hadzic identifies defendant Marković without hesitation.\n\n\"That's the man who gave the orders,\" he says clearly.\n\nBut in dialect, he adds something else. Something about promises made and broken. About winter nights when there was no food.\n\nI translate the identification. Keep the rest in my notes.\n\nAfter court, I walk back to the hotel through The Hague's orderly streets. My notebook feels heavy in my briefcase. Full of words that will never make it into the official record.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": []
+    },
+    {
+      "title": "Confession",
+      "content": "\"Your Honor, I need to clarify. The witness added additional remarks that I was unable to fully translate due to dialectical variations.\"\n\nThe courtroom stirs. Lawyers whisper to each other. Judge Morrison leans forward.\n\n\"What exactly did you miss, Interpreter?\"\n\nMy throat feels dry. \"The witness spoke about personal details regarding the identified subject. Family connections, possibly. The regional dialect made it difficult to be certain of the meaning.\"\n\nThe defense attorney pounces. \"Your Honor, if the court's interpreter cannot accurately translate the witness's statements, how can we rely on any of this testimony?\"\n\nJudge Morrison calls a recess. Court officers escort Hadzic out while the lawyers argue procedure. I sit in my booth, headphones off, watching the chaos I've created.\n\nVera slides her partition open. \"What are you doing?\"\n\n\"My job.\"\n\n\"Your job is to translate, not to stop the trial.\"\n\nWhen court resumes, they've found a second interpreter. Someone who specializes in regional dialects. Hadzic will have to repeat his identification testimony.\n\nHe looks tired now. Older. But when he speaks again, it's in his natural voice.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "Listen carefully to the new translation",
+          "leadsTo": "Truth Revealed"
+        },
+        {
+          "text": "Pack up and leave the booth",
+          "leadsTo": "Walking Away"
+        }
+      ]
+    },
+    {
+      "title": "Filling Gaps",
+      "content": "\"The witness said: 'That's him. That's the man who promised my brother safe passage if he cooperated. The winter the river froze, he said the killings would stop.'\"\n\nSilence in the courtroom. The defense attorney objects immediately, but Judge Morrison overrules.\n\n\"The interpreter will provide complete translations going forward.\"\n\nHadzic stares at me through the witness booth glass. He nods slightly, understanding that someone finally heard his full words.\n\nThe prosecutor follows up. \"Mr. Hadzic, you mentioned promises made to your brother. Can you elaborate?\"\n\nThis time, Hadzic speaks slowly, clearly. The dialect is still there but controlled now. He knows I'm listening for everything.\n\nHe describes private conversations. Deals offered and broken. A commander who spoke to prisoners individually, learning their names, their families, before deciding who lived or died.\n\nDefendant Marković sits rigid. His lawyer scribbles furious notes.\n\n\"The defendant told my brother he would be relocated, not harmed,\" Hadzic continues. \"He shook his hand. Called him by name.\"\n\nI translate every word. The emotional weight. The personal betrayal. Not just war crimes, but individual acts of deception.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": [
+        {
+          "text": "Continue with complete translations",
+          "leadsTo": "Full Truth"
+        },
+        {
+          "text": "Focus on the defendant's reactions",
+          "leadsTo": "Marković's Face"
+        }
+      ]
+    },
+    {
+      "title": "Standing Firm",
+      "content": "\"The witness confirmed the identification of the subject in the photograph. Nothing further was stated.\"\n\nThe defense attorney presses. \"Are you certain? The witness appeared to speak for several more seconds.\"\n\n\"I translate substance, not stammering or repetition.\"\n\nIt's a reasonable explanation. Witnesses often repeat themselves, add meaningless filler. The lawyer sits down, but his expression suggests he's not convinced.\n\nHadzic watches this exchange. His face is unreadable, but his hands grip the witness stand edge.\n\nThe testimony continues. More photographs, more identifications. I stick to clear, factual translations. When dialect creeps in, I render it in standard form. When emotional language appears, I moderate it to legal terminology.\n\n\"He destroyed our lives\" becomes \"The defendant caused harm to the community.\"\n\n\"He looked my brother in the eyes before he gave the order\" becomes \"The defendant appeared to recognize the victim.\"\n\nBy the end of the day, the transcript reads like a police report. Clean, useful, accurate in its way. The prosecution has what they need for conviction.\n\nBut Hadzic leaves the witness stand looking emptied out. As if something essential was taken from him.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": []
+    },
+    {
+      "title": "Professional Distance",
+      "content": "I focus on the words, not the memories they trigger. This is my job. Neutral transmission of meaning across languages.\n\nHadzic describes the selection process. How Marković walked the line of prisoners, choosing who would work and who would die. His voice stays steady until he reaches his brother's name.\n\n\"Emir was nineteen. A student. He spoke some German, so they thought he might be useful.\"\n\nThe prosecutor asks for more details. Hadzic provides them methodically. Age, occupation, physical description. I translate each fact precisely.\n\nBut I can't stop watching defendant Marković. The way he takes notes during testimony. The way he whispers to his lawyer when certain names come up. The way his hand moves to his throat when Hadzic describes the scar.\n\nFourteen years ago, outside Sarajevo, a checkpoint commander with that same scar let my press convoy through. Waved us past a line of detained civilians. Said something about journalists needing to \"tell the true story.\"\n\nI never wrote that story. Never mentioned the people we left behind.\n\nThe prosecutor shows video evidence now. Grainy footage from the village. I don't need to see it to know what it shows.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": [
+        {
+          "text": "Maintain professional composure",
+          "leadsTo": "Compartmentalized"
+        },
+        {
+          "text": "Request a brief recess",
+          "leadsTo": "Breaking Point"
+        }
+      ]
+    },
+    {
+      "title": "Recognition",
+      "content": "When Hadzic describes the scar, I remember.\n\nCheckpoint Seven, outside Sarajevo. Summer 1995. Our press convoy stopped for document inspection. The commander was polite, almost charming. Spoke good English.\n\n\"You are here to report the truth?\" he asked, examining our credentials.\n\nBehind him, soldiers guarded a group of civilians. Maybe thirty people sitting in the dust, hands zip-tied behind their backs. I asked about them.\n\n\"Relocations,\" he said. \"Standard procedure.\"\n\nHe had gold teeth. A scar from ear to jaw. Kind eyes that didn't match his uniform.\n\nWe drove away. I never followed up on what happened to those people.\n\nNow, listening to Hadzic testify, I understand. Those weren't relocations. They were selections. And the man sitting in the defendant's chair is the same one who smiled and waved us through that checkpoint.\n\nMarković notices me staring. Our eyes meet through the booth glass. For just a moment, his composed expression flickers. Recognition.\n\nHe remembers journalists too. Remembers witnesses who might have seen too much.\n\nHadzic is still talking. About promises and betrayals. About personal conversations with the commander before the killings began.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": [
+        {
+          "text": "Continue translating as if nothing happened",
+          "leadsTo": "Dangerous Knowledge"
+        },
+        {
+          "text": "Report what you witnessed at the checkpoint",
+          "leadsTo": "Coming Forward"
+        }
+      ]
+    },
+    {
+      "title": "Truth Revealed",
+      "content": "The new interpreter works slowly, carefully. Her voice is different from mine. Older. More weathered.\n\nShe has Hadzic repeat his identification. This time, the full translation comes through:\n\n\"That's Milan Marković. He knew my family. Before the war, he dated my cousin Amira. He came to our wedding celebrations. Danced with our grandmother. When he walked down the line that morning, he called us each by name.\"\n\nThe courtroom is absolutely silent.\n\n\"He told my brother: 'Emir, you always were the smart one. Don't worry, we'll find work for you.' Then he nodded to the soldiers. They took Emir with the others. To the pit behind the school.\"\n\nThe prosecutor asks if he's certain about these details.\n\n\"I am certain. You don't forget the voice of someone who sang at your wedding before he murdered your family.\"\n\nDefendant Marković slumps in his chair. His lawyer calls for recess, but Judge Morrison denies the motion.\n\nI sit in my empty booth, listening to testimony I should have translated hours ago. The truth I kept locked behind dialectical difficulties and professional caution.\n\nSometimes precision means more than accuracy. Sometimes it means courage.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 11,
+      "choices": []
+    },
+    {
+      "title": "Dangerous Knowledge",
+      "content": "I translate Hadzic's remaining testimony without meeting Marković's eyes again. Professional. Neutral. Invisible.\n\nBut during the afternoon recess, court security approaches my booth.\n\n\"Sir, defendant's counsel would like to speak with you about potential testimony.\"\n\nMy blood goes cold. They can't compel interpreter testimony about unrelated events. But they can make life difficult.\n\nI gather my things, shut down my equipment. In the hallway, Marković's lawyer waits.\n\n\"You look familiar,\" he says. \"Have we met before? Perhaps during the conflict years?\"\n\nIt's not really a question.\n\n\"I don't think so.\"\n\n\"No? Interesting. My client thought he recognized you. Said you might have covered some of the checkpoint operations for international media.\"\n\nHe hands me his card. \"If you remember anything about those days, we'd be very interested in your perspective. Professional journalists saw a lot of things. Sometimes memory needs refreshing.\"\n\nThat evening, my hotel room feels smaller. The curtains stay drawn. CNN plays on mute, showing other conflicts in other countries.\n\nTomorrow, Hadzic continues his testimony. I'll translate his words exactly as he speaks them. Nothing more.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 12,
+      "choices": []
+    }
+  ]
+}

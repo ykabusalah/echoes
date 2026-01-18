@@ -1,0 +1,118 @@
+{
+  "title": "The Night Market",
+  "description": "Shilin Night Market. Taipei. 11 PM. A woman in red offers you a deal. Nothing here is what it seems, including you.",
+  "theme": "noir",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "The Offer",
+      "content": "You're lost on purpose when she finds you.\n\nRed dress. Heels that shouldn't work on wet pavement. Smile that doesn't reach her eyes.\n\n\"You're looking for something.\" Statement, not question. \"Everyone who wanders Shilin alone at midnight is looking for something.\"\n\nBehind her, a stall sells wooden masks. They seem to be watching.\n\n\"I can help you find it. But you'll have to tell me what it is first.\"",
+      "isStart": true,
+      "order": 0,
+      "choices": [
+        { "text": "\"I'm just a tourist.\"", "leadsTo": "Just a Tourist" },
+        { "text": "\"My friend disappeared here six months ago.\"", "leadsTo": "The Disappeared" },
+        { "text": "\"What's it going to cost me?\"", "leadsTo": "The Price" }
+      ]
+    },
+    {
+      "title": "Just a Tourist",
+      "content": "\"Nobody's just anything.\"\n\nShe produces a business card from nowhere. Blank except for an address.\n\n\"When you're ready to stop lying to yourself, come find me.\" She's already turning away. \"The market remembers everyone who walks through it. And everyone leaves something behind.\"\n\nGone. Like smoke.\n\nThe card's warm in your pocket. You tell yourself you'll throw it away.\n\nYou don't.",
+      "order": 1,
+      "isEnding": true
+    },
+    {
+      "title": "The Disappeared",
+      "content": "Her expression shifts. Recognition.\n\n\"The American. Marcus Chen. Asked too many questions about things that weren't his business.\" She starts walking, expecting you to follow. \"I know where he went. Question is whether finding him makes things better or worse.\"\n\nThe market noise fades as she leads you deeper. Past the tourist stalls. Past the locals-only noodle joints. Into alleys where the neon doesn't reach.\n\n\"Your friend found something he shouldn't have. People who find things like that usually end up unfound themselves.\"",
+      "order": 2,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "Keep following", "leadsTo": "The Real Secret" },
+        { "text": "\"What exactly did he find?\"", "leadsTo": "The Real Secret" }
+      ]
+    },
+    {
+      "title": "The Price",
+      "content": "\"Smart.\" She stops, turns. The alley light catches her face wrong. \"Most people don't ask until after.\"\n\n\"So what is it?\"\n\n\"A secret. One you've never told anyone.\" She steps closer. \"The more valuable the secret, the more I can help.\"\n\n\"And if I don't have secrets?\"\n\n\"Everyone has secrets. The only question is whether they're worth anything.\"",
+      "order": 3,
+      "choices": [
+        { "text": "Tell her something small, test the waters", "leadsTo": "Something Small" },
+        { "text": "Tell her the real thing", "leadsTo": "The Real Secret" },
+        { "text": "Walk away", "leadsTo": "Walking Away" }
+      ]
+    },
+    {
+      "title": "The Real Secret",
+      "content": "You tell her about Marcus. What you didn't tell the police. What you didn't tell his family.\n\nYou were supposed to come with him. He asked you three times. You said no because you were scared, because Taipei felt too far, because you had a job and a lease and all the excuses people make when they're afraid of their own lives.\n\nHe came alone because you let him.\n\nShe absorbs this without expression.\n\n\"Guilt. Good currency here.\" She gestures toward a door you hadn't noticed. \"He's through there. Alive, last I checked. But he won't thank you for finding him.\"",
+      "order": 4,
+      "choices": [
+        { "text": "Go through the door", "leadsTo": "Behind the Door" },
+        { "text": "\"Why won't he thank me?\"", "leadsTo": "Behind the Door" }
+      ]
+    },
+    {
+      "title": "Something Small",
+      "content": "You tell her about a time you cheated on an exam in college. Organic chemistry. Copied off the girl next to you. Never told anyone.\n\nShe laughs. Actually laughs.\n\n\"That's adorable. You came all this way to find your missing friend and you think freshman chemistry is going to open any doors?\"\n\nHer smile is sharper now. Less friendly.\n\n\"Come back when you're ready to pay real prices. The market doesn't take loose change.\"\n\nShe walks away. You're alone in an alley that doesn't appear on Google Maps, and you're pretty sure you just failed some kind of test.",
+      "order": 5,
+      "choices": [
+        { "text": "Call out, tell her the truth", "leadsTo": "The Real Secret" },
+        { "text": "Find your own way out", "leadsTo": "Walking Away" }
+      ]
+    },
+    {
+      "title": "Walking Away",
+      "content": "\"Smart choice.\" Her voice follows you. \"Or coward's choice. Time will tell.\"\n\nYou find your way back to the bright lights, the food stalls, the normal world. Buy some fried chicken to prove everything's fine.\n\nIt's not fine. You leave Taiwan the next morning.\n\nMarcus stays missing. The police file stays open. And sometimes, in that space between sleep and waking, you see her face and wonder what was behind that door.\n\nSome questions don't get answers. You learn to live with that.\n\nSort of.",
+      "order": 6,
+      "isEnding": true
+    },
+    {
+      "title": "Behind the Door",
+      "content": "Warehouse. Old one, converted into something between an office and a temple. Incense and electronics. Servers humming next to shrines.\n\nMarcus is at a desk, typing. He looks up when you enter.\n\n\"Took you long enough.\"\n\nHe's thinner. Eyes different. Not scared, exactly. More like someone who's seen past the edge of something and decided to keep looking.\n\n\"Everyone's worried,\" you manage.\n\n\"Everyone should mind their business.\" He turns back to the screen. \"I found what I was looking for. Now I'm working on it.\"\n\n\"Working on what?\"\n\n\"The underneath. The real market. The one where information is the only currency that matters.\"",
+      "order": 7,
+      "choices": [
+        { "text": "\"Come home.\"", "leadsTo": "Coming Home" },
+        { "text": "\"Show me what you found.\"", "leadsTo": "What He Found" },
+        { "text": "\"I'm calling your family.\"", "leadsTo": "Coming Home" }
+      ]
+    },
+    {
+      "title": "What He Found",
+      "content": "\"The night market is a front. Or not a front exactly. More like a membrane.\" Marcus pulls up screens faster than you can follow. \"On top: tourists, food, normal commerce. Underneath: everything else.\"\n\nPhotos. Documents. Transaction records.\n\n\"Every major intelligence service has people here. Every corporation. Every organization that deals in what people don't want found. They all trade in the same market, just different stalls.\"\n\nHe looks at you.\n\n\"Your friend in red? She's a broker. Matches buyers and sellers. Secrets for secrets. Information for information. She was testing you to see which side you belonged on.\"\n\n\"Which side is that?\"\n\n\"The side that pays. Or the side that gets paid.\" He shrugs. \"I started as a buyer. Now I'm something in between.\"",
+      "order": 8,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "\"That's insane.\"", "leadsTo": "The Offer (Lin)" },
+        { "text": "\"Can I join?\"", "leadsTo": "The Offer (Lin)" },
+        { "text": "\"I'm getting you out of here.\"", "leadsTo": "Coming Home" }
+      ]
+    },
+    {
+      "title": "The Offer (Lin)",
+      "content": "The woman in red appears like she was always there.\n\n\"He's good,\" she says, nodding at Marcus. \"Better than we expected. But we could use someone with your particular... guilt complex.\"\n\n\"My what?\"\n\n\"You came all this way because you feel responsible. That means you're loyal. Loyal people are valuable here.\"\n\nMarcus doesn't look up from his screen.\n\n\"It's not a bad life,\" he says. \"Better than whatever you were doing before.\"\n\nThe warehouse hums around you. Incense and electricity. Secrets buying secrets.",
+      "order": 9,
+      "choices": [
+        { "text": "\"I'm in.\"", "leadsTo": "I'm In" },
+        { "text": "\"I came to bring him home, not join a cult.\"", "leadsTo": "Coming Home" },
+        { "text": "\"What happens if I say no?\"", "leadsTo": "If I Say No" }
+      ]
+    },
+    {
+      "title": "I'm In",
+      "content": "Three months later, you have a desk next to Marcus. A new phone with encryption you don't fully understand. A life that looks normal from the outside and isn't.\n\nThe woman in red—her name is Lin, you learn eventually—brings you assignments. Small stuff at first. Translating documents. Verifying sources. Nothing that feels illegal until suddenly everything does.\n\n\"Everyone in the market has a price,\" Lin tells you once. \"The only difference is what currency they accept.\"\n\nYou've stopped asking about the ethics. The information trade doesn't care about ethics. It cares about value.\n\nSome nights, you remember the person you used to be. The one who thought organic chemistry cheating was a serious moral failing.\n\nThat person feels like a stranger now.",
+      "order": 10,
+      "isEnding": true
+    },
+    {
+      "title": "Coming Home",
+      "content": "\"I'm not leaving,\" Marcus says. \"But you should.\"\n\nIt's 3 AM. The warehouse is quiet. Just the two of you and the glow of screens.\n\n\"I found what I was looking for,\" he continues. \"I'm exactly where I need to be. But you came here out of guilt, not curiosity. That's not enough to keep you going.\"\n\nYou want to argue. Can't.\n\n\"Lin will let you leave. You're not deep enough to be dangerous.\" He finally looks at you. \"Go home. Tell everyone I'm fine. Tell them I found a job I love.\"\n\n\"Is that true?\"\n\n\"True enough.\"\n\nTwo days later, you're on a plane. The night market shrinks to a story you'll tell at parties, edited for casual consumption.\n\nMarcus sends encrypted emails sometimes. Holiday photos from places you don't recognize. He seems happy.\n\nYou learn to stop asking questions you don't want answered.",
+      "order": 11,
+      "isEnding": true
+    },
+    {
+      "title": "If I Say No",
+      "content": "\"Then you walk away.\" Lin shrugs. \"We're not monsters. We just trade in things more valuable than money.\"\n\nYou look at Marcus. He won't meet your eyes.\n\n\"But,\" Lin continues, \"you'll forget most of this conversation by morning. Not magic, just chemistry. The tea you drank when you came in. Very mild. Very effective.\"\n\nYour vision's already fuzzy at the edges.\n\n\"Sweet dreams,\" she says. \"Remember us fondly. Or don't remember us at all.\"\n\nYou wake up in your hotel room with a headache and a vague sense you're forgetting something important. Flight's in six hours.\n\nMarcus stays missing. The file stays open.\n\nSome doors, once closed, don't open again.",
+      "order": 12,
+      "isEnding": true
+    }
+  ]
+}

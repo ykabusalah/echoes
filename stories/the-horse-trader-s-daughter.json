@@ -1,0 +1,269 @@
+{
+  "title": "The Horse Trader's Daughter",
+  "description": "Your father promised you to a man you've never met. The wedding is in three days.",
+  "theme": "drama",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "The Agreement",
+      "content": "Father counts silver coins beside the hearth. His weathered fingers stack them twice. Forty-seven pieces. The price for a mare. Or a daughter.\n\n\"Asyl will make a good wife.\" He doesn't look at me. \"Temirlan has strong herds. Good grazing rights near Song-Kul.\"\n\nOutside, my chestnut gelding Qanat stamps and snorts. He knows we should be checking the high pastures before the snows come. Instead, I'm trapped in this smoky yurt while men decide my fate.\n\n\"I don't know him.\" My voice cuts through the mutton-scented air.\n\n\"You'll learn.\" Father's tone shuts down argument. \"His grandmother was my father's cousin. Good bloodlines.\"\n\nBloodlines. Like the horses.\n\nMother stitches white silk onto my wedding dress. Her needle moves in quick, practiced strokes. She hasn't spoken since the arrangements were made.\n\n\"Three days, Asyl.\" Father's eyes meet mine. \"Prepare yourself.\"\n\nThe mountains beyond our camp wear fresh snow caps. Winter comes early at this altitude. Soon the passes will close.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Ask Father about Temirlan's character",
+          "leadsTo": "What Kind of Man"
+        },
+        {
+          "text": "Go outside to your horse",
+          "leadsTo": "Wind and Freedom"
+        },
+        {
+          "text": "Help Mother with the wedding dress",
+          "leadsTo": "Silent Needles"
+        }
+      ]
+    },
+    {
+      "title": "What Kind of Man",
+      "content": "\"Tell me about him.\" I keep my voice steady. \"What kind of man trades horses for wives?\"\n\nFather sets down the coins. \"The practical kind. Like me.\"\n\n\"That's not an answer.\"\n\n\"He's twenty-eight. Owns three hundred sheep, forty horses. His first wife died in childbirth two years ago.\" Father recites facts like counting livestock. \"He needs sons.\"\n\nMy stomach tightens. I've seen what childbirth does to women up here. No doctors. No hospitals. Just midwives and prayers.\n\n\"Is he cruel?\"\n\n\"He pays his debts. Honors agreements. That's enough.\"\n\nMother's needle pauses. Just for a breath. Then continues its rhythmic pierce and pull.\n\n\"I could ride to town. Work in the market.\" The words tumble out. \"Send money home.\"\n\nFather laughs. Not cruel. Tired. \"Towns are for other people's daughters. You're mine. This is how we survive winters.\"\n\nThe yurt walls feel closer than before. Through the smoke hole, I catch a glimpse of open sky. Qanat whinnies outside, calling to me.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Accept your fate quietly",
+          "leadsTo": "Dutiful Daughter"
+        },
+        {
+          "text": "Challenge Father's decision",
+          "leadsTo": "Open Rebellion"
+        },
+        {
+          "text": "Leave to clear your head",
+          "leadsTo": "Wind and Freedom"
+        }
+      ]
+    },
+    {
+      "title": "Wind and Freedom",
+      "content": "Qanat's coat gleams copper in the late afternoon sun. He pushes his nose against my palm, searching for sugar cubes. I have none. Haven't had any for weeks.\n\n\"Three days,\" I whisper to him. \"Then some stranger owns me.\"\n\nHis ears flick forward. He understands tone if not words.\n\nThe high pastures stretch endlessly toward the peaks. No fences. No boundaries except what nature built. Qanat could carry me to the Chinese border before Father noticed we were gone. Or down to the Naryn valley where trucks carry goods to distant cities.\n\nI run my hands through his mane. He's fast. Strong. Been my companion since he was a colt following his mother around our camp.\n\n\"Could we make it?\" I ask him. \"Just us?\"\n\nWind carries the scent of coming snow. The passes will close within weeks. Maybe days. After that, the mountains become a trap instead of an escape route.\n\nBehind me, smoke rises from our family yurt. Mother still sewing. Father still counting coins. My wedding dress taking shape stitch by stitch.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Plan an escape route over the mountains",
+          "leadsTo": "Mountain Paths"
+        },
+        {
+          "text": "Consider riding to the nearest town",
+          "leadsTo": "Valley Roads"
+        },
+        {
+          "text": "Return to the yurt and accept your situation",
+          "leadsTo": "Silent Needles"
+        }
+      ]
+    },
+    {
+      "title": "Silent Needles",
+      "content": "Mother's fingers move like spiders. Quick. Precise. The white silk blooms under her touch into patterns I've seen on grandmother's old photographs.\n\nI settle beside her on the carpet. Pick up a needle. Thread it with silver.\n\n\"You were arranged too.\" Not a question.\n\nShe nods. Doesn't look up from her work.\n\n\"Did you want to run?\"\n\nHer hands still. For a long moment, only the wind against the yurt walls.\n\n\"Every day for the first year.\" Her voice is barely audible. \"Your father was gentler than most. I learned to be grateful.\"\n\n\"Grateful.\" The word tastes like ashes.\n\n\"You'll have children. Purpose. A place in the world.\" She holds up the dress. The embroidered flowers catch the lamplight. \"Some gifts come wrapped in sacrifice.\"\n\nI stab my needle through the fabric. Draw blood from my thumb.\n\n\"What if I don't want gifts that cost so much?\"\n\nMother looks at me directly for the first time in days. Her eyes hold twenty years of settled sadness.\n\n\"Then you'll suffer more than necessary.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Ask about her own wedding day",
+          "leadsTo": "Mother's Story"
+        },
+        {
+          "text": "Reject her advice",
+          "leadsTo": "Open Rebellion"
+        },
+        {
+          "text": "Continue sewing in silence",
+          "leadsTo": "Dutiful Daughter"
+        }
+      ]
+    },
+    {
+      "title": "Mountain Paths",
+      "content": "The old herding trail snakes between jagged peaks toward the Torugart Pass. I've ridden it with Father during summer moves. Know every switchback and stream crossing.\n\nQanat picks his way carefully over loose stones. His breath makes small clouds in the thin air. Mine too. We're already above three thousand meters.\n\nBy dawn, they'll discover I'm gone. Father will send riders. But Qanat knows these heights better than most horses. We have advantages.\n\nThe path narrows. Drops away into empty space on my left. Qanat's hooves find purchase on rock worn smooth by centuries of use. He's steady. Fearless.\n\nBehind us, smoke from our camp vanishes into distance. Ahead, the pass waits under fresh snow. The Chinese border beyond that. Then what? I have no papers. No money except the few coins hidden in my boot.\n\nWind screams between the peaks. Carries ice crystals that sting my cheeks. Qanat's ears flatten against the cold.\n\nThis is freedom. Raw and dangerous and beautiful. But winter doesn't care about my rebellion.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Push forward despite the weather",
+          "leadsTo": "Blizzard's Edge"
+        },
+        {
+          "text": "Find shelter and wait out the storm",
+          "leadsTo": "Cave Refuge"
+        },
+        {
+          "text": "Turn back before it's too late",
+          "leadsTo": "Valley Roads"
+        }
+      ]
+    },
+    {
+      "title": "Valley Roads",
+      "content": "The dirt track winds down through yellowing grass toward Naryn town. Qanat moves with ground-eating strides. He loves descent after the thin air above.\n\nTrucks rumble past occasionally. Drivers heading to Bishkek or Almaty with loads of wool and hides. Some wave. Most ignore a girl on a horse.\n\nI have seventeen som hidden in my boot. Enough for bread. Maybe a night's shelter if I find work. The town has a market. Cafes. Places where a good rider might earn wages.\n\nBut also police who ask questions. Documents I don't carry. And Father's reputation reaches this far. Horse traders know each other across hundreds of kilometers.\n\nQanat's pace slows as we approach the town's edge. Concrete buildings squat beside the river. Soviet-era apartment blocks with broken windows and satellite dishes.\n\nA different kind of trap than marriage. But still a trap.\n\nBehind us, the mountains rise like a wall. My family's yurt a memory of smoke and silver coins. Ahead, strangers who owe me nothing.\n\nQanat tosses his head. Wants direction. Purpose.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Enter the town and seek work",
+          "leadsTo": "Urban Exile"
+        },
+        {
+          "text": "Avoid the town and find another path",
+          "leadsTo": "River Road"
+        },
+        {
+          "text": "Return home before you're missed",
+          "leadsTo": "Mother's Story"
+        }
+      ]
+    },
+    {
+      "title": "Open Rebellion",
+      "content": "\"No.\" The word comes out harder than intended. \"I won't marry him.\"\n\nFather's eyes narrow. Mother's needle stops moving.\n\n\"You'll do as I say.\"\n\n\"I'm not livestock to be traded.\"\n\nHe stands slowly. Father isn't tall, but he fills the yurt with presence. Hands that gentle horses can break men when necessary.\n\n\"You're my daughter. That gives you value. Also obligations.\"\n\n\"Find another way to pay your debts.\"\n\nHis palm strikes my cheek before I see it coming. Not brutal. Corrective. The way he'd slap a horse that bit.\n\nMother gasps. Sets down the wedding dress.\n\n\"There is no other way.\" Father's voice stays level. \"Winter comes. We need Temirlan's grazing rights. His protection. This marriage saves the family.\"\n\n\"What about what I want?\"\n\n\"Want?\" He laughs. \"I wanted to be rich. Your mother wanted to live in the city. Qanat probably wants to run wild with the mustangs. We all serve purposes bigger than our wants.\"\n\nMy cheek burns. But something inside me feels cleaner. The line is drawn.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "Submit to avoid more violence",
+          "leadsTo": "Dutiful Daughter"
+        },
+        {
+          "text": "Storm out of the yurt",
+          "leadsTo": "Wind and Freedom"
+        },
+        {
+          "text": "Keep arguing your case",
+          "leadsTo": "Final Stand"
+        }
+      ]
+    },
+    {
+      "title": "Blizzard's Edge",
+      "content": "Snow falls sideways, driven by wind that howls between the peaks. Qanat struggles against drifts already knee-deep. His breathing comes harsh and quick.\n\nI can't see the path anymore. Only white chaos and the dark shapes of rocks. We're lost somewhere above four thousand meters with night coming fast.\n\nQanat stumbles. Catches himself. His legs shake from cold and exhaustion. Frost coats his whiskers and mane. Mine too.\n\nThis is how people die in the mountains. Not dramatically. Just quietly as the cold steals warmth degree by degree until sleep seems like a good idea.\n\nI slide from the saddle. Lead Qanat by the reins, searching for any kind of shelter. My boots punch through snow crust into deeper powder below.\n\nThere. A shadow that might be an overhang. Or just another rock formation shaped by wind.\n\nQanat follows without resistance. He trusts me to find safety. Even as the storm erases all landmarks, all direction except down.\n\nFreedom, it turns out, can kill you just as dead as marriage.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    },
+    {
+      "title": "Cave Refuge",
+      "content": "The cave cuts deep into granite. Old shepherd shelter, judging by the stone fire ring and smoke stains on the ceiling.\n\nQanat stands close to the entrance, blocking wind. His body heat warms the small space. I strip off his saddle and rub him down with handfuls of dry grass found deeper in the cave.\n\nNo wood for fire. But we're out of the killing wind.\n\nI share my last piece of bread with him. He crunches it carefully, his whiskers tickling my palm. Outside, the storm rages with the fury of early winter.\n\nBy morning, search parties will be out. Father and his brothers, tracking through fresh snow. Easy to follow horse prints once the weather clears.\n\nBut for now, we're safe. Hidden. Free for a few more hours.\n\nI curl against Qanat's warm flank and listen to his steady breathing. He doesn't worry about tomorrow. Horses live in the moment.\n\nMaybe that's wisdom. Maybe that's what I need to learn.\n\nThe storm will pass. Then we'll see what choices remain.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": [
+        {
+          "text": "Wait for the storm to pass, then continue fleeing",
+          "leadsTo": "River Road"
+        },
+        {
+          "text": "Return home when the weather clears",
+          "leadsTo": "Urban Exile"
+        },
+        {
+          "text": "Stay hidden until the search parties give up",
+          "leadsTo": "Wild Freedom"
+        }
+      ]
+    },
+    {
+      "title": "Mother's Story",
+      "content": "\"I was fifteen.\" Mother's voice drifts like smoke. \"Younger than you. My father owed money to your grandfather.\"\n\nShe sets aside the needle. Stares at patterns only she can see.\n\n\"I planned to run. Had it all worked out. There was a boy in our winter camp. Said he loved me. Promised we'd go to Russia together.\"\n\n\"What happened?\"\n\n\"He left first. Alone.\" Her smile holds no bitterness. Just fact. \"Men promise many things to girls. Keep fewer.\"\n\nFather snores softly in his corner. The coins still stacked beside him.\n\n\"Your father kept his word. Fed me. Protected me. Gave me children.\" She picks up my hand. \"Love can grow from stranger soil than you think.\"\n\n\"But what if it doesn't?\"\n\n\"Then you learn to find meaning elsewhere. In your children. In small kindnesses. In watching sunrise paint the mountains gold.\"\n\nOutside, Qanat whinnies softly. The sound carries longing.\n\n\"Some cages,\" Mother says, \"are bigger than others.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": [
+        {
+          "text": "Accept her wisdom and prepare for marriage",
+          "leadsTo": "Dutiful Daughter"
+        },
+        {
+          "text": "Decide her path won't be yours",
+          "leadsTo": "Final Stand"
+        },
+        {
+          "text": "Ask about the boy who left",
+          "leadsTo": "Wild Freedom"
+        }
+      ]
+    },
+    {
+      "title": "Dutiful Daughter",
+      "content": "The wedding dress fits perfectly. Mother's hands shaped every seam to my body. White silk embroidered with silver threads that catch morning light.\n\nTemirlan arrives with twenty relatives and forty horses. He's older than I expected. Weathered face, careful eyes. He speaks quietly with Father while I serve tea.\n\n\"You ride well,\" he tells me later, watching from a distance as I work with the horses. \"That's good. My herds need tending.\"\n\nNot romance. But respect.\n\nThe ceremony follows old patterns. Words in Kyrgyz that bind two families as much as two people. I say what's expected. Do what tradition demands.\n\nQanat will come with me to my new home. That mercy Father grants without asking.\n\nAs we ride toward Temirlan's winter camp, I look back once at the mountains where I was born. They'll still be there when I'm old. Unchanged by human struggles.\n\nMaybe Mother was right. Maybe cages can be bigger than I imagined. Maybe freedom isn't always about running away.\n\nTemirlan rides beside me. Silent. Patient. Waiting to see what kind of woman I'll choose to become.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": []
+    },
+    {
+      "title": "Wild Freedom",
+      "content": "Spring finds us in the high meadows where wild horses graze. Qanat and I learned to live on mare's milk and wild onions. To avoid herders and their questions.\n\nThe search parties stopped coming months ago. Father probably told people I died in the mountains. Easier than admitting his daughter chose wolves over weddings.\n\nQanat's grown shaggy and strong. He runs with the mustang herd now, though he still comes when I call. We speak a language deeper than words.\n\nSometimes I wonder about Mother. Whether she finished the wedding dress. Whether Temirlan found another wife.\n\nBut regret feels small under these enormous skies.\n\nI know every peak now. Every stream and hidden valley. The mountains keep their own time, mark their own seasons. They don't care about marriage contracts or family obligations.\n\nNor do they promise easy survival. Winter will test us again. And the next one after that.\n\nBut I chose this. Every cold night, every hungry day, every sunrise that paints the world gold and pink. Mine.\n\nFreedom tastes like wind and loneliness and something fierce that has no name.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 11,
+      "choices": []
+    },
+    {
+      "title": "Final Stand",
+      "content": "\"I'll make you a bargain.\" My voice cuts through the yurt's thick air.\n\nFather looks up from his coins. Mother from her needlework.\n\n\"Give me until spring. Let me prove I can earn enough to replace Temirlan's bride price. If I fail, I'll marry whoever you choose.\"\n\n\"And if you succeed?\" Father's tone suggests he thinks this impossible.\n\n\"Then I choose my own path.\"\n\nSilence stretches between us. Wind rattles the yurt walls. Outside, horses move restlessly in their pen.\n\n\"How?\" Mother asks quietly.\n\n\"Training horses for the tourist season. Guiding hunters. There are ways to make money in these mountains.\"\n\nFather shakes his head. \"Winter comes in days, not months. Even if you could earn what's needed, Temirlan won't wait.\"\n\n\"Then I'll take my chances with winter.\"\n\nSomething in my voice makes him look at me differently. As if seeing a stranger wearing his daughter's face.\n\n\"You would die rather than marry?\"\n\n\"I would live rather than surrender.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 12,
+      "choices": [
+        {
+          "text": "Stand firm on your ultimatum",
+          "leadsTo": "Wild Freedom"
+        },
+        {
+          "text": "Offer a compromise",
+          "leadsTo": "Urban Exile"
+        }
+      ]
+    },
+    {
+      "title": "Urban Exile",
+      "content": "The cafe owner in Naryn needs someone who speaks English for the few tourists brave enough to visit in shoulder season. Twenty som per day plus meals.\n\nNot fortune. But freedom.\n\nI stable Qanat with a truck driver who likes horses. Visit him every evening with sugar cubes bought with my wages. His coat stays glossy despite the concrete and exhaust fumes.\n\n\"City life suits you,\" the cafe owner says, watching me serve tea to German hikers planning a summer trek.\n\nIt doesn't, exactly. But it suits me better than marriage to a stranger.\n\nFather came once. Stood in the doorway looking older than I remembered. We spoke for ten minutes about weather and horses. He didn't ask me to come home.\n\n\"Your wedding dress is folded in the trunk,\" he said before leaving. \"In case you change your mind.\"\n\nBut minds, once changed, rarely change back.\n\nWinter passes. Spring comes to the mountains. Qanat and I take weekend trips to the high pastures, remembering who we used to be.\n\nNot the freedom I dreamed of. But freedom nonetheless.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 13,
+      "choices": []
+    },
+    {
+      "title": "River Road",
+      "content": "The Naryn River cuts through valleys that lead to distant places. China to the east. Kazakhstan to the north. The world spreading out like an unfolded map.\n\nQanat picks his way along the muddy bank. His hooves splash through shallow water running clear and cold from glacier melt.\n\nWe follow truck routes and herding paths. Sleep under stars when weather allows, in abandoned buildings when it doesn't. I trade work for food at scattered settlements.\n\n\"Good with horses,\" people say. \"Rides like she was born in the saddle.\"\n\nSkills have value. Even here at the edge of everything.\n\nMiles pass under Qanat's steady stride. Behind us, the peaks where I was born grow smaller. Ahead, possibilities I can't yet name.\n\nFather won't follow this far. His authority ends where his reputation fades. Out here, I'm just another traveler with a good horse and careful eyes.\n\nThe river keeps flowing toward larger waters. Qanat keeps walking toward whatever comes next.\n\nSome journeys have destinations. Others just have direction.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 14,
+      "choices": []
+    }
+  ]
+}

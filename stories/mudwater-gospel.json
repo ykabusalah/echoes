@@ -1,0 +1,131 @@
+{
+  "title": "Mudwater Gospel",
+  "description": "Category 4. Direct hit. Mandatory evacuation. But you're standing in your grandmother's church, and sixty-three years of gospel music are staring back at you from the walls.",
+  "theme": "survival",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "The Warning",
+      "content": "Radio says Category 4. Direct hit. Twelve hours.\n\nYou're in the church your grandmother built with her own hands after the last flood. Pews she sanded. Windows she picked out from a catalog. Hymnals with her handwriting in the margins.\n\nPhone buzzes. Your brother: Roads close in 2 hours. You coming or not?\n\nThrough the window, Old Mae's still on her porch across the street. Ninety-one years old. Hasn't evacuated since 1965.",
+      "isStart": true,
+      "order": 0,
+      "choices": [
+        { "text": "Get Mae first", "leadsTo": "Mae's Porch" },
+        { "text": "Load what you can, go now", "leadsTo": "Loading Up" },
+        { "text": "Stay. This church has survived worse.", "leadsTo": "The Hidden Room" }
+      ]
+    },
+    {
+      "title": "Mae's Porch",
+      "content": "\"I ain't leaving, sugar.\"\n\nShe rocks steady, watching the sky turn green. Hurricane sky. Bad sky.\n\n\"Buried three husbands from this porch. Raised seven children. The Lord knows where to find me.\"\n\nShe pats the chair beside her.\n\n\"Got a generator. Got canned peaches. Got stories about your grandmother you never heard.\" She almost smiles. \"That woman had some fire in her before she got respectable.\"",
+      "order": 1,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "Stay with her", "leadsTo": "Mae's Stories" },
+        { "text": "\"Mae, please. We have to go.\"", "leadsTo": "Convincing Mae" }
+      ]
+    },
+    {
+      "title": "Loading Up",
+      "content": "Work fast. Think later.\n\nPhoto of the original congregation, 1961. Grandmother's handwritten hymnbook. The stained glass is too heavy. You take a picture instead.\n\nDeacon Williams pulls up. \"Need help?\"\n\nBehind him, the sky's getting darker.",
+      "order": 2,
+      "choices": [
+        { "text": "\"Help me with the pews\"", "leadsTo": "The Pews" },
+        { "text": "\"Get the baptismal font\"", "leadsTo": "The Font" },
+        { "text": "\"Just go. I'll catch up.\"", "leadsTo": "The Hidden Room" }
+      ]
+    },
+    {
+      "title": "The Pews",
+      "content": "Four of you. Every rope in the truck. The pews weigh more than sin, your grandmother used to say.\n\nFirst raindrops hit as you load the last one. Big drops. Warm.\n\n\"That's it,\" Williams says. \"We gotta move.\"\n\nThe church looks empty now. Wrong. Like a body without a soul.\n\nYou get in your car. Don't look back.",
+      "order": 3,
+      "choices": [
+        { "text": "Head to the shelter", "leadsTo": "The Shelter" }
+      ]
+    },
+    {
+      "title": "The Font",
+      "content": "Baptismal font has names carved inside. Every soul baptized since 1927. Your grandmother. Your mother. You.\n\nTakes both of you to lift it into the truck bed.\n\n\"This thing's seen more floods than any of us,\" Williams says.\n\nThe rain starts before you reach the highway.",
+      "order": 4,
+      "choices": [
+        { "text": "Head to the shelter", "leadsTo": "The Shelter" }
+      ]
+    },
+    {
+      "title": "Mae's Stories",
+      "content": "Storm screams for eight hours. Mae's house shudders but holds.\n\nBetween gusts, she talks. Your grandmother sneaking out to blues clubs. Secret romance with a traveling preacher before your grandfather. The time she faced down the Klan with nothing but a hymnal and a cast-iron skillet.\n\n\"Fire in her,\" Mae says. \"Pure fire.\"\n\nDawn comes. Street's a river. But Mae's porch sits just above the water line.\n\nAnd across the way, the steeple's still pointing at the sky.",
+      "order": 5,
+      "isEnding": true
+    },
+    {
+      "title": "Convincing Mae",
+      "content": "\"My truck can handle the water. We go now, we make it.\"\n\nMae stops rocking. Looks at you hard.\n\n\"You got your grandmother's stubbornness.\" She sighs. \"Fine. But I'm bringing my records. Mahalia Jackson gets water damage, I'm blaming you personally.\"\n\nYou help her to the car. She's lighter than you expected. Fragile in a way she never seemed before.\n\n\"Buildings can be rebuilt,\" she says as you pull away. \"It's the people that matter. Your grandmother knew that. Why she built a church instead of a monument.\"\n\nIn the rearview, the Delta disappears behind sheets of rain.",
+      "order": 6,
+      "choices": [
+        { "text": "Continue to shelter", "leadsTo": "The Shelter" }
+      ]
+    },
+    {
+      "title": "The Shelter",
+      "content": "High school gymnasium. Cots. Red Cross blankets. Crying kids and worried faces.\n\nMae finds a corner, starts unpacking her records like she's setting up for a party.\n\nYour phone's almost dead. One text from your brother: Thank God. Thought we lost you.\n\nOutside, the wind howls. Inside, Mae starts humming. Low at first. Then louder.\n\nSomeone joins in. Then someone else. By the time the eye passes over, the whole gym is singing \"How Great Thou Art.\"\n\nYour grandmother would have loved this.",
+      "order": 7,
+      "choices": [
+        { "text": "Wait out the storm", "leadsTo": "After" }
+      ]
+    },
+    {
+      "title": "After",
+      "content": "Three weeks later. Water's down. You drive back.\n\nThe church is gone. Roof caved in. Walls buckled. Pews you didn't take are matchsticks in the mud.\n\nBut down the road, the community center's standing. The pews you saved are inside. They're holding Sunday service there now. Same hymns. Same spirit.\n\nMae's on her porch again. House needs work, but she's there.\n\n\"See?\" she calls out. \"Told you the Lord knows where to find us.\"\n\nThe building was never the church. You get that now.\n\nThe people are.",
+      "order": 8,
+      "isEnding": true
+    },
+    {
+      "title": "The Hidden Room",
+      "content": "You're checking the walls one last time when you feel it. A draft. Cold air from solid stone.\n\nBehind the altar, a panel. Warped with age, but it opens.\n\nInside: newspapers from 1964. Photographs of meetings. Names you recognize from history books. Letters in your grandmother's handwriting.\n\nThis wasn't just a church.",
+      "order": 9,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "Take everything", "leadsTo": "The Documents" },
+        { "text": "Read first, decide later", "leadsTo": "The Documents" },
+        { "text": "Leave it. Some secrets should stay buried.", "leadsTo": "Riding It Out" }
+      ]
+    },
+    {
+      "title": "The Documents",
+      "content": "Your grandmother wasn't just building a church. She was running a station on the underground.\n\nSafe houses. Escape routes. Names of families she helped move north. Maps with paths marked in red ink.\n\nOne letter mentions a \"final cache\" hidden where \"only family would look.\"\n\nThe storm's getting closer. You have minutes. But this could change how people remember her. How they remember this whole community.",
+      "order": 10,
+      "choices": [
+        { "text": "Take it all", "leadsTo": "The Rally" },
+        { "text": "Photograph everything, leave the originals", "leadsTo": "The Rally" },
+        { "text": "Find the final cache first", "leadsTo": "The Truth" }
+      ]
+    },
+    {
+      "title": "The Truth",
+      "content": "You dig behind the cemetery in the last hour before the storm hits. Right where the letter said. Under a headstone that's been there since 1963.\n\nSteel box. Waterproof. Inside: recordings. Dozens of them. People telling their stories, naming names, documenting what really happened.\n\nYour grandmother didn't just save lives. She made sure no one could deny what happened here.\n\nYou barely make it to your car. Six months later, historians call it the most important civil rights discovery in decades.\n\nYour grandmother's secrets become foundation stones for something new.",
+      "order": 11,
+      "isEnding": true
+    },
+    {
+      "title": "Riding It Out",
+      "content": "Bad idea. You knew it was a bad idea.\n\nWater under the door. Ankles. Knees. You climb to the choir loft.\n\nThe church groans. Wind screams. Everything shakes.\n\nYou start singing. Old songs. Her songs. The ones she taught you before you could read.\n\nAnd somehow, impossibly, you hear voices. Mae from across the street. The Williams family. Others you can't see. All singing.\n\nThe building might not make it. But the church is wherever the singing is.",
+      "order": 12,
+      "isEnding": true
+    },
+    {
+      "title": "The Rally",
+      "content": "You don't leave. You climb the church steps and ring the bell. Three times. Emergency signal, from the old days.\n\nThey come. Deacon Williams with his bad hip. The Johnson family. Teenagers who usually skip service. Old folks who remember your grandmother's first sermon.\n\nThirty-two people in a church about to face the worst storm in a decade.\n\nYou don't have a sermon prepared. Just stand where she stood.\n\n\"She always said this building was just wood and nails.\" Your voice carries. \"Said the real church was us.\"\n\nMae starts humming. The sound builds. Voices join in.\n\nThe lights go out. The singing doesn't stop.",
+      "order": 13,
+      "choices": [
+        { "text": "Lead them to the shelter together", "leadsTo": "Together" },
+        { "text": "Stay and sing until the storm passes", "leadsTo": "Riding It Out" }
+      ]
+    },
+    {
+      "title": "Together",
+      "content": "\"Everybody who can walk, help somebody who can't. Williams, you take point. I've got the rear.\"\n\nYou file out into the wind. Thirty-two people holding hands in a chain, moving through ankle-deep water toward the school.\n\nMae's between you and the Johnson boy. She's humming the whole way.\n\n\"This is the church!\" someone shouts over the wind. \"Right here! This is it!\"\n\nThey're right. Walls didn't make it holy. The people do.\n\nThe building doesn't make it through the night. But everyone does.\n\nIn the morning, you start planning how to rebuild. Not the building. Something better.",
+      "order": 14,
+      "isEnding": true
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "title": "The Resignation",
+  "description": "Your last two weeks at a company hiding something.",
+  "theme": "corporate",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "Two Weeks Notice",
+      "content": "The resignation letter sits on Janet's desk like a dead fish. She stares at it through her reading glasses, the ones that make her look like a disappointed librarian. Which, given the circumstances, seems appropriate.\n\n\"Two weeks,\" she says finally. \"That's very considerate of you.\"\n\nYou nod. The fluorescent light above her desk flickers once, twice, then settles into its usual aggressive hum. Janet folds the letter with unnecessary precision.\n\n\"I'll need you to complete the knowledge transfer documentation. Make sure everything is properly synergized for your successor.\" She opens her desk drawer and pulls out a packet of forms thick enough to stop a bullet. \"HR will want to schedule your exit interview. Standard procedure.\"\n\nThe word 'standard' hangs between you like a bad smell. Nothing about this place has ever been standard. Not the locked filing cabinets. Not the way conversations stop when you walk by. Not the way Derek from Accounting disappeared right after he started asking questions about the quarterly reports.\n\n\"Of course,\" you say.\n\nJanet's smile could freeze coffee. \"Wonderful. I'm sure your remaining time here will be very productive.\"",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Ask about Derek's sudden departure",
+          "leadsTo": "Derek Questions"
+        },
+        {
+          "text": "Take the forms and leave quietly",
+          "leadsTo": "Silent Treatment"
+        },
+        {
+          "text": "Mention the locked filing cabinets",
+          "leadsTo": "Filing Inquiry"
+        }
+      ]
+    },
+    {
+      "title": "Derek Questions",
+      "content": "\"Speaking of productive,\" you say, \"whatever happened to Derek? He left so suddenly.\"\n\nJanet's pen stops mid-click. For exactly three seconds, her corporate mask slips. You catch a glimpse of something underneath. Something that looks like panic.\n\n\"Derek received an exciting opportunity elsewhere,\" she says. The mask snaps back into place. \"Very last minute. You know how these things go in our industry.\"\n\nYou don't know how these things go. Derek had been complaining about the company's books for weeks. Specifically about how certain expenses didn't add up. He'd cornered you by the coffee machine just days before his departure, waving printouts and muttering about shell companies.\n\n\"He didn't even say goodbye,\" you press.\n\n\"Derek was never much for sentiment.\" Janet's fingers drum against her desk. \"Now, about those exit forms. I really must insist we focus on the transition process. The company has invested significant resources in ensuring smooth handovers.\"\n\nShe slides the packet closer to you. The top form is titled 'Confidentiality Reminder and Legal Obligations.' The font is very small.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Press harder about Derek's research",
+          "leadsTo": "Deep Inquiry"
+        },
+        {
+          "text": "Take the forms and investigate quietly",
+          "leadsTo": "Stealth Mode"
+        }
+      ]
+    },
+    {
+      "title": "Silent Treatment",
+      "content": "You take the forms without another word. Janet nods approvingly, as if you've passed some sort of test.\n\n\"Excellent. I do appreciate employees who understand the value of discretion.\"\n\nThe packet weighs more than it should. You flip through the pages as you walk back to your cubicle. Most of it is standard corporate nonsense. Return your badge. Delete personal files. Surrender company property.\n\nBut buried on page seven is something interesting. A clause about discussing company operations with outside parties. The penalties section goes on for two full pages.\n\nYour cubicle neighbor, Marcus, glances over as you sit down. He's been here longer than anyone, survived three restructurings and countless layoffs. His survival strategy appears to involve agreeing with everything and remembering nothing.\n\n\"Heard you're graduating,\" he says, using the company's preferred euphemism for quitting. \"Lucky you.\"\n\n\"Lucky me.\"\n\nHe leans closer, pretending to look at your monitor. \"Word of advice? Some places, it's better not to ask too many questions on your way out. Bad for everyone involved.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Ask Marcus what he means",
+          "leadsTo": "Marcus Warning"
+        },
+        {
+          "text": "Focus on cleaning out your desk",
+          "leadsTo": "Clean Exit"
+        },
+        {
+          "text": "Look into those penalty clauses",
+          "leadsTo": "Legal Research"
+        }
+      ]
+    },
+    {
+      "title": "Filing Inquiry",
+      "content": "\"I've been meaning to ask,\" you say, \"what's in those locked filing cabinets in the supply room?\"\n\nJanet's hand freezes halfway to her coffee mug. The fluorescent light chooses this moment to flicker more aggressively, casting weird shadows across her face.\n\n\"Filing cabinets?\" Her voice has gone up exactly one octave. \"I'm not sure what you mean.\"\n\n\"The gray ones. Behind the toner cartridges. They're always locked.\"\n\n\"Oh, those.\" She waves a hand dismissively, but her knuckles are white. \"Archive storage. Very boring. Old personnel files, mostly. HIPAA compliance requires secure storage, you understand.\"\n\nYou understand several things. You understand that HIPAA doesn't apply to your company. You understand that those cabinets are too new to be archives. And you understand that Janet is lying through her perfectly veneered teeth.\n\n\"Of course,\" you say.\n\n\"Now, about your transition timeline.\" She pulls out a calendar marked with more colors than a kindergarten art project. \"I think we should accelerate your departure date. No need to drag things out unnecessarily.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Agree to leave early",
+          "leadsTo": "Quick Exit"
+        },
+        {
+          "text": "Insist on your full two weeks",
+          "leadsTo": "Stand Ground"
+        }
+      ]
+    },
+    {
+      "title": "Deep Inquiry",
+      "content": "\"Derek was looking into some accounting irregularities before he left,\" you say. \"Shell companies. Mismatched expenses. Ring any bells?\"\n\nJanet's coffee mug hits the desk with a sharp click. A small puddle of brown liquid spreads across her motivational desk calendar, obscuring Tuesday's inspirational quote about teamwork.\n\n\"I think there's been a misunderstanding,\" she says. Her voice has gone very quiet. Very careful. \"Derek left for personal reasons. Family emergency. Nothing to do with accounting.\"\n\n\"Funny. He told me his family was all dead.\"\n\nThe silence stretches between you like a taut wire. Janet reaches for a tissue to clean up the spilled coffee, but her hands are shaking slightly.\n\n\"Perhaps we should schedule a meeting with HR,\" she says finally. \"And Legal. Just to make sure we're all aligned on the facts.\"\n\nThat's when you notice the small red light blinking on her desk phone. The recording light. The one that's supposed to indicate when calls are being monitored for quality assurance.\n\nExcept you're not on a call.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Point out the recording light",
+          "leadsTo": "Confrontation"
+        },
+        {
+          "text": "Back down and apologize",
+          "leadsTo": "False Retreat"
+        }
+      ]
+    },
+    {
+      "title": "Stealth Mode",
+      "content": "You spend the next three days being the model departing employee. You organize files. You document procedures. You smile at Janet's increasingly frequent check-ins and assure her that everything is proceeding according to the transition matrix.\n\nWhat you don't mention is how you've been staying late. How you've been using Derek's old login credentials. How Derek, in his paranoid final weeks, had shared his password with you during one of his increasingly frantic coffee machine conversations.\n\nThe company's internal server is a maze of folders and subfolders, most of them innocuously labeled. 'Q3 Reports.' 'Vendor Relations.' 'Strategic Partnerships.' But hidden in the vendor files, you find what Derek had been tracking.\n\nPayments to companies that don't exist. Invoices for services never rendered. A paper trail that leads nowhere and everywhere at once.\n\nYour computer screen reflects in the dark office windows. Outside, the parking lot is empty except for Janet's Honda Civic. Which is strange, because Janet left hours ago.\n\nThe elevator dings softly in the distance.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Copy the files and get out",
+          "leadsTo": "Data Theft"
+        },
+        {
+          "text": "Hide and see who's coming",
+          "leadsTo": "Discovery"
+        }
+      ]
+    },
+    {
+      "title": "Confrontation",
+      "content": "You point to the blinking red light. \"Quality assurance?\"\n\nJanet follows your gaze. For a moment, her entire face goes blank. Then she reaches over and switches off the recording function with practiced efficiency.\n\n\"Standard procedure,\" she says. \"Legal requires documentation of all employee discussions during transition periods.\"\n\n\"Even resignation conversations?\"\n\n\"Especially resignation conversations.\" She stands up, smoothing down her skirt. \"You'd be surprised how often departing employees make... inaccurate claims about their experiences here. We've found it's better to have a complete record.\"\n\nYou lean back in your chair. The pieces are starting to fit together in a way that makes your stomach turn. Derek's sudden departure. The locked filing cabinets. The surveillance.\n\n\"What kind of inaccurate claims?\"\n\nJanet's smile returns, but it doesn't reach her eyes. \"Oh, you know. Disgruntled employees sometimes imagine problems that don't exist. Financial irregularities. Improper procedures. The usual workplace fantasies.\"\n\n\"Fantasies.\"\n\n\"It's a very common phenomenon. We've had to involve our legal team several times. Very messy for everyone involved.\" She sits back down. \"I'd hate for you to find yourself in a similar situation.\"",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Discovery",
+      "content": "You kill the monitor and duck behind the reception desk. The elevator doors open with their usual wheeze. Footsteps echo across the empty office floor. Multiple sets.\n\nJanet's voice carries in the quiet space. \"The files are definitely being accessed. IT confirmed it this morning.\"\n\n\"Same pattern as the previous incident?\" The second voice is male. Unfamiliar. Probably from corporate.\n\n\"Identical. Late night access. Derek's old credentials. Our departing friend has been very thorough.\"\n\nThey're walking toward your cubicle now. You hear the soft scrape of a chair being moved, the click of a keyboard.\n\n\"Everything's been copied,\" Janet says. \"Vendor files, payment records, the whole portfolio.\"\n\n\"Containment options?\"\n\n\"Same as before. Legal has the frameworks in place. We've done this dance already.\"\n\nThe male voice chuckles. It's not a pleasant sound. \"At least this one gave notice. Shows some professionalism.\"\n\nYou hear them moving toward the exit. Janet's voice fades as they walk away: \"Two weeks is plenty of time to handle the situation. Very civilized.\"\n\nThe elevator doors close. You're alone again with the humming fluorescent lights and the weight of what you've just heard.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    }
+  ]
+}

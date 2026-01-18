@@ -1,0 +1,178 @@
+{
+  "title": "The Blind Pig",
+  "description": "Prohibition. A speakeasy in the swamp. The law is coming.",
+  "theme": "historical thriller",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "Night Books",
+      "content": "I count the take by lamplight. Forty-three dollars from the card game. Sixty-eight from liquor sales. Marie's girls brought in another twenty-two. Numbers add up clean when you know how to work them.\n\nThe stilts creak under our feet. Every board in this place knows the weight of secrets. Boudreaux's voice drifts up from the main room where he's closing down the bar. \"Last call, mes amis.\"\n\nI slide the bills into three stacks. One for supplies. One for payoffs. One for keeping us alive another week. The ledger tells a different story than what Sheriff Thibodaux sees when he comes collecting. Good thing I keep two sets of books.\n\nA boat motor cuts through the night. Too fast. Too urgent. Motors that run hard after midnight usually bring trouble.\n\nI blow out the lamp and move to the window. Three boats cutting through the cypress trees. Running lights dark. The law doesn't announce itself in the bayou, but it doesn't sneak around in packs of three either.\n\nMy hand finds the emergency bell cord.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Ring the bell and warn everyone",
+          "leadsTo": "Warning Call"
+        },
+        {
+          "text": "Hide the books and money first",
+          "leadsTo": "Buried Evidence"
+        },
+        {
+          "text": "Get to the dock and see who's coming",
+          "leadsTo": "Night Visitors"
+        }
+      ]
+    },
+    {
+      "title": "Warning Call",
+      "content": "I yank the bell cord hard. Three pulls. Pause. Three more. The signal cuts through fiddle music and laughter like a knife.\n\nChairs scrape across floorboards. Bottles disappear into hidden compartments. The roulette wheel folds into a checkers table. Boudreaux's people move like they've practiced this dance a hundred times.\n\n\"Feds?\" Marie appears at my shoulder. Her girls are already changing into church dresses over their working clothes.\n\n\"Don't know yet.\" I stuff the money into a coffee tin. \"Boats coming fast from the east channel.\"\n\nThe main room empties through three different exits. Some folks slip into pirouges hidden under the house. Others take the boardwalk that leads deeper into the swamp. The smart ones just sit down with Bibles and start singing hymns.\n\nBoudreaux kills the gramophone. In thirty seconds, we've gone from speakeasy to prayer meeting.\n\nThe boat motors are close now. Close enough to count engines. Three boats. Maybe twelve men. More than Sheriff Thibodaux usually brings for his monthly shake-down.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Stay and play the church meeting role",
+          "leadsTo": "False Prayer"
+        },
+        {
+          "text": "Slip out through the escape route",
+          "leadsTo": "Swamp Runner"
+        }
+      ]
+    },
+    {
+      "title": "Buried Evidence",
+      "content": "The money goes into the coffee tin. The real ledger slides behind the false back of my desk drawer. The dummy books stay out for show. Numbers that make us look poor and harmless.\n\nI'm closing the drawer when boots hit the dock outside. Heavy boots. Federal boots.\n\n\"Nobody move!\" The voice carries authority that local law doesn't have. \"This is a federal raid!\"\n\nToo late to run now. I grab a Bible from the shelf and sit at my desk like I've been reading scripture all night. The lamp stays low. Let them think this is just a bookkeeper's office.\n\nDoors slam open downstairs. Men shout orders. Glass breaks. They're not here for Sheriff Thibodaux's polite monthly tribute. This is a real raid.\n\nFootsteps on the stairs. My door rattles under someone's fist.\n\n\"Federal agents! Open up!\"\n\nI smooth my dress and check that my expression shows the right amount of confused fear. Not too much. Not too little. Just a scared colored girl working late on church finances.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Open the door and play innocent",
+          "leadsTo": "Federal Questions"
+        },
+        {
+          "text": "Pretend to be asleep",
+          "leadsTo": "False Dreams"
+        },
+        {
+          "text": "Climb out the back window",
+          "leadsTo": "Midnight Escape"
+        }
+      ]
+    },
+    {
+      "title": "Night Visitors",
+      "content": "I take the back stairs down to water level. The dock extends thirty feet into black water. Cypress trees lean in like they're listening.\n\nThe boats cut their engines fifty yards out. Voices carry across the water. Federal voices giving orders. My stomach drops.\n\n\"Take positions around the building. Nobody gets out.\" A man in a white suit stands in the lead boat. Agent Patterson from New Orleans. I've seen his picture in Boudreaux's federal files.\n\nThey know about us. Really know. This isn't Sheriff Thibodaux selling us out for extra tribute money. Someone gave the feds real information.\n\nI duck behind the dock pilings. Water laps against the posts. A gator slides off a log somewhere in the dark. Even the swamp knows to hide when the government comes calling.\n\nPatterson's boat bumps against our dock. Six agents in suits climb out. They move like men who've done this before. Professional. Dangerous.\n\nI could slip into the water. Follow the pilings to the escape channel. Or I could get back inside and warn the others.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Swim to safety through the swamp",
+          "leadsTo": "Water Road"
+        },
+        {
+          "text": "Sneak back inside to help",
+          "leadsTo": "Loyal Return"
+        }
+      ]
+    },
+    {
+      "title": "False Prayer",
+      "content": "\"...and deliver us from evil, for thine is the kingdom...\" My voice joins the others in reciting the Lord's Prayer. Twenty people in church clothes pretending this is Wednesday night Bible study.\n\nBoots stomp up the stairs. The doors burst open.\n\n\"Federal agents!\" Agent Patterson sweeps the room with cold eyes. His men spread out behind him, hands on their guns.\n\nBoudreaux stands up slowly. \"Evening, officers. You're welcome to join our prayer service.\"\n\nPatterson walks between the chairs. Checking faces. Looking for something specific. His gaze stops on me for a long moment. I keep my eyes on my Bible.\n\n\"This is Marie Thibodaux.\" He points at Marie. \"You're under arrest for violation of the Volstead Act.\"\n\n\"I don't know what you mean,\" Marie says. \"We're just praying here.\"\n\nPatterson smiles. \"We have photographs, Miss Thibodaux. And financial records.\" His eyes find mine again. \"Someone's been very helpful with information.\"\n\nSomeone talked. Someone with access to our real business. The question is who.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Stay silent and keep praying",
+          "leadsTo": "Silent Witness"
+        },
+        {
+          "text": "Try to protect Marie",
+          "leadsTo": "Dangerous Loyalty"
+        }
+      ]
+    },
+    {
+      "title": "Swamp Runner",
+      "content": "I slip through the kitchen and down the rope to my pirogue. The cypress swamp swallows me like a familiar embrace. These channels have been my roads since childhood.\n\nBehind me, lights blaze as the feds tear through our place. Shouts echo across the water. They'll find the hidden compartments eventually. They'll find some of the money. But not all of it.\n\nMy paddle cuts silent through black water. Spanish moss brushes my shoulders. The pirogue follows channels too narrow for federal boats. This is my advantage. My territory.\n\nA gunshot cracks the night air. Then another.\n\nI paddle faster. The escape channel leads to Tomas Bergeron's fishing camp. He'll have a truck. Maybe news about which way the wind's blowing.\n\nBy morning, I need to know who talked. By tomorrow night, I need to be gone or dead. In the bayou, those are usually the only two choices the law leaves you.\n\nThe pirogue glides between cypress knees toward whatever's left of my life.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": []
+    },
+    {
+      "title": "Federal Questions",
+      "content": "I open the door with shaking hands. \"Sir? What's happening?\"\n\nAgent Patterson looks past me into the office. Takes in the Bible on my desk. The church ledgers. The lamp turned low like someone working late on holy business.\n\n\"What's your name, girl?\"\n\n\"Ruby Washington, sir. I keep books for the church.\"\n\nHe pushes past me. Opens drawers. Checks behind pictures on the wall. Professional and thorough. \"What church would that be?\"\n\n\"Bayou Baptist. Reverend Boudreaux's my uncle.\" The lie comes easy. I've practiced it.\n\nPatterson picks up my ledger. Flips through pages of fake entries. Donations from fake parishioners. Expenses for fake church supplies. Numbers that tell a story about poor folks trying to build something godly in the swamp.\n\n\"These numbers look very neat for a colored girl's bookkeeping.\"\n\nI drop my eyes. \"My mama taught me to read and write. Said numbers don't lie if you treat them right.\"\n\nHe studies me. Looking for cracks in the performance.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "Keep playing the innocent church girl",
+          "leadsTo": "Perfect Act"
+        },
+        {
+          "text": "Offer information to save yourself",
+          "leadsTo": "Betrayal's Price"
+        }
+      ]
+    },
+    {
+      "title": "Water Road",
+      "content": "I slide into black water between the dock pilings. The bayou receives me like baptism. Cold. Dark. Forgiving.\n\nFootsteps thump overhead. Agents search the building. Glass breaks. Voices shout orders. I swim deeper into the cypress grove, following the escape route Boudreaux marked years ago.\n\nThe water tastes of mud and old secrets. My dress pulls at my legs. I shed it and swim in my slip toward the hidden channel.\n\nBehind me, gunshots pop like firecrackers. Someone screamed. Female voice. Marie or one of her girls.\n\nI reach the channel mouth and pull myself into the spare pirogue. Water drips from my hair as I paddle into deeper swamp. Leaving friends to federal justice. Alive but alone.\n\nThe bayou keeps its secrets. Even from me.\n\nMiles later, I beach the pirogue at an abandoned fishing camp. Dawn comes gray through Spanish moss. By evening, I'll be in Texas. By winter, maybe California.\n\nStarting over with nothing but what I remember. Numbers in my head. Names of people who might help a smart girl disappear.\n\nThe swamp taught me to survive. Time to find out what else I learned.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    },
+    {
+      "title": "Loyal Return",
+      "content": "I swim back under the dock and climb the pilings. Water streams from my dress. The building shakes with federal boots and shouted orders.\n\nThe kitchen door hangs open. I slip inside and up the back stairs. My office door stands ajar. Agent Patterson rifles through my fake ledgers while two other agents watch.\n\n\"...church books look too clean,\" Patterson is saying. \"Nobody keeps records this neat without practice.\"\n\nI ease down the hallway toward the main room. Through the doorway, I see our people lined up against the wall. Hands behind their heads. Marie stands defiant even with a gun pointed at her chest.\n\nBoudreaux catches my eye. Shakes his head slightly. Warning me away.\n\nBut I know where the real evidence is hidden. In places these federal boys will never think to look. I could destroy it all and save everyone. Or I could run and save myself.\n\nA floorboard creaks under my wet shoes. One of Patterson's men turns toward the hallway.\n\n\"Someone's back there.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": [
+        {
+          "text": "Run for the emergency exit",
+          "leadsTo": "Last Chance"
+        },
+        {
+          "text": "Surrender and face the consequences",
+          "leadsTo": "Final Stand"
+        }
+      ]
+    },
+    {
+      "title": "Perfect Act",
+      "content": "I keep my eyes down and my voice small. \"Sir, is someone in trouble? Should I pray for them?\"\n\nPatterson sets the ledger down. \"You seem like a smart girl, Ruby. Smart enough to notice things.\"\n\n\"I just keep my head in these books, sir. Numbers and prayers. That's all I know.\"\n\nDownstairs, agents are arresting people. I hear Marie's voice raised in protest. Boudreaux speaking calm French. The sounds of my world ending.\n\nPatterson moves to the window. \"This is a nice setup. Good view of the water. I bet you see lots of boats from up here.\"\n\n\"Fishermen mostly. Sometimes folks coming to church service.\"\n\n\"Just fishermen.\" He turns back to me. \"Ruby, I'm going to give you some advice. Smart colored girls who keep their mouths shut and their eyes open do well in this world. You understand?\"\n\nI nod. He's offering me a deal without saying it out loud. Information for freedom.\n\n\"Yes sir. I understand perfectly.\"\n\nHe tips his hat and leaves me with my Bible and my perfect lie. Outside, boats carry my friends toward federal prison. Inside, I count the cost of staying alive.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": []
+    },
+    {
+      "title": "Final Stand",
+      "content": "I walk into the main room with my hands raised. \"Don't shoot. I'm just the bookkeeper.\"\n\nAgent Patterson turns. \"Miss Washington. We were looking for you.\"\n\nThe others stare. Marie's eyes ask questions I can't answer. Boudreaux looks resigned to whatever comes next.\n\n\"I keep books for the church,\" I say. \"Same as I told you upstairs.\"\n\n\"Funny thing about books,\" Patterson pulls out a manila folder. \"We've been watching this place for six months. Taking pictures. Recording license plates. Following money.\"\n\nHe opens the folder. Photographs spill out. Me collecting money from customers. Marie's girls entertaining clients. Boudreaux serving illegal whiskey. Six months of evidence.\n\n\"Someone's been selling information to the government,\" Patterson continues. \"Someone with access to your real financial records. Someone smart enough to negotiate a deal.\"\n\nHe looks around the room. \"The question is who.\"\n\nI meet his eyes. \"Sometimes the smartest thing is knowing when the game's over.\"\n\nPatterson smiles. \"Exactly, Miss Washington. The game is over.\"",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": []
+    }
+  ]
+}

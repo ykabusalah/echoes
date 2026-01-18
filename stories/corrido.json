@@ -1,0 +1,133 @@
+{
+  "title": "Corrido of the Crossing",
+  "description": "Your grandmother's letter arrives three days after her funeral. Your grandfather didn't die in 1987. He's been alive this whole time.",
+  "theme": "family",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "The Letter",
+      "content": "Her handwriting shakes but you can still read it.\n\nMi corazón,\n\nYour grandfather did not die. He crossed to the other side—the border, not heaven—and he never came back. He is still alive. Find him. Give him what I could not.\n\nForgiveness.\n\nA photograph falls out. Young man. White church. Town you don't recognize.\n\nYour hands won't stop trembling.",
+      "isStart": true,
+      "order": 0,
+      "choices": [
+        { "text": "Call your mother", "leadsTo": "Mom Picks Up" },
+        { "text": "Book a flight to Mexico", "leadsTo": "San Miguel de la Frontera" },
+        { "text": "Put the letter away and pretend you never read it", "leadsTo": "Walking Away" }
+      ]
+    },
+    {
+      "title": "Mom Picks Up",
+      "content": "\"I knew.\" Her voice is flat. \"Not everything. But I knew he didn't die. She told me when I was sixteen.\"\n\nYou're standing in your kitchen, coffee going cold, whole world tilting.\n\n\"Why didn't you—\"\n\n\"She made me promise. And honestly? He left, mijo. He chose to leave. Whatever guilt she carried, whatever forgiveness she needed to give, that was hers.\" The edge in her voice could cut glass. \"You don't owe him anything.\"",
+      "order": 1,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "\"I have to do this. For her.\"", "leadsTo": "For Her" },
+        { "text": "\"Maybe you're right.\"", "leadsTo": "Walking Away" },
+        { "text": "\"What if we went together?\"", "leadsTo": "For Her" }
+      ]
+    },
+    {
+      "title": "For Her",
+      "content": "\"No.\" Your mother's voice cracks. \"You go looking for him, you're going to tear this family apart. Your tía Rosa still lights candles for him every Sunday. Uncle Miguel tells his kids their great-grandfather died a hero. You want to tell them it was all lies?\"\n\nThe coffee maker beeps. Neither of you speak.\n\n\"Mamá carried this for forty years,\" she finally says. \"It ate at her. Don't let it eat at you too.\"\n\n\"She asked me to find him.\"\n\n\"She also asked me to make sure you had a good life. Sometimes what people ask for and what's good for them aren't the same thing.\"",
+      "order": 2,
+      "choices": [
+        { "text": "Go anyway", "leadsTo": "San Miguel de la Frontera" },
+        { "text": "Ask what she's really afraid of", "leadsTo": "What She's Afraid Of" }
+      ]
+    },
+    {
+      "title": "What She's Afraid Of",
+      "content": "Long pause. You hear her moving around her kitchen, the familiar sounds of dishes and running water.\n\n\"When she told me, I was so angry. I'd spent my whole childhood telling people how brave he was, how he died working in the fields to feed us. And it was all... nothing. A story. A lie to protect us from knowing we weren't worth staying for.\"\n\nShe takes a breath.\n\n\"I don't want you to feel that. I don't want you to meet some old man in Mississippi and realize he made a whole new family. New kids. New grandchildren. While we were here mourning someone who wasn't even dead.\"\n\nMississippi. She knows where he is.",
+      "order": 3,
+      "choices": [
+        { "text": "\"Mississippi?\"", "leadsTo": "The Call" },
+        { "text": "\"Did you ever think about finding him yourself?\"", "leadsTo": "San Miguel de la Frontera" }
+      ]
+    },
+    {
+      "title": "San Miguel de la Frontera",
+      "content": "The town looks like the photograph, just older. Paint peeling. Church still standing.\n\nInside, a priest arranges flowers. White-haired. Moves slow. Looks up when your shadow crosses the altar.\n\nYou show him the picture.\n\n\"Rodrigo.\" He sets down the flowers. \"I wondered when someone would come.\" He gestures to a pew. \"Sit. This is a long story.\"",
+      "order": 4,
+      "choices": [
+        { "text": "Sit and listen", "leadsTo": "The Priest's Story" },
+        { "text": "\"Just tell me where he is\"", "leadsTo": "The Address" }
+      ]
+    },
+    {
+      "title": "The Priest's Story",
+      "content": "\"He owed money. Dangerous money, to dangerous people. The kind where they don't just hurt you—they hurt everyone you love.\"\n\nThe church is cool and dim. Somewhere a candle flickers.\n\n\"He came to me terrified. Said they were going to use him as a mule. Run drugs across the border or they'd kill his wife, his daughter. He saw only one way out.\"\n\n\"Disappear.\"\n\n\"Let them think he was dead. Cross on his own terms. Build something new where they couldn't find him.\" The priest folds his hands. \"It worked. But the cost...\"\n\n\"Forty years.\"\n\n\"Forty years.\" He looks at you with eyes that have heard too many confessions. \"He calls me sometimes. Asks about your grandmother. Never found the courage to call her himself.\"",
+      "order": 5,
+      "choices": [
+        { "text": "Get the address", "leadsTo": "The Address" }
+      ]
+    },
+    {
+      "title": "The Address",
+      "content": "The priest writes on the back of a prayer card. Biloxi, Mississippi. Phone number underneath.\n\n\"He's sick. Heart problems. Diabetes.\" The priest presses the card into your hands. \"He's been waiting, I think. For someone to find him so he can stop hiding.\"\n\nYou look at the address. Area code 228. Different country, same continent. Twelve hours by car.\n\n\"Does he know I'm coming?\"\n\n\"He knows someone would, eventually. Whether that's a blessing or a punishment, I couldn't tell you.\"",
+      "order": 6,
+      "isBranchPoint": true,
+      "choices": [
+        { "text": "Call first", "leadsTo": "The Call" },
+        { "text": "Just show up", "leadsTo": "Biloxi" }
+      ]
+    },
+    {
+      "title": "The Call",
+      "content": "You dial from your hotel room. It rings four times.\n\n\"¿Bueno?\" Old voice. Rough. Careful.\n\n\"I'm looking for Rodrigo Vega.\"\n\nSilence. Then a breath that sounds like it's been held for decades.\n\n\"Who is this?\"\n\n\"Elena's grandchild. She died three weeks ago. She left me a letter.\"\n\nThe silence stretches. You can hear a television in the background, someone's laugh track.\n\n\"She's gone?\" His voice breaks on the second word. \"Elena's gone?\"\n\n\"She wanted me to find you. She wanted you to know she forgave you.\"\n\nAnother long silence. When he speaks again, he sounds like a different person. Smaller.\n\n\"I have been waiting forty years to hear that. And I am forty years too late.\"",
+      "order": 7,
+      "choices": [
+        { "text": "\"It's not too late\"", "leadsTo": "Biloxi" },
+        { "text": "\"She forgave you a long time ago\"", "leadsTo": "Biloxi" },
+        { "text": "Let him grieve in silence", "leadsTo": "Biloxi" }
+      ]
+    },
+    {
+      "title": "Biloxi",
+      "content": "Small house near the water. Shrimp boats in the distance. He's sitting on the porch when you pull up, like he's been sitting there since your call.\n\nHe's old. Smaller than the photograph. Same eyes, though. Your mother's eyes. Your eyes.\n\nNeither of you speak for a while. The gulf breeze smells of salt and diesel.\n\n\"You look like her,\" he finally says. \"Elena. Same chin.\"\n\n\"Mom says I have your stubbornness.\"\n\nHe almost smiles. \"She's not wrong.\"",
+      "order": 8,
+      "choices": [
+        { "text": "\"Tell me why you left\"", "leadsTo": "Why He Left" },
+        { "text": "\"Tell me about your life here\"", "leadsTo": "His Life Here" },
+        { "text": "Sit with him in silence", "leadsTo": "Silence" }
+      ]
+    },
+    {
+      "title": "Why He Left",
+      "content": "\"The Morales brothers. You wouldn't know them—dead now, both of them. But in 1987 they owned that town. I borrowed money for seed. Drought killed the crop. They said I'd work off the debt their way or my family would pay it.\"\n\nHe stares at the water.\n\n\"I saw what they did to people who refused. I saw what they did to families. And I was a coward. I ran. Told myself I was protecting you all, but really I was just too scared to die.\"\n\n\"You were protecting them.\"\n\n\"That's what I told myself for forty years.\" He looks at you. \"But if I was really protecting them, I would have stayed and fought. I would have gone to the police, the church, anyone. Instead I took the easy way. And they spent forty years thinking I was dead.\"\n\nNo absolution in his voice. No excuses. Just an old man who's had decades to understand exactly what he did.",
+      "order": 9,
+      "choices": [
+        { "text": "Ask about his life here", "leadsTo": "His Life Here" },
+        { "text": "Sit in silence", "leadsTo": "Silence" }
+      ]
+    },
+    {
+      "title": "His Life Here",
+      "content": "\"Shrimp boats at first. Hard work, but honest. Then a machine shop—I was always good with engines.\" He gestures at the modest house. \"This isn't much, but it's mine.\"\n\nPhotos on the wall inside. You notice there aren't any of a new family. No second wife. No other children.\n\nHe catches you looking.\n\n\"Never remarried. Never felt right.\" He touches a frame holding a faded picture of your grandmother, young and laughing. \"Every Sunday I'd go to mass and pray she'd find someone better. Someone who deserved her. She never did, did she?\"\n\n\"No. She never did.\"\n\n\"Stubborn woman.\" His voice is thick. \"God, I loved her.\"",
+      "order": 10,
+      "choices": [
+        { "text": "Sit in silence", "leadsTo": "Silence" },
+        { "text": "Prepare to leave", "leadsTo": "Going Home" }
+      ]
+    },
+    {
+      "title": "Silence",
+      "content": "You sit with him as the sun sets over the Gulf. Shrimp boats head out for the night catch, lights winking on the water.\n\nNo need to fill the space with words. Forty years of absence can't be bridged with conversation anyway. But sitting here, breathing the same salt air, watching the same water—there's something in that.\n\n\"Will you tell your mother you found me?\"\n\n\"Yes.\"\n\n\"Will she come?\"\n\nYou think about it. Her anger. Her hurt. The way she's spent her whole life protecting a story that turned out to be fiction.\n\n\"I don't know. Maybe. Eventually.\"\n\nHe nods like that's the answer he expected. \"I'll be here. However long it takes.\"",
+      "order": 11,
+      "choices": [
+        { "text": "Head home", "leadsTo": "Going Home" }
+      ]
+    },
+    {
+      "title": "Going Home",
+      "content": "You leave in the morning. He walks you to your car, moving slow, one hand on his cane.\n\n\"Thank you for coming.\" His voice is steady. \"Thank you for not hating me.\"\n\n\"I don't know you well enough to hate you.\" It comes out harsher than you meant. \"But I don't think I hate you.\"\n\nHe accepts that. Nods.\n\n\"Tell your mother...\" He stops. Starts again. \"Tell her I know sorry isn't enough. Tell her I'll understand if she never wants to see me. But tell her I thought about her every single day. Every single day for forty years.\"\n\nYou get in the car. In the rearview mirror, he's still standing there, watching you drive away.\n\nThe long road home stretches ahead. Your phone sits heavy in your pocket. Your mother deserves a call. You're just not sure what to say yet.\n\nSome conversations need time to find their shape.",
+      "order": 12,
+      "isEnding": true
+    },
+    {
+      "title": "Walking Away",
+      "content": "You put the letter back in the envelope. Slide it into a drawer.\n\nSome doors are better left closed. Some questions are better left unasked. Your grandmother carried this secret for forty years. Maybe she had her reasons.\n\nMaybe forgiveness was something she needed to give, not something he needed to receive.\n\nYou go back to your life. The drawer stays closed. Some nights you think about opening it again.\n\nYou never do.",
+      "order": 13,
+      "isEnding": true
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "title": "The Ice Road",
+  "description": "Sixty tons of cargo. Frozen river. The thaw is coming early.",
+  "theme": "thriller",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "The Weight Check",
+      "content": "The scales read sixty-two tons. Two over the limit for ice this thin.\n\nYour Volvo FH16 idles behind me, diesel fumes mixing with my breath in the minus-forty air. The cargo manifest shows mining equipment bound for Batagay. Critical delivery. Premium rates.\n\nSergei from the weigh station taps his clipboard. \"Ice thickness down to eighteen inches on the Lena crossing. Sixty tons max, Pavel. You know the rules.\"\n\nThrough my CB, dispatch crackles: \"Pavel, we need that equipment in Batagay by Thursday. No delays. Company's reputation depends on it.\"\n\nI check the load straps. Everything's secured tight. The differential lock is engaged. Tire pressure dropped to fourteen PSI for better grip on ice. My truck can handle the extra weight, but the river might not.\n\nSergei lights a cigarette. \"Your call, driver. But I didn't see those scales if you didn't.\"\n\nThe weather report mentioned temperatures climbing to minus-twenty by tomorrow. Warmest February in decades. Every hour counts now.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Dump two tons of cargo to meet the weight limit",
+          "leadsTo": "The Dump Decision"
+        },
+        {
+          "text": "Risk the crossing at full weight",
+          "leadsTo": "Full Load Risk"
+        },
+        {
+          "text": "Wait for another trucker to share the load",
+          "leadsTo": "The Wait"
+        }
+      ]
+    },
+    {
+      "title": "The Dump Decision",
+      "content": "You offload two tons of drill bits onto Sergei's storage rack. Expensive equipment, but not critical path items.\n\nThe Volvo sits easier now. Sixty tons exactly. Legal weight for eighteen-inch ice, though barely.\n\nYour CB squawks. \"Pavel, this is Dmitri in the Scania behind you. Heard you dumping cargo. Ice reports from the crossing?\"\n\n\"Eighteen inches at the weigh station. Could be thinner mid-river.\"\n\n\"Copy. I'm carrying medical supplies to Verkhoyansk. Following your route.\"\n\nYou pull onto the ice road. Your headlights cut through the darkness, illuminating the packed snow track. Reflector poles mark the route every fifty meters. The ice beneath sounds solid. No creaking yet.\n\nFive kilometers ahead lies the main crossing where the Lena runs deepest. Where the current keeps the ice thinnest. Where trucks have gone through before.\n\nDmitri's headlights stay close behind. Having another driver nearby helps, but it also means double the weight stress on any weak spots.\n\nYour engine temperature reads normal. Outside temp: minus thirty-eight.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Increase speed to minimize time on ice",
+          "leadsTo": "Speed Run"
+        },
+        {
+          "text": "Maintain steady 15 mph, test ice thickness",
+          "leadsTo": "Steady Progress"
+        }
+      ]
+    },
+    {
+      "title": "Full Load Risk",
+      "content": "Sergei turns away as you lumber past his scale house. Sixty-two tons of mining equipment. No turning back now.\n\nThe CB comes alive: \"Any drivers on the Lena crossing, report ice conditions.\"\n\n\"This is Yakov in the DAF. Crossed two hours ago. Heard some groaning near marker seventy. Might want to spread out.\"\n\nYour differential lock engages with a mechanical chunk. The Volvo's engine note deepens as you hit the ice road. Each wheel carries over fifteen tons now. Past the safety margin.\n\nAt marker thirty, you stop and drill a test hole. The ice bar punches through at sixteen inches. Two inches under the required thickness for your weight. The hole fills with dark water that steams in the cold air.\n\nBehind you, headlights approach. Another truck, maintaining distance.\n\nThe radio crackles: \"Pavel, dispatch. Weather update shows temperature rising faster than predicted. Minus twenty by dawn. You need to move.\"\n\nSixteen inches of ice. Sixty-two tons of truck. The math doesn't work, but stopping here means blocking the road for others.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Continue at current weight",
+          "leadsTo": "Thin Ice Gamble"
+        },
+        {
+          "text": "Radio for emergency cargo transfer",
+          "leadsTo": "Emergency Transfer"
+        },
+        {
+          "text": "Turn back while you still can",
+          "leadsTo": "The Retreat"
+        }
+      ]
+    },
+    {
+      "title": "The Wait",
+      "content": "You idle at the weigh station for three hours. Burning fuel. Burning time. The temperature gauge climbs from minus forty to minus thirty-five.\n\nFinally, headlights sweep the lot. A Kamaz 6460 pulls up. Boris Petrov climbs out, stomping his feet in felt boots.\n\n\"Heard you need help splitting a load.\"\n\nBoris has twenty years on these roads. His truck can handle thirty tons easy. Together, you redistribute the mining equipment. Drill bits and replacement parts go to Boris. The main excavator components stay with you.\n\nThirty-one tons each. Well within the ice limits.\n\nBy now it's past midnight. The radio reports ice thickness dropping across all crossings as temperatures rise. What was eighteen inches this afternoon might be sixteen by dawn.\n\n\"We convoy?\" Boris asks, checking his load straps.\n\n\"Da. You lead. I know your style.\"\n\nBoris knows every weak spot on this crossing. Every place where springs underneath keep the ice thin. But he also drives like he's hauling eggs. Slow and careful. Time we might not have.\n\nYour fuel gauge shows three-quarters full. Enough for the crossing plus reserve.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Follow Boris's careful pace",
+          "leadsTo": "Careful Convoy"
+        },
+        {
+          "text": "Suggest pushing the speed",
+          "leadsTo": "Urgent Convoy"
+        }
+      ]
+    },
+    {
+      "title": "Speed Run",
+      "content": "You push the Volvo to thirty mph. The suspension hammers over packed snow ridges. Behind you, Dmitri's headlights fall back as he maintains a safer speed.\n\nAt marker sixty, the ice speaks. A deep groan that you feel through the seat. Your hands tighten on the wheel but you maintain speed. Stopping now could be worse than continuing.\n\nThe radio crackles: \"Pavel, Dmitri here. Heard that crack from here. You're pushing too hard.\"\n\n\"Almost across. Ice is holding.\"\n\nMarker seventy. Marker eighty. The main channel lies between markers eighty-five and ninety. Deepest part of the river. Thinnest ice.\n\nAt eighty-five, your headlights catch something wrong. The snow surface ahead shows a dark stain. Water seepage. The ice is flexing, pumping river water up through hairline cracks.\n\nYou have momentum. Thirty mph and sixty tons. Enough to punch through to solid ice on the far side, or enough to break through completely.\n\nThe dark patch stretches fifty meters. No way to go around it. The river banks are too steep here.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Gun the engine and punch through",
+          "leadsTo": "Ice Break"
+        },
+        {
+          "text": "Emergency brake and hope momentum carries you",
+          "leadsTo": "Momentum Carry"
+        }
+      ]
+    },
+    {
+      "title": "Steady Progress",
+      "content": "Fifteen mph. Steady as a heartbeat. You and Dmitri maintain a hundred-meter gap between trucks.\n\nAt each marker, you stop and test. Marker forty: seventeen inches. Marker fifty: sixteen and a half. The ice is thinning as you move toward the main channel.\n\nDmitri's voice over the CB: \"Pavel, my temperature gauge is climbing. Engine running hot in this cold air. Might need to stop and check coolant.\"\n\n\"How much time do you need?\"\n\n\"Ten minutes.\"\n\nWhile Dmitri checks his engine, you drill another test hole. Fifteen and a half inches now. Still within limits, but barely. The water that seeps up looks darker here. Deeper.\n\nA new voice cuts through the radio static: \"All drivers on Lena crossing. This is weather service. Temperature rising to minus fifteen by sunrise. Ice conditions deteriorating rapidly.\"\n\nDmitri's headlights flash twice. Ready to roll.\n\nThe main channel lies three kilometers ahead. You can see the marker lights in the distance, but between here and there, the ice might be paper thin.\n\nYour engine runs smooth. All systems green. But time is working against both of you now.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Continue together at steady pace",
+          "leadsTo": "Final Approach"
+        },
+        {
+          "text": "Send Dmitri across first to test the ice",
+          "leadsTo": "Test Run"
+        }
+      ]
+    },
+    {
+      "title": "Thin Ice Gamble",
+      "content": "Sixty-two tons on sixteen inches of ice. The math says no, but the engine says yes.\n\nYou crawl forward at ten mph. Every meter, the ice broadcasts warnings. Creaks. Groans. The sound of crystalline structure under impossible stress.\n\nAt marker seventy-five, it happens.\n\nThe crack starts behind your rear axle. A zipper sound racing through the ice. Your mirrors show a dark line opening, water black as oil welling up.\n\nThe Volvo tilts. The rear wheels break through.\n\nYou slam the throttle. The front axle claws for purchase as the rear end sinks. Water pours over the tailgate. The trailer jack-knifes.\n\n\"Mayday, mayday. This is Pavel. Going through the ice at marker seventy-five.\"\n\nCold water floods the cab. Minus two degrees. You have maybe two minutes before hypothermia shuts down your motor functions.\n\nThe door handle fights you. Water pressure and ice. Your hands already losing feeling.\n\nThrough the windshield, you see the surface. Five feet up. Might as well be fifty.\n\nSixty-two tons of mining equipment settling into the Lena River. Along with one driver who thought he could beat the ice.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Emergency Transfer",
+      "content": "\"All units, all units. This is Pavel at marker thirty. Need emergency cargo transfer. Ice too thin for current load.\"\n\nStatic. Wind. Then: \"Pavel, this is Mikhail in the Mercedes. Twenty minutes behind you. Can take ten tons if you can wait.\"\n\n\"Copy. Standing by.\"\n\nYou idle on the ice, burning diesel, burning time. The temperature climbs toward minus twenty. Each degree means weaker ice.\n\nMikhail's headlights finally appear. Together, you transfer drill bits and spare parts. Your load drops to fifty-two tons. His climbs to forty-five.\n\n\"Test the ice again,\" Mikhail suggests.\n\nThe bar punches through at seventeen inches. Better, but still marginal.\n\n\"We go together,\" Mikhail says. \"If one breaks through, the other can radio for help.\"\n\nYou form a convoy. Mikhail leads with his lighter, more maneuverable truck. You follow with the bulk of the mining equipment.\n\nThe main crossing lies ahead. Where the Lena runs deepest. Where the current keeps ice formation unstable. Where the real test begins.\n\nYour CB crackles with weather updates. Minus eighteen and climbing. Dawn still three hours away.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": [
+        {
+          "text": "Cross together maintaining close formation",
+          "leadsTo": "Final Approach"
+        },
+        {
+          "text": "Space out to reduce ice stress",
+          "leadsTo": "Spaced Crossing"
+        }
+      ]
+    },
+    {
+      "title": "Final Approach",
+      "content": "The main channel. Marker eighty-five to ninety-five. Ten kilometers of deep, fast water under ice that might not hold.\n\nYou drill one last test hole. Fourteen inches. Below the safety threshold for any load.\n\nBehind you, Dmitri's engine idles rough. His coolant leak is getting worse. Steam rises from his hood.\n\n\"Pavel, my engine's overheating. I need to shut down or risk seizing the block.\"\n\n\"How long to cool down?\"\n\n\"Hour minimum.\"\n\nAn hour you don't have. The temperature is minus sixteen now. By the time Dmitri's engine cools, the ice might not support a bicycle.\n\nYour radio crackles: \"All drivers, be advised. Lena crossing closed to new traffic as of oh-six-hundred. Current drivers proceed with extreme caution.\"\n\nYou're the last convoy that will attempt this crossing until next winter.\n\nDmitri's headlights flash three times. The trucker's goodbye. He's shutting down, gambling that rescue will reach him before the ice gives way completely.\n\nYour engine runs strong. Fifty-two tons of critical mining equipment. Fourteen inches of deteriorating ice. Five kilometers to solid ground.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": [
+        {
+          "text": "Make the crossing alone",
+          "leadsTo": "Solo Success"
+        },
+        {
+          "text": "Stay with Dmitri and radio for helicopter rescue",
+          "leadsTo": "Rescue Wait"
+        }
+      ]
+    },
+    {
+      "title": "Solo Success",
+      "content": "Fourteen inches of ice. Fifty-two tons of truck. The mathematics of survival reduced to crystalline structure and diesel torque.\n\nYou ease onto the main channel at eight mph. The Volvo's suspension absorbs each irregularity in the ice surface. Your hands grip the wheel light enough to feel every vibration, every stress fracture telegraph through the chassis.\n\nMarker eighty-seven. Eighty-nine. Ninety.\n\nThe ice holds.\n\nAt ninety-two, you hear it. Not the sharp crack of catastrophic failure, but the deep groan of ice under maximum stress. Still holding. Still supporting sixty-two tons of truck and cargo.\n\nMarker ninety-five. Solid ground ahead.\n\nYour tires find gravel. Real earth. The weight transfers off the ice onto the approach ramp.\n\n\"Batagay dispatch, this is Pavel. Clear of the Lena crossing with full cargo. ETA your facility fourteen hundred hours.\"\n\n\"Copy, Pavel. Well done.\"\n\nIn your mirrors, the ice road stretches back across the river. Empty now. By tomorrow, it will be too weak for anything heavier than a snowmobile.\n\nYou shift into high gear and head north toward Batagay, carrying sixty tons of mining equipment that will keep a hundred men working through the summer.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": []
+    },
+    {
+      "title": "Rescue Wait",
+      "content": "You shut down beside Dmitri's disabled Mercedes. Two trucks. Two drivers. Sitting on ice that grows weaker by the hour.\n\n\"Dispatch, this is Pavel and Dmitri at marker eighty-five. Request helicopter evacuation. Ice conditions critical.\"\n\n\"Copy, Pavel. Emergency services dispatched. ETA ninety minutes.\"\n\nNinety minutes. The temperature holds at minus fifteen. Still cold enough to maintain ice integrity, but barely.\n\nYou and Dmitri share thermos coffee and wait. His coolant leak has sealed with cold, but starting his engine risks another overheat.\n\nThe helicopter arrives as dawn breaks. A Mil Mi-8, rotors thundering overhead. The downwash creates a localized blizzard as it settles onto the ice fifty meters away.\n\n\"Both trucks lost,\" the rescue commander shouts over rotor noise. \"Ice won't hold much longer.\"\n\nYou grab essential papers and abandon the Volvo. Fifty-two tons of mining equipment settling into the Lena as the ice finally gives way.\n\nFrom the helicopter, you watch both trucks disappear. The ice road closes behind you, dark water reflecting the morning sky.\n\nSometimes survival means knowing when the fight is over.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": []
+    }
+  ]
+}

@@ -1,0 +1,155 @@
+{
+  "title": "Kelpie Light",
+  "description": "A week alone at a lighthouse. You're not alone.",
+  "theme": "horror",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "Arrival",
+      "content": "The boat's engine dies with a wet cough.\n\nMcLeod doesn't help you unload. Just watches from the wheelhouse as you drag your duffel bag onto the slick rocks. The lighthouse looms above you, white paint peeling like old scabs.\n\n\"Radio's busted,\" he calls over the wind. \"Has been for months. You sure about this?\"\n\nYou nod. Seven days. The money's too good to refuse.\n\nHis boat putters away into the grey. The sound fades until only the waves remain, slapping against stone. Salt spray stings your face.\n\nThe lighthouse door is painted red. Rust bleeds from the hinges.\n\nInside, everything smells of damp wool and something else. Something sweet and rotten, like fruit left too long in the sun. The logbook sits open on a small table. The last entry is three weeks old.\n\n*Weather holding. All well. G. Morrison.*\n\nYour predecessor. The one who didn't come back to shore.\n\nThe stairs spiral up into darkness. Each step creaks under your weight. At the top, the great lens waits. Tonight, you'll light it for the first time.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Explore the lighthouse keeper's quarters first",
+          "leadsTo": "The Quarters"
+        },
+        {
+          "text": "Go straight to the lamp room and test the light",
+          "leadsTo": "First Light"
+        },
+        {
+          "text": "Read more of the previous keeper's log entries",
+          "leadsTo": "The Logbook"
+        }
+      ]
+    },
+    {
+      "title": "The Quarters",
+      "content": "The keeper's room is small. A narrow bed. A washbasin with brown water stains. Morrison left his things behind.\n\nHis clothes still hang in the wardrobe. Wool sweaters that smell of tobacco and brine. You run your fingers along the sleeves. The fabric is damp.\n\nEverything here is damp.\n\nA photograph sits on the nightstand. Morrison with a woman and two children, all gap-toothed smiles. The glass is cracked down the middle, splitting the family in half.\n\nUnder the bed, your hand finds something solid. A wooden box, carved with symbols you don't recognize. Spirals and knots that seem to shift when you're not looking directly at them.\n\nInside the box: shells. Dozens of them, all the same species. Small, black, iridescent. They whisper against each other when you move the box.\n\nThe sound reminds you of voices.\n\nYou close the box quickly. Set it back where you found it.\n\nOutside, the wind picks up. The lighthouse groans like something in pain.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Keep the shell box with you",
+          "leadsTo": "Collecting"
+        },
+        {
+          "text": "Leave everything untouched and go to the lamp room",
+          "leadsTo": "First Light"
+        },
+        {
+          "text": "Search Morrison's pockets for clues",
+          "leadsTo": "The Coat"
+        }
+      ]
+    },
+    {
+      "title": "First Light",
+      "content": "The lamp room is all glass and metal. The great lens sits in the center, each piece of glass cut to catch and throw light across the dark water.\n\nYou flip the switch. Nothing.\n\nThe backup generator sits in the corner, red and silent. You pull the cord once. Twice. On the third try, it roars to life.\n\nThe lighthouse beam sweeps across the sea.\n\nOut there, something moves in the water. Too big to be driftwood. Too purposeful to be debris.\n\nYou grab the binoculars from their hook. Through the lenses, you see it clearly.\n\nA horse's head breaks the surface. Mane streaming like kelp. Its eyes reflect the lighthouse beam, glowing green in the darkness.\n\nIt watches you watching it.\n\nThen it slips beneath the waves without a splash.\n\nYour hands shake as you lower the binoculars. Seals, you tell yourself. Just seals playing in the surf.\n\nBut seals don't have manes.\n\nThe light continues its steady rotation. The generator hums. Everything is as it should be.\n\nExcept for the wet hoofprints on the rocks below.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Go down to investigate the hoofprints",
+          "leadsTo": "The Shore"
+        },
+        {
+          "text": "Stay in the lamp room and keep watch",
+          "leadsTo": "Vigil"
+        },
+        {
+          "text": "Check the logbook for similar sightings",
+          "leadsTo": "The Logbook"
+        }
+      ]
+    },
+    {
+      "title": "The Logbook",
+      "content": "You flip back through Morrison's entries. His handwriting gets shakier as the weeks progress.\n\n*Day 12: Saw something in the water. Horse-like. Probably kelp.*\n\n*Day 18: It came closer tonight. Definitely not kelp. Called McLeod on radio but no answer.*\n\n*Day 24: Radio completely dead now. The thing circled the rocks for hours. I can hear it breathing.*\n\n*Day 29: Found shells arranged in patterns on the rocks. Spirals. Like the old carvings. I think it's trying to communicate.*\n\n*Day 33: I understand now. The shells. The patterns. It's not trying to communicate. It's counting down.*\n\nThe final entry is just one line, written in what looks like charcoal:\n\n*It wants to come home.*\n\nYou close the book. Your tea has gone cold.\n\nOutside, something scrapes against the lighthouse wall. Long, deliberate scratches, like fingernails on stone.\n\nBut the sound comes from too high up. Thirty feet above the highest tide.\n\nThe scraping stops.\n\nStarts again.\n\nStops.\n\nYou count the scratches. Seven. Always seven.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Go outside with a flashlight to investigate",
+          "leadsTo": "The Shore"
+        },
+        {
+          "text": "Barricade yourself inside and wait for morning",
+          "leadsTo": "Barricaded"
+        }
+      ]
+    },
+    {
+      "title": "The Shore",
+      "content": "The rocks are slippery with more than seawater.\n\nYour flashlight beam catches them first. The hoofprints. They lead from the water's edge to the lighthouse door, then back again. The impressions are deep, too deep for any earthly horse.\n\nBetween the prints, shells. Hundreds of them, arranged in perfect spirals.\n\nYou kneel down. Touch one. It's warm.\n\nThe beam of your flashlight catches something else. Pale shapes in the water, just below the surface. You wade in up to your ankles.\n\nBones. Human bones, picked clean and white.\n\nA ribcage. A skull with the jaw missing. Finger bones scattered like dice.\n\nThe water around your feet begins to warm. Something brushes against your leg. Soft. Like hair.\n\nYou stumble backward onto the rocks. Behind you, the lighthouse beam sweeps the sea.\n\nIn its light, you see the horse's head again. Closer now. Close enough to see that its mane isn't kelp.\n\nIt's hair. Human hair. Long and dark and streaming.\n\nClose enough to see that its eyes aren't eyes at all.\n\nThey're holes. Empty sockets that go down and down.\n\nIt opens its mouth. Morrison's voice comes out.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Run back to the lighthouse",
+          "leadsTo": "Barricaded"
+        },
+        {
+          "text": "Stay and listen to what it says",
+          "leadsTo": "The Offering"
+        }
+      ]
+    },
+    {
+      "title": "Collecting",
+      "content": "The shells sing when you carry the box.\n\nNot loudly. Just a whisper of sound, like wind through reeds. You set the box on the table next to the logbook and lift the lid.\n\nThe shells have rearranged themselves. They form a spiral now, each one placed with mathematical precision.\n\nYou didn't do this.\n\nYou pick up one shell. Hold it to your ear.\n\nThe ocean roars inside it, but underneath the waves, voices. Morrison's voice, calling your name.\n\nHow does he know your name?\n\nYou drop the shell. It lands point-up in the exact center of the spiral.\n\nOutside, the lighthouse beam sweeps across the water. In its light, you see them. Dozens of horse heads bobbing in the surf. All watching the lighthouse.\n\nAll waiting.\n\nThe shells grow warm in their box. The whispers get louder.\n\nOne of the horses breaks from the group. Swims closer. Its hooves strike sparks against the underwater rocks.\n\nIt wants its shells back.\n\nIt wants you to bring them home.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": []
+    },
+    {
+      "title": "Barricaded",
+      "content": "You drag Morrison's wardrobe against the door.\n\nPush the table against the window. The chair goes on top. Everything you can move, you move.\n\nThe scraping starts again. Closer now. Right outside the window.\n\nSeven scratches. Pause. Seven more.\n\nYou huddle in the corner with Morrison's photograph. The crack in the glass has spread. Now it cuts through all their faces.\n\nThe generator dies.\n\nThe lighthouse beam goes dark.\n\nIn the sudden silence, you hear breathing. Not yours. Something else. Something patient.\n\nThe door handle turns.\n\nImpossible. You barricaded it. The wardrobe weighs two hundred pounds.\n\nBut the handle turns anyway.\n\nThe door opens with a sound like sighing.\n\nMorrison stands in the doorway. His skin is grey-green, mottled like old seaweed. Water drips from his clothes, pooling on the floor.\n\n\"Time to go,\" he says.\n\nBehind him, more figures crowd the stairs. All the lighthouse keepers who came before. All the ones who never made it home.\n\nThey're all waiting for you.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "The Offering",
+      "content": "Morrison's voice spills from the creature's throat like water from a broken pipe.\n\n\"Come home,\" it says. \"Come down to the deep places. We've been waiting so long.\"\n\nOther voices join in. All the keepers who came before. Men and women whose bones rest in the kelp forests below.\n\n\"The light calls us,\" they chorus. \"But we cannot climb. We cannot return. Unless...\"\n\nThe horse-thing wades closer. Its hooves scrape against the submerged rocks.\n\n\"One keeper for seven years of safe passage. One life for many. The bargain holds.\"\n\nYou understand now. The shells. The patterns. The countdown Morrison wrote about.\n\nSeven days. That's how long each keeper gets to decide.\n\nYou can run. Swim for the mainland when McLeod returns. Leave this place to its hunger.\n\nOr you can walk into the water. Join the voices beneath the waves. Keep the ships safe for another seven years.\n\nThe creature extends one hoof toward you.\n\nIts touch is surprisingly warm.\n\n\"Choose,\" Morrison's voice whispers.\n\nThe lighthouse beam sweeps overhead. For a moment, you see your own reflection in the dark water.\n\nYou look just like all the others.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": [
+        {
+          "text": "Take the creature's hoof and walk into the sea",
+          "leadsTo": "Sacrifice"
+        },
+        {
+          "text": "Refuse and try to escape back to the lighthouse",
+          "leadsTo": "Barricaded"
+        }
+      ]
+    },
+    {
+      "title": "Sacrifice",
+      "content": "The water is warm around your ankles. Your knees. Your waist.\n\nThe creature's hoof is solid in your hand. Real. More real than anything you've ever touched.\n\n\"Good,\" Morrison's voice says. \"Good. Now you understand.\"\n\nThe other voices rise from the depths. Welcoming. Grateful.\n\nYou were always going to end up here. From the moment you took McLeod's money. From the moment you saw the job posting. Maybe from the moment you were born.\n\nSome people are meant for the deep places.\n\nThe water reaches your chest. Your neck.\n\nYou take one last breath of salt air.\n\nBelow the surface, everything is green light and soft singing. The bones of ships rest in the sand like cathedral ruins. Fish swim through ribcages.\n\nYou settle among them. Another keeper. Another guardian.\n\nAbove, the lighthouse beam sweeps empty water.\n\nFor seven more years, no ships will founder on these rocks.\n\nWhen the next keeper comes, you'll be waiting.\n\nYou'll have Morrison's voice to call with.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": []
+    }
+  ]
+}

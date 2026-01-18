@@ -1,0 +1,153 @@
+{
+  "title": "The Monaco Job",
+  "description": "A heist goes sideways on the Riviera.",
+  "theme": "heist",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "The Setup",
+      "content": "Look, I know what you're thinking. Another casino heist story. But stick with me here. This one's different.\n\nI'm crouched behind a potted palm in the Casino de Monte-Carlo, watching Dmitri \"The Bear\" Volkov lose fifty grand at baccarat. The man sweats like he's in a sauna. Perfect.\n\nMy earpiece crackles. \"Phoenix, you in position?\" That's Sophia. Real name Sarah Jenkins from Ohio, but she insists on the exotic alias. Can't blame her. Sarah Jenkins doesn't sound like someone who can crack a Mosler Double Guard.\n\n\"Copy that, Nightingale.\" See? I play along.\n\nThe plan's simple. Wait for Dmitri to hit the bar. Slip the tracker on his Patek Philippe when he's distracted. Follow him to tomorrow's yacht party where the real score waits. A Monet. Water Lilies number forty-seven. Twenty million, easy.\n\nDmitri stands. Stumbles a bit. The Bear's had quite a few vodkas.\n\nHere we go.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        { "text": "Follow Dmitri to the bar immediately", "leadsTo": "The Approach" },
+        { "text": "Wait and observe his bodyguards first", "leadsTo": "The Wait" },
+        { "text": "Signal Sophia for a distraction", "leadsTo": "The Distraction" }
+      ]
+    },
+    {
+      "title": "The Approach",
+      "content": "I slide through the crowd like butter on warm toast. Dmitri's already ordering at the bar. Beluga Gold Line vodka. Of course.\n\nTwo bodyguards flank him. Ivan and Sergei. Creative parents, those Russians. Ivan's busy checking his phone. Sergei's eyeing a brunette in a red dress.\n\nPerfect timing.\n\nI sidle up next to Dmitri. Order a martini. Bump into him just as he reaches for his drink.\n\n\"Pardon,\" I say in my best French accent. \"Clumsy American tourist.\"\n\nDmitri grunts. Doesn't even look at me. His Patek Philippe gleams under the casino lights. The tracker's the size of a pinhead. Magnetic. Should stick right to the crown.\n\nI reach out. Steady hands. Professional.\n\nThen Dmitri's phone rings. He jerks his wrist away to answer it. My finger grazes the watch face instead.\n\n\"Da?\" Dmitri barks into his phone. His face goes white. \"What do you mean she's gone?\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        { "text": "Try to plant the tracker while he's distracted by the call", "leadsTo": "The Revelation" },
+        { "text": "Back away and abort the mission", "leadsTo": "The Retreat" }
+      ]
+    },
+    {
+      "title": "The Wait",
+      "content": "Patience. That's what separates the pros from the prison inmates.\n\nI study the bodyguards. Ivan keeps checking his Rolex. Nervous tic. Sergei's got a slight bulge under his left armpit. Sig Sauer P226, I'd guess. Both men scan the room every thirty seconds. Clockwork.\n\nBut here's the thing about patterns. They make you predictable.\n\nDmitri's phone buzzes. He answers with a growl. \"Da?\"\n\nThen his face changes. The color drains out like someone pulled a plug. \"What do you mean she's gone?\"\n\nBoth bodyguards snap to attention. The brunette in the red dress forgotten. This is bigger than a social call.\n\nDmitri starts rapid-firing Russian. I catch a few words. My college language classes finally paying off. Something about a boat. A woman. And the phrase \"before midnight.\"\n\nSergei whispers something to Ivan. Ivan nods and starts moving toward the exit.\n\nWell. This just got interesting.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 2,
+      "choices": [
+        { "text": "Follow Ivan to see where he's going", "leadsTo": "The Chase" },
+        { "text": "Stay with Dmitri and try to plant the tracker", "leadsTo": "The Revelation" },
+        { "text": "Call Sophia for backup", "leadsTo": "The Team-Up" }
+      ]
+    },
+    {
+      "title": "The Distraction",
+      "content": "\"Nightingale, I need some razzle-dazzle at the bar.\"\n\n\"Copy that, Phoenix. Give me thirty seconds.\"\n\nSophia's good. Really good. She appears at the far end of the bar like smoke. Red dress that costs more than my car. She orders champagne and somehow manages to knock over three glasses while doing it.\n\nCrash. Tinkle. The bartender scrambles for towels.\n\nDmitri turns to watch. So do both bodyguards. Can't blame them.\n\nI make my move. Slip the tracker right onto his watch crown. Smooth as silk.\n\nThen Dmitri's phone rings.\n\n\"Da?\" His voice cuts through the bar noise. \"What do you mean she's gone?\"\n\nHis face goes pale. Not good pale. Bad pale. The kind that means someone's about to get shot.\n\nSophia catches my eye. She's thinking the same thing. This wasn't part of the plan.\n\nDmitri barks something in Russian to his men. They both reach inside their jackets.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        { "text": "Signal Sophia to get out now", "leadsTo": "The Escape" },
+        { "text": "Stay close to Dmitri to learn more", "leadsTo": "The Revelation" }
+      ]
+    },
+    {
+      "title": "The Chase",
+      "content": "Ivan moves fast for a big guy. I keep thirty feet back. Blend with the tourists. Just another sucker who lost at roulette.\n\nHe cuts through the casino floor. Past the high-roller tables. Out a service exit.\n\nI follow him into Monaco's back alleys. Cobblestones. Narrow streets. The kind of place where screams get lost in the noise from the bars.\n\nIvan stops at a black Mercedes. Checks his phone. Makes a call.\n\nI duck behind a dumpster. Classy, I know.\n\n\"The boat's ready,\" Ivan says. English now, with an accent thick as borscht. \"Tell the boss we move her tonight. Before the auction.\"\n\nHer? Auction?\n\nIvan hangs up. Gets in the car. Drives toward the harbor.\n\nI'm standing in an alley that smells like fish and regret, realizing this job just became something else entirely.\n\nMy earpiece crackles. \"Phoenix, where'd you go? Dmitri just left in a hurry.\"\n\n\"Change of plans, Nightingale. Meet me at Port Hercules. And bring the binoculars.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        { "text": "Head to the harbor to investigate", "leadsTo": "The Discovery" },
+        { "text": "This is too dangerous. Call it off.", "leadsTo": "The Retreat" }
+      ]
+    },
+    {
+      "title": "The Team-Up",
+      "content": "\"Nightingale, I need you over here. Something's wrong.\"\n\nSophia appears at my elbow thirty seconds later. She's good at that. Materializing.\n\n\"What's the situation?\"\n\n\"Dmitri got a call. Someone's gone. His guys are panicking.\"\n\nWe watch Ivan push through the crowd toward the exit. Sergei stays glued to Dmitri, one hand inside his jacket.\n\n\"I'll take Ivan,\" Sophia says. \"You stick with the Bear.\"\n\n\"Since when do you give orders?\"\n\n\"Since you started looking like a confused tourist.\"\n\nFair point.\n\nShe's gone before I can argue. Slipping through the casino like a ghost in designer heels.\n\nI turn back to Dmitri. He's already moving. Fast. Sergei clearing a path.\n\nI follow at a distance. Out the main entrance. Down the marble steps. Into a waiting Bentley.\n\nThe car heads toward the harbor. I flag down a taxi.\n\n\"Follow that Bentley,\" I tell the driver.\n\nHe looks at me like I've lost my mind. \"Monsieur, this is not a movie.\"\n\n\"Hundred euros says it is.\"\n\nHe follows the Bentley.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        { "text": "Continue to the harbor", "leadsTo": "The Discovery" }
+      ]
+    },
+    {
+      "title": "The Escape",
+      "content": "I give Sophia the abort signal. Two fingers across my throat. Subtle.\n\nShe doesn't hesitate. Tips her champagne glass onto the bar, gasps like she's mortified, and uses the commotion to slip toward the exit.\n\nI'm right behind her. Walking. Not running. Running attracts attention.\n\nWe make it to the casino steps. Monaco glitters below us. Yachts in the harbor. Sports cars on the streets. All that money, and none of it ours tonight.\n\n\"What happened?\" Sophia asks.\n\n\"Dmitri's into something bigger than art theft. Way bigger. Someone's missing. They're talking about moving 'her' before midnight.\"\n\n\"Her?\"\n\n\"That's what I heard.\"\n\nSophia's quiet for a moment. \"So what do we do?\"\n\nGood question. We came here to steal a painting. Not get tangled up in whatever this is.\n\nBut that word keeps echoing. Her.\n\nSomeone's in trouble. Real trouble.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        { "text": "Investigate further. Someone needs help.", "leadsTo": "The Discovery" },
+        { "text": "Walk away. This isn't our fight.", "leadsTo": "The Retreat" }
+      ]
+    },
+    {
+      "title": "The Harbor",
+      "content": "\"We need to get to our boat before they lock down the harbor.\"\n\nSophia's already moving. We cut through side streets. Past gelato shops and jewelry stores. The harbor's ten minutes away on foot.\n\nMake that five if you're running.\n\nWe're running.\n\nPort Hercules comes into view. Police boats already circling. Blue lights flashing across the water.\n\n\"There.\" Sophia points. Our speedboat's still at the dock. Untouched.\n\nWe sprint down the pier. I jump in first. Keys under the seat where we left them.\n\nThe engine roars to life.\n\n\"Stop! Arrêtez!\"\n\nHarbor patrol. Two officers running toward us. One's reaching for his radio.\n\nSophia casts off the lines. I gun the throttle.\n\nWe shoot out of the harbor like a cork from a champagne bottle. The patrol boats are too slow. Too far.\n\nFive minutes later, we're in international waters. Monaco shrinking behind us.\n\n\"Well,\" Sophia says, catching her breath. \"No Monet. No twenty million.\"\n\n\"But we're not in handcuffs.\"\n\n\"Small victories.\"\n\nThe Mediterranean stretches ahead. Dark and endless.\n\nSometimes getting away clean is the only win that matters.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    },
+    {
+      "title": "The Revelation",
+      "content": "I lean closer. Pretend to study the wine list. Dmitri's still shouting into his phone.\n\n\"She was supposed to be on the yacht until tomorrow night. How does someone just disappear from a boat?\"\n\nPause. His knuckles go white around the phone.\n\n\"Find her. Now. The auction starts in six hours.\"\n\nAuction? What auction?\n\nHe hangs up. Turns to Sergei. \"Call Monaco harbor. Lock down every boat. Nobody leaves.\"\n\nMy blood runs cold. That's not about some missing girlfriend. That's about our exit strategy. Our speedboat's sitting in that harbor.\n\nSergei pulls out his phone. Starts dialing.\n\nI catch a glimpse of Sophia across the bar. She's watching me. Waiting for a signal. The tracker's planted but this whole job just went sideways.\n\nDmitri downs his vodka in one gulp. \"Change of plans,\" he tells Ivan. \"We move the package tonight. Before she can talk.\"\n\nPackage? Talk to who?\n\nThis isn't about a painting anymore.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": [
+        { "text": "Follow Dmitri to find out about this 'package'", "leadsTo": "The Discovery" },
+        { "text": "Warn Sophia and try to escape before the harbor lockdown", "leadsTo": "The Harbor" }
+      ]
+    },
+    {
+      "title": "The Retreat",
+      "content": "Sometimes the smart play is knowing when you're beat.\n\nI back away from the bar. Dmitri's still shouting into his phone. Something about boats and auctions and finding someone before midnight. His bodyguards look ready to start shooting.\n\nThis isn't our job anymore.\n\nI find Sophia by the roulette table. She's betting on red. Always bets on red.\n\n\"We're done,\" I whisper.\n\n\"What? Why?\"\n\n\"Whatever Dmitri's mixed up in, it's bigger than art theft. Way bigger.\"\n\nShe looks at me like I've lost my mind. \"We've been planning this for six months.\"\n\n\"And we'll be planning our prison meals if we stay.\"\n\nThe roulette ball bounces. Lands on black. Sophia's chips disappear.\n\n\"See?\" I say. \"Bad omens everywhere.\"\n\nShe sighs. Picks up her purse. \"You're the boss, Phoenix. But next time, I pick the target.\"\n\nWe walk toward the exit. Behind us, Dmitri's voice gets louder. More desperate.\n\nSometimes the house wins. Sometimes you walk away with your skin intact.\n\nTonight, that's victory enough.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": []
+    },
+    {
+      "title": "The Discovery",
+      "content": "I shadow Dmitri through Monte-Carlo's winding streets. He's moving fast now. Scared fast.\n\nWe end up at Port Hercules. The yacht district. His boat's a monster. Ninety-footer called The Czarina. Very subtle.\n\nDmitri boards. I find a spot behind some shipping crates and watch.\n\nThat's when I see her. A woman being dragged up the gangplank by two men. She's fighting. Blonde hair. Expensive clothes torn.\n\nWait. I know that face. Seen it in newspapers.\n\nLady Catherine Whitmore. British art collector. She disappeared from London three weeks ago.\n\nHoly hell. This isn't a heist. It's a kidnapping operation.\n\nMy earpiece crackles. \"Phoenix, where are you? The harbor's crawling with police boats.\"\n\n\"Sophia, we've got a problem. Dmitri's not just an art dealer. He's trafficking people.\"\n\n\"What?\"\n\n\"Lady Whitmore. She's alive. And she's on his yacht.\"\n\nSilence on the radio.\n\nThen: \"So what's the play, boss?\"\n\nGood question. Call the cops and blow our cover? Or find another way?",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": [
+        { "text": "Board the yacht and attempt a rescue", "leadsTo": "The Hero" },
+        { "text": "Call an anonymous tip to Monaco police", "leadsTo": "The Tip" }
+      ]
+    },
+    {
+      "title": "The Hero",
+      "content": "Look, I'm not proud of what happened next. Heroes are for movies. But sometimes you can't walk away.\n\nI swim out to The Czarina. Monaco's harbor water is cold as a banker's heart. The yacht's got two guards on deck. Both smoking. Both bored.\n\nI climb up the anchor chain. Quiet as I can manage.\n\nFirst guard goes down with a sleeper hold. Second one gets the same treatment before he can shout. They'll wake up with headaches and explanations to make.\n\nI find Lady Whitmore in a cabin below deck. She's tied up but conscious.\n\n\"Who are you?\" she whispers.\n\n\"Your ride home. Can you swim?\"\n\n\"Not in these heels.\"\n\n\"Lose the shoes.\"\n\nWe make it to the deck. The harbor patrol boats are closing in. Dmitri must have called them off when he found his missing package.\n\nSophia's voice in my ear: \"Phoenix, you've got company coming up the gangplank.\"\n\nFootsteps. Heavy ones.\n\nI look at Lady Whitmore. She looks at me. The water's twenty feet down.\n\n\"Trust me?\" I ask.\n\n\"Do I have a choice?\"\n\n\"Not really.\"\n\nWe jump.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 11,
+      "choices": []
+    },
+    {
+      "title": "The Tip",
+      "content": "I pull out my burner phone. Dial 17. French emergency services.\n\n\"Allo? J'ai des informations sur Lady Catherine Whitmore.\"\n\nTwenty minutes later, Monaco police swarm the harbor like angry wasps. Dmitri's yacht becomes the center of a very expensive light show.\n\nSophia and I watch from a café across the street. Cappuccinos and front-row seats to justice.\n\n\"Think they'll find her?\" Sophia asks.\n\n\"Probably. Dmitri's too panicked to cover his tracks properly.\"\n\nSure enough, we see them bring Lady Whitmore up from below deck. Blanket around her shoulders. Alive.\n\nDmitri comes up in handcuffs. The Bear looks smaller now. Scared.\n\n\"So,\" Sophia says. \"No Monet. No twenty million. No yacht party.\"\n\n\"Nope.\"\n\n\"But we just saved someone's life.\"\n\n\"Yep.\"\n\nShe sips her cappuccino. \"Not exactly what I signed up for.\"\n\n\"Me neither.\"\n\nWe watch the police boats motor away. Dmitri's empire crumbling in their wake.\n\n\"Next job,\" Sophia says, \"let's stick to regular criminals. Less complicated.\"\n\nI can't argue with that logic.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 12,
+      "choices": []
+    }
+  ]
+}

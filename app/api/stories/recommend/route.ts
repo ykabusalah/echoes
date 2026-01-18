@@ -1,43 +1,60 @@
 import { prisma } from '@/lib/db'
 import { NextRequest, NextResponse } from 'next/server'
 
+// Map archetypes to themes they'd enjoy
+const ARCHETYPE_THEMES: Record<string, string[]> = {
+  wanderer: ['spirituality', 'surreal', 'mystery', 'survival'],
+  guardian: ['family', 'survival', 'family legacy', 'moral drama'],
+  seeker: ['mystery', 'noir', 'thriller', 'corporate'],
+  flame: ['heist', 'thriller', 'survival', 'crime drama'],
+  dreamer: ['magical realism', 'surreal', 'spirituality', 'relationship drama'],
+  shadow: ['noir', 'horror', 'thriller', 'corporate']
+}
+
 export async function GET(request: NextRequest) {
-  const archetype = request.nextUrl.searchParams.get('archetype')
-
-  if (!archetype) {
-    return NextResponse.json({ error: 'Archetype required' }, { status: 400 })
-  }
-
   try {
-    // Find stories that match the archetype theme
-    // First try exact match, then get any story as fallback
+    const { searchParams } = new URL(request.url)
+    const archetype = searchParams.get('archetype')?.toLowerCase()
+
+    if (!archetype) {
+      return NextResponse.json({ error: 'archetype required' }, { status: 400 })
+    }
+
+    const preferredThemes = ARCHETYPE_THEMES[archetype] || []
+    const now = new Date()
+
+    // Try to find a story matching their preferred themes
     let story = await prisma.story.findFirst({
       where: {
-        theme: archetype.toLowerCase(),
-        published: true
+        status: { in: ['ACTIVE', 'FEATURED'] },
+        theme: { in: preferredThemes },
+        OR: [
+          { releaseAt: null },
+          { releaseAt: { lte: now } }
+        ]
       },
       include: {
-        _count: {
-          select: {
-            scenes: true,
-            readerSessions: true
-          }
-        }
-      }
+        scenes: { select: { id: true } },
+        _count: { select: { readerSessions: true } }
+      },
+      orderBy: { createdAt: 'desc' }
     })
 
-    // Fallback to any published story if no match
+    // If no theme match, just get any active story
     if (!story) {
       story = await prisma.story.findFirst({
-        where: { published: true },
+        where: {
+          status: { in: ['ACTIVE', 'FEATURED'] },
+          OR: [
+            { releaseAt: null },
+            { releaseAt: { lte: now } }
+          ]
+        },
         include: {
-          _count: {
-            select: {
-              scenes: true,
-              readerSessions: true
-            }
-          }
-        }
+          scenes: { select: { id: true } },
+          _count: { select: { readerSessions: true } }
+        },
+        orderBy: { createdAt: 'desc' }
       })
     }
 
@@ -50,9 +67,10 @@ export async function GET(request: NextRequest) {
       title: story.title,
       description: story.description,
       theme: story.theme,
-      sceneCount: story._count.scenes,
+      sceneCount: story.scenes.length,
       readers: story._count.readerSessions
     })
+
   } catch (error) {
     console.error('Recommend story error:', error)
     return NextResponse.json({ error: 'Failed to get recommendation' }, { status: 500 })

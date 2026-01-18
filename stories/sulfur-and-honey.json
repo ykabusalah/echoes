@@ -1,0 +1,187 @@
+{
+  "title": "Sulfur and Honey",
+  "description": "The volcano has been rumbling for weeks. Your bees won't leave.",
+  "theme": "magical realism",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "The Stubborn Hives",
+      "content": "The evacuation truck idles at the crossroads. Diesel exhaust mingles with the sulfur smell drifting down from Fuego's peak. Father Miguel waves from the passenger seat, shouting something about the last bus to Antigua.\n\nI wave back but don't move from my bee yard. Twenty-three hives stretch across the terraced slope. Each one humming with fury.\n\n\"They're trying to tell you something,\" I called to Miguel yesterday. He blessed himself and muttered about the devil's whispers.\n\nThe bees have been agitated for days. Not scared agitated. Angry agitated. Like they know something we don't. The worker bees cluster at the hive entrances, forming living curtains. They won't let me near the honey supers.\n\nVolcán de Fuego belches a gray plume against the morning sky. The rumbling starts again, a low bass note that rattles my teeth. My neighbor Carmen's goats bleated and ran yesterday. Smart animals listen to the earth.\n\nBut my bees? They spread their wings and buzz louder. Almost like they're answering the volcano back.\n\nThe truck's engine revs. Last chance to leave with the others.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Approach the nearest hive to understand what the bees are saying",
+          "leadsTo": "The Message in the Comb"
+        },
+        {
+          "text": "Follow Father Miguel to the evacuation truck",
+          "leadsTo": "The Priest's Warning"
+        },
+        {
+          "text": "Walk up toward the volcano's base to see what the bees sense",
+          "leadsTo": "Climbing Toward Smoke"
+        }
+      ]
+    },
+    {
+      "title": "The Message in the Comb",
+      "content": "I kneel beside hive number seven. The workers coat the front like chainmail. They part as I approach, creating a pathway. No stings. Just watchful compound eyes.\n\nInside, the comb glows amber in the filtered light. But something's wrong with the hexagons. They're built in spirals now, twisted patterns I've never seen. The bees have been working all night, reshaping their home.\n\nI dip my finger into an open cell. The honey tastes sharp. Metallic. Like licking a copper pipe.\n\n\"What are you trying to show me?\" I whisper.\n\nThe buzzing shifts pitch. Becomes musical. Almost like the old songs Abuela used to hum when she talked to her plants. The same songs she claimed could predict the rains.\n\nThe queen emerges from the depths. She's larger than usual, her abdomen swollen with eggs. She walks across my palm without hesitation. Her antennae brush my skin.\n\nImages flash in my mind. Underground rivers glowing red. Roots of ancient trees drinking deep. The mountain's heart beating like a drum.\n\nThe queen returns to her hive. The workers resume their spiral building.\n\nNow I understand. They're not fleeing because this isn't destruction coming. It's birth.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Stay with the bees and prepare for whatever's coming",
+          "leadsTo": "Keeper of the Secret"
+        },
+        {
+          "text": "Rush to warn the others that the eruption means something different",
+          "leadsTo": "The Return to Town"
+        }
+      ]
+    },
+    {
+      "title": "The Priest's Warning",
+      "content": "I climb into the truck bed with three families and their tied-up chickens. Father Miguel turns to study my face through the back window. He's known me since I was Carmen's age, back when I helped my grandmother tend her single hive.\n\n\"You heard them again,\" he says. Not a question.\n\n\"They're not leaving, Padre. Something's keeping them here.\"\n\n\"Evil keeps people in dangerous places.\" His crucifix catches the morning light. \"God gave us sense to flee.\"\n\nCarmen's youngest daughter starts crying as the truck lurches forward. Through the tailgate, I watch my bee yard shrink. The hives look like scattered dice against the volcanic soil.\n\nMiguel speaks without turning around. \"Your grandmother claimed the same gift. Said her bees warned her about the earthquake of '76. But they couldn't warn her about the cancer.\"\n\nThe truck hits a pothole. A chicken escapes its rope and flaps around the truck bed. Carmen catches it, stroking its feathers.\n\n\"Maybe,\" I say. \"But they've never been wrong about the weather. Or when Carmen's husband was cheating. Or where to find water during the dry season.\"\n\nMiguel crosses himself. \"Some gifts come from the wrong place, mija.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Ask Miguel to stop the truck so you can go back",
+          "leadsTo": "The Choice to Return"
+        },
+        {
+          "text": "Try to convince Miguel that the bees know something holy",
+          "leadsTo": "Sacred and Profane"
+        },
+        {
+          "text": "Stay silent and let them take you to safety",
+          "leadsTo": "Exile from the Mountain"
+        }
+      ]
+    },
+    {
+      "title": "Climbing Toward Smoke",
+      "content": "The path to Fuego's base winds through coffee plants and wild orchids. Each step takes me further from the evacuation route. The air tastes of minerals and something sweeter. Like burnt sugar.\n\nA bee lands on my shoulder. Then another. Soon I'm walking in a cloud of them. They form spirals around me, never stinging, just guiding.\n\nThe ground vibrates under my boots. Not the sharp jolts of an earthquake. More like breathing. Like the mountain is alive and dreaming.\n\nI find the source a mile up the slope. A crack in the earth, maybe three feet wide. Steam rises from it, carrying that sweet burnt smell. The bees swirl around the opening like a living tornado.\n\nI lie flat and peer into the crack. Far below, something glows amber. Not lava. Something organic. Moving.\n\nThe queen bee from my yard lands on the rim of the crack. She walks along the edge, then looks back at me. Her message is clear.\n\nThis is what they've been protecting. What they refuse to leave.\n\nThe mountain rumbles again. The crack widens slightly. More steam escapes, and now I can smell it properly. Honey. Wild honey, aged in the earth's core.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Descend into the crack to investigate the honey source",
+          "leadsTo": "The Underground Hive"
+        },
+        {
+          "text": "Return to guard your hives until others understand",
+          "leadsTo": "Keeper of the Secret"
+        }
+      ]
+    },
+    {
+      "title": "The Choice to Return",
+      "content": "\"Stop.\" I bang on the truck's rear window. \"Please, Father. Stop.\"\n\nMiguel signals the driver. The truck wheezes to a halt beside a roadside shrine to San Antonio. Plastic flowers and melted candle wax cover the saint's painted face.\n\n\"This is foolishness, mija.\"\n\n\"Maybe. But they're my bees. My responsibility.\"\n\nCarmen grabs my wrist. \"What if you're wrong? What if they die anyway and take you with them?\"\n\nI look back toward the village. Smoke rises from Fuego's crater, but it's white steam, not the black ash of destruction. The morning light makes it look almost festive.\n\n\"Then we die together.\"\n\nMiguel climbs out of the truck. He pulls a small bottle from his pocket. Holy water. He traces a cross on my forehead with his thumb.\n\n\"May God protect you from whatever speaks through those bees.\"\n\nI kiss his weathered cheek. \"Maybe God speaks through them too, Padre.\"\n\nThe truck disappears around the bend. I'm alone on the mountain road with my choice. The bees will be waiting. They always wait.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Walk back to the hives immediately",
+          "leadsTo": "Keeper of the Secret"
+        },
+        {
+          "text": "Stop at the shrine to pray first",
+          "leadsTo": "Saints and Hexagons"
+        }
+      ]
+    },
+    {
+      "title": "The Underground Hive",
+      "content": "The crack is wide enough for my shoulders. I lower myself into the earth, boots scraping against volcanic glass. The bees form a living rope above me, their bodies creating handholds.\n\nTwenty feet down, the crack opens into a cavern. My flashlight beam catches something impossible. Honeycomb covers every surface. Geometric perfection in sheets and spirals, some hexagons large enough to hold my fist.\n\nBut this isn't bee construction. The comb is made of crystallized magma. Volcanic glass formed into perfect hexagons, each one filled with golden honey that glows with its own light.\n\nThousands of bees work here. Generations of colonies, building together in the mountain's core. They've been here longer than the village. Longer than the Spanish. Maybe longer than humans walked this slope.\n\nThe queen bee from my yard lands on a massive comb structure. She begins to dance, her movements spelling out coordinates I feel in my bones. Other queens emerge from the crystal cells. A parliament of royalty, each one ancient beyond counting.\n\nThey're not just making honey down here. They're making something else. Something that requires both fire and flowers, earth and air.\n\nThe mountain shudders. Not with destruction, but with creation. The bees have been midwifing a birth for centuries.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": []
+    },
+    {
+      "title": "Keeper of the Secret",
+      "content": "I spend three days alone with the bees. The village stays empty. Even the stray dogs have fled. But the hives grow more active each hour.\n\nThe honey changes daily. Monday it tastes like copper and rain. Tuesday like cinnamon and smoke. Wednesday like something I have no words for. Something older than language.\n\nVolcán de Fuego rumbles constantly now. Steam rises from new vents across the slope. The government evacuation helicopters circle twice but don't land. They must think everyone's gone.\n\nOn the fourth morning, it begins.\n\nNot an eruption. A flowering.\n\nThe mountain splits along ancient lines, revealing chambers filled with crystallized honey. Rivers of golden magma flow downhill, cooling into amber pools. Where the molten honey touches earth, new flowers bloom. Species that have no names, in colors that hurt to look at directly.\n\nMy bees take flight. All twenty-three colonies rising together in a spiral that mirrors the volcanic steam. They descend on the new flowers like a benediction.\n\nI taste their honey now. It no longer burns with metal. It sings with something pure and strange. The flavor of the earth's dreams made manifest.\n\nThe mountain sleeps again. But it has given birth. And I am the only witness to the midwifery of bees.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Sacred and Profane",
+      "content": "\"Think, Father.\" I lean forward in the truck bed. \"Who told Moses where to find water in the desert? Who guided the Israelites with pillars of smoke?\"\n\nMiguel's eyes narrow in the rearview mirror. \"You compare your insects to God's miracles?\"\n\n\"I compare them to God's messengers.\"\n\nCarmen shifts uncomfortably. Her youngest daughter has stopped crying and listens with the intensity of a child who senses adult mysteries.\n\n\"In your Bible,\" I continue, \"doesn't it say God speaks through all creation? Through burning bushes and talking donkeys?\"\n\n\"And through false prophets and lying spirits,\" Miguel counters. \"How do we know which voice we hear?\"\n\nThe truck hits another pothole. In the distance, Fuego releases another plume of steam. But now I notice something else. Birds. Hundreds of them, flying toward the volcano instead of away.\n\n\"Look,\" I point. \"It's not just my bees.\"\n\nMiguel follows my gaze. His weathered hands grip the door frame. After thirty years shepherding this village, he knows the patterns of normal fear. This isn't normal.\n\n\"Stop the truck,\" he says quietly to the driver.\n\nCarmen looks between us. \"Father?\"\n\n\"Maybe,\" Miguel says slowly, \"we need to listen before we run.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": [
+        {
+          "text": "Return to the village with Father Miguel to investigate together",
+          "leadsTo": "The Priest's Discovery"
+        },
+        {
+          "text": "Go back alone while Miguel stays with the families",
+          "leadsTo": "Keeper of the Secret"
+        }
+      ]
+    },
+    {
+      "title": "The Return to Town",
+      "content": "I run down the mountain path, lungs burning with sulfur and urgency. The bees' message pounds in my head like a heartbeat. Not destruction. Birth. The mountain is giving birth.\n\nThe village plaza is empty except for two men loading a statue of Saint Barbara into a pickup truck. She's the patron of miners and explosions, her painted robes chipped from years of processions.\n\n\"Wait!\" I shout. \"Don't take her. She needs to stay.\"\n\nThe men look at me like I've lost my mind. Maybe I have. But the bees were clear. The saint needs to witness this.\n\n\"The evacuation order came from Guatemala City,\" one man says. \"Even the saints have to go.\"\n\n\"What if they're wrong? What if this isn't what we think?\"\n\nA radio crackles from their truck. \"...seismic activity increasing...immediate evacuation...catastrophic eruption imminent...\"\n\nBut I've tasted the honey. I've seen the spiral combs. I know what the bees know.\n\nThe men drive away with Saint Barbara bouncing in their truck bed. I'm alone in the plaza with the empty church and the weight of impossible knowledge.\n\nThe mountain rumbles. Soon, the truth will reveal itself. With or without witnesses.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": [
+        {
+          "text": "Enter the church to pray for guidance",
+          "leadsTo": "Saints and Hexagons"
+        },
+        {
+          "text": "Return to the bees to wait for the birth",
+          "leadsTo": "Keeper of the Secret"
+        }
+      ]
+    },
+    {
+      "title": "Saints and Hexagons",
+      "content": "The church smells of old incense and newer fear. Candle wax pools on abandoned prayer benches. Someone left a rosary draped over the feet of Saint Anthony.\n\nI kneel before the altar. The wooden Christ looks down with painted compassion, his crown of thorns casting spiky shadows in the candlelight.\n\n\"Show me,\" I whisper. \"Show me if this is holy or cursed.\"\n\nSilence. Then, from outside, the sound of wings.\n\nBees pour through the open windows. Hundreds of them, from colonies I've never seen. They settle on the walls in perfect hexagonal patterns, transforming the whitewashed church into a living honeycomb.\n\nThey land on Christ's outstretched arms. On Mary's blue robes. On the carved saints in their alcoves. Not desecrating, but decorating. Turning the church into something between cathedral and hive.\n\nThe mountain's rumbling grows stronger. Through the windows, I see the first jets of golden light shooting from Fuego's peak. Not lava. Something else. Something that makes the air itself taste sweet.\n\nThe bees begin to sing. A harmony that transforms the church's acoustics, turning stone and wood into a resonating chamber.\n\nI understand now. Sacred and natural aren't opposites. They're the same song, heard from different angles.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": []
+    },
+    {
+      "title": "Exile from the Mountain",
+      "content": "I stay silent for the rest of the drive to Antigua. Let them think I've accepted their wisdom. Let them save me from my own foolishness.\n\nThe refugee center is a converted basketball court. Families spread blankets on the concrete floor. Children cry. Old men play dominoes and argue about rainfall patterns from decades past.\n\nI lie on my assigned cot and stare at the fluorescent lights. Somewhere behind us, my bees are dying or fleeing or doing whatever insects do when humans abandon them.\n\nCarmen brings me instant coffee in a plastic cup. \"You made the right choice,\" she says.\n\nI nod. Drink the bitter coffee. Watch the news coverage on a small television. The reporters speak of potential devastation, of wise evacuations, of government efficiency.\n\nNone of them mention the taste of metal honey. Or the spiral patterns I've seen in dreams for three nights running.\n\nTwo days later, the mountain erupts. Golden steam and crystalline ash that settles like snow across the empty village. The news calls it \"unusually beautiful but potentially toxic.\"\n\nI know better. I know it was birth, not death.\n\nBut I chose safety over truth. Now I'll spend the rest of my life wondering what the bees were really trying to tell me.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": []
+    },
+    {
+      "title": "The Priest's Discovery",
+      "content": "Miguel and I walk back to the village together. His cassock catches on thorny bushes, but he doesn't complain. Thirty years of mountain ministry have taught him when to listen to unlikely messengers.\n\n\"Your grandmother,\" he says as we pass the cemetery. \"She never lied about what her bees told her. Wrong sometimes, but never lying.\"\n\n\"You think it runs in families?\"\n\n\"I think God chooses strange instruments.\" He pauses at Abuela's grave. The headstone is covered with bee balm, self-seeded and wild. \"She predicted the coffee blight of '82. Saved half the valley's harvest.\"\n\nWe reach the bee yard as Fuego releases another plume. But now Miguel sees what I see. The steam carries golden particles that settle like pollen on the hive boxes.\n\n\"Dios mío,\" he whispers.\n\nThe bees emerge in perfect formation. Not fleeing, but celebrating. They dance in spirals that mirror the volcanic steam. And where their wings brush the air, tiny flowers bloom. Impossible flowers in colors that don't exist in nature.\n\nMiguel kneels and crosses himself. \"Forgive me,\" he says. Not to me. To them.\n\nThe mountain speaks in steam and honey. The bees translate with wings and song. And finally, we have human witnesses to the conversation.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 11,
+      "choices": []
+    }
+  ]
+}

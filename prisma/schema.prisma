@@ -1,42 +1,72 @@
-// prisma/schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
-}
-
-// ============== STORY STRUCTURE ==============
-
-enum StoryStatus {
-  DRAFT
-  FEATURED
-  ARCHIVED
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Story {
-  id          String      @id @default(cuid())
-  title       String
-  description String?
-  coverImage  String?
-  published   Boolean     @default(false)
-  status      StoryStatus @default(DRAFT)
-  theme       String?
-  generatedBy String?
-  aiPrompt    String?
-  tier        Int         @default(1)  // 1 = short, 2 = medium, 3 = full
-  featuredAt  DateTime?
-  archivedAt  DateTime?
-  createdAt   DateTime    @default(now())
-  updatedAt   DateTime    @updatedAt
-
-  characters     Character[]
-  scenes         Scene[]
+  id             String          @id @default(cuid())
+  title          String
+  description    String?
+  coverImage     String?
+  published      Boolean         @default(false)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  aiPrompt       String?
+  archivedAt     DateTime?
+  featuredAt     DateTime?
+  generatedBy    String?
+  status         StoryStatus     @default(DRAFT)
+  theme          String?
+  tier           Int             @default(1)
+  releaseAt      DateTime?
+  Character      Character[]
   readerSessions ReaderSession[]
+  scenes         Scene[]
+}
+
+model Scene {
+  id                String             @id @default(cuid())
+  title             String
+  content           String
+  isStart           Boolean            @default(false)
+  isEnding          Boolean            @default(false)
+  order             Int                @default(0)
+  storyId           String
+  characterId       String?
+  isBranchPoint     Boolean            @default(false)
+  choicesFrom       Choice[]           @relation("FromScene")
+  choicesTo         Choice[]           @relation("ToScene")
+  interactionEvents InteractionEvent[]
+  ReaderSession     ReaderSession[]
+  character         Character?         @relation(fields: [characterId], references: [id])
+  story             Story              @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  sceneViews        SceneView[]
+
+  @@index([storyId])
+  @@index([characterId])
+}
+
+model Choice {
+  id              String        @id @default(cuid())
+  text            String
+  order           Int           @default(0)
+  fromSceneId     String
+  toSceneId       String
+  archetypeTarget String?
+  generatedAt     DateTime?
+  generatedFor    String?
+  isGenerated     Boolean       @default(false)
+  fromScene       Scene         @relation("FromScene", fields: [fromSceneId], references: [id], onDelete: Cascade)
+  toScene         Scene         @relation("ToScene", fields: [toSceneId], references: [id], onDelete: Cascade)
+  choiceEvents    ChoiceEvent[]
+
+  @@index([fromSceneId])
+  @@index([toSceneId])
+  @@index([archetypeTarget])
 }
 
 model Character {
@@ -44,134 +74,74 @@ model Character {
   name        String
   description String?
   avatarUrl   String?
-
-  storyId String
-  story   Story   @relation(fields: [storyId], references: [id], onDelete: Cascade)
-  scenes  Scene[]
-
-  @@index([storyId])
-}
-
-model Scene {
-  id            String  @id @default(cuid())
-  title         String
-  content       String
-  isStart       Boolean @default(false)
-  isEnding      Boolean @default(false)
-  isBranchPoint Boolean @default(false)
-  order         Int     @default(0)
-
   storyId     String
-  story       Story      @relation(fields: [storyId], references: [id], onDelete: Cascade)
-  characterId String?
-  character   Character? @relation(fields: [characterId], references: [id], onDelete: SetNull)
-
-  choicesFrom Choice[] @relation("FromScene")
-  choicesTo   Choice[] @relation("ToScene")
-
-  readerSessions    ReaderSession[]
-  sceneViews        SceneView[]
-  interactionEvents InteractionEvent[]
+  Story       Story   @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  scenes      Scene[]
 
   @@index([storyId])
-  @@index([characterId])
 }
-
-model Choice {
-  id    String @id @default(cuid())
-  text  String
-  order Int    @default(0)
-
-  fromSceneId String
-  fromScene   Scene  @relation("FromScene", fields: [fromSceneId], references: [id], onDelete: Cascade)
-  toSceneId   String
-  toScene     Scene  @relation("ToScene", fields: [toSceneId], references: [id], onDelete: Cascade)
-
-  // Personalization fields
-  archetypeTarget String?
-  isGenerated     Boolean   @default(false)
-  generatedFor    String?
-  generatedAt     DateTime?
-
-  choiceEvents ChoiceEvent[]
-
-  @@index([fromSceneId])
-  @@index([toSceneId])
-  @@index([archetypeTarget])
-}
-
-// ============== READER PROFILES & QUIZ ==============
 
 model ReaderProfile {
-  id               String   @id @default(cuid())
-  visitorId        String   @unique
+  id               String          @id @default(cuid())
+  visitorId        String          @unique
   archetype        String
   scores           Json
   quizAnswers      Json?
-  completionCount  Int      @default(0)
-  tier             Int      @default(1)
+  createdAt        DateTime        @default(now())
+  updatedAt        DateTime        @updatedAt
+  completionCount  Int             @default(0)
   email            String?
-  notifyNewStories Boolean  @default(false)
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-
-  sessions ReaderSession[]
+  notifyNewStories Boolean         @default(false)
+  tier             Int             @default(1)
+  ReaderSession    ReaderSession[]
 
   @@index([visitorId])
   @@index([archetype])
   @@index([tier])
 }
 
-// ============== READER ANALYTICS ==============
-
 model ReaderSession {
-  id          String    @id @default(cuid())
-  startedAt   DateTime  @default(now())
-  completedAt DateTime?
-  visitorId   String?
-
-  storyId        String
-  story          Story   @relation(fields: [storyId], references: [id], onDelete: Cascade)
-  currentSceneId String?
-  currentScene   Scene?  @relation(fields: [currentSceneId], references: [id], onDelete: SetNull)
-  profileId      String?
-  profile        ReaderProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
-
+  id                String             @id @default(cuid())
+  startedAt         DateTime           @default(now())
+  completedAt       DateTime?
+  visitorId         String?
+  storyId           String
+  currentSceneId    String?
+  profileId         String?
   choiceEvents      ChoiceEvent[]
-  sceneViews        SceneView[]
   interactionEvents InteractionEvent[]
+  Scene             Scene?             @relation(fields: [currentSceneId], references: [id])
+  ReaderProfile     ReaderProfile?     @relation(fields: [profileId], references: [id])
+  story             Story              @relation(fields: [storyId], references: [id], onDelete: Cascade)
+  sceneViews        SceneView[]
 
-  @@index([storyId])
   @@index([visitorId])
+  @@index([storyId])
   @@index([profileId])
 }
 
 model ChoiceEvent {
-  id       String   @id @default(cuid())
-  chosenAt DateTime @default(now())
-
+  id        String        @id @default(cuid())
+  chosenAt  DateTime      @default(now())
   sessionId String
-  session   ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
   choiceId  String
   choice    Choice        @relation(fields: [choiceId], references: [id], onDelete: Cascade)
+  session   ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
 
   @@index([sessionId])
   @@index([choiceId])
   @@index([chosenAt])
 }
 
-// ============== DETAILED ANALYTICS ==============
-
 model SceneView {
-  id          String    @id @default(cuid())
+  id          String        @id @default(cuid())
   sessionId   String
   sceneId     String
-  enteredAt   DateTime  @default(now())
+  enteredAt   DateTime      @default(now())
   exitedAt    DateTime?
   timeSpentMs Int?
-
-  session ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-  scene   Scene         @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+  scene       Scene         @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+  session     ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
 
   @@index([sessionId])
   @@index([sceneId])
@@ -179,22 +149,19 @@ model SceneView {
 }
 
 model InteractionEvent {
-  id        String   @id @default(cuid())
+  id        String        @id @default(cuid())
   sessionId String
   sceneId   String
   eventType String
-  timestamp DateTime @default(now())
+  timestamp DateTime      @default(now())
   metadata  Json?
-
-  session ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
-  scene   Scene         @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+  scene     Scene         @relation(fields: [sceneId], references: [id], onDelete: Cascade)
+  session   ReaderSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
 
   @@index([sessionId])
   @@index([sceneId])
   @@index([eventType])
 }
-
-// ============== AI GENERATION LOGGING ==============
 
 model StoryGeneration {
   id         String   @id @default(cuid())
@@ -210,4 +177,11 @@ model StoryGeneration {
 
   @@index([createdAt])
   @@index([success])
+}
+
+enum StoryStatus {
+  DRAFT
+  ACTIVE
+  FEATURED
+  ARCHIVED
 }

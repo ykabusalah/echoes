@@ -1,0 +1,137 @@
+{
+  "title": "The Boatbuilder",
+  "description": "Your grandfather's last fishing boat. A Japanese collector wants to buy it.",
+  "theme": "family legacy",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "The Offer",
+      "content": "The Japanese man wears pressed khakis and boat shoes that have never touched barnacles. He stands beside Abuelo's last panga, running manicured fingers along the cedar hull.\n\n\"Exquisite joinery,\" he says in careful English. \"Traditional mortise and tenon. No screws in the frame at all.\"\n\nYou know this boat. Helped sand her ribs when you were twelve. Watched Abuelo fit each plank with his ancient adze, shaving curls so thin they caught sunlight.\n\n\"Forty thousand dollars,\" the collector continues. \"Cash. I have a container ship waiting in Colón.\"\n\nForty thousand would fix the workshop roof. Pay off the loan on your own boat. Send Esperanza to university in Panama City like she wants.\n\nAbuelo sits in his wicker chair, watching frigate birds circle the mangroves. His hearing isn't what it was, but his Spanish is perfect when he wants to ignore someone.\n\n\"She's not for sale,\" he says without looking over.\n\nThe collector turns to you. \"Perhaps we could discuss this privately?\"\n\nYour daughter Esperanza appears at the workshop door, textbook in hand. She's been listening.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Tell the collector you need time to think",
+          "leadsTo": "Time to Think"
+        },
+        {
+          "text": "Ask Esperanza what she thinks",
+          "leadsTo": "Daughter's Voice"
+        },
+        {
+          "text": "Support your grandfather's decision immediately",
+          "leadsTo": "Standing with Tradition"
+        }
+      ]
+    },
+    {
+      "title": "Time to Think",
+      "content": "\"Give us a week,\" you tell the collector.\n\nHe nods, hands you a business card. \"I'll be at the Hotel Bocas. The offer stands until Friday.\"\n\nAfter his water taxi disappears around the point, Abuelo spits into the water.\n\n\"Time to think about what? Some things aren't for sale.\"\n\n\"Forty thousand, Abuelo. You know what that means.\"\n\n\"I know what it means.\" He struggles to his feet. \"Means you think everything has a price.\"\n\nThat evening, you find Esperanza at the old dock, reading by lamplight. Mosquitoes circle her head but she doesn't notice.\n\n\"Advanced calculus,\" she says when you sit down. \"For the engineering entrance exam.\"\n\n\"The university money...\"\n\n\"I heard.\" She closes the book. \"Papá, why did Abuelo build that boat?\"\n\nYou remember the stories. How he worked two years without pay after Hurricane Mitch destroyed his tools. How he carved the transom during your grandmother's funeral, needing something to do with his hands.\n\n\"He built it for himself. After the fishing got bad. Said he needed to remember what he was good at.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Ask Esperanza if she wants you to sell it",
+          "leadsTo": "The Choice Offered"
+        },
+        {
+          "text": "Tell her about your grandfather's sacrifices",
+          "leadsTo": "Old Stories"
+        },
+        {
+          "text": "Suggest finding another way to pay for university",
+          "leadsTo": "Alternative Plans"
+        }
+      ]
+    },
+    {
+      "title": "Daughter's Voice",
+      "content": "\"Esperanza, ven acá.\"\n\nShe walks over, still clutching her calculus book. The collector watches with interest.\n\n\"What do you think about this man's offer?\"\n\nShe looks at the boat. At her great-grandfather. At the calculator sticking out of her backpack.\n\n\"I think,\" she says slowly, \"that Abuelo never built boats to sell them.\"\n\nThe collector shifts on his expensive shoes. \"Miss, this boat would be preserved. Displayed properly. People would understand its cultural significance.\"\n\n\"In Japan?\"\n\n\"In my private collection, yes.\"\n\nEsperanza runs her hand along the gunwale where Abuelo carved his initials and the date. \"Papá, you remember when the red snapper disappeared? When the shrimp boats came?\"\n\nYou remember. The village fleet dwindled from thirty pangas to eight in two years.\n\n\"Abuelo didn't sell his tools then either,\" she continues. \"Even when Mama got sick. Even when we had nothing.\"\n\nThe collector clears his throat. \"I could go to forty-five thousand.\"\n\nAbuelo laughs. It's not a pleasant sound.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Ask the collector to leave",
+          "leadsTo": "Dismissed"
+        },
+        {
+          "text": "Tell him you'll consider the higher offer",
+          "leadsTo": "Higher Stakes"
+        },
+        {
+          "text": "Ask why this boat specifically",
+          "leadsTo": "The Real Reason"
+        }
+      ]
+    },
+    {
+      "title": "Standing with Tradition",
+      "content": "\"You heard him. She's not for sale.\"\n\nThe collector's smile doesn't waver. \"I understand. Family attachment. But consider the reality. How many traditional boatbuilders are left in Bocas? Three? Four?\"\n\n\"More than that.\"\n\n\"Who still use the old methods? No power tools, no modern adhesives?\"\n\nYou can't answer. He's right. Even you use fiberglass now for repairs.\n\n\"Your grandfather is eighty-seven. His knowledge dies with him unless it's preserved properly.\"\n\nAbuelo stands up slowly. \"Mijo, tell this man something for me.\"\n\nYou translate as he speaks: \"He says his knowledge doesn't live in museums. It lives in working boats. In hands that know wood.\"\n\nThe collector nods respectfully. \"But who will learn? Your daughter wants to be an engineer. Your son moved to Panama City.\"\n\nThe words hit harder than they should. Miguel hasn't touched a plane in five years. Esperanza can solve differential equations but can't tell cedar from mahogany.\n\n\"The offer remains open,\" the collector says, walking toward his water taxi. \"Cultural preservation requires difficult choices sometimes.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Ask Abuelo to teach Esperanza the craft",
+          "leadsTo": "Learning the Trade"
+        },
+        {
+          "text": "Consider the collector's preservation argument",
+          "leadsTo": "Second Thoughts"
+        }
+      ]
+    },
+    {
+      "title": "The Choice Offered",
+      "content": "\"If I sold it, you could go to university. Study engineering like you want. What would you choose?\"\n\nEsperanza doesn't answer right away. She picks up a wood shaving from the dock, rolls it between her fingers.\n\n\"You know what I learned in calculus? About optimization problems. Finding maximum value under constraints.\"\n\n\"This isn't math, mija.\"\n\n\"Isn't it?\" She holds up the shaving. \"Abuelo taught me this is cedro espinoso. Takes forty years to grow straight enough for planking. The tree that became this boat was older than he is.\"\n\nA pelican dives near the dock. Comes up empty.\n\n\"The constraint isn't money, Papá. It's time. How long before there's nobody left who knows why that grain pattern matters? Why those joints hold when screws would fail?\"\n\nYou built boats for twenty years before you understood what she just said.\n\n\"So you don't want to go to university?\"\n\n\"I want to go. But I want these boats to still exist when I come back.\"\n\nIn the distance, a water taxi heads toward the village. The collector, returning for an answer.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": []
+    },
+    {
+      "title": "Old Stories",
+      "content": "You tell her about Hurricane Mitch. How the storm surge took every boat except the ones hauled highest into the mangroves. How Abuelo walked the tideline for weeks, collecting bronze screws and galvanized bolts from the wreckage.\n\n\"He sorted every piece of hardware. Straightened bent nails with a hammer. Said waste was a sin when people needed boats to eat.\"\n\nEsperanza listens without interrupting. This is history she's heard fragments of, never the whole story.\n\n\"The insurance money never came. The government promised new boats, then forgot about us. So Abuelo started over. Seventy-three years old, cutting trees with a hand saw.\"\n\nYou point to the boat floating beside the dock. \"Every plank in that hull came from trees he selected himself. Walked the forest for months, looking for the right grain, the right color.\"\n\n\"Why that boat, though? Why not sell one of the others?\"\n\n\"Because he built it for himself. Not for fishing. Not for selling. For remembering what his hands could do.\"\n\nEsperanza opens her textbook again, but doesn't read. \"Forty thousand would pay for a lot of remembering.\"\n\nShe's right. It would also erase it.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Decide the stories matter more than money",
+          "leadsTo": "Stories Over Money"
+        },
+        {
+          "text": "Ask what Abuelo would want you to do",
+          "leadsTo": "The Real Question"
+        }
+      ]
+    },
+    {
+      "title": "The Real Question",
+      "content": "\"What do you think Abuelo really wants?\"\n\nEsperanza closes her book. \"I think he wants to know his work mattered. That it won't disappear.\"\n\nYou walk back to the workshop together. Abuelo sits in his chair, watching the tide come in. The collector's boat is gone, but his business card lies on the workbench.\n\n\"Abuelo,\" Esperanza says in Spanish, \"teach me to read wood grain.\"\n\nHe looks up, surprised.\n\n\"The engineering program has summer breaks. Three months every year.\"\n\nAbuelo struggles to his feet, walks to a stack of cedar planks. He runs his finger along one edge, showing her the tight rings near the heartwood.\n\n\"This piece,\" he says, \"would split in heavy weather. See how the grain runs out here?\"\n\nEsperanza nods, traces the same line with her finger.\n\n\"But this one.\" He selects another plank. \"Straight grain, no knots. This one bends without breaking.\"\n\nYou pick up the collector's card, tear it in half. Forty thousand dollars becomes confetti on the workshop floor.\n\nSome knowledge is worth more than money. Some boats are built to stay home.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Stories Over Money",
+      "content": "\"The stories stay with the boat. Sell it, and they're just words.\"\n\nEsperanza nods. \"Like a song without music.\"\n\nThe next morning, you find the collector waiting at the dock. His pressed khakis are identical to yesterday's.\n\n\"Have you reconsidered?\"\n\n\"We have.\" You hand him back his business card. \"She stays here.\"\n\nHe sighs, but doesn't seem surprised. \"I respect your decision. Though I think you're making a mistake.\"\n\n\"Maybe. But it's our mistake to make.\"\n\nAfter he leaves, Abuelo comes down to the water. He climbs into his boat carefully, settles onto the center thwart.\n\n\"Take her out,\" he says. \"Been too long.\"\n\nYou start the small outboard, steer toward the channel. The boat moves like she remembers what she was built for. Smooth and steady, cutting clean through the chop.\n\nAbuelo trails his hand in the water. \"Forty years I've been building boats. This is the first one I kept.\"\n\n\"Why?\"\n\n\"Because I finally built one I was proud of.\"\n\nThe mangroves close around you, green and eternal. Some things are worth keeping.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    }
+  ]
+}

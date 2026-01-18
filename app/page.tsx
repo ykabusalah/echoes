@@ -10,21 +10,17 @@ type Story = {
   id: string
   title: string
   description: string | null
-  coverImage: string | null
   theme: string | null
-  generatedBy: string | null
-  featuredAt: string | null
-  createdAt: string
-  _count: {
-    scenes: number
-    characters: number
-    readerSessions: number
-  }
+  tier: number
+  status: string
+  sceneCount: number
+  sessionCount: number
+  isFeatured: boolean
 }
 
 type StoriesResponse = {
   featured: Story | null
-  archived: Story[]
+  stories: Story[]
 }
 
 type UserProfile = {
@@ -104,7 +100,6 @@ export default function Home() {
   const [profile, setProfile] = useState<UserProfile | null>(null)
   const [recommendedStory, setRecommendedStory] = useState<RecommendedStory | null>(null)
 
-  // Check for profile first
   useEffect(() => {
     async function checkProfile() {
       const visitorId = getVisitorId()
@@ -118,15 +113,12 @@ export default function Home() {
         const data = await res.json()
         
         if (!data.hasProfile) {
-          // First-time user → redirect to quiz
           router.push('/quiz')
           return
         }
         
-        // Returning user → save profile and continue
         setProfile(data.profile)
         
-        // Fetch recommended story
         const recRes = await fetch(`/api/stories/recommend?archetype=${data.profile.archetype}`)
         if (recRes.ok) {
           const recData = await recRes.json()
@@ -141,12 +133,12 @@ export default function Home() {
     checkProfile()
   }, [router])
 
-  // Fetch stories after profile check
   useEffect(() => {
     async function fetchStories() {
       if (checkingProfile) return
       
-      const res = await fetch('/api/stories')
+      const visitorId = getVisitorId()
+      const res = await fetch(`/api/stories?visitorId=${visitorId}`)
       if (res.ok) {
         const result = await res.json()
         setData(result)
@@ -157,9 +149,8 @@ export default function Home() {
   }, [checkingProfile])
 
   const featured = data?.featured
-  const archived = data?.archived || []
+  const stories = data?.stories?.filter(s => !s.isFeatured) || []
 
-  // Show loading while checking profile
   if (checkingProfile) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center gap-4">
@@ -200,7 +191,7 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Personalized for returning users */}
+      {/* Hero Section */}
       <header className="border-b border-[hsl(var(--border))]">
         <div className="max-w-5xl mx-auto px-6 py-16 md:py-20">
           {profile && archetypeInfo ? (
@@ -318,11 +309,6 @@ export default function Home() {
                 <div className="card overflow-hidden">
                   <div className="story-image h-48 md:h-56">
                     <BookIcon className="w-16 h-16 text-[hsl(var(--secondary-foreground))] opacity-40" />
-                    {featured.generatedBy === 'ai' && (
-                      <span className="badge absolute top-4 right-4">
-                        AI Generated
-                      </span>
-                    )}
                   </div>
                   
                   <div className="card-content">
@@ -339,15 +325,11 @@ export default function Home() {
                     <div className="flex flex-wrap gap-4 text-sm text-[hsl(var(--secondary-foreground))] mb-6">
                       <span className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[hsl(var(--brand))]" />
-                        {featured._count.scenes} scenes
-                      </span>
-                      <span className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[hsl(var(--gold))]" />
-                        {featured._count.characters} characters
+                        {featured.sceneCount} scenes
                       </span>
                       <span className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[hsl(var(--success))]" />
-                        {featured._count.readerSessions} readers
+                        {featured.sessionCount} readers
                       </span>
                       {featured.theme && (
                         <span className="flex items-center gap-2">
@@ -371,17 +353,17 @@ export default function Home() {
               </section>
             )}
 
-            {archived.length > 0 && (
+            {stories.length > 0 && (
               <section>
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-lg font-medium">Past Stories</h2>
+                  <h2 className="text-lg font-medium">All Stories</h2>
                   <span className="text-sm text-[hsl(var(--secondary-foreground))]">
-                    {archived.length} available
+                    {stories.length} available
                   </span>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                  {archived.map((story, index) => (
+                  {stories.map((story, index) => (
                     <article 
                       key={story.id} 
                       className="card overflow-hidden animate-fade-in-up"
@@ -389,11 +371,6 @@ export default function Home() {
                     >
                       <div className="story-image h-32">
                         <BookIcon className="w-12 h-12 text-[hsl(var(--secondary-foreground))] opacity-30" />
-                        {story.generatedBy === 'ai' && (
-                          <span className="badge absolute top-3 right-3 text-xs">
-                            AI
-                          </span>
-                        )}
                       </div>
                       
                       <div className="card-content">
@@ -408,9 +385,9 @@ export default function Home() {
                         )}
                         
                         <div className="flex gap-4 text-xs text-[hsl(var(--secondary-foreground))] mb-4">
-                          <span>{story._count.scenes} scenes</span>
+                          <span>{story.sceneCount} scenes</span>
                           <span>•</span>
-                          <span>{story._count.readerSessions} readers</span>
+                          <span>{story.sessionCount} readers</span>
                         </div>
                         
                         <div className="flex gap-2">
@@ -429,7 +406,7 @@ export default function Home() {
               </section>
             )}
 
-            {!featured && archived.length === 0 && (
+            {!featured && stories.length === 0 && (
               <div className="card">
                 <div className="card-content text-center py-16">
                   <BookIcon className="w-12 h-12 mx-auto mb-4 text-[hsl(var(--secondary-foreground))] opacity-40" />

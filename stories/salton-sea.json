@@ -1,0 +1,146 @@
+{
+  "title": "Salton Sea",
+  "description": "A road trip where the destination keeps changing.",
+  "theme": "surreal",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "The Exit That Wasn't There Yesterday",
+      "content": "The GPS died somewhere past Barstow. You keep driving because stopping feels wrong. The asphalt shimmers like water.\n\nYour sister sleeps in the passenger seat. She's been sleeping for hours. Maybe days. Time moves differently here in the Mojave. The radio plays nothing but static shaped like voices.\n\nAhead, an exit sign appears. Salton Sea 47 miles. You don't remember seeing it before. You've driven this stretch of highway twelve times visiting your mother. The exit should be impossible. The Salton Sea is nowhere near this road.\n\nYour sister stirs. Opens her eyes. 'Are we there yet?' she asks, though neither of you remember where 'there' was supposed to be.\n\nThe exit ramp curves away into heat shimmer. A roadside diner sits at the bottom. Chrome and neon, probably from the fifties. Its sign flickers: EAT. EAT. EAT.\n\nAnother car passes you going the wrong direction. The driver waves. You recognize his face but can't place it. In the rearview mirror, the car is already gone.\n\nThe fuel gauge reads empty. It's been reading empty since you left Los Angeles.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Take the impossible exit",
+          "leadsTo": "The Diner at the End of Wrong"
+        },
+        {
+          "text": "Keep driving straight",
+          "leadsTo": "Highway of Vanishing Landmarks"
+        },
+        {
+          "text": "Pull over and check the map",
+          "leadsTo": "Maps Don't Match the Territory"
+        }
+      ]
+    },
+    {
+      "title": "The Diner at the End of Wrong",
+      "content": "The diner parking lot is full of cars from different decades. A mint-green Thunderbird. A wood-paneled station wagon. Your Honda Civic looks young and lost among them.\n\nInside, the air conditioning hums Patsy Cline. The waitress has your mother's smile. She pours coffee you didn't order into cups that steam despite the desert heat.\n\n'Y'all heading to the Sea?' she asks. Her name tag reads DOLORES but you're certain it said MARIE a moment ago.\n\nYour sister nods. 'We think so.'\n\n'Funny thing about the Sea. Gets closer when you're not trying to find it.' Dolores sets down a plate of pie. Apple. Still warm. 'Road construction's got everything turned around. Three ways to get there now.'\n\nShe points out the window. The highway has branched into three distinct roads. You're sure there was only one when you arrived.\n\nA trucker at the counter laughs. 'Took me the underwater route last time. Saved thirty minutes.' He shows you his hands. They're still damp.\n\nThe pie tastes like your childhood. Like birthday parties you never had.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Take the underwater route",
+          "leadsTo": "Driving Through Memory"
+        },
+        {
+          "text": "Choose the desert road",
+          "leadsTo": "The Motel That Exists Sometimes"
+        },
+        {
+          "text": "Follow the mirror highway",
+          "leadsTo": "Highway of Vanishing Landmarks"
+        }
+      ]
+    },
+    {
+      "title": "Highway of Vanishing Landmarks",
+      "content": "The road signs change while you're not looking. Salton Sea 23 miles. Then 67. Then 3. The numbers don't follow any logic except dream logic.\n\nYour sister counts telephone poles. 'One hundred and seven. One hundred and eight.' She's been counting since you left the gas station that may or may not have existed. 'One hundred and nine. One hundred and... wait.' She stops. 'They're going backwards now.'\n\nThe poles march away behind you into nowhere. Ahead, the landscape repeats. The same Joshua tree. The same rust-stained boulder. The same roadkill that might be a coyote or might be something else entirely.\n\nA billboard advertises the Coral Reef Motel. Pool. Cable TV. Reasonable Rates. An arrow points left toward empty desert. No road leads where the arrow points.\n\n'We passed that sign before,' your sister says.\n\n'When?'\n\n'Tomorrow, I think.'\n\nThe fuel gauge still reads empty. Your sister turns on the radio. A weather report crackles through: 'Chance of fish tonight. Winds from the underwater. Low tide at midnight despite the absence of moon.'",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Follow the billboard's impossible arrow",
+          "leadsTo": "The Motel That Exists Sometimes"
+        },
+        {
+          "text": "Turn around and drive backwards",
+          "leadsTo": "Driving Through Memory"
+        },
+        {
+          "text": "Stop counting and keep going",
+          "leadsTo": "Salt Crystal Ending"
+        }
+      ]
+    },
+    {
+      "title": "Maps Don't Match the Territory",
+      "content": "You spread the road atlas across the hood. The paper is warm from the desert sun. Your finger traces highways that lead nowhere you've ever been.\n\nThe Salton Sea appears in three different locations. Sometimes it's a dot. Sometimes it spreads across half of California like an inland ocean. On one page, it doesn't exist at all.\n\n'Look at this,' your sister says. She's found your location. A dot marked 'You Are Here' sits in the middle of empty space. No roads. No landmarks. Just beige emptiness and the words 'Here There Be Fish.'\n\nA wind picks up. It smells like brine and forgotten promises. The map pages flutter. When they settle, the roads have rearranged themselves. New highways curve through mountain ranges that weren't there before.\n\nA pelican lands on your car roof. Its feet make metallic tapping sounds. Pelicans don't belong in the desert, but this one seems perfectly at home. It looks at you with ancient eyes.\n\n'I think we're supposed to follow it,' your sister says.\n\nThe pelican spreads wings wider than your car and lifts into air that shimmers like water. It flies toward a horizon that might be mirage or might be sea.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Follow the pelican",
+          "leadsTo": "The Motel That Exists Sometimes"
+        },
+        {
+          "text": "Ignore the bird and trust the map",
+          "leadsTo": "Driving Through Memory"
+        }
+      ]
+    },
+    {
+      "title": "The Motel That Exists Sometimes",
+      "content": "The Coral Reef Motel materializes between one blink and the next. Pink stucco walls. Cactus gardens. A kidney-shaped pool filled with something that might be water.\n\nThe manager has gills behind his ears. Faint, but definitely there. He hands you a key attached to a plastic seahorse. 'Room 23. Best view in the house.'\n\nYour sister dips her hand in the pool. Comes up with fingers that taste like salt when she licks them. 'It's warm,' she says. 'Like bath water.'\n\nRoom 23 overlooks an impossible vista. The Salton Sea stretches to the horizon, full of sailboats and swimmers. Children build sandcastles on beaches that smell like fish and dreams. But when you step outside, there's only desert.\n\n'Happens all the time,' the manager explains. 'Time runs different here. You're seeing what was. Or what will be. Or what should have been.'\n\nIn the distance, a train whistle blows. No tracks run through this part of California. Haven't for sixty years. But the sound echoes off canyon walls that don't exist during daylight hours.\n\nYour sister has fallen asleep on the diving board. She floats three inches above the water.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Wake your sister and leave immediately",
+          "leadsTo": "Salt Crystal Ending"
+        },
+        {
+          "text": "Stay the night and see what morning brings",
+          "leadsTo": "Desert Dream Ending"
+        }
+      ]
+    },
+    {
+      "title": "Driving Through Memory",
+      "content": "The underwater route turns out to be literal. The road descends into what used to be lakebed. Kelp forests wave in currents of superheated air. Schools of phantom fish dart between abandoned cars.\n\nYour sister rolls down her window. Brings her hand up dripping. 'It's not wet,' she says. 'But it's definitely water.'\n\nSubmerged billboards advertise resorts that never existed. The Atlantis Casino. Mermaid Acres Mobile Home Park. A Denny's with an anchor for a sign.\n\nYou drive past a flooded McDonald's. The golden arches rise like a reef. Fish swim through broken windows where families once ate Happy Meals. A pelican perches on the drive-through speaker.\n\nThe road surface changes to sand. Then to crushed shells. Then to something that might be crystallized salt or might be compressed time. Your tires make no sound.\n\nAhead, the Salton Sea appears. Not the tourist destination, not the ecological disaster. The Salton Sea of dreams and late-night radio shows. Full of impossible fish and boats that sail on moonlight.\n\nYour sister points to a pier that extends into water clear as mountain lakes. 'Is that where we were going?'\n\nYou're not sure you remember where you started.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Park at the impossible pier",
+          "leadsTo": "Salt Crystal Ending"
+        },
+        {
+          "text": "Keep driving through the water",
+          "leadsTo": "Desert Dream Ending"
+        }
+      ]
+    },
+    {
+      "title": "Salt Crystal Ending",
+      "content": "The pier extends further than physics allows. Your footsteps echo on planks made of compressed starlight and forgotten highways. The Salton Sea laps at the supports, each wave carrying the sound of distant traffic.\n\nYour sister stands at the end, looking down into water so clear you can see the drowned highways below. Cars still travel those submerged roads, their headlights wavering like deep-sea creatures.\n\n'We could go down there,' she says. 'Join the underwater traffic. Take the direct route home.'\n\nBut home feels like a story someone told you once. You remember a house, a job, a life that required GPS and punctuality. Here, time moves in spirals. Here, destination matters less than the quality of getting lost.\n\nA pelican lands beside you. Drops a gift at your feet. A key attached to a plastic seahorse. Room 23.\n\nYour sister laughs. 'I think we're supposed to start over.'\n\nBehind you, the road shimmers. The exit sign has changed again. Los Angeles 47 miles. Or maybe it says Paradise. The letters shift like heat mirage.\n\nYou walk back to your car. The fuel gauge reads full. It will read full for as long as you need it to. That's how things work here at the edge of the world, where all roads lead to water and every destination is just another beautiful way to remain lost.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Desert Dream Ending",
+      "content": "Morning arrives without dawn. One moment the sky is black velvet, the next it's the color of old brass. You wake in the motel bed though you don't remember sleeping.\n\nYour sister sits by the pool, feet dangling in water that reflects stars from a different sky. 'The manager left breakfast,' she says. Coffee and toast that tastes like your grandmother's kitchen.\n\nThe manager is gone. The office door stands open to desert wind. A note on the counter: 'Thanks for visiting the Coral Reef. You'll always have a room here.'\n\nOutside, your car waits. But the highway has disappeared. In its place, an endless expanse of white sand dunes stretches to a horizon that curves wrong. No roads. No signs. Just the tracks of some enormous bird leading toward what might be mountains or might be clouds.\n\n'So what now?' your sister asks.\n\nYou start the engine. The radio crackles to life: 'Traffic report. All routes are open. Destination is optional. Drive safely in the spaces between places.'\n\nYour sister navigates by pelican flight and the position of impossible constellations. You drive toward the white peaks, following bird tracks and the pull of something that feels like gravity but might be longing.\n\nBehind you, the Coral Reef Motel flickers like a mirage. Room 23 will be waiting when you need it. The Salton Sea will be wherever you decide to find it.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    }
+  ]
+}

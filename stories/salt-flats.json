@@ -1,0 +1,187 @@
+{
+  "title": "Salt Flats",
+  "description": "A photo expedition. A couple falling apart. The landscape doesn't care.",
+  "theme": "relationship drama",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "Arrival",
+      "content": "MAYA\n\nThe jeep kicks up salt dust that sticks to my camera lens. David's already out, stretching his legs, adjusting his stupid hat. Our guide Carlos checks his watch. Three hours late because David had to stop at every roadside stall between La Paz and here.\n\nThe hotel looks like sugar cubes stacked by a child. Everything is white. The walls, the floor, the furniture. Even the toilet is carved from salt blocks.\n\n\"This is incredible,\" David says, already snapping photos with his phone.\n\nI want to tell him his ISO is wrong for this light. I want to tell him a lot of things. Instead I unpack my Leica and check the battery. Still at sixty percent.\n\nCarlos watches us from the jeep. He's seen this before. Couples who think a landscape this big will fix whatever's broken between them. The altitude makes my head pound.\n\n\"We should set up the equipment,\" I say.\n\n\"Can't we just look around first?\" David's voice has that edge. The one that means I'm being difficult again.\n\nThe horizon stretches forever. Perfect mirror of sky and salt. I raise my camera.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Focus on unpacking equipment efficiently",
+          "leadsTo": "Equipment Check"
+        },
+        {
+          "text": "Take a few quick shots first",
+          "leadsTo": "First Shots"
+        },
+        {
+          "text": "Suggest splitting up to cover more ground",
+          "leadsTo": "Separate Ways"
+        }
+      ]
+    },
+    {
+      "title": "Equipment Check",
+      "content": "DAVID\n\nShe's doing that thing again. The meticulous, obsessive thing where she has to arrange every lens, every filter, every goddamn battery in perfect order before she can function.\n\nI came here to see the largest salt flat on earth. She came here to avoid talking about Lisa.\n\n\"The light's going to change,\" I say.\n\nMaya doesn't look up from her camera bag. \"It's 2 PM. We have hours.\"\n\n\"But the quality changes.\"\n\n\"Since when do you care about quality?\"\n\nCarlos has wandered away. Smart man. He's probably done this dance with dozens of couples. The ones who think adventure will save their marriage.\n\nMy head throbs. The altitude, maybe. Or the way Maya's hands shake slightly as she screws on a UV filter. She only does that when she's really angry.\n\n\"We should eat something,\" I say. \"The altitude.\"\n\n\"I'm fine.\"\n\nBut she's not fine. Neither of us is fine. That's why we're here, standing on a salt flat in Bolivia instead of in couples therapy in Portland.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Insist on taking a break for food",
+          "leadsTo": "Forced Break"
+        },
+        {
+          "text": "Walk away and explore alone",
+          "leadsTo": "Solo Exploration"
+        }
+      ]
+    },
+    {
+      "title": "First Shots",
+      "content": "MAYA\n\nThe viewfinder shows me what I need. Clean lines. Geometric patterns where the salt has cracked and reformed. No people.\n\nBehind me, David's talking to Carlos about tomorrow's itinerary. The train cemetery. Cactus island. All the tourist spots. He wants to see everything, photograph nothing properly.\n\nI adjust my aperture. F/8 for the depth of field. The mountains on the horizon shimmer like a mirage.\n\n\"Maya.\" David's voice cuts through my focus. \"Carlos says we should head back soon. Weather's changing.\"\n\nI lower my camera. The sky looks the same to me. Endless blue. But Carlos nods, points west where clouds gather like thoughts I don't want to have.\n\n\"Five more minutes.\"\n\n\"You always say five more minutes.\"\n\nHe's right. I do always say that. It's easier than admitting I don't want to go back to our salt-block room. Don't want to lie in another bed next to him, pretending sleep while we both stare at the ceiling.\n\nThe shutter clicks. One more shot. Then another.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Keep shooting despite the weather",
+          "leadsTo": "Weather Warning"
+        },
+        {
+          "text": "Pack up and return to the hotel",
+          "leadsTo": "Salt Hotel Night"
+        }
+      ]
+    },
+    {
+      "title": "Separate Ways",
+      "content": "DAVID\n\nMaya heads toward the horizon with her camera. I go the other direction, toward what looks like a small island in the distance.\n\nCarlos stays with the jeep. He's learned not to choose sides.\n\nThe salt crunches under my boots. Each step sounds too loud in the silence. No birds here. No insects. Just wind and the creak of my camera strap.\n\nI try to frame a shot of Maya in the distance, but she's too small against the vastness. The landscape swallows everything. People, problems, promises we made in better times.\n\nMy phone buzzes. Text from my sister: \"How's the trip? Any good pics?\"\n\nI type back: \"Amazing views.\" Delete it. Type: \"Complicated.\" Delete that too. Finally send: \"Still here.\"\n\nWhen I look up, Maya's gone. Lost in the glare and heat shimmer. For a second, panic flickers through me. What if she keeps walking? What if the salt flat takes her and I'm left here alone with Carlos and my guilt?\n\nThen I see her red jacket, a tiny dot of color in all that white.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Walk toward Maya",
+          "leadsTo": "Convergence"
+        },
+        {
+          "text": "Continue exploring alone",
+          "leadsTo": "Deeper Isolation"
+        },
+        {
+          "text": "Return to Carlos and the jeep",
+          "leadsTo": "Guide's Wisdom"
+        }
+      ]
+    },
+    {
+      "title": "Weather Warning",
+      "content": "MAYA\n\nThe wind picks up while I'm changing lenses. Salt dust gets into everything. The camera mechanism, my eyes, the space between my teeth.\n\nCarlos walks over. Doesn't say anything, just points at the sky. The clouds are closer now, darker. Purple-black against the white ground.\n\n\"Rain?\" I ask.\n\n\"Flash flood,\" he says. \"Very dangerous here.\"\n\nDavid appears at my shoulder. \"We should go.\"\n\nFor once, I don't argue. The landscape has shifted. What felt infinite and peaceful five minutes ago now feels exposed. Vulnerable. No shelter anywhere.\n\nWe pack quickly. My hands shake as I stow my camera. The altitude makes everything feel dreamlike, unreal. Like we're moving underwater.\n\nThe first raindrops hit as we reach the jeep. Fat drops that explode into salt crystals. Within minutes, the mirror-perfect surface becomes a sheet of water.\n\n\"Beautiful,\" David murmurs.\n\nHe's right. It is beautiful. The sky reflects perfectly in the flood water. Clouds race across the ground beneath our feet.\n\nI raise my camera one more time.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Try to capture the flooded landscape",
+          "leadsTo": "Flooded Mirrors"
+        },
+        {
+          "text": "Get in the jeep immediately",
+          "leadsTo": "Retreat"
+        }
+      ]
+    },
+    {
+      "title": "Salt Hotel Night",
+      "content": "DAVID\n\nDinner is quinoa soup and llama meat. Maya picks at her food. The altitude has killed her appetite, she says. But I think it's me.\n\nThe dining room is full of other couples. Germans with matching hiking boots. A pair of Instagram influencers staging photos of their food. Everyone looks happy. Everyone looks like they belong together.\n\n\"We should talk,\" I say.\n\nMaya's spoon clinks against her bowl. \"About what?\"\n\n\"You know what.\"\n\nShe looks out the window at the salt flats. Even in darkness, they glow faintly under the stars. \"I don't want to do this here.\"\n\n\"Where then? We've been not doing this for three months.\"\n\nThe German couple glances over. Maya's face flushes. She hates scenes. Always has.\n\n\"Our room,\" she says quietly.\n\nBut I know we won't talk in our room. We'll lie in the salt-block bed, staring at the salt-block ceiling, listening to each other pretend to sleep.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Press the conversation now",
+          "leadsTo": "Public Argument"
+        },
+        {
+          "text": "Wait and go to the room",
+          "leadsTo": "Silent Room"
+        }
+      ]
+    },
+    {
+      "title": "Guide's Wisdom",
+      "content": "DAVID\n\nCarlos is rolling a cigarette when I get back to the jeep. His fingers work the paper with practiced ease.\n\n\"How long have you been doing this?\" I ask.\n\n\"Eight years.\" He lights the cigarette, shields the flame from the wind. \"Many couples come here.\"\n\n\"Do any of them make it?\"\n\nHe takes a long drag. Studies the horizon where Maya's still shooting. \"Some do. Some don't. The salt flat doesn't care.\"\n\n\"Very philosophical.\"\n\n\"Very practical.\" He taps ash into the wind. \"You want to fix things with landscape. But problems follow you anywhere.\"\n\nI watch Maya through my camera's zoom lens. She's crouched low, getting some ground-level angle. Always working. Always focused on something that isn't me.\n\n\"She's talented,\" Carlos says.\n\n\"Yeah. She is.\"\n\n\"And you?\"\n\nThe question hangs in the thin air. What am I? A husband who made a mistake. A partner who stopped trying. A man standing in the middle of nowhere, hoping geography can save his marriage.\n\n\"I'm trying to figure that out.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "Ask Carlos for advice",
+          "leadsTo": "Local Perspective"
+        },
+        {
+          "text": "Walk back toward Maya",
+          "leadsTo": "Convergence"
+        }
+      ]
+    },
+    {
+      "title": "Flooded Mirrors",
+      "content": "MAYA\n\nThe water is ankle-deep now. My boots splash through perfect reflections of clouds. Each step shatters the sky.\n\nDavid wades out beside me. For the first time in months, we're moving in the same direction.\n\n\"Look,\" he says, pointing.\n\nA line of flamingos has appeared in the distance. Pink dots reflected in the flood water. They weren't here an hour ago.\n\nI raise my camera. The shot is impossible. The reflection, the birds, the mountains, all layered in this temporary lake that will be gone tomorrow.\n\n\"The salt preserves everything,\" Carlos calls from the jeep. \"Even what doesn't last.\"\n\nI take the shot anyway. Then another. David stands beside me, not talking, not trying to fix anything. Just watching the flamingos wade through the reflected sky.\n\nMy camera clicks. The moment disappears into memory and pixels.\n\nWhen the rain stops, the silence is absolute. Even the flamingos have gone quiet.\n\n\"We should head back,\" David says.\n\nI nod. But neither of us moves. The reflected world wavers beneath our feet.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    },
+    {
+      "title": "Silent Room",
+      "content": "MAYA\n\nThe salt-block walls absorb sound. Our breathing. The rustle of clothes. The careful way David arranges his pills on the nightstand.\n\nI lie on my side, camera within reach on the floor. Through the small window, stars reflect on the salt flat. Double infinity.\n\n\"Maya.\"\n\n\"I'm tired.\"\n\n\"Please.\"\n\nI turn toward him. His face is half-shadow in the starlight. The face I fell in love with seven years ago. Before the promotion. Before Lisa. Before we started measuring our conversations in careful distances.\n\n\"What do you want me to say?\"\n\n\"Anything. Something. I can't keep doing this.\"\n\nThe altitude makes everything feel thin. Air, thoughts, the space between what we mean and what we say.\n\n\"Then don't.\"\n\nThe words hang in the salt-scrubbed air. Final. Surgical.\n\nDavid rolls onto his back. Stares at the ceiling. \"Okay.\"\n\nOutside, wind moves across the flats. The only sound for a thousand miles.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": []
+    },
+    {
+      "title": "Local Perspective",
+      "content": "CARLOS\n\n\"You want to know what I see?\" I finish my cigarette, grind it under my boot. \"I see two people who came here to run away from something.\"\n\nDavid doesn't deny it.\n\n\"But the salt flat, it shows you truth. No shadows here. No place to hide.\" I gesture toward Maya, still photographing in the distance. \"She hides behind that camera. You hide behind guilt.\"\n\n\"You don't know what happened.\"\n\n\"Don't need to. Happens every time. Couples think if they go far enough, high enough, the problem stays behind.\" I pull out another cigarette. \"But you bring yourselves with you.\"\n\nMaya's walking back now. Camera lowered. Face tired.\n\n\"So what do you suggest?\" David asks.\n\n\"Stop hiding. The landscape doesn't care about your problems, but maybe that's good. Maybe it gives you space to be honest.\"\n\nMaya reaches us as I say this. She looks between David and me.\n\n\"Everything okay?\"\n\nDavid meets her eyes. \"Carlos thinks we should stop pretending.\"\n\n\"Pretending what?\"\n\n\"That this trip is about photography.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": [
+        {
+          "text": "Maya responds with honesty",
+          "leadsTo": "Truth in Thin Air"
+        },
+        {
+          "text": "Maya deflects and changes subject",
+          "leadsTo": "Silent Room"
+        }
+      ]
+    },
+    {
+      "title": "Truth in Thin Air",
+      "content": "MAYA\n\nThe words come out easier than expected. Maybe it's the altitude. Maybe it's Carlos smoking quietly beside the jeep, giving us space but not privacy.\n\n\"I know about Lisa.\"\n\nDavid's face doesn't change. He knew that I knew.\n\n\"I've known for three months. Since she called the house that night when you were in the shower.\"\n\n\"Maya...\"\n\n\"I'm not done.\" The salt flat stretches around us. Nowhere to run. \"I booked this trip because I thought if I could make something beautiful out of all this emptiness, maybe we could make something beautiful out of what's left.\"\n\nMy hands shake. I put them in my pockets.\n\n\"But I can't photograph us back together. And you can't adventure us back together either.\"\n\nDavid sits down on the salt. Just sits right down on the ground. \"I ended it. The thing with Lisa. Before we came here.\"\n\n\"I know that too.\"\n\n\"Then what do you want?\"\n\nI look through my camera's viewfinder. Frame him sitting there against the endless white. Click.\n\n\"I want to go home.\"",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": []
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "title": "Wake",
+  "description": "The Irish funeral goes off the rails. Your grandmother would have loved it.",
+  "theme": "dark comedy",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "The Body Goes Missing",
+      "content": "Uncle Seamus stumbles into the kitchen, whiskey already on his breath at half past eight. \"Where's your gran?\" he slurs.\n\n\"What do you mean where is she? She's dead, Seamus.\"\n\n\"No, no.\" He waves his glass around. \"The body. Where's the bloody body?\"\n\nYou set down your tea. The funeral director was supposed to deliver Gran this morning. The wake starts in three hours. Cousin Molly is already drunk-crying in the front room. Father McKenna will arrive soon expecting a proper corpse to bless.\n\n\"Maybe they're running late,\" you say, but your stomach drops.\n\nSeamus laughs. Actually laughs. \"Your gran always said she'd rather be caught dead than be on time for anything.\"\n\nYour phone buzzes. Unknown number.\n\n\"Hello?\"\n\n\"Is this the Flanagan family? We have a bit of a situation.\"\n\nYou can hear Gran's voice in your head: 'Never trust a man who calls disaster a situation, love.'\n\nThe funeral director clears his throat. \"There's been a mix-up with the hearse. Your grandmother is currently on her way to Galway. Wrong funeral.\"\n\nSeamus starts cackling.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Drive to Galway immediately to retrieve Gran",
+          "leadsTo": "The Road to Galway"
+        },
+        {
+          "text": "Hold the wake without the body",
+          "leadsTo": "Wake Without a Body"
+        },
+        {
+          "text": "Delay everything until tomorrow",
+          "leadsTo": "Family Mutiny"
+        }
+      ]
+    },
+    {
+      "title": "The Road to Galway",
+      "content": "You pile into Uncle Dermot's ancient Ford Transit van with half the family. Aunt Brigid clutches a bottle of Jameson. \"For the journey,\" she explains, though it's barely nine in the morning.\n\nSeamus navigates while drunk. \"Left at the sheep,\" he announces.\n\n\"Which bloody sheep?\" Dermot shouts.\n\n\"The judgmental one.\"\n\nCousin Tommy starts singing \"Danny Boy\" off-key from the back seat. Molly tells him to shut up. He sings louder. She throws a ham sandwich at his head.\n\nYour phone rings. It's the funeral director again.\n\n\"Slight update,\" he says. \"The Galway funeral has already begun. Your grandmother is currently being eulogized by a family named O'Sullivan. They seem quite fond of her.\"\n\nBrigid takes a swig and passes the bottle forward. \"She always did make friends easily.\"\n\n\"They're calling her Nora,\" the director continues. \"Apparently she was a wonderful baker.\"\n\n\"Gran couldn't boil water,\" you mutter.\n\nThrough the windscreen, you spot the funeral procession ahead. A black hearse crawls toward the cemetery, followed by cars full of strangers mourning your grandmother under the wrong name.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Storm the funeral and reclaim Gran dramatically",
+          "leadsTo": "Funeral Crashers"
+        },
+        {
+          "text": "Wait respectfully until the O'Sullivans finish",
+          "leadsTo": "Borrowed Grief"
+        }
+      ]
+    },
+    {
+      "title": "Wake Without a Body",
+      "content": "\"Right,\" you announce to the growing crowd in the sitting room. \"We're having the wake anyway.\"\n\nFather McKenna arrives with his blessing oils and stops short at the empty space where the coffin should be. \"Where's Mrs. Flanagan?\"\n\n\"Galway,\" says Molly, hiccupping.\n\n\"She's not dead in Galway, is she?\"\n\n\"No, Father. Just misplaced.\"\n\nHe blinks three times and reaches for the whiskey.\n\nThe neighbors arrive with casseroles and confused expressions. Mrs. Murphy keeps looking around the room like Gran might be hiding behind the curtains. \"Should we still do the stories?\"\n\n\"Course we bloody should,\" roars Seamus. \"She's probably listening anyway. Nosy old bat.\"\n\nSomeone starts telling the tale about Gran and the stolen chickens. Someone else remembers when she put Ex-Lax in the church brownies during the pastor controversy of '94. The stories get louder, wilder, probably half invented.\n\nAunt Brigid sets up a photograph of Gran on the mantle. It's from last Christmas. Gran is flipping off the camera while wearing a paper crown.\n\n\"Perfect,\" you whisper.\n\nThe room fills with smoke and laughter. Outside, rain begins to fall.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Keep the wake going at the house",
+          "leadsTo": "The Long Goodbye"
+        },
+        {
+          "text": "Move the party to O'Malley's pub",
+          "leadsTo": "Pub Wake"
+        }
+      ]
+    },
+    {
+      "title": "Family Mutiny",
+      "content": "\"Postpone?\" Aunt Brigid slams her mug down. \"Over my dead body.\"\n\n\"That's the problem,\" you say. \"We don't have a dead body.\"\n\n\"Speak for yourself,\" mutters Uncle Dermot, who looks half-corpse on a good day.\n\nThe family erupts. Everyone talks at once. Cousin Tommy thinks you should have a séance instead. Molly wants to drive to Galway with a shovel. Father McKenna suggests prayer, but no one's listening.\n\n\"Your gran would be mortified,\" Brigid continues. \"All these people coming to pay respects and we send them home? What will the neighbors think?\"\n\n\"The neighbors will think we're idiots either way,\" Seamus points out.\n\nMolly starts crying again. \"I just want to say goodbye properly.\"\n\nThe front door opens. More relatives stream in carrying flowers and bottles. They stop when they see everyone arguing instead of mourning.\n\n\"Where's the coffin?\" asks Cousin Patrick.\n\n\"Galway,\" says everyone simultaneously.\n\nPatrick nods like this makes perfect sense and heads for the whiskey.\n\nYour phone buzzes. Text from an unknown number: 'The O'Sullivans want to know if Nora had any allergies. They're planning the menu for after.'\n\nBrigid reads over your shoulder and cackles.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Give in and hold the wake anyway",
+          "leadsTo": "Wake Without a Body"
+        },
+        {
+          "text": "Rally the family for a road trip",
+          "leadsTo": "The Road to Galway"
+        }
+      ]
+    },
+    {
+      "title": "Funeral Crashers",
+      "content": "Dermot parks the van sideways across the cemetery entrance. You all tumble out like a drunken SWAT team.\n\nThe O'Sullivan funeral is in full swing. A man in a black suit stands at the graveside reading from crumpled notes about 'dear Nora's' famous soda bread and her love of cats.\n\n\"She hated cats,\" Molly whispers too loudly.\n\nYou march up to the gathering. Thirty strangers in mourning clothes turn to stare at your disheveled clan.\n\n\"Excuse me,\" you call out. \"That's our grandmother.\"\n\nSilence. Rain patters on umbrellas.\n\nAn elderly O'Sullivan woman steps forward. \"I'm sorry, but Nora was our aunt.\"\n\n\"Her name is Bridget Flanagan and she's ours,\" Seamus slurs, swaying slightly.\n\nThe funeral director appears like a guilty ghost. \"Perhaps we could discuss this after the service?\"\n\n\"There is no after,\" Brigid snaps. \"You're burying the wrong woman.\"\n\nSomeone in the O'Sullivan crowd starts crying. Not sad crying. Hysterical laughing crying.\n\n\"This is the most ridiculous thing I've ever seen,\" the woman gasps between sobs. \"Nora would have loved this chaos.\"\n\nYou look at the coffin. At the flowers. At two families who somehow both loved your grandmother in the space of three hours.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Suggest a joint funeral for both families",
+          "leadsTo": "Two Family Send-off"
+        },
+        {
+          "text": "Take Gran home and start over",
+          "leadsTo": "The Long Goodbye"
+        }
+      ]
+    },
+    {
+      "title": "Borrowed Grief",
+      "content": "You wait in the van as strangers lower your grandmother into foreign ground. The O'Sullivans weep for someone they've known for two hours. Their tears are real anyway.\n\nSeamus passes around a flask. \"She's getting a proper send-off, at least.\"\n\n\"From people who think she baked,\" you point out.\n\n\"Maybe she would have liked that,\" Molly says quietly. \"Being remembered as someone domestic and sweet.\"\n\nBrigid snorts. \"Your gran once told me she'd rather be remembered as a pirate than a proper lady.\"\n\nThrough the rain-streaked windows, you watch the O'Sullivans finish their service. They leave flowers on the grave and drift away in small clusters, sharing memories of a woman who never existed.\n\nThe funeral director approaches your van like he's approaching wild animals.\n\n\"We can exhume her tomorrow,\" he offers weakly. \"Have your own service then.\"\n\n\"Exhume her?\" Dermot starts the engine. \"Christ almighty.\"\n\nYou look back at the cemetery. At the fresh earth over the wrong grave. At the flowers from strangers who loved your grandmother enough to bury her properly, even under the wrong name.\n\n\"She's already buried,\" you say finally. \"Let's go home and drink to her.\"",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": []
+    },
+    {
+      "title": "The Long Goodbye",
+      "content": "The wake stretches into evening. Someone produces a fiddle. Mrs. Murphy starts dancing with Father McKenna, who's had enough whiskey to forget his vows of propriety.\n\nGran's photo presides over the chaos like a queen watching her subjects make fools of themselves. You catch yourself looking at it, expecting her to wink.\n\nSeamus tells the story about Gran hiding Uncle Peter's teeth during the Christmas row of '89. Brigid counters with the time Gran convinced the tax man she was dead for six months to avoid paying rates.\n\n\"She lived like she wanted,\" Molly says, no longer crying. \"Never apologized for taking up space.\"\n\n\"Never apologized for anything,\" Dermot adds with admiration.\n\nThe rain stops around midnight. People drift home carrying leftover casseroles and hangovers they'll feel tomorrow. Father McKenna blesses the empty space where the coffin should have been, his words slurred but sincere.\n\nYou're alone now with Gran's photo and the lingering smell of tobacco and stories.\n\nYour phone buzzes. The funeral director again: 'The O'Sullivans have invited you to visit the grave anytime. They left flowers.'\n\nYou look at Gran's picture. At her defiant middle finger raised to the camera. \n\n\"You'd have loved this disaster,\" you whisper to her. \"Wouldn't you?\"",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Two Family Send-off",
+      "content": "\"Right then,\" you announce to both families. \"Joint funeral. Gran gets two lots of mourners and twice the stories.\"\n\nThe O'Sullivans look uncertain. Your family looks delighted.\n\n\"But we don't know any of you,\" protests an O'Sullivan cousin.\n\n\"Neither did we until this morning,\" Seamus points out. \"Family's family.\"\n\nSomehow it works. The O'Sullivans share their neat, prepared eulogies about 'Nora the baker.' Your clan responds with chaotic tales about Bridget the troublemaker. \n\nTwo versions of your grandmother emerge. The sweet domestic woman the O'Sullivans imagined, and the sharp-tongued rebel she actually was. Both feel true somehow.\n\nFather McKenna, who drove over in confusion, declares it the strangest and most honest funeral he's ever attended. An O'Sullivan uncle plays bagpipes while Cousin Tommy sings rebel songs.\n\nThe rain turns torrential during the burial. Everyone huddles together under shared umbrellas. Strangers become mourners become friends.\n\nAfterward, both families pile into O'Malley's pub. The O'Sullivans buy rounds. Your relatives tell increasingly elaborate lies about Gran's adventures. \n\nMrs. O'Sullivan raises her glass: \"To Nora-Bridget. We hardly knew ye, but we loved ye anyway.\"\n\n\"To Gran,\" you whisper. \"Who somehow made friends at her own funeral.\"",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    }
+  ]
+}

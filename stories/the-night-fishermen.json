@@ -1,0 +1,212 @@
+{
+  "title": "The Night Fishermen",
+  "description": "Lake Inle. Floating gardens. A body tangled in the nets.",
+  "theme": "mystery",
+  "tier": 2,
+  "scenes": [
+    {
+      "title": "Return to Inle",
+      "content": "The longboat cuts through morning mist. Inle Lake spreads around me like glass, unchanged after fifteen years in Yangon. Leg-rowing fishermen balance on their boats, one foot wrapped around the oar. Their conical nets slice the water.\n\nU Maung poles us between floating tomato gardens. Red fruit dangles over dark water. \"You look like your father,\" he says. \"Same stubborn face.\"\n\nI came back for the funeral. Ma died three weeks ago. I stayed for the questions. The police won't investigate properly. A village woman, floating face-down in the shallows. Accident, they wrote in their report.\n\nThe village emerges from the mist. Stilt houses rise from the water like prayers. Everything reflects and doubles. Sky below, sky above. Truth and its mirror image.\n\nU Maung ties us to a bamboo pole. \"People here don't forget,\" he says. \"They remember you left. They remember your mother spoke too much about the old days.\"\n\nI step onto the floating dock. The monastery bell rings across the water. Someone has already seen me coming.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Visit the monastery first",
+          "leadsTo": "The Abbot's Warning"
+        },
+        {
+          "text": "Go to your mother's house",
+          "leadsTo": "Empty Rooms"
+        },
+        {
+          "text": "Find the fishermen who discovered the body",
+          "leadsTo": "Morning Nets"
+        }
+      ]
+    },
+    {
+      "title": "The Abbot's Warning",
+      "content": "The monastery floats like a golden island. Saffron robes dry on bamboo poles. U Thura, the abbot, receives me in his quarters. He's aged. Lines deep as river channels cut his face.\n\n\"Your mother came here the night before she died,\" he says. Incense burns between us. \"She was frightened.\"\n\n\"Of what?\"\n\n\"The past. She said someone had been asking questions about 1988. About the students who fled to the lake after the uprising.\" He pours tea with steady hands. \"Your mother helped hide them. Fed them. Some never left.\"\n\nI remember. Ma rowing out at night with rice and fish paste. Me, eight years old, sworn to silence. \"Who was asking?\"\n\n\"A man from Taunggyi. Government type. Clean shoes, wrong accent.\" U Thura sets down his cup. \"Your mother was no accident, child. But proving that will bring trouble on everyone here.\"\n\nOutside, novices sweep the floating platform. Their brooms push nothing but water.\n\n\"Some truths are heavier than others,\" the abbot says. \"They sink villages.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Ask about the 1988 survivors still in the village",
+          "leadsTo": "Hidden Names"
+        },
+        {
+          "text": "Search for your mother's house",
+          "leadsTo": "Empty Rooms"
+        },
+        {
+          "text": "Track down the government man in Taunggyi",
+          "leadsTo": "The Wrong Questions"
+        }
+      ]
+    },
+    {
+      "title": "Empty Rooms",
+      "content": "Ma's house tilts over the water on teak posts. I climb the ladder. The door hangs open.\n\nEverything valuable is gone. Cooking pots, the old radio, even the fishing nets. Only worthless things remain. A water-stained photograph of my father. Buddhist prayer beads worn smooth. A notebook filled with her careful Burmese script.\n\nI read her last entries. Shopping lists. Weather observations. Then, three days before she died: \"He came again. Asking about Thant and the others. I told him nothing. But he knows.\"\n\nFootsteps on the ladder. Daw Khin enters. My mother's neighbor, sister of grief. \"The police took everything useful,\" she says. \"Said it was evidence.\"\n\n\"Evidence of what? They ruled it accidental.\"\n\n\"Evidence gets lost. Accidents stay on record.\" She sits heavily on a woven mat. \"Your mother was swimming out to check her nets. Middle of the night. Seventy-year-old woman.\"\n\n\"She never swam.\"\n\n\"No. She never did.\" Daw Khin rocks gently. \"But dead women don't argue with reports.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Ask who else the stranger questioned",
+          "leadsTo": "The Night Market"
+        },
+        {
+          "text": "Examine where they found the body",
+          "leadsTo": "Blood in the Water"
+        },
+        {
+          "text": "Find out what the police really took",
+          "leadsTo": "Official Channels"
+        }
+      ]
+    },
+    {
+      "title": "Morning Nets",
+      "content": "Ko Win and his son pull their nets at dawn. Their boat rocks in the shallows where my mother died. The water is clear here. You can see bottom.\n\n\"We found her tangled up good,\" Ko Win says. His hands work the net automatically. \"Face down. Been there hours.\"\n\nHis son, barely twenty, won't meet my eyes. \"The nets were torn,\" the boy mumbles. \"Like she fought them.\"\n\n\"Drowned people fight,\" Ko Win snaps. Too quick, too sharp. \"Current pulled her in.\"\n\nBut there's no current here. The water barely moves.\n\nI wade into the shallows. Feel the muddy bottom with bare feet. Something hard rolls under my toes. I bend down, fingers searching.\n\nA button. Plastic, cheap. The kind sewn on government shirts.\n\nKo Win sees me pocket it. \"Lot of things in lake water,\" he says. \"Most better left alone.\"\n\nHis son drops the net. Fish scatter silver in the morning light. \"We should go,\" the boy says. \"Someone's watching.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Follow the fishermen back to their village",
+          "leadsTo": "The Night Market"
+        },
+        {
+          "text": "Confront them about what they're hiding",
+          "leadsTo": "Blood in the Water"
+        },
+        {
+          "text": "Search the lake bottom for more evidence",
+          "leadsTo": "Deep Water"
+        }
+      ]
+    },
+    {
+      "title": "Hidden Names",
+      "content": "U Thura leads me to a storage room behind the prayer hall. Dust motes float in temple light. He opens a wooden chest.\n\n\"Your mother kept records,\" he says. \"Names of everyone she helped in 1988. Students, teachers, democracy protesters. She thought someday they might need to prove they existed.\"\n\nThe notebook pages are yellow with age. Careful lists in my mother's handwriting. Names, dates, what little money she gave them. Ko Thant tops every page. A medical student from Yangon University. Helped organize the protests.\n\n\"Thant never left the lake,\" U Thura says. \"Changed his name. Married a local girl. Has three children now.\"\n\n\"Who is he?\"\n\n\"You know him. Ko Win. The fisherman.\"\n\nEverything reshapes itself. The nervous son. The torn nets. The fear in Ko Win's eyes when he found my mother.\n\n\"The government man was looking for student leaders,\" U Thura continues. \"Your mother died rather than give him names.\"\n\nOutside, boat engines putter across the lake. Normal life continues. But underneath, old secrets twist like bodies in dark water.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Confront Ko Win with his real identity",
+          "leadsTo": "The Truth Beneath"
+        },
+        {
+          "text": "Find the government investigator",
+          "leadsTo": "The Wrong Questions"
+        },
+        {
+          "text": "Gather more evidence before acting",
+          "leadsTo": "The Night Market"
+        }
+      ]
+    },
+    {
+      "title": "The Night Market",
+      "content": "Night transforms the lake. Lanterns bob on boats selling noodles and tea. I drift between vendors, listening for whispers about my mother.\n\nDaw Than sells betel leaf from her floating stall. \"Government man came three times,\" she says quietly. \"Showed photographs. Old ones, black and white. Student protesters.\"\n\n\"Did he find who he wanted?\"\n\n\"Maybe. Maybe not.\" She wraps betel leaves with practiced fingers. \"Your mother was clever woman. Gave him names of people already dead.\"\n\nA longboat poles past us. The boatman's face is hidden in shadow, but something about his silhouette seems familiar.\n\n\"Careful,\" Daw Than whispers. \"He listens at night. The one with questions.\"\n\nI buy betel leaves I don't want and slip into darkness between the boats. Water laps against bamboo hulls. Somewhere in the floating maze, someone poles steadily away.\n\nI follow the sound. My boat moves through reflected stars. The monastery glows ahead like a fallen moon.\n\nThen silence. Whoever I was trailing has vanished into the night waters. But I know now. He's still here. Still asking questions. Still hunting ghosts from 1988.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": [
+        {
+          "text": "Set a trap using the monastery as bait",
+          "leadsTo": "The Truth Beneath"
+        },
+        {
+          "text": "Contact authorities outside the village",
+          "leadsTo": "Official Channels"
+        },
+        {
+          "text": "Confront the threat directly",
+          "leadsTo": "Blood in the Water"
+        }
+      ]
+    },
+    {
+      "title": "The Wrong Questions",
+      "content": "Taunggyi sprawls above the lake like a concrete mistake. I find the government man in a tea shop, asking wrong questions to frightened faces.\n\nHe's younger than I expected. Soft hands, expensive watch. The kind of bureaucrat who thinks rural people are simple.\n\n\"You must be Ma Tin's son,\" he says when I sit down. \"I heard you came back for the funeral. Unfortunate accident.\"\n\n\"Accident.\" I order tea. \"Is that what you call it?\"\n\nHe smiles. Clean teeth, government dental plan. \"Your mother was confused about the past. Thought she was protecting people who don't need protection anymore.\"\n\n\"Because they're dead?\"\n\n\"Because they've been pardoned. General amnesty for political crimes. We just want to update our records.\"\n\nHe slides a folder across the table. Photographs spill out. Student protesters from 1988. Some faces I recognize. Most I don't.\n\n\"Your mother died for nothing,\" he says. \"But you could finish her work. Help us find the survivors. There's money in it. And safety for your village.\"\n\nThe tea tastes like bribe money. Bitter and wrong.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": [
+        {
+          "text": "Pretend to cooperate to learn his real agenda",
+          "leadsTo": "Blood in the Water"
+        },
+        {
+          "text": "Refuse and return to warn the village",
+          "leadsTo": "The Truth Beneath"
+        }
+      ]
+    },
+    {
+      "title": "Blood in the Water",
+      "content": "I meet Ko Win at the killing place. Dawn bleeds across dark water. His nets hang empty from bamboo poles.\n\n\"I know who you are,\" I tell him. \"Ko Thant. Medical student. Democracy activist.\"\n\nHe ages ten years in a single breath. \"Your mother.\"\n\n\"She died protecting you. All of you.\"\n\n\"She died because I was weak.\" He won't look at me. \"The government man found me working the nets. Recognized something in my face. Started asking questions.\"\n\n\"So you killed my mother to buy his silence?\"\n\n\"No.\" His voice breaks like old rope. \"She came here that night. Said she'd handle everything. Told me to take my family and disappear into the floating gardens.\"\n\nWater laps against the boat hull. Patient. Persistent.\n\n\"When I came back, she was already dead. Him standing over her body, making it look like accident.\" Ko Win finally meets my eyes. \"I should have fought him. Should have died with her.\"\n\n\"Where is he now?\"\n\n\"Still here. Still hunting.\" Ko Win picks up his father's old fishing spear. \"But tonight, we hunt him.\"",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": [
+        {
+          "text": "Plan a trap using yourself as bait",
+          "leadsTo": "Deep Water"
+        },
+        {
+          "text": "Gather evidence to expose the truth",
+          "leadsTo": "Justice Reflected"
+        }
+      ]
+    },
+    {
+      "title": "The Truth Beneath",
+      "content": "Night fishing on Inle Lake. Ko Win poles us between floating gardens while his son handles the nets. We're not hunting fish.\n\nThe government man follows us. His boat moves like dark water, silent and patient. He thinks we're leading him to the other survivors.\n\nInstead, we lead him to the deep places where old secrets rest.\n\n\"Here,\" Ko Win whispers. We stop above the deepest part of the lake. Starlight fractures on black water. \"This is where the other students went. The ones who didn't survive 1988.\"\n\nThe government man poles closer. His face emerges from shadow. Younger than my mother's killer deserves to be.\n\n\"Ko Thant,\" he calls across the water. \"I know you're there. Let's finish this conversation.\"\n\n\"We already finished it,\" Ko Win says. \"With your colleague. Three weeks ago.\"\n\nUnderstanding dawn's in the man's eyes. Too late. Ko Win's son rises from the nets. Not holding fish. Holding stones.\n\nMy mother's voice echoes across dark water. Some truths are heavier than others. They sink everything.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 8,
+      "choices": []
+    },
+    {
+      "title": "Deep Water",
+      "content": "I dive alone into the lake's deepest places. Water closes over my head like forgetting. Down here, secrets rest in mud and silence.\n\nMy lungs burn. Fingers search the bottom. Fish scatter from my hands like startled thoughts.\n\nThen I find them. Bones in the silt. Not old enough to be ancient. Not new enough to be accidental.\n\nI surface gasping. Ko Win waits in his boat, face grim as temple stone.\n\n\"How many?\" I ask.\n\n\"Seven. Students from 1988. They asked too many questions. Demanded too much justice.\" He helps me into the boat. \"Your mother knew. She helped us weight the bodies. Helped us forget.\"\n\nThe lake keeps its secrets well. But secrets have weight. They drag everything down eventually.\n\n\"The government man won't stop,\" I say.\n\n\"No. He won't.\" Ko Win starts the engine. \"But lakes are patient. They outlast governments. Outlast questions. Outlast everything.\"\n\nWe head for shore through water black as forgetting. Behind us, the evidence sinks back into darkness. Some truths are too heavy for the living to carry.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 9,
+      "choices": []
+    },
+    {
+      "title": "Official Channels",
+      "content": "The police station in Taunggyi smells like bureaucracy and fear. I hand over the evidence. Button. Testimony. My mother's notebook with its careful names.\n\nSergeant Kyaw listens with dead eyes. Takes notes that mean nothing.\n\n\"Interesting story,\" he says finally. \"But your mother drowned. Accident. Case closed.\"\n\n\"What about the government investigator?\"\n\n\"What investigator?\" He lights a cigarette. \"Nobody from Yangon has been asking questions here.\"\n\nI understand. Official channels flow one direction only. Truth gets filtered out somewhere between the village and the capital.\n\nOutside, rain begins to fall. It will flow down from the mountains, through the valleys, into Inle Lake. Water always finds its level.\n\nI catch the last bus back to the village. Through rain-streaked windows, I watch the lake appear below. Still as glass. Reflecting nothing but sky.\n\nMy mother is buried now. Her secrets buried with her. The survivors will keep their false names, their quiet lives, their children who know nothing of 1988.\n\nSome mysteries solve themselves. Drop by drop. Season after season. Patient as water wearing down stone.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 10,
+      "choices": []
+    },
+    {
+      "title": "Justice Reflected",
+      "content": "The story breaks in a Yangon newspaper three months later. \"Government Death Squad Targets 1988 Survivors.\" My mother's name appears in the third paragraph. Hero or victim, depending on who's reading.\n\nI'm back in the capital by then. The village has no place for truth-tellers. Ko Win and his family disappeared into the floating gardens. New identities, new lives, new secrets.\n\nThe government man was transferred to a remote posting. The official who sent him claimed ignorance. The trail goes cold in bureaucratic maze work.\n\nBut something changed. Other families started talking. Other disappeared students got names in newspapers. Other villages stopped pretending their mysteries were accidents.\n\nI keep my mother's notebook. Read her careful lists on quiet evenings. All those names. All those lives she saved by staying silent at the end.\n\nTruth has its own current. Slow but persistent. It carries everything downstream eventually. Even the heaviest secrets float to the surface given time.\n\nWater always finds its level. Justice, too, given patience enough.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 11,
+      "choices": []
+    }
+  ]
+}

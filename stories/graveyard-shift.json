@@ -1,0 +1,137 @@
+{
+  "title": "Graveyard Shift",
+  "description": "Night security at a museum. Something in the Egyptian wing keeps moving.",
+  "theme": "horror comedy",
+  "tier": 1,
+  "scenes": [
+    {
+      "title": "First Night Problems",
+      "content": "The training video didn't mention the sarcophagus making scraping noises at 2 AM.\n\nI pause my rounds in the Egyptian wing. Listen. Nothing. Check my watch: 2:03 AM. Still five hours until Janet shows up with her thermos of mysterious brown liquid and complaints about the weekend shift.\n\nThe golden death mask of Ankh-ef-en-Sekhmet stares at me from behind the glass. According to the placard, he was a minor priest who died around 600 BCE. According to my ears, he's currently doing the furniture shuffle in his coffin.\n\nScrape.\n\nThere it is again.\n\nMy flashlight beam wavers slightly as I approach the display. The sarcophagus sits on metal supports, surrounded by canopic jars and jewelry that costs more than my annual salary. Everything looks normal. Everything always looks normal.\n\nI pull out my incident report pad. Third night in a row. Dr. Martinez from the day shift keeps insisting it's the building settling. Dr. Martinez has clearly never worked a graveyard shift in his life.\n\nAnother scrape, definitely coming from inside the sarcophagus.\n\nGreat. Time to make a decision I'll probably regret.",
+      "isStart": true,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 0,
+      "choices": [
+        {
+          "text": "Write it up as 'building settling' and continue rounds",
+          "leadsTo": "Playing It Safe"
+        },
+        {
+          "text": "Check if the display case is properly locked",
+          "leadsTo": "Getting Closer"
+        },
+        {
+          "text": "Call the night supervisor",
+          "leadsTo": "Phone a Friend"
+        }
+      ]
+    },
+    {
+      "title": "Playing It Safe",
+      "content": "I click my pen and write 'unusual settling noises, Egyptian wing, 2:05 AM' in the log. There. Problem officially not my problem.\n\nThe scraping stops the moment I finish writing.\n\nOf course it does.\n\nI continue my rounds through Mammals, past the stuffed grizzly bear that Janet swears moved its head last week. The bear looks exactly the same as always: permanently frozen in an aggressive pose, glass eyes reflecting my flashlight beam.\n\nIn Geology, the meteorites sit silent and well-behaved like good space rocks should. The mineral collection sparkles under the emergency lighting. Normal. Boring. The way I like it.\n\nBut as I head toward the break room, footsteps echo from the Egyptian wing.\n\nSlow, shuffling steps on the marble floor.\n\nI stop walking. The footsteps continue for three more beats, then silence.\n\nMy radio crackles to life. 'Hey, new guy.' It's Marcus from the front desk. 'You getting the walking sounds tonight too?'\n\n'Define walking sounds.'\n\n'Like someone wearing sandals. Been going for about ten minutes now.'\n\nI look at my incident report. Maybe 'building settling' isn't going to cut it.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": true,
+      "order": 1,
+      "choices": [
+        {
+          "text": "Head back to investigate the Egyptian wing",
+          "leadsTo": "Back to the Scene"
+        },
+        {
+          "text": "Ask Marcus to check the security cameras",
+          "leadsTo": "Tech Support"
+        },
+        {
+          "text": "Suggest you both meet up before investigating",
+          "leadsTo": "Safety in Numbers"
+        }
+      ]
+    },
+    {
+      "title": "Getting Closer",
+      "content": "The display case lock looks solid. The glass doesn't show any cracks or tampering. Everything appears exactly as the day shift left it, which somehow makes it worse.\n\nI lean closer to read the information placard again. 'Ankh-ef-en-Sekhmet, Priest of Ptah, died 600 BCE. Mummified using traditional methods including removal of organs and desiccation with natron salt. Bandages show evidence of resin-based preservatives.'\n\nScientific. Rational. Dead for over 2,600 years.\n\nThe sarcophagus is beautiful, I'll give the ancient Egyptians that. Gold leaf and painted scenes of the afterlife journey. Ankh-ef-en-Sekhmet depicted with arms crossed, holding symbols of his office.\n\nA soft thud comes from inside the case.\n\nNot a scrape this time. Like someone gently knocking.\n\nI press my face closer to the glass. The sarcophagus lid hasn't moved. The seals the conservation team placed are intact. But there's definitely sound coming from inside the wooden coffin.\n\n'Hello?' I whisper, then immediately feel stupid.\n\nThree soft knocks answer back.\n\nOkay. New plan. This is either a prank by the day shift staff or I need to update my resume to include 'experience with reanimated Egyptian priests.'",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 2,
+      "choices": [
+        {
+          "text": "Knock back",
+          "leadsTo": "Making Contact"
+        },
+        {
+          "text": "Check the museum's emergency protocols for supernatural incidents",
+          "leadsTo": "By the Book"
+        },
+        {
+          "text": "Find the keys to open the display case",
+          "leadsTo": "Direct Approach"
+        }
+      ]
+    },
+    {
+      "title": "Phone a Friend",
+      "content": "I dial the night supervisor's extension. It rings four times before Cheryl picks up.\n\n'Security office.'\n\n'Hey Cheryl, it's the new guy in Egyptian. I've got a situation.'\n\n'What kind of situation? Please tell me nobody tried to break in through the skylight again.'\n\n'No, it's more of an internal situation. The sarcophagus in the main display is making noises.'\n\nSilence on the other end.\n\n'Cheryl?'\n\n'What kind of noises?'\n\n'Scraping. Like someone moving around inside.'\n\n'Ah hell.' She sounds tired. 'Is it the priest again?'\n\n'Again?'\n\n'Look, kid, there's some stuff they don't cover in orientation. Ankh-ef-en-Sekhmet gets restless about once a month. Usually coincides with the new moon.'\n\nI check my phone's weather app. New moon tonight.\n\n'So this is normal?'\n\n'Define normal. There's a protocol sheet in your desk drawer, bottom right. Follow procedure B-7: Supernatural Entity, Non-Hostile. And fill out form 847-C in triplicate.'\n\nThe line goes dead. I stare at my radio.\n\nThere's a form for this.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 3,
+      "choices": [
+        {
+          "text": "Find the protocol sheet and follow procedure",
+          "leadsTo": "Standard Operating Procedure"
+        },
+        {
+          "text": "Demand more information from Cheryl",
+          "leadsTo": "Getting Answers"
+        }
+      ]
+    },
+    {
+      "title": "Back to the Scene",
+      "content": "The Egyptian wing is quiet when I return. Too quiet. Even the air conditioning seems muted here.\n\nI approach the sarcophagus display with my flashlight ready. Everything looks normal except for one small detail: the information placard is turned backward.\n\nI definitely didn't touch it during my last visit.\n\nFlipping it around, I notice there's text on the back I hadn't seen before. Smaller print, like a footnote: 'Note: Subject shows signs of incomplete mummification process. Preservation may be compromised. Handle with extreme caution.'\n\nA soft voice drifts from the sarcophagus. Not words exactly, more like a sigh or whisper.\n\nMy radio crackles. 'You there, new guy?'\n\n'Yeah, Marcus.'\n\n'Security cameras in Egyptian just went fuzzy. All of them. But I can still see you on infrared.'\n\nI look up at the nearest camera. Red light blinking normally.\n\n'And?'\n\n'You're not alone in there.'\n\nI sweep my flashlight beam around the wing. Empty display cases, shadowy corners, ancient artifacts. Nothing moving.\n\n'Where?'\n\n'Right next to you. Same heat signature as a person, but...' Marcus pauses. 'It's cold. Like, really cold. Temperature's dropping fast.'\n\nMy breath starts forming small puffs in the suddenly chilly air.",
+      "isStart": false,
+      "isEnding": false,
+      "isBranchPoint": false,
+      "order": 4,
+      "choices": [
+        {
+          "text": "Ask the presence to identify itself",
+          "leadsTo": "Formal Introduction"
+        },
+        {
+          "text": "Evacuate the wing immediately",
+          "leadsTo": "Strategic Retreat"
+        }
+      ]
+    },
+    {
+      "title": "Making Contact",
+      "content": "I knock three times on the glass display case.\n\nThe response is immediate: three knocks back, then a pause, then five more knocks.\n\nI'm having a conversation with a 2,600-year-old mummy. This job definitely didn't mention hazard pay.\n\nThe conservation team's notes are posted next to the display. I scan through them looking for anything useful. 'Unusual preservation state... appears to retain some soft tissue... recommend further study...'\n\nAnother series of knocks interrupts my reading. This time it's rhythmic, almost like morse code.\n\nI pull out my phone and record the pattern. Three short, three long, three short.\n\nSOS.\n\nA mummy is sending me a distress signal.\n\nThe knocking stops abruptly. In the silence, I hear something else: breathing. Slow, raspy, but definitely breathing coming from inside the sealed sarcophagus.\n\n'Okay,' I say to the display case. 'I hear you. What do you need?'\n\nThe breathing stops. For a moment, nothing happens.\n\nThen the entire display case starts to vibrate gently, like a phone set to silent mode. The canopic jars rattle softly against their stands. The jewelry shifts and clinks.\n\nThis feels less like a conversation and more like a polite haunting.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 5,
+      "choices": []
+    },
+    {
+      "title": "Standard Operating Procedure",
+      "content": "The protocol sheet exists. It actually exists.\n\n'Procedure B-7: Supernatural Entity, Non-Hostile' is typed on official museum letterhead with the same boring font they use for the cafeteria menu.\n\n'Step 1: Confirm entity is non-hostile by observing behavior patterns. Hostile entities will attempt to damage property or harm personnel. Non-hostile entities typically seek attention or assistance.'\n\nI look up at the sarcophagus. Still making soft scraping noises, but nothing's broken.\n\n'Step 2: Attempt basic communication. Many entities respond to direct, respectful address.'\n\n'Step 3: If entity appears distressed, check for disruption to remains or artifacts. Common causes include temperature fluctuations, electrical interference, or disturbance by renovation work.'\n\nThe construction crew was here last week installing new lighting. Maybe they disturbed something.\n\n'Step 4: Document all interactions on Form 847-C. File in triplicate: main office, archives, and entity relations department.'\n\nEntity relations department. We have an entity relations department.\n\n'Step 5: If situation escalates beyond non-hostile parameters, contact Dr. Yolanda Reeves, Paranormal Liaison, extension 2847.'\n\nI dial the extension. It goes straight to voicemail: 'You've reached Dr. Reeves. If this is a supernatural emergency, press 1. For routine hauntings, press 2. For ancient curses, press 3.'\n\nThis job has excellent benefits.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 6,
+      "choices": []
+    },
+    {
+      "title": "Strategic Retreat",
+      "content": "I back toward the exit, keeping my flashlight trained on the sarcophagus display. Professional retreat. Tactical withdrawal. Definitely not running away from a dead guy.\n\nThe temperature continues dropping. My breath comes out in visible puffs now, and frost is forming on the display case glass.\n\n'Marcus, I'm evacuating Egyptian. Temperature's gone subzero in here.'\n\n'Copy that. I'll log it as environmental hazard.'\n\nAs I reach the wing's entrance, I turn back for one last look. The sarcophagus sits in its display, unchanged. But there's definitely a figure standing next to it now.\n\nTall, wrapped in what might be bandages or might be shadows. It doesn't move or acknowledge my presence. Just stands there like it's been waiting.\n\nI hit the emergency lights for the wing and seal the security door.\n\nBack in the break room, I pour coffee from the ancient pot Janet left behind. It tastes like burnt disappointment, but it's warm.\n\nMy incident report takes three pages. Environmental anomaly. Possible gas leak causing hallucinations. Recommend immediate inspection by facilities management.\n\nI don't mention the figure.\n\nThe door to Egyptian wing rattles once, gently, then goes quiet.\n\nFour more hours until day shift arrives. I'm spending them right here with my terrible coffee and a clear view of all the exits.\n\nSome nights you earn your minimum wage.",
+      "isStart": false,
+      "isEnding": true,
+      "isBranchPoint": false,
+      "order": 7,
+      "choices": []
+    }
+  ]
+}

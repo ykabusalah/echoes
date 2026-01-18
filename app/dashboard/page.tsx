@@ -131,6 +131,9 @@ export default function Dashboard() {
           </div>
           <div className="flex items-center gap-4">
             <ThemeToggle />
+            <Link href="/dashboard/stories" className="text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--brand))] transition-colors">
+              Stories
+            </Link>
             <Link href="/dashboard/personalization" className="text-sm text-[hsl(var(--secondary-foreground))] hover:text-[hsl(var(--brand))] transition-colors">
               Personalization
             </Link>
@@ -211,6 +214,12 @@ export default function Dashboard() {
                 <span className="text-[hsl(var(--gold))]">◈</span> Quick Links
               </h2>
               <div className="flex flex-wrap gap-4">
+                <Link 
+                  href="/dashboard/stories" 
+                  className="px-6 py-3 rounded-lg bg-[hsl(var(--brand))] text-white font-medium hover:opacity-90 transition-opacity"
+                >
+                  ◈ Manage Stories
+                </Link>
                 <Link 
                   href="/dashboard/personalization" 
                   className="px-6 py-3 rounded-lg bg-[hsl(var(--brand))] text-white font-medium hover:opacity-90 transition-opacity"
